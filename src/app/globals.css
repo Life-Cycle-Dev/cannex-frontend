@@ -69,6 +69,7 @@
   --color-neutral800: var(--neutral800);
   --color-neutral900: var(--neutral900);
   --color-neutral1000: var(--neutral1000);
+  --color-crystalGreen: var(--primary500);
 
   --breakpoint-tablet: 820px;
   --breakpoint-desktop: 1200px;

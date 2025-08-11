@@ -1,12 +1,14 @@
 import Image from "next/image";
+import HamburgerIcon from "../icons/HamburgerIcon";
+import CloseIcon from "../icons/CloseIcon";
 
 export default function Hamburger({ state }: { state: "default" | "close" }) {
   return (
     <div className="w-8 h-8 flex justify-center items-center">
       {state === "default" ? (
-        <Image src="/hamburger-icon.svg" alt="Menu" width={24} height={24} />
+        <HamburgerIcon className="text-white" />
       ) : (
-        <Image src="/close-icon.svg" alt="Close" width={24} height={24} />
+        <CloseIcon className="text-black" />
       )}
     </div>
   );

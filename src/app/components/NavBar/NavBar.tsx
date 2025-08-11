@@ -5,8 +5,8 @@ import Link from "next/link";
 import NavBarBase from "./NavBarBase";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-import ContactButton from "./ContactButton";
 import Image from "next/image";
+import Button from "./Button";
 
 type NavState = "navbar" | "navbarMenu";
 interface NavBarProps {
@@ -23,7 +23,7 @@ const MENUS = [
 ];
 
 export default function NavBar({ state = "navbar" }: NavBarProps) {
-  const [open, setOpen] = useState(state === "navbarMenu");
+  const [open, setOpen] = useState(false);
   const panelId = useId();
 
   // lock scroll when mobile menu open
@@ -47,7 +47,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white text-foreground">
+    <header className="fixed w-full top-0 z-50 bg-white text-foreground">
       <div className="h-px w-full bg-neutral200" />
 
       <div className="hidden md:block">
@@ -74,7 +74,11 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
             ))}
           </nav>
           <div className="ml-auto flex">
-            <ContactButton href="/contact" heightClass="h-12" />
+            <Button
+              href="/contact"
+              heightClass="h-12"
+              text="Contact Us & Inquiry"
+            />
           </div>
         </div>
       </div>
@@ -87,48 +91,25 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
             aria-controls={panelId}
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}
-            className="w-16 h-16 bg-black flex items-center justify-center shrink-0">
+            className={`w-16 h-16  flex items-center justify-center shrink-0 ${
+              open ? "bg-white" : "bg-black"
+            }`}
+          >
             <Hamburger state={open ? "close" : "default"} />
           </button>
         </NavBarBase>
       </div>
 
-      <div
+      {/* <div
         className={`fixed inset-0 z-40 bg-black/40 transition-opacity md:hidden ${
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setOpen(false)}
-      />
+      /> */}
 
-      <aside
-        id={panelId}
-        className={`fixed right-0 top-0 z-50 h-full w-[78%] max-w-[340px] translate-x-full bg-white shadow-xl transition-transform md:hidden ${
-          open ? "translate-x-0" : ""
-        }`}
-        role="dialog"
-        aria-modal="true">
-        <div className="flex items-center justify-between border-b border-neutral200 px-4 py-3">
-          <Link
-            href="/"
-            onClick={() => setOpen(false)}
-            className="flex items-center gap-2">
-            <span
-              aria-hidden
-              className="inline-block h-5 w-5 rounded-sm"
-              style={{ background: "var(--primary500)" }}
-            />
-            <span className="text-lg font-semibold tracking-tight">cannex</span>
-          </Link>
-          <button
-            aria-label="Close menu"
-            onClick={() => setOpen(false)}
-            className="rounded-md p-2">
-            <Hamburger state="close" />
-          </button>
-        </div>
-
+      {open && (
         <nav className="flex flex-col gap-0 p-4">
           {MENUS.map((m, i) => (
             <div key={m.path} className="flex flex-col">
@@ -141,16 +122,71 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
               {i < MENUS.length - 1 && <div className="h-px bg-neutral200" />}
             </div>
           ))}
-          <ContactButton
+          <Button
             href="/contact"
             fullWidth
             className="mt-4"
+            text="Contact Us & Inquiry"
             onClick={() => setOpen(false)}
           />
         </nav>
-      </aside>
+      )}
+      {/* TODO: uncomment */}
+      {/* {open && (
+        <aside
+          id={panelId}
+          className={`fixed right-0 top-0 z-50 h-full w-[78%] max-w-[340px] translate-x-full bg-white shadow-xl transition-transform  ${
+            open ? "translate-x-0" : ""
+          }`}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="flex items-center justify-between border-b border-neutral200 px-4 py-3">
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2"
+            >
+              <span
+                aria-hidden
+                className="inline-block h-5 w-5 rounded-sm"
+                style={{ background: "var(--primary500)" }}
+              />
+              <span className="text-lg font-semibold tracking-tight">
+                cannex
+              </span>
+            </Link>
+            <button
+              aria-label="Close menu"
+              onClick={() => setOpen(false)}
+              className="rounded-md p-2"
+            >
+              <Hamburger state="close" />
+            </button>
+          </div>
+          <nav className="flex flex-col gap-0 p-4">
+            {MENUS.map((m, i) => (
+              <div key={m.path} className="flex flex-col">
+                <Menu
+                  title={m.title}
+                  href={m.path}
+                  onClick={() => setOpen(false)}
+                  variant="mobile"
+                />
+                {i < MENUS.length - 1 && <div className="h-px bg-neutral200" />}
+              </div>
+            ))}
+            <Button
+              href="/contact"
+              fullWidth
+              className="mt-4"
+              onClick={() => setOpen(false)}
+            />
+          </nav>
+        </aside>
+      )} */}
 
-      <div className="h-px w-full bg-neutral200" />
+      {/* <div className="h-px w-full bg-neutral200" /> */}
     </header>
   );
 }
