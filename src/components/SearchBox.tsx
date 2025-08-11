@@ -3,8 +3,13 @@ import SearchIcon from "./icons/SearchIcon";
 
 export default function SearchBox() {
   return (
-    <div>
-      <SearchIcon />
+    <div className="flex items-center gap-2 border-b-2 border-black py-2 px-1 w-full max-w-xl">
+      <SearchIcon className="w-[14px] h-[14px] text-gray-400" />
+      <input
+        type="text"
+        placeholder="Search Newsroom"
+        className="flex-1 outline-none text-gray-400 placeholder:text-gray-400"
+      />
     </div>
   );
 }
