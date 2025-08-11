@@ -69,6 +69,7 @@
   --color-neutral800: var(--neutral800);
   --color-neutral900: var(--neutral900);
   --color-neutral1000: var(--neutral1000);
+  --color-crystalGreen: var(--primary500);
 
   --breakpoint-tablet: 820px;
   --breakpoint-desktop: 1200px;
@@ -77,9 +78,15 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--white);
   color: var(--foreground);
-  font-family: "THICCCBOI";
-  src: url("/fonts/THICCCBOI.woff2") format("woff2");
+  font-family: "THICCCBOI", sans-serif;
 }
