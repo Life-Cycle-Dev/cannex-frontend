@@ -15,10 +15,14 @@ export default function Home() {
           alt="Hero Background"
           className="absolute inset-0 z-0"
         />
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 flex flex-col gap-8">
           <h1 className="text-5xl font-bold">Pharmaceutical-</h1>
-
-          <Button href="" text="eiei"></Button>
+          <p className="font-semibold">
+            From plant to product — Cannex unites American genetics, Thai
+            innovation, and Japanese-grade extraction to deliver premium medical
+            cannabis, globally.
+          </p>
+          <Button href="" text="Explore our products" type="secondaryWhite" />
         </div>
       </section>
     </div>

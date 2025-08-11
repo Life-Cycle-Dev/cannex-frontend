@@ -1,4 +1,3 @@
-import Image from "next/image";
 import HamburgerIcon from "../icons/HamburgerIcon";
 import CloseIcon from "../icons/CloseIcon";
 

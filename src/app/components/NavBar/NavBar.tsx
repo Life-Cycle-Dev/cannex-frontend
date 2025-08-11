@@ -125,7 +125,6 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
           <Button
             href="/contact"
             fullWidth
-            className="mt-4"
             text="Contact Us & Inquiry"
             onClick={() => setOpen(false)}
           />

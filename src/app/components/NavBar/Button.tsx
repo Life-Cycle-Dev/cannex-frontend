@@ -8,7 +8,6 @@ interface Props {
   type?: ButtonType;
   href?: string;
   fullWidth?: boolean;
-  className?: string;
   onClick?: () => void;
   heightClass?: string;
 }
@@ -16,13 +15,11 @@ interface Props {
 function resolveButtonClass(type: ButtonType) {
   switch (type) {
     case "primary":
-      return "bg-black hover:text-crystalGreen text-white hover:text-crystalGreen";
+      return "bg-black text-white hover:text-crystalGreen";
     case "secondaryBlack":
-      return "bg-gray-800 hover:bg-gray-700 text-white";
+      return "text-black border-[2px] border-black hover:border-none hover:bg-black hover:text-crystalGreen";
     case "secondaryWhite":
-      return "bg-white hover:bg-gray-200 text-black";
-    default:
-      return "bg-blue-600 hover:bg-blue-700 text-white";
+      return "text-white border-[2px] border-white hover:border-none hover:bg-black hover:text-crystalGreen";
   }
 }
 
@@ -31,7 +28,6 @@ export default function Button({
   type = "primary",
   href,
   fullWidth,
-  className,
   onClick,
   heightClass = "h-10",
 }: Props) {
@@ -39,9 +35,9 @@ export default function Button({
     <Link
       href={href ?? ""}
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 bg-black px-4 text-sm font-medium text-white 
+      className={`inline-flex items-center justify-center gap-2 px-4 font-medium 
         ${resolveButtonClass(type)}
-        ${heightClass} ${fullWidth ? "w-full" : ""} ${className || ""}`}
+        ${heightClass} ${fullWidth ? "w-full" : "w-fit"}`}
     >
       {text}
       <RightUpIcon className="" />
