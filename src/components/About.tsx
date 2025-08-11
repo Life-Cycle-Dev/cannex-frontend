@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <div className="w-full">
-      <div className="pt-8 px-5 desktop:pl-20 desktop:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
+      <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
         <div className="w-full flex justify-end tablet:-mt-8">
           <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0">
             <Image
@@ -48,7 +48,7 @@ export default function About() {
       </div>
 
       <div className="mt-8 tablet:mt-7">
-        <div className="mt-7 w-full relative hidden desktop:block">
+        <div className="mt-7 w-full relative hidden tablet:block">
           <Image
             src="/product-horizontal.png"
             alt="product"
@@ -57,7 +57,7 @@ export default function About() {
             height={343}
           />
         </div>
-        <div className="absolute right-0 desktop:hidden">
+        <div className="absolute right-0 tablet:hidden">
           <Image
             src="/product-vertical.png"
             alt="product"
@@ -68,25 +68,44 @@ export default function About() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-between items-end">
-        {/* <div className="pl-20 w-[830px] flex flex-col gap-6">
-          <div className="h-[51px] desktop:h-20">
-            <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-crystalGreen w-fit">
-              Pharmaceutical-Grade Products
-            </h1>
+      <div className="w-full mt-[339px] tablet:mt-12 pl-5 tablet:px-20 ">
+        <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
+          <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
+            <div>
+              {/* Mobile */}
+              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                Pharmaceutical-
+              </p>
+              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                Grade Products
+              </p>
+              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                Designed for
+              </p>
+              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                Global Markets.
+              </p>
+              {/* Tablet */}
+              <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                Pharmaceutical-Grade Products
+              </p>
+              <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                Designed for Global Markets.
+              </p>
+            </div>
+
+            <p className="font-medium">
+              From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
+              reliable formulations tailored for pharmacies, healthcare
+              providers, and wellness innovators.
+            </p>
           </div>
-          <div className="h-[51px] desktop:h-20">
-            <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-white w-fit">
-              Designed for Global Markets.
-            </h1>
-          </div>
-          <p className="font-medium">
-            From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
-            reliable formulations tailored for pharmacies, healthcare providers,
-            and wellness innovators.
-          </p>
-        </div> */}
-        {/* <Button type="secondaryBlack" text="Explore our products" /> */}
+          <Button
+            type="secondaryBlack"
+            text="Explore our products"
+            width="w-full tablet:w-fit shrink-0"
+          />
+        </div>
       </div>
     </div>
   );
