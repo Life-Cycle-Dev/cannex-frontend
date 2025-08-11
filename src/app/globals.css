@@ -78,9 +78,15 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--white);
   color: var(--foreground);
-  font-family: "THICCCBOI";
-  src: url("/fonts/THICCCBOI.woff2") format("woff2");
+  font-family: "THICCCBOI", sans-serif;
 }

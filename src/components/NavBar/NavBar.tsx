@@ -47,8 +47,8 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
   }, [open]);
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white text-foreground">
-      <div className="h-px w-full bg-neutral200" />
+    <header className="fixed w-full top-0 z-50 bg-white text-foreground border-y-2">
+      {/* <div className="h-px w-full bg-neutral200 border-2" /> */}
 
       <div className="hidden md:block">
         <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-center">
@@ -61,7 +61,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
             />
           </Link>
         </div>
-        <div className="h-px w-full bg-neutral200" />
+        <div className="h-[2px] w-full bg-black" />
         <div className="mx-auto flex h-12 max-w-[1200px] items-stretch">
           <nav className="flex items-center gap-6">
             {MENUS.map((m) => (

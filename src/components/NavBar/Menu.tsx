@@ -20,7 +20,7 @@ export default function Menu({
       className={`${
         variant === "desktop" ? "text-sm px-2 py-2" : "text-base py-3"
       } 
-                  text-neutral900 hover:text-black`}>
+                  text-black font-semibold hover:text-black `}>
       {title}
     </Link>
   );
