@@ -1,10 +1,6 @@
 import Image from "next/image";
 
-interface Props {
-  state: "default" | "close";
-}
-
-export default function Hamburger({ state }: Props) {
+export default function Hamburger({ state }: { state: "default" | "close" }) {
   return (
     <div className="w-8 h-8 flex justify-center items-center">
       {state === "default" ? (

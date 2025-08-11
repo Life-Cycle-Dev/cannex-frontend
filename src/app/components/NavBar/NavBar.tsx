@@ -6,6 +6,12 @@ import NavBarBase from "./NavBarBase";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
 import ContactButton from "./ContactButton";
+import Image from "next/image";
+
+type NavState = "navbar" | "navbarMenu";
+interface NavBarProps {
+  state?: NavState;
+}
 
 const MENUS = [
   { title: "About Us", path: "/about" },
@@ -16,56 +22,64 @@ const MENUS = [
   { title: "Partnership", path: "/partnership" },
 ];
 
-export default function NavBar() {
-  const [open, setOpen] = useState(false);
+export default function NavBar({ state = "navbar" }: NavBarProps) {
+  const [open, setOpen] = useState(state === "navbarMenu");
   const panelId = useId();
 
+  // lock scroll when mobile menu open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
-      document.body.style.overflow = prev;
+      if (document.body.style.overflow === "hidden") {
+        document.body.style.overflow = prev;
+      }
     };
   }, [open]);
 
+  // esc to close
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    addEventListener("keydown", onKey);
+    return () => removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
+    <header className="sticky top-0 z-50 bg-white text-foreground">
       <div className="h-px w-full bg-neutral200" />
 
-      {/* Desktop */}
-      <div className="hidden md:flex items-center justify-between max-w-[1200px] mx-auto px-4 py-3">
-        <Link href="/" className="flex items-center gap-2">
-          <span
-            aria-hidden
-            className="inline-block h-5 w-5 rounded-sm"
-            style={{ background: "var(--primary500)" }}
-          />
-          <span className="text-xl font-semibold tracking-tight">cannex</span>
-        </Link>
-
-        <nav className="flex items-center">
-          {MENUS.map((m, i) => (
-            <div key={m.path} className="flex items-center">
-              <Menu title={m.title} href={m.path} variant="desktop" />
-              {i < MENUS.length - 1 && (
-                <span className="mx-1 h-5 w-px bg-neutral200" />
-              )}
-            </div>
-          ))}
-        </nav>
-
-        <ContactButton href="/contact" />
+      <div className="hidden md:block">
+        <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-center">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo-default.svg"
+              alt="Cannex Logo"
+              width={160}
+              height={32}
+            />
+          </Link>
+        </div>
+        <div className="h-px w-full bg-neutral200" />
+        <div className="mx-auto flex h-12 max-w-[1200px] items-stretch">
+          <nav className="flex items-center gap-6">
+            {MENUS.map((m) => (
+              <Menu
+                key={m.path}
+                title={m.title}
+                href={m.path}
+                variant="desktop"
+              />
+            ))}
+          </nav>
+          <div className="ml-auto flex">
+            <ContactButton href="/contact" heightClass="h-12" />
+          </div>
+        </div>
       </div>
 
-      {/* Mobile */}
+      {/* MOBILE: logo left + black square hamburger (kept) */}
       <div className="md:hidden">
         <NavBarBase>
           <button
@@ -79,7 +93,6 @@ export default function NavBar() {
         </NavBarBase>
       </div>
 
-      {/* overlay */}
       <div
         className={`fixed inset-0 z-40 bg-black/40 transition-opacity md:hidden ${
           open
@@ -89,12 +102,13 @@ export default function NavBar() {
         onClick={() => setOpen(false)}
       />
 
-      {/* slide panel */}
       <aside
         id={panelId}
         className={`fixed right-0 top-0 z-50 h-full w-[78%] max-w-[340px] translate-x-full bg-white shadow-xl transition-transform md:hidden ${
           open ? "translate-x-0" : ""
-        }`}>
+        }`}
+        role="dialog"
+        aria-modal="true">
         <div className="flex items-center justify-between border-b border-neutral200 px-4 py-3">
           <Link
             href="/"
@@ -130,6 +144,7 @@ export default function NavBar() {
           <ContactButton
             href="/contact"
             fullWidth
+            className="mt-4"
             onClick={() => setOpen(false)}
           />
         </nav>

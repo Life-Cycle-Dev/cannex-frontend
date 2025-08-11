@@ -5,6 +5,7 @@ interface Props {
   fullWidth?: boolean;
   className?: string;
   onClick?: () => void;
+  heightClass?: string;
 }
 
 export default function ContactButton({
@@ -12,14 +13,16 @@ export default function ContactButton({
   fullWidth,
   className,
   onClick,
+  heightClass = "h-10",
 }: Props) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:opacity-90 ${
-        fullWidth ? "w-full" : ""
-      } ${className || ""}`}>
+      className={`inline-flex items-center justify-center gap-2 bg-black px-4 text-sm font-medium text-white 
+                  ${heightClass} ${fullWidth ? "w-full" : ""} ${
+        className || ""
+      }`}>
       Contact Us & Inquiry
       <svg
         width="16"

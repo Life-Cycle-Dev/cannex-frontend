@@ -18,8 +18,9 @@ export default function Menu({
       href={href}
       onClick={onClick}
       className={`${
-        variant === "desktop" ? "px-3 py-2 text-sm" : "py-3 text-base"
-      } font-medium text-neutral900 hover:text-black`}>
+        variant === "desktop" ? "text-sm px-2 py-2" : "text-base py-3"
+      } 
+                  text-neutral900 hover:text-black`}>
       {title}
     </Link>
   );
