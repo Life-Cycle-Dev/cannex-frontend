@@ -124,7 +124,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
           ))}
           <Button
             href="/contact"
-            fullWidth
+            width="w-full"
             text="Contact Us & Inquiry"
             onClick={() => setOpen(false)}
           />

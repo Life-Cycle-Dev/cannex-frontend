@@ -7,7 +7,7 @@ interface Props {
   text: string;
   type?: ButtonType;
   href?: string;
-  fullWidth?: boolean;
+  width?: string;
   onClick?: () => void;
   heightClass?: string;
 }
@@ -27,7 +27,7 @@ export default function Button({
   text,
   type = "primary",
   href,
-  fullWidth,
+  width = "w-full",
   onClick,
   heightClass = "h-10",
 }: Props) {
@@ -37,7 +37,7 @@ export default function Button({
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 px-4 font-medium 
         ${resolveButtonClass(type)}
-        ${heightClass} ${fullWidth ? "w-full" : "w-fit"}`}
+        ${heightClass} ${width}`}
     >
       {text}
       <RightUpIcon className="" />

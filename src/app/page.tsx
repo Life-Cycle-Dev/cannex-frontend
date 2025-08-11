@@ -62,7 +62,6 @@ export default function Home() {
           <Button href="" text="Explore our products" type="secondaryWhite" />
         </div>
       </section>
-      {/* About Section */}
       <About />
     </div>
   );
