@@ -7,7 +7,7 @@ interface Props {
 export default function Menu({ title, state = "default" }: Props) {
   return (
     <div className="border-b-[2px] border-black">
-      <p className="text-h2">{title}</p>
+      <h2 className="text-[40px] desktop:text-[52px] font-bold">{title}</h2>
     </div>
   );
 }

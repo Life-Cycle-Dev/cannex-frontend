@@ -25,7 +25,9 @@ export default function NavBar({ state = "navbar" }: Props) {
       ) : (
         <div className="w-[375px] h-full bg-white">
           <div className="w-full flex justify-end">
-            <Hamburger state="close" />
+            <div className="w-16 h-16 flex items-center justify-center shrink-0">
+              <Hamburger state="close" />
+            </div>
           </div>
           <div className="flex flex-col px-5">
             {Menus.map((menu) => (
