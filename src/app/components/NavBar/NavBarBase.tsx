@@ -1,21 +1,20 @@
 import Image from "next/image";
-import Hamburger from "./Hamburger";
+import Link from "next/link";
+import { PropsWithChildren } from "react";
 
-export default function NavBarBase() {
+export default function NavBarBase({ children }: PropsWithChildren) {
   return (
-    <div className="w-full">
-      <div className="w-[375px] border-y border-[2px] border-black bg-white flex justify-between">
-        <div className="w-full flex justify-center">
+    <div className="w-full border-y border-[2px] border-black bg-white">
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between">
+        <Link href="/" className="flex flex-1 items-center pl-4">
           <Image
             src="/logo-default.svg"
             alt="Cannex Logo"
             width={160}
             height={32}
           />
-        </div>
-        <div className="w-16 h-16 bg-black flex items-center justify-center shrink-0">
-          <Hamburger state="default" />
-        </div>
+        </Link>
+        {children}
       </div>
     </div>
   );
