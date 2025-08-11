@@ -6,9 +6,9 @@ import About from "@/components/About";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="w-full">
       {/* Hero Section */}
-      <section className="relative flex items-center justify-center min-h-screen bg-gray-900 text-white">
+      <section className="relative w-full flex items-center justify-center min-h-screen bg-gray-900 text-white">
         <Image
           src="/hero-section-img.png"
           layout="fill"
