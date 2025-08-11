@@ -21,8 +21,16 @@ export default async function Page() {
         </div>
         <div className="min-w-[79px] h-[176px] border-l-2 hidden tablet:block"></div>
       </div>
+
       <div className="border-t-2" />
-      <NewsroomCarousel items={items} />
+      <div className="block min-h-[315px] tablet:min-h-fit">
+        <NewsroomCarousel items={items} />
+      </div>
+
+      <div className="flex justify-between">
+        <div className="">a</div>
+        <div className="">b</div>
+      </div>
     </div>
   );
 }
