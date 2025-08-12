@@ -32,4 +32,19 @@ export class BackendClient {
             return getEmptyPagenate();
         }
     }
+
+    async getNewsRoomsBySlagId(slagId: string): Promise<PagenateResponse<NewsRooms>> {
+        try {
+            const response = await this.client.get("/api/newsrooms", {
+                params: {
+                    "filters[slug][$eq]": slagId,
+                    "populate": "image"
+                }
+            });
+            return response.data;
+        } catch (e) {
+            console.log(e);
+            return getEmptyPagenate();
+        }
+    }
 }
