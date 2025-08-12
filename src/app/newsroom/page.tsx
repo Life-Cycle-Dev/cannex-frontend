@@ -1,3 +1,4 @@
+import Filter from "@/components/Filter";
 import NewsroomCarousel from "@/components/NewsroomCarousel";
 import SearchBox from "@/components/SearchBox";
 import { BackendClient } from "@/lib/backend-client";
@@ -28,9 +29,9 @@ export default async function Page() {
         <NewsroomCarousel items={items} />
       </div>
 
-      <div className="p-[80px] flex justify-between">
+      <div className="p-5 tablet:p-[80px] flex justify-between">
         <SearchBox />
-        <div className="">b</div>
+        <Filter items={[{label: "Newest", value: "newest"}, {label: "Popular", value: "popular"}]} />
       </div>
     </div>
   );
