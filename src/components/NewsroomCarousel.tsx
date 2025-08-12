@@ -59,7 +59,7 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
           "
         >
           <div className="absolute top-4 right-4 tablet:static tablet:self-end tablet:mb-4">
-            <RightUpIcon />
+            <RightUpIcon className="w-8 h-8" />
           </div>
 
           <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
@@ -102,9 +102,9 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
               <button
                 onClick={goNext}
                 aria-label="Next"
-                className={`w-16 h-16 border-t-2 border-l-2 flex justify-center items-center ${
+                className={`w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center ${
                   index === items.length - 1
-                    ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                    ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
                     : "cursor-pointer"
                 }`}
                 disabled={index === items.length - 1}

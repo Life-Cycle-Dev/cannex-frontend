@@ -1,6 +1,5 @@
-import Filter from "@/components/Filter";
 import NewsroomCarousel from "@/components/NewsroomCarousel";
-import SearchBox from "@/components/SearchBox";
+import Pagination from "@/components/Pagination";
 import { BackendClient } from "@/lib/backend-client";
 import React from "react";
 
@@ -29,10 +28,7 @@ export default async function Page() {
         <NewsroomCarousel items={items} />
       </div>
 
-      <div className="p-5 tablet:p-[80px] flex justify-between">
-        <SearchBox />
-        <Filter items={[{label: "Newest", value: "newest"}, {label: "Popular", value: "popular"}]} />
-      </div>
+      <Pagination />
     </div>
   );
 }
