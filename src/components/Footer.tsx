@@ -11,7 +11,7 @@ import ArrowUp from "./icons/ArrowUp";
 export default function Footer() {
   return (
     <>
-      <div className="w-full border-t-[2px] pt-12 px-5 tablet:px-20 flex flex-col tablet:flex-row gap-12">
+      <div className="w-full border-t-[2px] pt-12 py-4 px-5 tablet:pb-0 tablet:px-20 flex flex-col tablet:flex-row gap-12">
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
             <Image
@@ -113,7 +113,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="mt-8 border-y-[2px] py-6 px-5 tablet:px-20 flex flex-col gap-8 tablet:flex-row tablet:justify-between tablet:items-center">
+      <div className="tablet:mt-8 border-y-[2px] py-6 px-5 tablet:px-20 flex flex-col gap-8 tablet:flex-row tablet:justify-between tablet:items-center">
         <div className="flex gap-6">
           <Link
             href=""
