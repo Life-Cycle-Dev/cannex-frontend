@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import About from "@/components/About";
 import ProductsGrid from "@/components/ProductsGrid";
 import RightUpIcon from "@/components/icons/RightUpIcon";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -87,6 +88,7 @@ export default function Home() {
       </section>
       <About />
       <ProductsGrid />
+      <Contact />
     </div>
   );
 }
