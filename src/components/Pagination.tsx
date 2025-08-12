@@ -28,7 +28,7 @@ export default function Pagination() {
     const response = await client.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
-        "pagination[pageSize]": 2,
+        "pagination[pageSize]": 6,
         "pagination[page]": p,
       },
       q,
@@ -61,17 +61,17 @@ export default function Pagination() {
           className="w-full h-[335px] tablet:h-[426px] object-cover"
           alt={data.image.name}
         />
-        <div className="flex gap-4 justify-end pt-4 pr-4">
+        <div className="flex gap-3 justify-end pt-4 pr-4">
           <RightUpIcon />
         </div>
-        <div className="h-fit pb-6 tablet:h-[232px] tablet:pb-0 tablet:px-10">
+        <div className="h-fit px-3 pb-6 tablet:h-[232px] tablet:pb-0 tablet:px-10">
           <div className="text-[32px] font-bold line-clamp-2 break-words">
             {data.title}
           </div>
           <div className="text-gray-400 text-[16px] hidden tablet:block">
             {formatDate(data.createdAt)}
           </div>
-          <div className="text-[16px] line-clamp-3 hidden tablet:block">
+          <div className="text-[16px] hidden tablet:block line-clamp-3">
             {data.description ?? ""}
           </div>
         </div>
