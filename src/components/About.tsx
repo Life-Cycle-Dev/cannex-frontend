@@ -54,20 +54,21 @@ export default function About() {
           <Image
             src="/product-horizontal.png"
             alt="product"
-            width={1600} 
-            height={600} 
-            className="w-full h-auto object-contain"
-            quality={95}
-            priority
+            className="w-full h-full object-cover"
+            width={1185}
+            height={432}
+            quality={100}
           />
         </div>
         <div className="absolute right-0 tablet:hidden">
           <Image
             src="/product-vertical.png"
             alt="product"
-            className="w-full h-full object-cover"
-            width={343}
-            height={343}
+            className="w-full h-auto object-contain"
+            quality={95}
+            width={1600}
+            height={600}
+            priority
           />
         </div>
       </div>
