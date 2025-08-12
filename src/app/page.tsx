@@ -1,22 +1,25 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
 import ProductsGrid from "@/components/ProductsGrid";
+import RightUpIcon from "@/components/icons/RightUpIcon";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section>
-        <div className="relative w-full flex items-center justify-center min-h-screen bg-gray-900 text-white">
+        <div className="relative w-full flex items-center justify-center min-h-screen bg-gray text-white">
           <Image
             src="/hero-section-img.png"
             layout="fill"
             objectFit="cover"
             alt="Hero Background"
             className="absolute inset-0 z-0"
+            quality={100}
           />
           <div className="relative z-10 flex flex-col gap-8 left-5 tablet:left-20 top-[268px] tablet:top-12">
             <div>
@@ -68,6 +71,7 @@ export default function Home() {
                 text="Explore our products"
                 type="secondaryWhite"
                 width="w-fit"
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
           </div>
@@ -78,11 +82,13 @@ export default function Home() {
             text="Explore our products"
             type="primary"
             width="w-full"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </section>
       <About />
       <ProductsGrid />
+      <Contact />
     </div>
   );
 }

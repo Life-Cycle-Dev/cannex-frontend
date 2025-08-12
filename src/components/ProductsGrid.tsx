@@ -1,7 +1,7 @@
 // src/components/ProductsGrid.tsx
 "use client";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 
@@ -79,7 +79,6 @@ function ProductCard({ data }: { data: Card }) {
           ].join(" ")}
         />
       </div>
-
       {/* Image */}
       <div className="px-6 pt-10 tablet:pt-12 desktop:pt-14">
         <div className="relative mx-auto w-full max-w-[340px]">
@@ -94,7 +93,6 @@ function ProductCard({ data }: { data: Card }) {
           />
         </div>
       </div>
-
       {/* Content */}
       <div className="relative z-10 px-6 pb-8 pt-6 desktop:pt-8 group-hover:bg-black group-focus-visible:bg-black">
         {/* คลุมพื้นหลังทั้ง block ตอน hover */}
@@ -120,7 +118,6 @@ function ProductCard({ data }: { data: Card }) {
           </p>
         </div>
       </div>
-
       {/* vertical divider */}
       <span className="pointer-events-none absolute right-0 top-0 h-full w-px bg-neutral200" />
     </article>

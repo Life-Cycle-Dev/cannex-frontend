@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -44,7 +45,7 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
 
       <div key={current.id} className="w-full flex tablet:flex-row flex-col">
         <img
-          className="min-w-full h-[315px] tablet:min-w-[623px] tablet:h-[413px] object-cover tablet:border-r-2"
+          className="min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] object-cover tablet:border-r-2"
           src={current?.image?.url || "/placeholder.png"}
           alt={current?.image?.name || current?.title || "news image"}
         />
@@ -59,11 +60,11 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
           "
         >
           <div className="absolute top-4 right-4 tablet:static tablet:self-end tablet:mb-4">
-            <RightUpIcon />
+            <RightUpIcon className="w-8 h-8" />
           </div>
 
-          <div className="pt-10 px-6 tablet:px-16 flex flex-col gap-3">
-            <div className="font-bold text-3xl tablet:text-5xl/tight">
+          <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
+            <div className="font-bold text-4xl/tight">
               {current?.title ?? "-"}
             </div>
             <div className="text-gray-400 text-md">
@@ -102,9 +103,9 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
               <button
                 onClick={goNext}
                 aria-label="Next"
-                className={`w-16 h-16 border-t-2 border-l-2 flex justify-center items-center ${
+                className={`w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center ${
                   index === items.length - 1
-                    ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                    ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
                     : "cursor-pointer"
                 }`}
                 disabled={index === items.length - 1}

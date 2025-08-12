@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useId, useState } from "react";
@@ -5,22 +6,15 @@ import Link from "next/link";
 import NavBarBase from "./NavBarBase";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Button from "@/components/Button";
+import RightUpIcon from "../icons/RightUpIcon";
+import { MENUS } from "@/utils/constant";
 
 type NavState = "navbar" | "navbarMenu";
 interface NavBarProps {
   state?: NavState;
 }
-
-const MENUS = [
-  { title: "About Us", path: "/about" },
-  { title: "Products", path: "/products" },
-  { title: "Research & Development", path: "/rnd" },
-  { title: "Newsroom", path: "/newsroom" },
-  { title: "Events & Updated", path: "/events" },
-  { title: "Partnership", path: "/partnership" },
-];
 
 export default function NavBar({ state = "navbar" }: NavBarProps) {
   const [open, setOpen] = useState(false);
@@ -78,6 +72,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
               href="/contact"
               heightClass="h-12"
               text="Contact Us & Inquiry"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
             />
           </div>
         </div>
@@ -117,6 +112,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
             href="/contact"
             width="w-full"
             text="Contact Us & Inquiry"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
             onClick={() => setOpen(false)}
           />
         </nav>

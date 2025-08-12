@@ -1,5 +1,5 @@
 import NewsroomCarousel from "@/components/NewsroomCarousel";
-import SearchBox from "@/components/SearchBox";
+import Pagination from "@/components/Pagination";
 import { BackendClient } from "@/lib/backend-client";
 import React from "react";
 
@@ -28,10 +28,7 @@ export default async function Page() {
         <NewsroomCarousel items={items} />
       </div>
 
-      <div className="p-[80px] flex justify-between">
-        <SearchBox />
-        <div className="">b</div>
-      </div>
+      <Pagination />
     </div>
   );
 }

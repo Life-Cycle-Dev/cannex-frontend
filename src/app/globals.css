@@ -4,6 +4,7 @@
   --foreground: #171717;
   --black: #000000;
   --white: #ffffff;
+  --festivalCaramel: #ce8247;
   --primary50: #f6fde6;
   --primary100: #e2f9b0;
   --primary150: #dbf89b;
@@ -39,6 +40,8 @@
   --color-foreground: var(--foreground);
   --color-black: var(--black);
   --color-white: var(--white);
+  --color-gray: var(--neutral600);
+  --color-festivalCaramel: var(--festivalCaramel);
   --color-primary: var(--primary500);
   --color-primary50: var(--primary50);
   --color-primary100: var(--primary100);

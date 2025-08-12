@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
+import RightUpIcon from "./icons/RightUpIcon";
 
 export default function About() {
   return (
@@ -11,9 +12,9 @@ export default function About() {
             <Image
               src="/iconic.png"
               alt="iconic"
-              fill
-              sizes="(min-width: 768px) 343px, 150px"
-              className="object-contain"
+              className="object-contain w-full h-full"
+              width={343}
+              height={343}
               quality={90}
               priority
             />
@@ -45,6 +46,7 @@ export default function About() {
             text="Learn about cannex"
             type="secondaryBlack"
             width="w-full tablet:w-fit"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </div>
@@ -54,20 +56,21 @@ export default function About() {
           <Image
             src="/product-horizontal.png"
             alt="product"
-            width={1600} 
-            height={600} 
-            className="w-full h-auto object-contain"
-            quality={95}
-            priority
+            className="w-full h-full object-cover"
+            width={1185}
+            height={432}
+            quality={100}
           />
         </div>
         <div className="absolute right-0 tablet:hidden">
           <Image
             src="/product-vertical.png"
             alt="product"
-            className="w-full h-full object-cover"
-            width={343}
-            height={343}
+            className="w-full h-auto object-contain"
+            quality={95}
+            width={1600}
+            height={600}
+            priority
           />
         </div>
       </div>
@@ -108,6 +111,7 @@ export default function About() {
             type="secondaryBlack"
             text="Explore our products"
             width="w-full tablet:w-fit shrink-0"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </div>
