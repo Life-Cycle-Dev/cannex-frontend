@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
+import ProductsGrid from "@/components/ProductsGrid";
 
 export default function Home() {
   return (
@@ -81,6 +82,7 @@ export default function Home() {
         </div>
       </section>
       <About />
+      <ProductsGrid />
     </div>
   );
 }

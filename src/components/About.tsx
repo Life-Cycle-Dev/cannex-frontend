@@ -7,13 +7,15 @@ export default function About() {
     <div className="w-full">
       <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
         <div className="w-full flex justify-end tablet:-mt-8">
-          <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0">
+          <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
             <Image
               src="/iconic.png"
               alt="iconic"
-              className=""
-              width={343}
-              height={343}
+              fill
+              sizes="(min-width: 768px) 343px, 150px"
+              className="object-contain"
+              quality={90}
+              priority
             />
           </div>
         </div>
@@ -52,9 +54,11 @@ export default function About() {
           <Image
             src="/product-horizontal.png"
             alt="product"
-            className="w-full h-full object-cover"
-            width={343}
-            height={343}
+            width={1600} 
+            height={600} 
+            className="w-full h-auto object-contain"
+            quality={95}
+            priority
           />
         </div>
         <div className="absolute right-0 tablet:hidden">
