@@ -12,7 +12,7 @@ export default function About() {
             <Image
               src="/iconic.png"
               alt="iconic"
-              fill
+              layout="fill"
               sizes="(min-width: 768px) 343px, 150px"
               className="object-contain"
               quality={90}

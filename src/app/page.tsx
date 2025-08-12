@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
 import ProductsGrid from "@/components/ProductsGrid";
