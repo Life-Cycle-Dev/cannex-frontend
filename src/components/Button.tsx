@@ -1,5 +1,4 @@
 import Link from "next/link";
-import RightUpIcon from "./icons/RightUpIcon";
 
 declare type ButtonType = "primary" | "secondaryBlack" | "secondaryWhite";
 
@@ -8,8 +7,10 @@ interface Props {
   type?: ButtonType;
   href?: string;
   width?: string;
-  onClick?: () => void;
   heightClass?: string;
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
+  onClick?: () => void;
 }
 
 function resolveButtonClass(type: ButtonType) {
@@ -28,8 +29,10 @@ export default function Button({
   type = "primary",
   href,
   width = "w-full",
-  onClick,
   heightClass = "h-10",
+  prefixIcon,
+  suffixIcon,
+  onClick,
 }: Props) {
   return (
     <Link
@@ -39,8 +42,9 @@ export default function Button({
         ${resolveButtonClass(type)}
         ${heightClass} ${width}`}
     >
+      {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
       {text}
-      <RightUpIcon className="" />
+      {suffixIcon && <span className="flex items-center">{suffixIcon}</span>}
     </Link>
   );
 }

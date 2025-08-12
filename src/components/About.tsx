@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
+import RightUpIcon from "./icons/RightUpIcon";
 
 export default function About() {
   return (
@@ -45,6 +46,7 @@ export default function About() {
             text="Learn about cannex"
             type="secondaryBlack"
             width="w-full tablet:w-fit"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </div>
@@ -109,6 +111,7 @@ export default function About() {
             type="secondaryBlack"
             text="Explore our products"
             width="w-full tablet:w-fit shrink-0"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </div>

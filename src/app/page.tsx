@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
 import ProductsGrid from "@/components/ProductsGrid";
+import RightUpIcon from "@/components/icons/RightUpIcon";
 
 export default function Home() {
   return (
@@ -68,6 +69,7 @@ export default function Home() {
                 text="Explore our products"
                 type="secondaryWhite"
                 width="w-fit"
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
           </div>
@@ -78,6 +80,7 @@ export default function Home() {
             text="Explore our products"
             type="primary"
             width="w-full"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </section>
