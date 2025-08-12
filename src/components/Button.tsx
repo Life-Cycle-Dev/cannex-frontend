@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-declare type ButtonType = "primary" | "secondaryBlack" | "secondaryWhite";
+declare type ButtonType =
+  | "primary"
+  | "secondaryBlack"
+  | "secondaryWhite"
+  | "pagination"
+  | "paginationFocus";
 
 interface Props {
   text: string;
@@ -21,6 +26,10 @@ function resolveButtonClass(type: ButtonType) {
       return "text-black border-[2px] border-black hover:border-none hover:bg-black hover:text-crystalGreen";
     case "secondaryWhite":
       return "text-white border-[2px] border-white hover:border-none hover:bg-black hover:text-crystalGreen";
+    case "pagination":
+      return "text-black border-[1px] border-neutral100 hover:border-black hover:bg-black hover:text-crystalGreen";
+    case "paginationFocus":
+      return "text-black border-[1px] border-crystalGreen bg-crystalGreen";
   }
 }
 

@@ -6,26 +6,41 @@ import { BackendClient } from "@/lib/backend-client";
 import { NewsRooms } from "@/types/new-rooms";
 import RightUpIcon from "./icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
+import ArrowUp from "./icons/ArrowUp";
+import Button from "./Button";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
   const [datas, setDatas] = useState<NewsRooms[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [pageCount, setPageCount] = useState<number>(1);
 
   useEffect(() => {
-    fetchData();
+    setPage(1);
   }, [searchText]);
 
-  const fetchData = async () => {
+  useEffect(() => {
+    fetchData(page, searchText);
+  }, [page, searchText]);
+
+  const fetchData = async (p: number, q: string) => {
     const client = new BackendClient();
     const response = await client.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
         "pagination[pageSize]": 6,
-        "pagination[page]": 1,
+        "pagination[page]": p,
       },
-      searchText,
+      q,
     );
-    setDatas(response.data);
+    setDatas(response.data ?? []);
+    const pc =
+      (response as any)?.meta?.pagination?.pageCount ??
+      Math.max(
+        1,
+        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6),
+      );
+    setPageCount(pc);
   };
 
   const PaginationCard = ({
@@ -36,7 +51,11 @@ export default function Pagination() {
     index: number;
   }) => {
     return (
-      <div className={`border-2 ${index % 3 !== 0 && "border-l-0"} ${index > 2 && "border-b-0"} `}>
+      <div
+        className={`border-2 ${index % 3 !== 0 && "border-l-0"} ${
+          index > 2 || (datas.length < 3 && "border-b-0")
+        }`}
+      >
         <img
           src={data.image.url}
           className="w-full h-[335px] tablet:h-[426px] object-cover"
@@ -78,15 +97,48 @@ export default function Pagination() {
       </div>
 
       <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
-        {datas.map((data, index) => {
-          return <PaginationCard key={data.id} data={data} index={index} />;
-        })}
+        {datas.map((data, index) => (
+          <PaginationCard key={data.id} data={data} index={index} />
+        ))}
       </div>
-      <div className="flex justify-between border-y-2">
-        <div className="min-w-[82px] h-[112px] border-r-2 hidden tablet:block"></div>
-        <div className="flex justify-between">
 
+      <div className="flex justify-between border-t-2">
+        <div className="min-w-[82px] h-[112px] border-r-2 hidden tablet:block"></div>
+
+        <div className="flex items-center gap-2 w-full justify-center py-4 tablet:py-0">
+          <button
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            className={`p-3 ${
+              page === 1 ? "opacity-40 cursor-not-allowed" : ""
+            }`}
+            aria-label="Previous page"
+          >
+            <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
+          </button>
+
+          {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
+            <Button
+              key={p}
+              text={String(p)}
+              type={p === page ? "paginationFocus" : "pagination"}
+              onClick={() => setPage(p)}
+              heightClass="h-10 max-w-10"
+            />
+          ))}
+
+          <button
+            onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
+            disabled={page === pageCount}
+            className={`p-3 ${
+              page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+            }`}
+            aria-label="Next page"
+          >
+            <ArrowUp className="rotate-90 h-[20px] w-[20px]" />
+          </button>
         </div>
+
         <div className="min-w-[82px] h-[112px] border-l-2 hidden tablet:block"></div>
       </div>
     </div>
