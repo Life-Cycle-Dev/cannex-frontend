@@ -44,7 +44,7 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
 
       <div key={current.id} className="w-full flex tablet:flex-row flex-col">
         <img
-          className="min-w-full h-[315px] tablet:min-w-[623px] tablet:h-[413px] object-cover tablet:border-r-2"
+          className="min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] object-cover tablet:border-r-2"
           src={current?.image?.url || "/placeholder.png"}
           alt={current?.image?.name || current?.title || "news image"}
         />
@@ -62,8 +62,8 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
             <RightUpIcon />
           </div>
 
-          <div className="pt-5 tablet:pt-0 px-6 tablet:px-16 flex flex-col gap-3">
-            <div className="font-bold text-4xl">
+          <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
+            <div className="font-bold text-4xl/tight">
               {current?.title ?? "-"}
             </div>
             <div className="text-gray-400 text-md">
