@@ -28,7 +28,7 @@ export default function Pagination() {
     const response = await client.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
-        "pagination[pageSize]": 6,
+        "pagination[pageSize]": 2,
         "pagination[page]": p,
       },
       q,
@@ -53,7 +53,7 @@ export default function Pagination() {
     return (
       <div
         className={`border-2 ${index % 3 !== 0 && "border-l-0"} ${
-          index > 2 || (datas.length < 3 && "border-b-0")
+          (index > 2 || datas.length < 3) && "border-b-0"
         }`}
       >
         <img
@@ -117,15 +117,17 @@ export default function Pagination() {
             <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
           </button>
 
-          {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
-            <Button
-              key={p}
-              text={String(p)}
-              type={p === page ? "paginationFocus" : "pagination"}
-              onClick={() => setPage(p)}
-              heightClass="h-10 max-w-10"
-            />
-          ))}
+          <div>
+            {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
+              <Button
+                key={p}
+                text={String(p)}
+                type={p === page ? "paginationFocus" : "pagination"}
+                onClick={() => setPage(p)}
+                heightClass="h-10 max-w-10"
+              />
+            ))}
+          </div>
 
           <button
             onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
