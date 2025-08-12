@@ -62,8 +62,8 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
             <RightUpIcon />
           </div>
 
-          <div className="pt-10 px-6 tablet:px-16 flex flex-col gap-3">
-            <div className="font-bold text-3xl tablet:text-5xl/tight">
+          <div className="pt-5 tablet:pt-0 px-6 tablet:px-16 flex flex-col gap-3">
+            <div className="font-bold text-4xl">
               {current?.title ?? "-"}
             </div>
             <div className="text-gray-400 text-md">
