@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Button from "@/components/Button";
 import ShareIcon from "@/components/icons/ShareIcon";
@@ -7,21 +8,19 @@ import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 
-type Params = Promise<{ slugId: string }>;
+interface PageProps {
+  params: any;
+  searchParams?: any;
+}
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: { preview: string | null };
-}) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { slugId } = await params;
-  const preview = searchParams.preview ?? "";
+  const preview = searchParams?.preview === "true";
   const client = new BackendClient();
+
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview === "true" ? "draft" : "published"
+    preview ? "draft" : "published",
   );
 
   if (response.data.length === 0) {
