@@ -46,6 +46,27 @@ export default function Pagination() {
     setPageCount(pc);
   };
 
+  const getPaginationPages = () => {
+    const pages: (number | string)[] = [];
+    const maxVisible = 5;
+
+    if (pageCount <= maxVisible) {
+      for (let i = 1; i <= pageCount; i++) pages.push(i);
+    } else {
+      const left = Math.max(2, page - 1);
+      const right = Math.min(pageCount - 1, page + 1);
+
+      pages.push(1);
+      if (left > 2) pages.push("...");
+
+      for (let i = left; i <= right; i++) pages.push(i);
+
+      if (right < pageCount - 1) pages.push("...");
+      pages.push(pageCount);
+    }
+    return pages;
+  };
+
   const PaginationCard = ({
     data,
     index,
@@ -56,14 +77,15 @@ export default function Pagination() {
     return (
       <Link
         href={`/newsroom/${data.slug}`}
-        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-2 ${
-          index % 3 !== 0 && "border-l-0"
-        } ${(index > 2 || datas.length < 3) && "border-b-0"}`}
+        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+          ${index % 3 === 0 && "tablet:border-l-2"}
+          ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
+        `}
       >
         <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
           <img
             src={data.image.url}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover border-y-2 "
             alt={data.image.name}
           />
         </div>
@@ -90,13 +112,13 @@ export default function Pagination() {
               />
             </div>
 
-            <div className="text-[32px] px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+            <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
               {data.title}
             </div>
-            <div className="text-gray-400 px-[40px] text-[16px]">
+            <div className="text-gray-400 tablet:px-[40px] text-[16px]">
               {formatDate(data.createdAt)}
             </div>
-            <div className="text-[16px] pb-6 px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
+            <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
               {data.description ?? ""}
             </div>
           </div>
@@ -104,6 +126,26 @@ export default function Pagination() {
       </Link>
     );
   };
+
+  const renderPaginationButtons = () => (
+    <div>
+      {getPaginationPages().map((p, idx) =>
+        p === "..." ? (
+          <span key={`dots-${idx}`} className="px-2">
+            ...
+          </span>
+        ) : (
+          <Button
+            key={p}
+            text={String(p)}
+            type={p === page ? "paginationFocus" : "pagination"}
+            onClick={() => setPage(Number(p))}
+            heightClass="h-10 max-w-10 cursor-pointer"
+          />
+        ),
+      )}
+    </div>
+  );
 
   return (
     <div>
@@ -135,7 +177,8 @@ export default function Pagination() {
       <div className="flex justify-between border-t-2">
         <div className="min-w-[82px] h-[112px] border-r-2 hidden tablet:block"></div>
 
-        <div className="flex items-center gap-2 w-full justify-center py-4 tablet:py-0">
+        {/* Desktop */}
+        <div className="items-center gap-2 w-full justify-between p-4 hidden tablet:flex tablet:py-0">
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
@@ -146,19 +189,7 @@ export default function Pagination() {
           >
             <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
           </button>
-
-          <div>
-            {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
-              <Button
-                key={p}
-                text={String(p)}
-                type={p === page ? "paginationFocus" : "pagination"}
-                onClick={() => setPage(p)}
-                heightClass="h-10 max-w-10"
-              />
-            ))}
-          </div>
-
+          {renderPaginationButtons()}
           <button
             onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
             disabled={page === pageCount}
@@ -169,6 +200,33 @@ export default function Pagination() {
           >
             <ArrowUp className="rotate-90 h-[20px] w-[20px]" />
           </button>
+        </div>
+
+        {/* Mobile */}
+        <div className="items-center flex-col gap-2 w-full justify-center py-4 flex tablet:hidden tablet:py-0">
+          {renderPaginationButtons()}
+          <div className="flex justify-between w-full">
+            <button
+              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              disabled={page === 1}
+              className={`p-3 ${
+                page === 1 ? "opacity-40 cursor-not-allowed" : ""
+              }`}
+              aria-label="Previous page"
+            >
+              <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
+            </button>
+            <button
+              onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
+              disabled={page === pageCount}
+              className={`p-3 ${
+                page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+              }`}
+              aria-label="Next page"
+            >
+              <ArrowUp className="rotate-90 h-[20px] w-[20px]" />
+            </button>
+          </div>
         </div>
 
         <div className="min-w-[82px] h-[112px] border-l-2 hidden tablet:block"></div>
