@@ -2,14 +2,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useEffect, useState } from "react";
-import SearchBox from "./SearchBox";
-import Filter from "./Filter";
+import SearchBox from "../../components/SearchBox";
+import Filter from "../../components/Filter";
 import { BackendClient } from "@/lib/backend-client";
 import { NewsRooms } from "@/types/new-rooms";
-import RightUpIcon from "./icons/RightUpIcon";
+import RightUpIcon from "../../components/icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
-import ArrowUp from "./icons/ArrowUp";
-import Button from "./Button";
+import ArrowUp from "../../components/icons/ArrowUp";
+import Button from "../../components/Button";
 import Link from "next/link";
 
 export default function Pagination() {

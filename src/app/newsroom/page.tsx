@@ -1,5 +1,5 @@
-import NewsroomCarousel from "@/components/NewsroomCarousel";
-import Pagination from "@/components/Pagination";
+import NewsroomCarousel from "@/app/newsroom/NewsroomCarousel";
+import Pagination from "@/app/newsroom/Pagination";
 import { BackendClient } from "@/lib/backend-client";
 import React from "react";
 

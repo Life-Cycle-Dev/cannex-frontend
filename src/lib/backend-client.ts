@@ -1,3 +1,4 @@
+import { Event } from "@/types/event";
 import { NewsRooms } from "@/types/new-rooms";
 import { getEmptyPagenate, PagenateResponse, PaginateParams } from "@/types/paginate";
 import axios, { AxiosInstance } from "axios";
@@ -38,6 +39,23 @@ export class BackendClient {
             const response = await this.client.get("/api/newsrooms", {
                 params: {
                     "filters[slug][$eq]": slagId,
+                    "populate": "image"
+                }
+            });
+            return response.data;
+        } catch (e) {
+            console.log(e);
+            return getEmptyPagenate();
+        }
+    }
+
+    async getEventPagination(params: PaginateParams, search: string = ""): Promise<PagenateResponse<Event>> {
+        try {
+            const response = await this.client.get("/api/events", {
+                params: {
+                    ...params,
+                    "sort[0]": "index:asc",
+                    "filters[title][$containsi]": search,
                     "populate": "image"
                 }
             });
