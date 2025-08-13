@@ -6,7 +6,7 @@ interface PageProps {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slugId } = params;
+  const { slugId } = await params;
 
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlagId(slugId);
