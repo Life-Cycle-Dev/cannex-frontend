@@ -6,16 +6,16 @@ import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 
-type Params = Promise<{ slugId: string }>;
+type Params = { slugId: string };
 
 export default async function Page({
   params,
   searchParams,
 }: {
   params: Params;
-  searchParams: { preview: string | null };
+  searchParams: { preview?: string | null };
 }) {
-  const { slugId } = await params;
+  const { slugId } = params;
   const preview = searchParams.preview ?? "";
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlugId(
