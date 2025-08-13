@@ -46,6 +46,27 @@ export default function Pagination() {
     setPageCount(pc);
   };
 
+  const getPaginationPages = () => {
+    const pages: (number | string)[] = [];
+    const maxVisible = 5;
+
+    if (pageCount <= maxVisible) {
+      for (let i = 1; i <= pageCount; i++) pages.push(i);
+    } else {
+      const left = Math.max(2, page - 1);
+      const right = Math.min(pageCount - 1, page + 1);
+
+      pages.push(1);
+      if (left > 2) pages.push("...");
+
+      for (let i = left; i <= right; i++) pages.push(i);
+
+      if (right < pageCount - 1) pages.push("...");
+      pages.push(pageCount);
+    }
+    return pages;
+  };
+
   const PaginationCard = ({
     data,
     index,
@@ -58,6 +79,7 @@ export default function Pagination() {
         href={`/newsroom/${data.slug}`}
         className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
           ${index % 3 === 0 && "tablet:border-l-2"}
+          ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
         `}
       >
         <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
@@ -105,6 +127,26 @@ export default function Pagination() {
     );
   };
 
+  const renderPaginationButtons = () => (
+    <div>
+      {getPaginationPages().map((p, idx) =>
+        p === "..." ? (
+          <span key={`dots-${idx}`} className="px-2">
+            ...
+          </span>
+        ) : (
+          <Button
+            key={p}
+            text={String(p)}
+            type={p === page ? "paginationFocus" : "pagination"}
+            onClick={() => setPage(Number(p))}
+            heightClass="h-10 max-w-10 cursor-pointer"
+          />
+        ),
+      )}
+    </div>
+  );
+
   return (
     <div>
       <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
@@ -135,7 +177,8 @@ export default function Pagination() {
       <div className="flex justify-between border-t-2">
         <div className="min-w-[82px] h-[112px] border-r-2 hidden tablet:block"></div>
 
-        <div className="items-center gap-2 w-full justify-center py-4 hidden tablet:flex tablet:py-0">
+        {/* Desktop */}
+        <div className="items-center gap-2 w-full justify-between p-4 hidden tablet:flex tablet:py-0">
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
@@ -146,19 +189,7 @@ export default function Pagination() {
           >
             <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
           </button>
-
-          <div>
-            {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
-              <Button
-                key={p}
-                text={String(p)}
-                type={p === page ? "paginationFocus" : "pagination"}
-                onClick={() => setPage(p)}
-                heightClass="h-10 max-w-10"
-              />
-            ))}
-          </div>
-
+          {renderPaginationButtons()}
           <button
             onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
             disabled={page === pageCount}
@@ -171,19 +202,9 @@ export default function Pagination() {
           </button>
         </div>
 
+        {/* Mobile */}
         <div className="items-center flex-col gap-2 w-full justify-center py-4 flex tablet:hidden tablet:py-0">
-          <div>
-            {Array.from({ length: pageCount }, (_, i) => i + 1).map((p) => (
-              <Button
-                key={p}
-                text={String(p)}
-                type={p === page ? "paginationFocus" : "pagination"}
-                onClick={() => setPage(p)}
-                heightClass="h-10 max-w-10"
-              />
-            ))}
-          </div>
-
+          {renderPaginationButtons()}
           <div className="flex justify-between w-full">
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
@@ -195,7 +216,6 @@ export default function Pagination() {
             >
               <ArrowUp className="-rotate-90 h-[20px] w-[20px]" />
             </button>
-
             <button
               onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
               disabled={page === pageCount}
