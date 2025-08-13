@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 declare type ButtonType =
   | "primary"
   | "secondaryBlack"
@@ -44,9 +42,8 @@ export default function Button({
   onClick,
 }: Props) {
   return (
-    <Link
-      href={href ?? ""}
-      onClick={onClick}
+    <div
+      onClick={href ? () => (window.location.href = href) : onClick}
       className={`inline-flex items-center justify-center gap-2 px-4 font-medium 
         ${resolveButtonClass(type)}
         ${heightClass} ${width}`}
@@ -54,6 +51,6 @@ export default function Button({
       {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
       {text}
       {suffixIcon && <span className="flex items-center">{suffixIcon}</span>}
-    </Link>
+    </div>
   );
 }
