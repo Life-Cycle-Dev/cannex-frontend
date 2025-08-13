@@ -1,19 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-
 import React from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
+import { NewsRooms } from "@/types/new-rooms";
+import Link from "next/link";
 
-type Item = {
-  id: string | number;
-  title?: string;
-  description?: string;
-  createdAt?: string;
-  image?: { url?: string; name?: string };
-};
-
-export default function NewsroomCarousel({ items }: { items: Item[] }) {
+export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   const [index, setIndex] = React.useState(0);
 
   if (!items || items.length === 0) {
@@ -44,55 +37,55 @@ export default function NewsroomCarousel({ items }: { items: Item[] }) {
     <div className="flex justify-between tablet:border-b-2">
       <div className="min-w-[79px] border-r-2 hidden tablet:block" />
 
-      <div
-        key={current.id}
-        className="w-full flex tablet:flex-row flex-col"
-      >
+      <div key={current.id} className="w-full flex tablet:flex-row flex-col">
         <img
-          className="min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] object-cover tablet:border-r-2 cursor-pointer"
+          onClick={() => (window.location.href = `/newsroom/${current.slug}`)}
+          className="min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] relative object-cover tablet:border-r-2 cursor-pointer"
           src={current?.image?.url || "/placeholder.png"}
           alt={current?.image?.name || current?.title || "news image"}
         />
 
         <div>
-          <div
+          <Link
+            href={`/newsroom/${current.slug}`}
             className="
             w-full flex flex-col pb-20 
             tablet:border-0 tablet:h-[349px] tablet:pb-0 
-            relative group/preview overflow-hidden cursor-pointer
+            relative group overflow-hidden cursor-pointer
           "
           >
             <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1">
               <RightUpIcon
                 className="
                   absolute inset-0 text-black w-full h-full
-                  transition-transform duration-300 ease-out
-                  group-hover/preview:-translate-y-6 group-hover/preview:translate-x-6
+                  transition-transform duration-500 ease-out
+                  group-hover:-translate-y-6 group-hover:translate-x-6
                 "
               />
               <RightUpIcon
                 className="
                   absolute inset-0 text-crystalGreen w-full h-full
                   translate-y-6 -translate-x-6
-                  transition-transform duration-300 ease-out
-                  group-hover/preview:translate-y-0 group-hover/preview:translate-x-0
+                  transition-transform duration-500 ease-out
+                  group-hover:translate-y-0 group-hover:translate-x-0
                 "
               />
             </div>
-            <div className="absolute z-0 inset-0 bg-black transition-transform duration-300 ease-out translate-y-full group-hover/preview:translate-y-0" />
+            <div className="absolute z-0 inset-0 bg-black transition-transform duration-500 ease-out translate-y-full group-hover:translate-y-0" />
 
             <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
-              <div className="relative z-10 font-bold text-4xl/tight group-hover/preview:text-crystalGreen">
+              <div className="relative z-10 font-bold text-4xl/tight group-hover:text-crystalGreen">
                 {current?.title ?? "-"}
               </div>
               <div className="relative z-10 text-gray-400 text-md">
                 {current?.createdAt ? formatDate(current.createdAt) : ""}
               </div>
-              <div className="relative z-10 text-md line-clamp-4 group-hover/preview:text-white">
+              <div className="relative z-10 text-md line-clamp-4 group-hover:text-white">
                 {current?.description ?? ""}
               </div>
             </div>
-          </div>
+          </Link>
+
           <div className="mt-auto flex items-center justify-between border-b-2 tablet:border-b-0">
             <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
               {items.map((_, i) => (

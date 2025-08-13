@@ -10,6 +10,7 @@ import RightUpIcon from "./icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
 import ArrowUp from "./icons/ArrowUp";
 import Button from "./Button";
+import Link from "next/link";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
@@ -53,31 +54,54 @@ export default function Pagination() {
     index: number;
   }) => {
     return (
-      <div
-        className={`border-2 ${index % 3 !== 0 && "border-l-0"} ${
-          (index > 2 || datas.length < 3) && "border-b-0"
-        }`}
+      <Link
+        href={`/newsroom/${data.slug}`}
+        className={`group overflow-hidden w-full cursor-pointer border-2 ${
+          index % 3 !== 0 && "border-l-0"
+        } ${(index > 2 || datas.length < 3) && "border-b-0"}`}
       >
-        <img
-          src={data.image.url}
-          className="w-full h-[335px] tablet:h-[426px] object-cover"
-          alt={data.image.name}
-        />
-        <div className="flex gap-3 justify-end pt-4 pr-4">
-          <RightUpIcon />
+        <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
+          <img
+            src={data.image.url}
+            className="w-full h-full object-cover"
+            alt={data.image.name}
+          />
         </div>
-        <div className="h-fit px-3 pb-6 tablet:h-[232px] tablet:pb-0 tablet:px-10">
-          <div className="text-[32px] font-bold line-clamp-2 break-words">
-            {data.title}
-          </div>
-          <div className="text-gray-400 text-[16px] hidden tablet:block">
-            {formatDate(data.createdAt)}
-          </div>
-          <div className="text-[16px] hidden tablet:block line-clamp-3">
-            {data.description ?? ""}
+
+        <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
+          <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
+
+          <div className="relative z-20">
+            <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
+              <RightUpIcon
+                className="
+                  absolute text-black w-full h-full
+                  transition-transform duration-500 ease-out
+                  group-hover:-translate-y-5 group-hover:translate-x-5
+                "
+              />
+              <RightUpIcon
+                className="
+                  absolute text-crystalGreen w-full h-full
+                  translate-y-5 -translate-x-5
+                  transition-transform duration-500 ease-out
+                  group-hover:translate-y-0 group-hover:translate-x-0
+                "
+              />
+            </div>
+
+            <div className="text-[32px] px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+              {data.title}
+            </div>
+            <div className="text-gray-400 px-[40px] text-[16px] hidden tablet:block">
+              {formatDate(data.createdAt)}
+            </div>
+            <div className="text-[16px] pb-6 px-[40px] hidden tablet:block line-clamp-3 group-hover:text-white transition-colors duration-500">
+              {data.description ?? ""}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   };
 
