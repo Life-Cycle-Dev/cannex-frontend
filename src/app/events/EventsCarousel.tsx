@@ -36,7 +36,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
   return (
     <div className="flex flex-col tablet:flex-row">
       <img
-        className="w-full tablet:min-w-[50%] tablet:max-w-[50%] h-[450px] object-cover border-x-2 border-y-2 tablet:border-y-0"
+        className="w-full tablet:min-w-[40%] tablet:max-w-[40%] h-[450px] object-cover border-x-2 border-y-2 tablet:border-y-0"
         src={current.image.url}
         alt={current.image.name}
       />
