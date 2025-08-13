@@ -8,11 +8,20 @@ import React from "react";
 
 type Params = Promise<{ slugId: string }>;
 
-export default async function Page({ params }: { params: Params }) {
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Params;
+  searchParams: { preview: string | null };
+}) {
   const { slugId } = await params;
-
+  const preview = searchParams.preview ?? "";
   const client = new BackendClient();
-  const response = await client.getNewsRoomsBySlagId(slugId);
+  const response = await client.getNewsRoomsBySlugId(
+    slugId,
+    preview === "true" ? "draft" : "published"
+  );
 
   if (response.data.length === 0) {
     return notFound();
