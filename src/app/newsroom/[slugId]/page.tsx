@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from "@/components/Button";
 import ShareIcon from "@/components/icons/ShareIcon";
+import Markdown from "@/components/Markdown";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
@@ -61,10 +62,7 @@ export default async function Page({
         </div>
       </div>
       <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
-        testetste Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit
-        officia beatae aperiam non quia. Exercitationem deserunt eligendi, quo
-        ullam temporibus, reiciendis voluptate quibusdam molestias assumenda
-        aliquam corporis libero. Nesciunt, minus!
+        <Markdown value={data.content} />
       </div>
     </div>
   );
