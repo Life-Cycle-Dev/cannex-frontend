@@ -6,21 +6,18 @@ import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 
-type Params = { slugId: string };
+interface PageProps {
+  params: { slugId: string };
+  searchParams?: { preview?: string | null };
+}
 
-export default async function Page({
-  params,
-  searchParams,
-}: {
-  params: Params;
-  searchParams: { preview?: string | null };
-}) {
+export default async function Page({ params, searchParams }: PageProps) {
   const { slugId } = params;
-  const preview = searchParams.preview ?? "";
+  const preview = searchParams?.preview ?? "";
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview === "true" ? "draft" : "published"
+    preview === "true" ? "draft" : "published",
   );
 
   if (response.data.length === 0) {
