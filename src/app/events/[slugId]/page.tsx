@@ -18,7 +18,7 @@ export default async function Page({ params, searchParams }: PageProps) {
   const preview = (await searchParams?.preview) === "true";
   const client = new BackendClient();
 
-  const response = await client.getNewsRoomsBySlugId(
+  const response = await client.getEventBySlugId(
     slugId,
     preview ? "draft" : "published",
   );
@@ -35,7 +35,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full flex flex-col gap-6">
           <div className="flex flex-col gap-4">
             <div className="w-fit text-white bg-black p-[2px_8px]">
-              Newsroom
+              Events & Updated
             </div>
             <div className="text-[46px] font-bold break-words leading-[110%]">
               {data.title}

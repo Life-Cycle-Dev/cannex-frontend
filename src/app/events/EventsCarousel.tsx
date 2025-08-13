@@ -43,7 +43,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
       <div>
         <Link
-          href={`/newsroom/${current.slug}`}
+          href={`/events/${current.slug}`}
           className="
             w-full flex flex-col pb-20 
             tablet:border-0 tablet:h-[386px] tablet:pb-0 

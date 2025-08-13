@@ -78,4 +78,23 @@ export class BackendClient {
       return getEmptyPagenate();
     }
   }
+
+  async getEventBySlugId(
+    slagId: string,
+    status: "published" | "draft" = "published"
+  ): Promise<PagenateResponse<NewsRooms>> {
+    try {
+      const response = await this.client.get("/api/events", {
+        params: {
+          "filters[slug][$eq]": slagId,
+          populate: "image",
+          status,
+        },
+      });
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return getEmptyPagenate();
+    }
+  }
 }
