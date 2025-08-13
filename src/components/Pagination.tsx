@@ -56,14 +56,14 @@ export default function Pagination() {
     return (
       <Link
         href={`/newsroom/${data.slug}`}
-        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-2 ${
-          index % 3 !== 0 && "border-l-0"
-        } ${(index > 2 || datas.length < 3) && "border-b-0"}`}
+        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+          ${index % 3 === 0 && "tablet:border-l-2"}
+        `}
       >
         <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
           <img
             src={data.image.url}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover border-y-2 "
             alt={data.image.name}
           />
         </div>
