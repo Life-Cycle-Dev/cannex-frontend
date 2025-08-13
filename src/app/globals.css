@@ -124,8 +124,8 @@ body {
 .wmde-markdown h4,
 .wmde-markdown h5,
 .wmde-markdown h6 {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .wmde-markdown-color {
