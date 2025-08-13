@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
 import { NewsRooms } from "@/types/new-rooms";
 import Link from "next/link";
 
 export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
 
   if (!items || items.length === 0) {
     return (
