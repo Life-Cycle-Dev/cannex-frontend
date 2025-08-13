@@ -1,11 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import { BackendClient } from "@/lib/backend-client";
 import React from "react";
 
-interface PageProps {
-  params: { slugId: string };
-}
+type Params = Promise<{ slugId: string }>;
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: { params: Params }) {
   const { slugId } = await params;
 
   const client = new BackendClient();
@@ -15,5 +14,14 @@ export default async function Page({ params }: PageProps) {
     return <div>not found</div>;
   }
 
-  return <div>{JSON.stringify(response)}</div>;
+  const data = response.data[0];
+
+  return (
+    <div>
+      <div className="flex">
+        <div className=""></div>
+        <img src={data.image.url} alt={data.image.name} />
+      </div>
+    </div>
+  );
 }
