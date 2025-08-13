@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Button from "@/components/Button";
 import ShareIcon from "@/components/icons/ShareIcon";
@@ -7,12 +8,12 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 interface PageProps {
-  params: { slugId: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: any;
+  searchParams?: any;
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const { slugId } = params;
+  const { slugId } = await params;
   const preview = searchParams?.preview === "true";
   const client = new BackendClient();
 
