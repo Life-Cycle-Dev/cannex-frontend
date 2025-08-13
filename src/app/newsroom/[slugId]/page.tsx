@@ -8,16 +8,17 @@ import React from "react";
 
 interface PageProps {
   params: { slugId: string };
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
   const { slugId } = params;
-  const preview = searchParams?.preview as string | undefined;
+  const preview = searchParams?.preview === "true";
   const client = new BackendClient();
+
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview === "true" ? "draft" : "published",
+    preview ? "draft" : "published",
   );
 
   if (response.data.length === 0) {
