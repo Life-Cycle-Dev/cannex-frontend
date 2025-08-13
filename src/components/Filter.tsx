@@ -31,9 +31,9 @@ export default function Filter({ items, value, onChange }: FilterProp) {
   };
 
   return (
-    <div className="relative inline-block">
+    <div className="relative inline-block w-full">
       <div
-        className={`inline-block text-sm tablet:border-b-2 tablet:w-[130px] hover:border-crystalGreen hover:text-crystalGreen ${
+        className={`inline-block text-sm border-b-2 w-full tablet:w-[130px] hover:border-crystalGreen hover:text-crystalGreen ${
           isOpen && "border-crystalGreen text-crystalGreen"
         }`}
       >
@@ -47,7 +47,7 @@ export default function Filter({ items, value, onChange }: FilterProp) {
         </div>
       </div>
       {isOpen && (
-        <div className="mt-1 border-2 absolute border-black shadow bg-white w-[130px] z-10">
+        <div className="mt-1 border-2 absolute border-black shadow bg-white w-full tablet:w-[130px] z-10">
           {items.map((item) => (
             <div
               key={item.value}

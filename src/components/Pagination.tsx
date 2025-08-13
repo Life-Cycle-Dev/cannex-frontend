@@ -56,7 +56,7 @@ export default function Pagination() {
     return (
       <Link
         href={`/newsroom/${data.slug}`}
-        className={`group overflow-hidden w-full cursor-pointer border-2 ${
+        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-2 ${
           index % 3 !== 0 && "border-l-0"
         } ${(index > 2 || datas.length < 3) && "border-b-0"}`}
       >
@@ -93,10 +93,10 @@ export default function Pagination() {
             <div className="text-[32px] px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
               {data.title}
             </div>
-            <div className="text-gray-400 px-[40px] text-[16px] hidden tablet:block">
+            <div className="text-gray-400 px-[40px] text-[16px]">
               {formatDate(data.createdAt)}
             </div>
-            <div className="text-[16px] pb-6 px-[40px] hidden tablet:block line-clamp-3 group-hover:text-white transition-colors duration-500">
+            <div className="text-[16px] pb-6 px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
               {data.description ?? ""}
             </div>
           </div>
@@ -107,19 +107,23 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="tablet:p-[80px] flex justify-between">
-        <SearchBox
-          placeholder="Search Newsroom"
-          value={searchText}
-          onChange={setSearchText}
-        />
-        <Filter
-          items={[
-            { label: "Newest", value: "newest" },
-            { label: "Popular", value: "popular" },
-          ]}
-          value={{ label: "Popular", value: "popular" }}
-        />
+      <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
+        <div className="">
+          <SearchBox
+            placeholder="Search Newsroom"
+            value={searchText}
+            onChange={setSearchText}
+          />
+        </div>
+        <div className="mb-[48px] tablet:mb-0">
+          <Filter
+            items={[
+              { label: "Newest", value: "newest" },
+              { label: "Popular", value: "popular" },
+            ]}
+            value={{ label: "Popular", value: "popular" }}
+          />
+        </div>
       </div>
 
       <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">

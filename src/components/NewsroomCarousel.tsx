@@ -40,7 +40,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
       <div key={current.id} className="w-full flex tablet:flex-row flex-col">
         <img
           onClick={() => (window.location.href = `/newsroom/${current.slug}`)}
-          className="min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] relative object-cover tablet:border-r-2 cursor-pointer"
+          className="border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0 min-w-full h-[315px] tablet:min-w-[45%] tablet:h-[413px] relative object-cover cursor-pointer"
           src={current?.image?.url || "/placeholder.png"}
           alt={current?.image?.name || current?.title || "news image"}
         />
@@ -86,7 +86,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
             </div>
           </Link>
 
-          <div className="mt-auto flex items-center justify-between border-b-2 tablet:border-b-0">
+          <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex">
             <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
               {items.map((_, i) => (
                 <button
@@ -125,6 +125,44 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 <RightUpIcon className="rotate-45 w-8 h-8" />
               </button>
             </div>
+          </div>
+
+          <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+            <button
+              onClick={goPrev}
+              className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
+                  ${
+                    index === 0
+                      ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                      : "cursor-pointer"
+                  }`}
+              disabled={index === 0}
+            >
+              <RightUpIcon className="-rotate-135 w-8 h-8" />
+            </button>
+            <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+              {items.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  className={`w-[8px] h-[8px] cursor-pointer ${
+                    i === index ? "bg-crystalGreen" : "bg-black"
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={goNext}
+              aria-label="Next"
+              className={`w-16 h-16 border-t-2 border-l-2 border-r-2 border-black flex justify-center items-center ${
+                index === items.length - 1
+                  ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                  : "cursor-pointer"
+              }`}
+              disabled={index === items.length - 1}
+            >
+              <RightUpIcon className="rotate-45 w-8 h-8" />
+            </button>
           </div>
         </div>
       </div>

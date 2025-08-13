@@ -30,7 +30,7 @@ export default function SearchBox({
 
   return (
     <div
-      className={`flex w-full tablet:w-[515px] items-center gap-2 tablet:border-b-2 py-2 px-1 max-w-xl ${
+      className={`flex w-full tablet:w-[515px] items-center gap-2 border-b-2 py-2 px-1 ${
         isHovered ? "border-crystalGreen" : "border-black"
       }`}
       onMouseEnter={() => setIsHovered(true)}

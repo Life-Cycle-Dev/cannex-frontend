@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
+import { notFound } from "next/navigation";
 import React from "react";
 
 type Params = Promise<{ slugId: string }>;
@@ -12,7 +13,7 @@ export default async function Page({ params }: { params: Params }) {
   const response = await client.getNewsRoomsBySlagId(slugId);
 
   if (response.data.length === 0) {
-    return <div>not found</div>;
+    return notFound();
   }
 
   const data = response.data[0];
