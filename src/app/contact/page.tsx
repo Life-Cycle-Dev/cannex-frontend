@@ -11,7 +11,7 @@ import React from "react";
 export default function Page() {
   return (
     <div className="w-full">
-      <div className="w-full pb-20 relative overflow-visible">
+      <div className="w-full">
         <Image
           src="/contact-banner-img.jpg"
           alt="Contact Banner"
@@ -21,7 +21,7 @@ export default function Page() {
           quality={100}
         />
         <div className="relative bg-white border-b-[2px] mx-5 -mt-[153px] tablet:mx-20">
-          <div className="p-6 tablet:p-16 flex flex-col gap-2">
+          <div className="p-6 tablet:p-[64px_64px_0px_64px] flex flex-col gap-2">
             <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
               Connect with Cannex
             </p>
@@ -31,28 +31,30 @@ export default function Page() {
               value together.
             </p>
           </div>
-          {/* <div className="tablet:pl-16 flex items-center">
+          <div className="px-6 pt-4 pb-10 tablet:p-[32px_64px_32px_64px] flex flex-col tablet:flex-row items-center gap-8 tablet:gap-0">
             <div className="w-full gap-2">
               <p className="text-[14px] font-bold">Business Inquiries</p>
-              <p className="text-[32px] font-bold">Cannex Lab Co., Ltd.</p>
+              <p className="text-2xl tablet:text-[32px] font-bold">
+                Cannex Lab Co., Ltd.
+              </p>
             </div>
-            <div className="w-full flex gap-6">
+            <div className="w-full flex flex-col tablet:flex-row flex-wrap gap-4 tablet:gap-6">
               <Button
                 text="+66(0)2-260-2800"
                 type="secondaryBlack"
-                className="w-fit"
+                className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<PhoneIcon />}
               />
               <Button
                 text="info@cannex-g.com"
                 type="secondaryBlack"
-                className="w-fit"
+                className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<EmailIcon />}
               />
             </div>
-          </div> */}
-          {/* <div className="mt-8 flex px-16 w-full ">
-            <div className="w-full border-[2px_2px_0px_2px]">
+          </div>
+          <div className="mt-8 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
+            <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
               <div className="w-full h-[324px]">
                 <Image
                   src="/headquarter-img.png"
@@ -71,7 +73,7 @@ export default function Page() {
                 </p>
               </div>
             </div>
-            <div className="w-full border-[2px_2px_0px_0px]">
+            <div className="w-full tablet:border-[2px_2px_0px_0px]">
               <div className="w-full h-[324px]">
                 <Image
                   src="/lab-img.png"
@@ -90,7 +92,7 @@ export default function Page() {
                 </p>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
 
