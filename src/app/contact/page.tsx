@@ -5,10 +5,30 @@ import Contact from "@/components/Contact";
 import EmailIcon from "@/components/icons/EmailIcon";
 import PhoneIcon from "@/components/icons/PhoneIcon";
 import Map from "@/components/Map";
+import { useHelperContext } from "@/components/providers/helper-provider";
+import { WebConfig } from "@/types/web-config";
 import Image from "next/legacy/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Page() {
+  const { backendClient } = useHelperContext()();
+  const [contactInfo, setContactInfo] = useState<WebConfig[]>([]);
+
+  const getContactByKey = (key: string) => {
+    const contact = contactInfo.find((item) => item.key === key);
+    return contact ? contact.value : "";
+  };
+
+  const fetchData = async () => {
+    const response = await backendClient.getContactInfo();
+    if (response.data) {
+      setContactInfo(response.data);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div className="w-full">
       <div className="w-full">
@@ -34,22 +54,22 @@ export default function Page() {
               value together.
             </p>
           </div>
-          <div className="px-6 pt-4 pb-10 tablet:p-[32px_64px_32px_64px] flex flex-col tablet:flex-row items-center gap-8 tablet:gap-0">
+          <div className="px-6 pt-4 pb-10 tablet:p-[32px_64px_32px_64px] flex flex-col tablet:flex-row tablet:items-end gap-8 tablet:gap-0">
             <div className="w-full gap-2">
               <p className="text-[14px] font-bold">Business Inquiries</p>
               <p className="text-2xl tablet:text-[32px] font-bold">
-                Cannex Lab Co., Ltd.
+                {getContactByKey("contact.company-name")}
               </p>
             </div>
             <div className="w-full flex flex-col tablet:flex-row flex-wrap gap-4 tablet:gap-6">
               <Button
-                text="+66(0)2-260-2800"
+                text={getContactByKey("contact.phone")}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<PhoneIcon />}
               />
               <Button
-                text="info@cannex-g.com"
+                text={getContactByKey("contact.email")}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<EmailIcon />}
@@ -70,8 +90,7 @@ export default function Page() {
                 />
               </div>
               <div className="py-8 px-6 border-t-[2px] relative">
-                32/27 Sino-Thai Tower, 6F, Sukhumvit 21 Rd. (Asok),
-                Klongtoey-Nua, Wattana, Bangkok 10110, Thailand
+                {getContactByKey("contact.headquarter-address")}
                 <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                   Headquarter
                 </p>
@@ -90,8 +109,7 @@ export default function Page() {
                 />
               </div>
               <div className="py-8 px-6 border-t-[2px] relative">
-                B1.2, 408/7, Moo.7, Sukhumvit Rd., Bangpoo Mai, Mueang Samut
-                Prakan, Samut Prakan 10280, Thailand
+                {getContactByKey("contact.lab-address")}
                 <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                   Lab
                 </p>

@@ -100,41 +100,39 @@ export class BackendClient {
     }
   }
 
-  async getWebConfigByKey(
-    key: string,
-  ): Promise<PagenateResponse<WebConfig>> {
+  async getContactInfo(): Promise<PagenateResponse<WebConfig>> {
     try {
-      const response = await this.client.get("/api/web-configs", {
-        params: {
-          "filters[key][$eq]": key
-        },
-      });
+      const response = await this.client.get(
+        "/api/web-configs?filters[key][$startsWith]=contact."
+      );
       return response.data;
     } catch (e) {
       console.log(e);
-      return {
-        data: [{ key: key, value: "" }],
-        meta: {
-          pagination: {
-            page: 0,
-            pageSize: 0,
-            pageCount: 0,
-            total: 0
-          }
-        }
-      }
+      return getEmptyPagenate();
     }
   }
 
-  async createContactForm(payload: ContactForm): Promise<void> {
+  async getContactFormReason(): Promise<PagenateResponse<WebConfig>> {
     try {
-      const response = await this.client.post("/api/contact-forms", {
-        data: payload
-      });
+      const response = await this.client.get(
+        "/api/web-configs?filters[key][$eq]=contact-form.reason"
+      );
       return response.data;
     } catch (e) {
       console.log(e);
-      return;
+      return getEmptyPagenate();
+    }
+  }
+
+  async createContactForm(payload: ContactForm): Promise<boolean> {
+    try {
+      await this.client.post("/api/contact-forms", {
+        data: payload,
+      });
+      return true;
+    } catch (e) {
+      console.log(e);
+      return false;
     }
   }
 }

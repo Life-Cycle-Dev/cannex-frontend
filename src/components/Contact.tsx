@@ -1,10 +1,13 @@
-import React from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Field from "./Field";
 import DropdownField from "./DropdownField";
 import Button from "./Button";
 import RightUpIcon from "./icons/RightUpIcon";
 import CheckBox from "./CheckBox";
+import { useHelperContext } from "./providers/helper-provider";
+import { ContactForm } from "@/types/contact-forms";
 
 interface FormData {
   name: string;
@@ -29,6 +32,8 @@ function Policy() {
 }
 
 export default function Contact() {
+  const { backendClient } = useHelperContext()();
+  const [reasons, setReasons] = useState<string[]>([]);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     lastName: "",
@@ -43,9 +48,41 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const payload: ContactForm = {
+      firstname: formData.name,
+      lastname: formData.lastName,
+      email: formData.email,
+      reason: formData.reason,
+      message: formData.message,
+    };
+    const isSubmittedForm = await backendClient.createContactForm(payload);
+    if (!isSubmittedForm) {
+      alert("There was an error sending your message. Please try again later.");
+      return;
+    }
+    setFormData({
+      name: "",
+      lastName: "",
+      email: "",
+      reason: "",
+      message: "",
+      isAccepted: false,
+    });
+    alert("Your message has been sent successfully!");
   };
+
+  const fetchData = async () => {
+    const response = await backendClient.getContactFormReason();
+    if (response.data) {
+      setReasons(response.data[0].value.split(",").map((item) => item.trim()));
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <form onSubmit={handleSubmit} className="px-5 tablet:px-20 py-[50px]">
@@ -91,7 +128,7 @@ export default function Contact() {
               reason: option,
             }));
           }}
-          options={["1", "2"]}
+          options={reasons}
         />
         <div className="tablet:col-span-2">
           <Field
@@ -119,6 +156,14 @@ export default function Contact() {
           suffixIcon={<RightUpIcon />}
           className="w-[238px]"
           type="secondaryBlack"
+          disabled={
+            !formData.isAccepted ||
+            !formData.reason ||
+            !formData.message ||
+            !formData.email ||
+            !formData.name ||
+            !formData.lastName
+          }
         />
       </div>
     </form>
