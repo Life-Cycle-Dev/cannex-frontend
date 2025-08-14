@@ -69,7 +69,7 @@ export default function NavBar() {
       </div>
 
       {/* MOBILE: logo left + black square hamburger (kept) */}
-      <div className="md:hidden">
+      <div className="tablet:hidden">
         <NavBarBase>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
@@ -86,8 +86,8 @@ export default function NavBar() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-0 p-4">
-          {MENUS.map((m, i) => (
+        <nav className="flex flex-col gap-0 p-4 min-h-[100dvh]">
+          {MENUS.map((m) => (
             <div key={m.path} className="flex flex-col">
               <Menu
                 title={m.title}
@@ -95,12 +95,11 @@ export default function NavBar() {
                 onClick={() => setOpen(false)}
                 variant="mobile"
               />
-              {i < MENUS.length - 1 && <div className="h-px bg-neutral200" />}
             </div>
           ))}
           <Button
             href="/contact"
-            className="w-full"
+            className="w-full mt-6 h-12"
             text="Contact Us & Inquiry"
             suffixIcon={<RightUpIcon className="w-4 h-4" />}
             onClick={() => setOpen(false)}

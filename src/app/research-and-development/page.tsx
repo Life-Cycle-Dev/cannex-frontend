@@ -28,7 +28,7 @@ export default function RnD() {
         />
 
         {/* Overlay text aligned with same container as below */}
-        <div className="absolute bottom-0 left-0 w-full py-6 md:py-8">
+        <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
           <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8">
             <h1 className="text-5xl desktop:text-7xl font-bold text-black w-fit leading-tight">
               Research
