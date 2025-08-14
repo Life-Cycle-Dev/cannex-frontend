@@ -74,7 +74,7 @@ export default function NavBar() {
 
       {/* MOBILE: logo left + black square hamburger (kept) */}
       <div className="tablet:hidden">
-        <NavBarBase>
+        <NavBarBase isShowLogo={!open}>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-controls={panelId}
