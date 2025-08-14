@@ -51,13 +51,13 @@ export default function About() {
         </div>
       </div>
 
-      <div className="pl-5 pb-[107px] relative">
+      <div className="pb-[107px] relative">
         <div className="mt-8 tablet:mt-7">
-          <div className="mt-7 w-full hidden tablet:block">
+          <div className="mt-7 hidden tablet:block">
             <Image
               src="/product-horizontal.png"
               alt="product"
-              className="w-full h-full object-cover"
+              className="h-full object-cover"
               width={1185}
               height={432}
               quality={100}
@@ -74,46 +74,46 @@ export default function About() {
               priority
             />
           </div>
-        </div>
 
-        <div className="absolute tablet:static z-10 bottom-15 w-full tablet:mt-12 tablet:px-20">
-          <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
-            <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
-              <div>
-                {/* Mobile */}
-                <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                  Pharmaceutical-
-                </p>
-                <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                  Grade Products
-                </p>
-                <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                  Designed for
-                </p>
-                <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                  Global Markets.
-                </p>
-                {/* Tablet */}
-                <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                  Pharmaceutical-Grade Products
-                </p>
-                <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                  Designed for Global Markets.
+          <div className="absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20">
+            <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
+              <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
+                <div>
+                  {/* Modbile */}
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Pharmaceutical-
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Grade Products
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Designed for
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Global Markets.
+                  </p>
+                  {/* Tablet */}
+                  <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Pharmaceutical-Grade Products
+                  </p>
+                  <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Designed for Global Markets.
+                  </p>
+                </div>
+
+                <p className="font-medium">
+                  From full-spectrum flower to zero-THC CBD isolate, Cannex
+                  delivers reliable formulations tailored for pharmacies,
+                  healthcare providers, and wellness innovators.
                 </p>
               </div>
-
-              <p className="font-medium">
-                From full-spectrum flower to zero-THC CBD isolate, Cannex
-                delivers reliable formulations tailored for pharmacies,
-                healthcare providers, and wellness innovators.
-              </p>
+              <Button
+                type="secondaryBlack"
+                text="Explore our products"
+                width="w-full tablet:w-fit shrink-0"
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
+              />
             </div>
-            <Button
-              type="secondaryBlack"
-              text="Explore our products"
-              width="w-full tablet:w-fit shrink-0"
-              suffixIcon={<RightUpIcon className="w-4 h-4" />}
-            />
           </div>
         </div>
       </div>

@@ -12,54 +12,32 @@ export default function Home() {
     <div className="w-full">
       {/* Hero Section */}
       <section>
-        <div className="relative w-full flex items-center justify-center min-h-screen bg-gray text-white">
-          <Image
-            src="/hero-section-img.png"
-            layout="fill"
-            objectFit="cover"
-            alt="Hero Background"
-            className="absolute inset-0 z-0"
-            quality={100}
-          />
-          <div className="relative z-10 flex flex-col gap-8 left-5 tablet:left-20 top-[268px] tablet:top-12">
-            <div>
-              <div className="h-[51px] desktop:h-20">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-crystalGreen w-fit">
-                  Pharmaceutical-
-                </h1>
-              </div>
-              <div className="h-[51px] desktop:h-20">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-crystalGreen w-fit">
-                  -Grade
-                </h1>
-              </div>
-              <div className="h-[51px] desktop:h-20">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-crystalGreen w-fit">
-                  Formulation,
-                </h1>
-              </div>
-              <div className="h-[51px] desktop:h-20">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-white w-fit">
-                  Crafted with
-                </h1>
-              </div>
-              <div className="hidden desktop:block desktop:h-20">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-white w-fit">
-                  Clinical Precision.
-                </h1>
-              </div>
-              <div className="h-[51px] desktop:hidden">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-white w-fit">
-                  Clinical
-                </h1>
-              </div>
-              <div className="h-[51px] desktop:hidden">
-                <h1 className="text-5xl desktop:text-7xl font-bold text-black bg-white w-fit">
-                  Precision.
-                </h1>
-              </div>
+        <div className="relative w-full min-h-[calc(100vh-64px)] text-white flex flex-col justify-between">
+          <div className="relative w-full h-[375px] tablet:min-h-[calc(100vh-133px)]">
+            <Image
+              src="/hero-section-img.png"
+              alt="Hero Background"
+              layout="fill"
+              className="h-full w-full object-cover"
+              width={1920}
+              height={1080}
+              quality={100}
+            />
+          </div>
+          {/* left-5 tablet:left-20 top-[268px] tablet:top-12 */}
+          <div className="absolute z-10 h-full w-full flex flex-col gap-8 pt-[268px] tablet:pt-0 pl-5 tablet:pl-20 tablet:justify-center">
+            <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
+              <h1 className="bg-crystalGreen w-fit">Pharmaceutical-</h1>
+              <h1 className="bg-crystalGreen w-fit">-Grade</h1>
+              <h1 className="bg-crystalGreen w-fit">Formulation,</h1>
+              <h1 className="bg-white w-fit">Crafted with</h1>
+              <h1 className="hidden tablet:block bg-white w-fit">
+                Clinical Precision.
+              </h1>
+              <h1 className="tablet:hidden bg-white w-fit">Clinical</h1>
+              <h1 className="tablet:hidden bg-white w-fit">Precision.</h1>
             </div>
-            <p className="font-semibold text-black tablet:text-white">
+            <p className="font-semibold text-black tablet:text-white tablet:w-[425px]">
               From plant to product — Cannex unites American genetics, Thai
               innovation, and Japanese-grade extraction to deliver premium
               medical cannabis, globally.
@@ -75,15 +53,15 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
-        <div className="tablet:hidden">
-          <Button
-            href=""
-            text="Explore our products"
-            type="primary"
-            width="w-full"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
-          />
+          <div className="tablet:hidden">
+            <Button
+              href=""
+              text="Explore our products"
+              type="primary"
+              width="w-full"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            />
+          </div>
         </div>
       </section>
       <About />
