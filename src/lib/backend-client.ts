@@ -5,6 +5,7 @@ import {
   PagenateResponse,
   PaginateParams,
 } from "@/types/paginate";
+import { WebConfig } from "@/types/web-config";
 import axios, { AxiosInstance } from "axios";
 
 export class BackendClient {
@@ -95,6 +96,32 @@ export class BackendClient {
     } catch (e) {
       console.log(e);
       return getEmptyPagenate();
+    }
+  }
+
+  async getWebConfigByKey(
+    key: string,
+  ): Promise<PagenateResponse<WebConfig>> {
+    try {
+      const response = await this.client.get("/api/web-configs", {
+        params: {
+          "filters[key][$eq]": key
+        },
+      });
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return {
+        data: [{key: key, value: ""}],
+        meta: {
+          pagination: {
+            page: 0,
+            pageSize: 0,
+            pageCount: 0,
+            total: 0
+          }
+        }
+      }
     }
   }
 }
