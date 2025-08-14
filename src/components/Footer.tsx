@@ -14,12 +14,15 @@ export default function Footer() {
       <div className="w-full border-t-[2px] pt-12 py-4 px-5 tablet:pb-0 tablet:px-20 flex flex-col tablet:flex-row gap-12">
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
-            <Image
-              src="/logo-default.svg"
-              alt="Cannex Logo"
-              width={200}
-              height={40}
-            />
+            <div className="w-[200px]">
+              <Image
+                src="/logo-default.svg"
+                alt="Cannex Logo"
+                width={200}
+                height={40}
+                className=""
+              />
+            </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
                 <p className="font-bold">Cannex Laboratory Company Limited</p>

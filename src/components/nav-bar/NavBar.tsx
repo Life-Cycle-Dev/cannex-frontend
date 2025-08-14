@@ -49,21 +49,25 @@ export default function NavBar() {
         </div>
         <div className="h-[2px] w-full bg-black" />
         <div className="flex justify-end items-stretch scroll-auto">
-          <nav className="flex flex-wrap items-center justify-end gap-2">
-            {MENUS.map((m) => (
-              <Menu
-                key={m.path}
-                title={m.title}
-                href={m.path}
-                variant="desktop"
+          <nav className="w-full flex items-center justify-end">
+            <div className="w-full flex items-center justify-end">
+              {MENUS.map((m) => (
+                <Menu
+                  key={m.path}
+                  title={m.title}
+                  href={m.path}
+                  variant="desktop"
+                />
+              ))}
+            </div>
+            <div className="w-[296px] text-end">
+              <Button
+                href="/contact"
+                className="h-12 w-fit px-0 cursor-pointer"
+                text="Contact Us & Inquiry"
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
-            ))}
-            <Button
-              href="/contact"
-              className="h-12 min-w-fit max-w-fit ml-9 px-0 cursor-pointer"
-              text="Contact Us & Inquiry"
-              suffixIcon={<RightUpIcon className="w-4 h-4" />}
-            />
+            </div>
           </nav>
         </div>
       </div>

@@ -43,9 +43,9 @@ export default function Menu({
       onClick={onClick}
       className={`${
         variant === "desktop"
-          ? "h-12 text-sm px-9 min-w-fit"
+          ? "h-12 text-sm max-w-[250px] justify-center"
           : "text-4xl py-3 border-b-2"
-      } flex transition-transform duration-500 ease-in items-center text-black font-semibold ${
+      } w-full flex transition-transform duration-500 ease-in items-center text-black font-semibold ${
         navigate === title && variant === "desktop"
           ? "bg-crystalGreen"
           : "hover:bg-black hover:text-crystalGreen"

@@ -42,7 +42,7 @@ export default function Button({
   return (
     <div
       onClick={href ? () => (window.location.href = href) : onClick}
-      className={`w-full h-10 inline-flex items-center justify-center gap-2 px-4 font-medium 
+      className={`h-10 inline-flex items-center justify-center gap-2 px-4 font-medium 
         ${resolveButtonClass(type)} ${className}`}
     >
       {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
