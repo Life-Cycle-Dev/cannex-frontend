@@ -20,16 +20,18 @@ export default function Page() {
           height={400}
           quality={100}
         />
-        <div className="bg-white absolute top-[50vh] left-20 right-20 border-b-[2px]">
-          <div className="pl-16 pt-16 flex flex-col gap-2">
-            <p className="text-7xl font-bold">Connect with Cannex</p>
+        <div className="relative bg-white border-b-[2px] mx-5 -mt-[153px] tablet:mx-20">
+          <div className="p-6 tablet:p-16 flex flex-col gap-2">
+            <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+              Connect with Cannex
+            </p>
             <p className="font-medium">
               Whether you&apos;re a licensed importer, healthcare professional,
               research institution, or investor — we’re here to build lasting
               value together.
             </p>
           </div>
-          <div className="pl-16 flex items-center">
+          {/* <div className="tablet:pl-16 flex items-center">
             <div className="w-full gap-2">
               <p className="text-[14px] font-bold">Business Inquiries</p>
               <p className="text-[32px] font-bold">Cannex Lab Co., Ltd.</p>
@@ -48,8 +50,8 @@ export default function Page() {
                 prefixIcon={<EmailIcon />}
               />
             </div>
-          </div>
-          <div className="mt-8 flex px-16 w-full ">
+          </div> */}
+          {/* <div className="mt-8 flex px-16 w-full ">
             <div className="w-full border-[2px_2px_0px_2px]">
               <div className="w-full h-[324px]">
                 <Image
@@ -88,7 +90,7 @@ export default function Page() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
