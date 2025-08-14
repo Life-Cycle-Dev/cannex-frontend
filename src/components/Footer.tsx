@@ -1,14 +1,36 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import Image from "next/legacy/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import PhoneIcon from "./icons/PhoneIcon";
 import Link from "next/link";
 import { MENUS, SOCIAL_MEDIAS } from "@/utils/constant";
 import ArrowUp from "./icons/ArrowUp";
+import { useHelperContext } from "./providers/helper-provider";
+import { WebConfig } from "@/types/web-config";
 
 export default function Footer() {
+  const { backendClient } = useHelperContext()();
+  const [contactInfo, setContactInfo] = useState<WebConfig[]>([]);
+
+  const getContactByKey = (key: string) => {
+    const contact = contactInfo.find((item) => item.key === key);
+    return contact ? contact.value : "";
+  };
+
+  const fetchData = async () => {
+    const response = await backendClient.getContactInfo();
+    if (response.data) {
+      setContactInfo(response.data);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="w-full border-t-[2px] pt-12 py-4 px-5 tablet:pb-0 tablet:px-20 flex flex-col tablet:flex-row gap-12">
@@ -27,17 +49,17 @@ export default function Footer() {
               <div className="flex flex-col gap-2">
                 <p className="font-bold">Cannex Laboratory Company Limited</p>
                 <p className="font-medium">
-                  [HQ] 32/27 Sino-Thai Tower, 6F, Sukhumvit 21 Rd. (Asok),
-                  Klongtoey-Nua, Wattana, Bangkok 10110, Thailand
+                  [HQ] {getContactByKey("contact.headquarter-address")}
                 </p>
                 <p className="font-medium">
-                  [Lab] B1.2, 408/7, Moo.7, Sukhumvit Rd., Bangpoo Mai, Mueang
-                  Samut Prakan, Samut Prakan 10280, Thailand
+                  [Lab] {getContactByKey("contact.lab-address")}
                 </p>
-                <p className="font-medium">TAX ID 0105564162586</p>
+                <p className="font-medium">
+                  TAX ID {getContactByKey("contact.tax-id")}
+                </p>
               </div>
               <Button
-                text="+66(0)2-260-2800"
+                text={getContactByKey("contact.phone")}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit"
                 prefixIcon={<PhoneIcon />}
@@ -49,7 +71,7 @@ export default function Footer() {
               {SOCIAL_MEDIAS.map((social) => (
                 <Link
                   key={social.name}
-                  href={social.url}
+                  href={getContactByKey(social.key)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
