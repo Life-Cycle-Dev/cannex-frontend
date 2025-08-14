@@ -44,7 +44,7 @@ export default function Page() {
             quality={100}
           />
         </div>
-        <div className="relative bg-white border-b-[2px] mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
+        <div className="relative bg-white border-b-[2px] tablet:border-b-0 mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
           <div className="p-6 tablet:p-[64px_64px_0px_64px] flex flex-col gap-2">
             <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
               Connect with Cannex

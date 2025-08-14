@@ -85,7 +85,10 @@ export default function Contact() {
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="px-5 tablet:px-20 py-[50px]">
+    <form
+      onSubmit={handleSubmit}
+      className="px-5 tablet:px-20 py-[50px] tablet:border-t-[2px]"
+    >
       <div className="flex flex-col gap-6">
         <p className="text-2xl tablet:text-[32px] font-medium">
           Let’s Collaborate for a Healthier Future.
