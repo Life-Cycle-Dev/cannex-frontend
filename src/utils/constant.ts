@@ -1,7 +1,7 @@
 export const MENUS = [
-  { title: "About Us", path: "/about" },
+  { title: "About Us", path: "/about-us" },
   { title: "Products", path: "/products" },
-  { title: "Research & Development", path: "/rnd" },
+  { title: "Research & Development", path: "/research-and-development" },
   { title: "Newsroom", path: "/newsroom" },
   { title: "Events & Updated", path: "/events" },
   { title: "Partnership", path: "/partnership" },

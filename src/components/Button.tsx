@@ -9,11 +9,10 @@ interface Props {
   text: string;
   type?: ButtonType;
   href?: string;
-  width?: string;
-  heightClass?: string;
   prefixIcon?: React.ReactNode;
   suffixIcon?: React.ReactNode;
   onClick?: () => void;
+  className: string;
 }
 
 function resolveButtonClass(type: ButtonType) {
@@ -35,18 +34,16 @@ export default function Button({
   text,
   type = "primary",
   href,
-  width = "w-full",
-  heightClass = "h-10",
   prefixIcon,
   suffixIcon,
   onClick,
+  className = "w-full",
 }: Props) {
   return (
     <div
       onClick={href ? () => (window.location.href = href) : onClick}
-      className={`inline-flex items-center justify-center gap-2 px-4 font-medium 
-        ${resolveButtonClass(type)}
-        ${heightClass} ${width}`}
+      className={`w-full h-10 inline-flex items-center justify-center gap-2 px-4 font-medium 
+        ${resolveButtonClass(type)} ${className}`}
     >
       {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
       {text}

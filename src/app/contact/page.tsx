@@ -38,13 +38,13 @@ export default function Page() {
               <Button
                 text="+66(0)2-260-2800"
                 type="secondaryBlack"
-                width="w-fit"
+                className="w-fit"
                 prefixIcon={<PhoneIcon />}
               />
               <Button
                 text="info@cannex-g.com"
                 type="secondaryBlack"
-                width="w-fit"
+                className="w-fit"
                 prefixIcon={<EmailIcon />}
               />
             </div>

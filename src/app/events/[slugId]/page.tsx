@@ -46,7 +46,7 @@ export default async function Page({ params, searchParams }: PageProps) {
             <Button
               text="Share"
               type="secondaryBlack"
-              width="w-fit"
+              className="w-fit"
               suffixIcon={<ShareIcon />}
             />
           </div>

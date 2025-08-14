@@ -134,7 +134,7 @@ export default function Pagination() {
             text={String(p)}
             type={p === page ? "paginationFocus" : "pagination"}
             onClick={() => setPage(Number(p))}
-            heightClass="h-10 max-w-10 cursor-pointer"
+            className="h-10 max-w-10 cursor-pointer"
           />
         ),
       )}

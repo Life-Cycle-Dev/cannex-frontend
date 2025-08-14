@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import Image from "next/legacy/image";
@@ -6,8 +7,16 @@ import About from "@/components/About";
 import ProductsGrid from "@/components/ProductsGrid";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import Contact from "@/components/Contact";
+import { useHelperContext } from "@/components/providers/helper-provider";
+import { useEffect } from "react";
 
 export default function Home() {
+  const { setNavigate } = useHelperContext()();
+
+  useEffect(() => {
+    setNavigate("Home");
+  }, []);
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -48,20 +57,20 @@ export default function Home() {
                 href=""
                 text="Explore our products"
                 type="secondaryWhite"
-                width="w-fit"
+                className="w-fit"
                 suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
           </div>
-          <div className="tablet:hidden">
-            <Button
-              href=""
-              text="Explore our products"
-              type="primary"
-              width="w-full"
-              suffixIcon={<RightUpIcon className="w-4 h-4" />}
-            />
-          </div>
+        </div>
+        <div className="tablet:hidden">
+          <Button
+            href=""
+            text="Explore our products"
+            type="primary"
+            className="w-full"
+            suffixIcon={<RightUpIcon className="w-4 h-4" />}
+          />
         </div>
       </section>
       <About />

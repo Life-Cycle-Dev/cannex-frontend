@@ -45,7 +45,7 @@ export default function About() {
           <Button
             text="Learn about cannex"
             type="secondaryBlack"
-            width="w-full tablet:w-fit"
+            className="w-full tablet:w-fit"
             suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
@@ -110,10 +110,16 @@ export default function About() {
               <Button
                 type="secondaryBlack"
                 text="Explore our products"
-                width="w-full tablet:w-fit shrink-0"
+                className="w-full tablet:w-fit shrink-0"
                 suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
+            <Button
+              type="secondaryBlack"
+              text="Explore our products"
+              className="w-full tablet:w-fit shrink-0"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            />
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Footer() {
               <Button
                 text="+66(0)2-260-2800"
                 type="secondaryBlack"
-                width="w-full tablet:w-fit"
+                className="w-full tablet:w-fit"
                 prefixIcon={<PhoneIcon />}
               />
             </div>

@@ -1,22 +1,24 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useEffect, useState } from "react";
 import SearchBox from "../../components/SearchBox";
 import Filter from "../../components/Filter";
-import { BackendClient } from "@/lib/backend-client";
 import { NewsRooms } from "@/types/new-rooms";
 import RightUpIcon from "../../components/icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
 import ArrowUp from "../../components/icons/ArrowUp";
 import Button from "../../components/Button";
 import Link from "next/link";
+import { useHelperContext } from "@/components/providers/helper-provider";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
+  const { backendClient } = useHelperContext()();
 
   useEffect(() => {
     setPage(1);
@@ -27,8 +29,7 @@ export default function Pagination() {
   }, [page, searchText]);
 
   const fetchData = async (p: number, q: string) => {
-    const client = new BackendClient();
-    const response = await client.getNewsRoomsPagination(
+    const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
         "pagination[pageSize]": 6,
@@ -140,7 +141,7 @@ export default function Pagination() {
             text={String(p)}
             type={p === page ? "paginationFocus" : "pagination"}
             onClick={() => setPage(Number(p))}
-            heightClass="h-10 max-w-10 cursor-pointer"
+            className="h-10 max-w-10 cursor-pointer"
           />
         ),
       )}
