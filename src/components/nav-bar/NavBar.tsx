@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useId, useState } from "react";
@@ -11,12 +10,7 @@ import Button from "@/components/Button";
 import RightUpIcon from "../icons/RightUpIcon";
 import { MENUS } from "@/utils/constant";
 
-type NavState = "navbar" | "navbarMenu";
-interface NavBarProps {
-  state?: NavState;
-}
-
-export default function NavBar({ state = "navbar" }: NavBarProps) {
+export default function NavBar() {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -42,9 +36,7 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
 
   return (
     <header className="w-full top-0 z-50 bg-white text-foreground border-y-2">
-      {/* <div className="h-px w-full bg-neutral200 border-2" /> */}
-
-      <div className="hidden md:block">
+      <div className="hidden tablet:block">
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -56,8 +48,8 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
           </Link>
         </div>
         <div className="h-[2px] w-full bg-black" />
-        <div className="mx-auto flex h-12 max-w-[1200px] items-stretch">
-          <nav className="flex items-center gap-6">
+        <div className="flex justify-end items-stretch scroll-auto">
+          <nav className="flex flex-wrap items-center justify-end gap-2">
             {MENUS.map((m) => (
               <Menu
                 key={m.path}
@@ -66,27 +58,25 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
                 variant="desktop"
               />
             ))}
-          </nav>
-          <div className="ml-auto flex">
             <Button
               href="/contact"
-              heightClass="h-12"
+              className="h-12 min-w-fit max-w-fit ml-9 px-0 cursor-pointer"
               text="Contact Us & Inquiry"
               suffixIcon={<RightUpIcon className="w-4 h-4" />}
             />
-          </div>
+          </nav>
         </div>
       </div>
 
       {/* MOBILE: logo left + black square hamburger (kept) */}
-      <div className="md:hidden">
+      <div className="tablet:hidden">
         <NavBarBase>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-controls={panelId}
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}
-            className={`w-16 h-16  flex items-center justify-center shrink-0 ${
+            className={`w-16 h-16 flex items-center justify-center shrink-0 ${
               open ? "bg-white" : "bg-black"
             }`}
           >
@@ -96,8 +86,8 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-0 p-4">
-          {MENUS.map((m, i) => (
+        <nav className="flex flex-col gap-0 p-4 min-h-[100dvh]">
+          {MENUS.map((m) => (
             <div key={m.path} className="flex flex-col">
               <Menu
                 title={m.title}
@@ -105,12 +95,11 @@ export default function NavBar({ state = "navbar" }: NavBarProps) {
                 onClick={() => setOpen(false)}
                 variant="mobile"
               />
-              {i < MENUS.length - 1 && <div className="h-px bg-neutral200" />}
             </div>
           ))}
           <Button
             href="/contact"
-            width="w-full"
+            className="w-full mt-6 h-12"
             text="Contact Us & Inquiry"
             suffixIcon={<RightUpIcon className="w-4 h-4" />}
             onClick={() => setOpen(false)}

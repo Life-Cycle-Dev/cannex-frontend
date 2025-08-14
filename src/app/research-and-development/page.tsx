@@ -38,8 +38,9 @@ export default function RnD() {
           priority
         />
 
-        <div className="absolute bottom-0 left-0 w-full py-6 md:py-8">
-          <div className="mx-auto w-full px-6 desktop:px-8 pt-16 md:pt-0">
+        {/* Overlay text aligned with same container as below */}
+        <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
+          <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8">
             <h1 className="text-5xl desktop:text-7xl font-bold text-black w-fit leading-tight">
               Research
               <br />
@@ -110,14 +111,16 @@ export default function RnD() {
             <button
               onClick={handlePlay}
               aria-label="Play video"
-              className="absolute inset-0 grid place-items-center">
+              className="absolute inset-0 grid place-items-center"
+            >
               <span className="h-16 w-16 rounded-full bg-white/90 shadow ring-1 ring-black/10 grid place-items-center">
                 {/* simple play triangle */}
                 <svg
                   width="26"
                   height="26"
                   viewBox="0 0 24 24"
-                  className="text-black">
+                  className="text-black"
+                >
                   <path d="M8 5v14l11-7-11-7z" fill="currentColor" />
                 </svg>
               </span>

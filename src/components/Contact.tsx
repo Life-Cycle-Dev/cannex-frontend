@@ -48,7 +48,7 @@ export default function Contact() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="px-5 py-[50px]">
+    <form onSubmit={handleSubmit} className="px-5 tablet:px-20 py-[50px]">
       <div className="flex flex-col gap-6">
         <p className="text-2xl tablet:text-[32px] font-medium">
           Let’s Collaborate for a Healthier Future.
@@ -117,7 +117,7 @@ export default function Contact() {
         <Button
           text="Submit"
           suffixIcon={<RightUpIcon />}
-          width="w-[238px]"
+          className="w-[238px]"
           type="secondaryBlack"
         />
       </div>

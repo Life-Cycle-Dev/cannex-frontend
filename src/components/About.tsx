@@ -45,74 +45,82 @@ export default function About() {
           <Button
             text="Learn about cannex"
             type="secondaryBlack"
-            width="w-full tablet:w-fit"
+            className="w-full tablet:w-fit"
             suffixIcon={<RightUpIcon className="w-4 h-4" />}
           />
         </div>
       </div>
 
-      <div className="mt-8 tablet:mt-7">
-        <div className="mt-7 w-full relative hidden tablet:block">
-          <Image
-            src="/product-horizontal.png"
-            alt="product"
-            className="w-full h-full object-cover"
-            width={1185}
-            height={432}
-            quality={100}
-          />
-        </div>
-        <div className="absolute right-0 tablet:hidden">
-          <Image
-            src="/product-vertical.png"
-            alt="product"
-            className="w-full h-auto object-contain"
-            quality={95}
-            width={1600}
-            height={600}
-            priority
-          />
-        </div>
-      </div>
-
-      <div className="w-full mt-[339px] tablet:mt-12 pl-5 tablet:px-20 ">
-        <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
-          <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
-            <div>
-              {/* Mobile */}
-              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                Pharmaceutical-
-              </p>
-              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                Grade Products
-              </p>
-              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                Designed for
-              </p>
-              <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                Global Markets.
-              </p>
-              {/* Tablet */}
-              <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
-                Pharmaceutical-Grade Products
-              </p>
-              <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
-                Designed for Global Markets.
-              </p>
-            </div>
-
-            <p className="font-medium">
-              From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
-              reliable formulations tailored for pharmacies, healthcare
-              providers, and wellness innovators.
-            </p>
+      <div className="pb-[107px] relative">
+        <div className="mt-8 tablet:mt-7">
+          <div className="mt-7 hidden tablet:block">
+            <Image
+              src="/product-horizontal.png"
+              alt="product"
+              className="h-full object-cover"
+              width={1185}
+              height={432}
+              quality={100}
+            />
           </div>
-          <Button
-            type="secondaryBlack"
-            text="Explore our products"
-            width="w-full tablet:w-fit shrink-0"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
-          />
+          <div className="tablet:hidden">
+            <Image
+              src="/product-vertical.png"
+              alt="product"
+              className="w-full h-auto object-contain"
+              quality={95}
+              width={1600}
+              height={600}
+              priority
+            />
+          </div>
+
+          <div className="absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20">
+            <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
+              <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
+                <div>
+                  {/* Modbile */}
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Pharmaceutical-
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Grade Products
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Designed for
+                  </p>
+                  <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Global Markets.
+                  </p>
+                  {/* Tablet */}
+                  <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                    Pharmaceutical-Grade Products
+                  </p>
+                  <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                    Designed for Global Markets.
+                  </p>
+                </div>
+
+                <p className="font-medium">
+                  From full-spectrum flower to zero-THC CBD isolate, Cannex
+                  delivers reliable formulations tailored for pharmacies,
+                  healthcare providers, and wellness innovators.
+                </p>
+              </div>
+              <Button
+                type="secondaryBlack"
+                text="Explore our products"
+                className="w-full tablet:w-fit shrink-0"
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
+              />
+            </div>
+            <Button
+              type="secondaryBlack"
+              text="Explore our products"
+              className="w-full tablet:w-fit shrink-0"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            />
+          </div>
         </div>
       </div>
     </div>
