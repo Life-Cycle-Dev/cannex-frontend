@@ -5,22 +5,25 @@ import Contact from "@/components/Contact";
 import EmailIcon from "@/components/icons/EmailIcon";
 import PhoneIcon from "@/components/icons/PhoneIcon";
 import Map from "@/components/Map";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React from "react";
 
 export default function Page() {
   return (
     <div className="w-full">
       <div className="w-full">
-        <Image
-          src="/contact-banner-img.jpg"
-          alt="Contact Banner"
-          className="w-full object-cover"
-          width={1920}
-          height={400}
-          quality={100}
-        />
-        <div className="relative bg-white border-b-[2px] mx-5 -mt-[153px] tablet:mx-20">
+        <div className="relative w-full h-[375px] tablet:h-[590px]">
+          <Image
+            src="/contact-banner-img.jpg"
+            alt="Contact Banner"
+            layout="fill"
+            className="w-full h-full object-cover"
+            width={1920}
+            height={400}
+            quality={100}
+          />
+        </div>
+        <div className="relative bg-white border-b-[2px] mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
           <div className="p-6 tablet:p-[64px_64px_0px_64px] flex flex-col gap-2">
             <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
               Connect with Cannex
@@ -55,11 +58,12 @@ export default function Page() {
           </div>
           <div className="mt-8 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
             <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
-              <div className="w-full h-[324px]">
+              <div className="relative w-full h-[324px]">
                 <Image
                   src="/headquarter-img.png"
                   alt="headquarter"
                   className="w-full h-full object-cover"
+                  layout="fill"
                   width={1920}
                   height={400}
                   quality={100}
@@ -74,11 +78,12 @@ export default function Page() {
               </div>
             </div>
             <div className="w-full tablet:border-[2px_2px_0px_0px]">
-              <div className="w-full h-[324px]">
+              <div className="relative w-full h-[324px]">
                 <Image
                   src="/lab-img.png"
                   alt="lab"
                   className="w-full h-full object-cover"
+                  layout="fill"
                   width={1920}
                   height={400}
                   quality={100}
