@@ -23,13 +23,23 @@ export default function RnD() {
           alt="Research & Development"
           width={1920}
           height={800}
-          className="w-full h-auto object-cover"
+          className="hidden md:block w-full h-auto object-cover"
+          sizes="100vw"
           priority
         />
 
-        {/* Overlay text aligned with same container as below */}
+        <Image
+          src="/rnd/Image 1_1.png"
+          alt="Research & Development"
+          width={375}
+          height={375}
+          className="block md:hidden w-full h-auto object-cover"
+          sizes="100vw"
+          priority
+        />
+
         <div className="absolute bottom-0 left-0 w-full py-6 md:py-8">
-          <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8">
+          <div className="mx-auto w-full px-6 desktop:px-8 pt-16 md:pt-0">
             <h1 className="text-5xl desktop:text-7xl font-bold text-black w-fit leading-tight">
               Research
               <br />
@@ -38,9 +48,10 @@ export default function RnD() {
           </div>
         </div>
       </div>
+
       {/* INTRO SECTION */}
       <section className="bg-white">
-        <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8 py-10 desktop:py-14 grid gap-8 desktop:grid-cols-12 items-center">
+        <div className="mx-auto w-full  px-6 desktop:px-8 py-10 desktop:py-14 grid gap-8 desktop:grid-cols-12 items-center">
           {/* Text */}
           <div className="desktop:col-span-7">
             <h2 className="text-4xl tablet:text-5xl desktop:text-6xl font-bold leading-tight text-black">
