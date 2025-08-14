@@ -135,4 +135,16 @@ export class BackendClient {
       return false;
     }
   }
+
+  async getGoogleMaps(): Promise<PagenateResponse<WebConfig>> {
+    try {
+      const response = await this.client.get(
+        "/api/web-configs?filters[key][$eq][0]=contact.lab-google-map&filters[key][$eq][1]=contact.headquarter-google-map"
+      );
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return getEmptyPagenate();
+    }
+  }
 }

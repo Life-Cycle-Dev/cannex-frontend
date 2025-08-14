@@ -11,7 +11,7 @@ interface Props {
   href?: string;
   prefixIcon?: React.ReactNode;
   suffixIcon?: React.ReactNode;
-  className: string;
+  className?: string;
   disabled?: boolean;
   onClick?: () => void;
 }
