@@ -1,3 +1,4 @@
+import { ContactForm } from "@/types/contact-forms";
 import { Event } from "@/types/event";
 import { NewsRooms } from "@/types/new-rooms";
 import {
@@ -112,7 +113,7 @@ export class BackendClient {
     } catch (e) {
       console.log(e);
       return {
-        data: [{key: key, value: ""}],
+        data: [{ key: key, value: "" }],
         meta: {
           pagination: {
             page: 0,
@@ -122,6 +123,18 @@ export class BackendClient {
           }
         }
       }
+    }
+  }
+
+  async createContactForm(payload: ContactForm): Promise<void> {
+    try {
+      const response = await this.client.post("/api/contact-forms", {
+        data: payload
+      });
+      return response.data;
+    } catch (e) {
+      console.log(e);
+      return;
     }
   }
 }
