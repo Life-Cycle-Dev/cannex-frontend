@@ -67,8 +67,9 @@ export default function Button({
         <div className="flex items-center relative w-4 h-4 overflow-hidden">
           <div
             className="
-              absolute transition-transform duration-500 ease-ou2
-              group-hover:-translate-y-3 group-hover:translate-x-3 group-hover:text-white"
+            absolute transition-transform duration-500 ease-out
+            group-hover:-translate-y-3 group-hover:translate-x-3 group-hover:text-white
+          "
           >
             {suffixIcon}
           </div>
