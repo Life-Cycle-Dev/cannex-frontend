@@ -1,9 +1,10 @@
+import Partners from "@/components/Partners";
 import Image from "next/image";
 
 export default function Page() {
   return (
     <div>
-      <div className="tablet:h-[590px] flex flex-col tablet:flex-row">
+      <div className="tablet:h-[590px] flex flex-col tablet:flex-row tablet:border-b-2">
         <div className="w-full tablet:w-[55%] h-full tablet:border-r-2 flex flex-col">
           <div className="w-full h-fit text-[46px] tablet:text-[72px] font-bold p-[32px_20px] tablet:border-b-2 tablet:p-[64px_8%]">
             Partnership
@@ -43,41 +44,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="mx-[20px]">
-        <div className="text-[24px] py-[32px] font-bold border-b-2">
-          Market Analysis and Planning
-        </div>
-        <div className="grid grid-cols-2">
-          <div className="flex justify-center items-center h-[167px]">
-            <Image
-              src="/partnership/icon/market-1.png"
-              alt="market-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={51}
-            />
-          </div>
-          <div className="flex justify-center items-center h-[167px]">
-            <Image
-              src="/partnership/icon/market-2.png"
-              alt="market-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={51}
-            />
-          </div>
-          <div className="flex justify-center items-center h-[167px]">
-            <Image
-              src="/partnership/icon/market-3.png"
-              alt="market-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={51}
-            />
-          </div>
-          <div className="flex justify-center items-center h-[167px]"></div>
-        </div>
-      </div>
+      <Partners />
     </div>
   );
 }
