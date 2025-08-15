@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
-import Button from "@/components/Button";
-import ShareIcon from "@/components/icons/ShareIcon";
 import Markdown from "@/components/Markdown";
 import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
