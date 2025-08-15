@@ -1,80 +1,83 @@
-"use client";
-import PartnersMatrix from "@/app/research-and-development/PartnersMatrix";
-import KeyAlliances from "@/app/partnership/KeyAlliances";
-import OfferAndAudience from "@/app/partnership/OfferAndAudience";
 import Image from "next/image";
 
-export default function PartnershipPage() {
+export default function Page() {
   return (
-    <>
-      <main className="bg-white text-black">
-        <section className="w-full grid grid-cols-1 desktop:grid-cols-2 border-2 border-black">
-          <div className="border-r-2 border-black">
-            {/* หัวข้อ */}
-            <div className="max-w-[1200px] px-5 tablet:px-20 py-8 tablet:py-16">
-              <h1 className="text-4xl tablet:text-5xl desktop:text-6xl font-bold">
-                Partnership
-              </h1>
-            </div>
-
-            {/* รูปภาพ */}
-            <div className="border-t-2 border-black tablet:px-0  tablet:pt-0">
-              {/* Mobile image */}
-              <Image
-                src="/partners/partnership-mobile.png"
-                alt="Cultivation partnership mobile"
-                width={1920}
-                height={1080}
-                priority
-                className="object-contain w-full h-auto tablet:hidden"
-              />
-
-              {/* Tablet+ image */}
-              <Image
-                src="/partners/Image 2_1.png"
-                alt="Cultivation partnership"
-                width={1920}
-                height={1080}
-                priority
-                className="object-contain w-full h-auto hidden tablet:block"
-              />
-            </div>
+    <div>
+      <div className="tablet:h-[590px] flex flex-col tablet:flex-row">
+        <div className="w-full tablet:w-[55%] h-full tablet:border-r-2 flex flex-col">
+          <div className="w-full h-fit text-[46px] tablet:text-[72px] font-bold p-[32px_20px] tablet:border-b-2 tablet:p-[64px_8%]">
+            Partnership
           </div>
-
-          <div className="pt-[96px] pb-[64px] px-[20px] tablet:px-[80px] flex flex-col gap-6 justify-center">
-            <h2 className="font-extrabold tracking-tight text-[44px] tablet:text-[56px] desktop:text-[64px] leading-[0.95]">
-              <span className="inline-block align-top -mx-[2px] px-[2px] bg-crystalGreen text-black">
-                Global
-              </span>
-              <br />
-              <span className="inline-block align-top -mx-[2px] px-[2px] bg-crystalGreen text-black">
-                Collaboration
-              </span>
-              <br />
-              <span className="inline-block align-top text-black">
-                for Local Impact
-              </span>
-            </h2>
-
-            <p className="text-neutral1000 text-[15px] desktop:text-base leading-relaxed">
-              Cannex was built on the belief that great things happen when
-              people — and nations — collaborate with purpose. From growers and
-              chemists to regulators and healthcare providers, our partnerships
-              are the reason we can deliver pharmaceutical-grade cannabis at a
-              global scale.
-            </p>
-
-            <p className="text-neutral1000 text-[15px] desktop:text-base leading-relaxed">
-              We don’t just supply products —{" "}
-              <span className="font-bold">we build ecosystems</span> for
-              sustainable and scalable medical cannabis growth.
-            </p>
+          <div className="h-[375px] tablet:h-[352px] border-y-2 tablet:border-y-0">
+            <Image
+              src="/partnership/hero-section.jpg"
+              alt="hero-section"
+              className="w-full h-full object-cover"
+              width={864}
+              height={424}
+              quality={100}
+            />
           </div>
-        </section>
-      </main>
-      <PartnersMatrix />
-      <KeyAlliances />
-      <OfferAndAudience />
-    </>
+        </div>
+        <div className="flex flex-col gap-2 justify-center mx-[20px] pb-[64px] pt-[32px] border-b-2 tablet:w-[45%] tablet:border-b-0 tablet:mx-0 tablet:py-0 tablet:px-[80px]">
+          <div className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit h-fit leading-[110%]">
+            Global
+          </div>
+          <div className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit leading-[110%]">
+            Collaboration
+          </div>
+          <div className="text-[52px] font-bold line-clamp-1">
+            for Local Impact
+          </div>
+          <div className="text-[16px] my-[16px] line-clamp-5">
+            Cannex was built on the belief that great things happen when people
+            — and nations — collaborate with purpose. From growers and chemists
+            to regulators and healthcare providers, our partnerships are the
+            reason we can deliver pharmaceutical-grade cannabis at a global
+            scale.
+          </div>
+          <div className="text-[16px] line-clamp-2">
+            We don’t just supply products — we build ecosystems for sustainable
+            and scalable medical cannabis growth.
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-[20px]">
+        <div className="text-[24px] py-[32px] font-bold border-b-2">
+          Market Analysis and Planning
+        </div>
+        <div className="grid grid-cols-2">
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-1.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-2.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-3.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]"></div>
+        </div>
+      </div>
+    </div>
   );
 }

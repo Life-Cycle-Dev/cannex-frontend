@@ -49,8 +49,8 @@ export default function PartnersMatrix(): any {
   return (
     <section className="w-full bg-white text-foreground">
       <div className="w-full px-0">
-        <div className="h-px w-full bg-[var(--border)]" />
-        <div className="grid grid-cols-1 tablet:grid-cols-[420px_1fr] w-full">
+        <div className="h-px w-full bg-neutral200" />
+        <div className="grid grid-cols-1 md:grid-cols-[420px_1fr] w-full">
           {data.map((cat: any, idx: any) =>
             cat.splitRow && cat.subCategories ? (
               <SplitRow

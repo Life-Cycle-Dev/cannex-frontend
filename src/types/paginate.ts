@@ -21,6 +21,8 @@ export interface PagenateResponse<T> {
     meta: MetadataPaginate;
 }
 
+export type SortOption = "createdAt:desc" | "view:desc";
+
 export const getEmptyPagenate = (): PagenateResponse<any> => {
     return {
         data: [],

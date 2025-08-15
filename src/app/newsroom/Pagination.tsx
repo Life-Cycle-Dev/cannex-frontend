@@ -12,13 +12,23 @@ import ArrowUp from "../../components/icons/ArrowUp";
 import Button from "../../components/Button";
 import Link from "next/link";
 import { useHelperContext } from "@/components/providers/helper-provider";
+import { SortOption } from "@/types/paginate";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
-  const { backendClient } = useHelperContext()();
+  const { backendClient, setLoading } = useHelperContext()();
+  const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
+    label: "Newest",
+    value: "createdAt:desc",
+  });
+
+  const filterItem: { label: string; value: SortOption }[] = [
+    { label: "Newest", value: "createdAt:desc" },
+    { label: "Popular", value: "view:desc" },
+  ];
 
   useEffect(() => {
     setPage(1);
@@ -26,17 +36,22 @@ export default function Pagination() {
 
   useEffect(() => {
     fetchData(page, searchText);
-  }, [page, searchText]);
+  }, [page, searchText, filter]);
 
   const fetchData = async (p: number, q: string) => {
+    if (q === "") {
+      setLoading(true);
+    }
     const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
         "pagination[pageSize]": 6,
         "pagination[page]": p,
       },
+      filter.value,
       q,
     );
+    setLoading(false);
     setDatas(response.data ?? []);
     const pc =
       (response as any)?.meta?.pagination?.pageCount ??
@@ -159,13 +174,7 @@ export default function Pagination() {
           />
         </div>
         <div className="mb-[48px] tablet:mb-0">
-          <Filter
-            items={[
-              { label: "Newest", value: "newest" },
-              { label: "Popular", value: "popular" },
-            ]}
-            value={{ label: "Popular", value: "popular" }}
-          />
+          <Filter items={filterItem} value={filter} onChange={setFilter} />
         </div>
       </div>
 

@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/nav-bar/NavBar";
 import Footer from "@/components/Footer";
 import { HelperProvider } from "@/components/providers/helper-provider";
+import { LoadingProvider } from "@/components/providers/loading-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,11 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
-        <HelperProvider>
-          <NavBar />
-          {children}
-        </HelperProvider>
-        <Footer />
+        <LoadingProvider>
+          <HelperProvider>
+            <NavBar />
+            {children}
+          </HelperProvider>
+          <Footer />
+        </LoadingProvider>
       </body>
     </html>
   );

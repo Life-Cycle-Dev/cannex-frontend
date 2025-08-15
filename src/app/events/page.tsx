@@ -5,11 +5,14 @@ import { BackendClient } from "@/lib/backend-client";
 
 export default async function Page() {
   const backendClient = new BackendClient();
-  const response = await backendClient.getEventPagination({
-    "pagination[withCount]": "true",
-    "pagination[pageSize]": 3,
-    "pagination[page]": 1,
-  });
+  const response = await backendClient.getEventPagination(
+    {
+      "pagination[withCount]": "true",
+      "pagination[pageSize]": 3,
+      "pagination[page]": 1,
+    },
+    "view:desc",
+  );
 
   const items = response?.data ?? [];
 

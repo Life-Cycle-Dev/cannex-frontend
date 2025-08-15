@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -10,12 +11,23 @@ import {
   useContext,
   useState,
 } from "react";
+import ShareProvider from "@/components/ShareProvider";
+import { useLoadingContext } from "./loading-provider";
+
+interface ShareInfo {
+  imageUrl: string;
+  title: string;
+  url: string;
+}
 
 interface HelperContextType {
   backendClient: BackendClient;
   router: ReturnType<typeof useRouter>;
   navigate: string;
   setNavigate: (value: string) => void;
+  shareInfo?: ShareInfo | null;
+  setShareInfo: (payload: ShareInfo) => void;
+  setLoading: (value: boolean) => void;
 }
 
 const HelperContext = createContext<() => HelperContextType>(() => {
@@ -24,12 +36,17 @@ const HelperContext = createContext<() => HelperContextType>(() => {
     router: useRouter(),
     navigate: "home",
     setNavigate: () => {},
+    shareInfo: undefined,
+    setShareInfo: () => {},
+    setLoading: () => {},
   };
 });
 
 export function HelperProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [navigate, setNavigate] = useState<string>("");
+  const [shareInfo, setShareInfo] = useState<ShareInfo | null>();
+  const setLoading = useLoadingContext();
 
   const useHelper = useCallback(
     () => ({
@@ -37,12 +54,23 @@ export function HelperProvider({ children }: { children: ReactNode }) {
       router,
       setNavigate,
       navigate,
+      shareInfo,
+      setShareInfo,
+      setLoading,
     }),
     [navigate],
   );
-  
+
   return (
     <HelperContext.Provider value={useHelper}>
+      {shareInfo?.title && (
+        <ShareProvider
+          imageUrl={shareInfo?.imageUrl ?? ""}
+          title={shareInfo?.title ?? ""}
+          url={shareInfo?.url ?? ""}
+          onClose={() => setShareInfo(null)}
+        />
+      )}
       {children}
     </HelperContext.Provider>
   );
