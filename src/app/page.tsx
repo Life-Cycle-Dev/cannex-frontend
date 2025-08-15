@@ -33,44 +33,51 @@ export default function Home() {
               quality={100}
             />
           </div>
-          {/* left-5 tablet:left-20 top-[268px] tablet:top-12 */}
-          <div className="absolute z-10 h-full w-full flex flex-col gap-8 pt-[268px] tablet:pt-0 pl-5 tablet:pl-20 tablet:justify-center">
-            <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
-              <h1 className="bg-crystalGreen w-fit">Pharmaceutical-</h1>
-              <h1 className="bg-crystalGreen w-fit">-Grade</h1>
-              <h1 className="bg-crystalGreen w-fit">Formulation,</h1>
-              <h1 className="bg-white w-fit">Crafted with</h1>
-              <h1 className="hidden tablet:block bg-white w-fit">
-                Clinical Precision.
-              </h1>
-              <h1 className="tablet:hidden bg-white w-fit">Clinical</h1>
-              <h1 className="tablet:hidden bg-white w-fit">Precision.</h1>
-            </div>
-            <p className="font-semibold text-black tablet:text-white tablet:w-[425px]">
-              From plant to product — Cannex unites American genetics, Thai
-              innovation, and Japanese-grade extraction to deliver premium
-              medical cannabis, globally.
-            </p>
+          <div className="absolute z-10 top-[clamp(1rem,268px,calc(100vh-584px))] left-5 tablet:left-20 bottom-0">
+            <div className="h-full w-full flex flex-col gap-8 tablet:justify-center">
+              <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
+                <p className="bg-crystalGreen w-fit">Pharmaceutical-</p>
+                <p className="tablet:hidden bg-crystalGreen w-fit">-Grade</p>
+                <p className="tablet:hidden bg-crystalGreen w-fit">
+                  Formulation,
+                </p>
+                <p className="hidden tablet:block bg-crystalGreen w-fit">
+                  Grade Formulation,
+                </p>
+                <p className="bg-white w-fit">Crafted with</p>
+                <p className="hidden tablet:block bg-white w-fit">
+                  Clinical Precision.
+                </p>
+                <p className="tablet:hidden bg-white w-fit">Clinical</p>
+                <p className="tablet:hidden bg-white w-fit">Precision.</p>
+              </div>
+              <p className="font-semibold text-black tablet:text-white tablet:w-[425px]">
+                From plant to product — Cannex unites American genetics, Thai
+                innovation, and Japanese-grade extraction to deliver premium
+                medical cannabis, globally.
+              </p>
 
-            <div className="hidden tablet:block">
-              <Button
-                href=""
-                text="Explore our products"
-                type="secondaryWhite"
-                className="w-fit"
-                suffixIcon={<RightUpIcon className="w-4 h-4" />}
-              />
+              <div className="hidden tablet:block">
+                <Button
+                  href=""
+                  text="Explore our products"
+                  type="secondaryWhite"
+                  className="w-fit"
+                  suffixIcon={<RightUpIcon className="w-4 h-4" />}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="tablet:hidden">
-          <Button
-            href=""
-            text="Explore our products"
-            type="primary"
-            className="w-full"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
-          />
+
+          <div className="tablet:hidden">
+            <Button
+              href=""
+              text="Explore our products"
+              type="primary"
+              className="w-full !h-12"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            />
+          </div>
         </div>
       </section>
       <About />

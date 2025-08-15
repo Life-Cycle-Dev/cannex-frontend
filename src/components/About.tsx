@@ -53,11 +53,11 @@ export default function About() {
 
       <div className="pb-[107px] relative">
         <div className="mt-8 tablet:mt-7">
-          <div className="mt-7 hidden tablet:block">
+          <div className="mt-7 hidden tablet:block w-full">
             <Image
               src="/product-horizontal.png"
               alt="product"
-              className="h-full object-cover"
+              className="h-full w-full object-cover"
               width={1185}
               height={432}
               quality={100}
@@ -76,7 +76,7 @@ export default function About() {
           </div>
 
           <div className="absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20">
-            <div className="w-[247px] tablet:w-full flex flex-col tablet:flex-row tablet:items-end tablet:justify-between">
+            <div className="w-[247px] tablet:w-full flex flex-col gap-6 tablet:flex-row tablet:items-end tablet:justify-between">
               <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
                 <div>
                   {/* Modbile */}
@@ -114,12 +114,6 @@ export default function About() {
                 suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
-            <Button
-              type="secondaryBlack"
-              text="Explore our products"
-              className="w-full tablet:w-fit shrink-0"
-              suffixIcon={<RightUpIcon className="w-4 h-4" />}
-            />
           </div>
         </div>
       </div>
