@@ -24,13 +24,14 @@ export class BackendClient {
 
   async getNewsRoomsPagination(
     params: PaginateParams,
-    search: string = ""
+    sort: 'createdAt:desc' | 'view:desc',
+    search: string = "",
   ): Promise<PagenateResponse<NewsRooms>> {
     try {
       const response = await this.client.get("/api/newsrooms", {
         params: {
           ...params,
-          "sort[0]": "index:asc",
+          "sort[0]": sort,
           "filters[title][$containsi]": search,
           populate: "image",
         },
@@ -63,13 +64,14 @@ export class BackendClient {
 
   async getEventPagination(
     params: PaginateParams,
-    search: string = ""
+    sort: 'createdAt:desc' | 'view:desc',
+    search: string = "",
   ): Promise<PagenateResponse<Event>> {
     try {
       const response = await this.client.get("/api/events", {
         params: {
           ...params,
-          "sort[0]": "index:asc",
+          "sort[0]": "createdAt:asc",
           "filters[title][$containsi]": search,
           populate: "image",
         },

@@ -34,6 +34,7 @@ export default function Pagination() {
         "pagination[pageSize]": 6,
         "pagination[page]": p,
       },
+      "createdAt:desc",
       q,
     );
     setDatas(response.data ?? []);
