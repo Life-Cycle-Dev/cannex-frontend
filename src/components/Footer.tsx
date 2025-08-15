@@ -130,10 +130,23 @@ export default function Footer() {
           </div>
           <div className="w-full tablet:w-fit flex justify-end">
             <button
-              className="w-12 h-12 hover:bg-black flex items-center justify-center text-black hover:text-crystalGreen cursor-pointer"
+              className="group overflow-hidden relative w-12 h-12 hover:bg-black flex items-center justify-center text-black hover:text-crystalGreen cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              <ArrowUp />
+              <div
+                className="
+                  absolute transition-transform duration-500 ease-out 
+                  group-hover:-translate-y-10 group-hover:text-black
+                ">
+                <ArrowUp />
+              </div>
+              <div
+                className="
+                  absolute transition-transform duration-500 ease-out
+                  text-crystalGreen translate-y-10 group-hover:translate-y-0
+                ">
+                <ArrowUp />
+              </div>
             </button>
           </div>
         </div>
