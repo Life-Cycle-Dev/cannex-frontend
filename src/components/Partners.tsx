@@ -4,18 +4,21 @@ import React from "react";
 export default function Partners() {
   return (
     <div>
-      <div className="mx-[20px] w-[calc(100vw-40px)] block tablet:hidden">
-        <div>
-          <div className="text-[24px] py-[32px] font-bold">
-            Market Analysis and Planning
+      <div className="hidden tablet:block">
+        {/* Desktop */}
+        <div className="grid grid-cols-[3fr_2fr] border-b-2">
+          <div className="text-[24px] p-[40px_80px] font-bold border-r-2">
+            Market Analysis <br />
+            and Planning
           </div>
-          <div className="text-[24px] py-[32px] font-bold">
-            Variety Improvement and Cultivation
+          <div className="text-[24px] p-[40px_80px] font-bold">
+            Variety Improvement <br />
+            and Cultivation
           </div>
         </div>
 
-        <div className="grid grid-cols-2">
-          <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
+        <div className="grid grid-cols-5">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/market-1.png"
               alt="market-1.png"
@@ -24,7 +27,7 @@ export default function Partners() {
               height={51}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/market-2.png"
               alt="market-2.png"
@@ -33,7 +36,7 @@ export default function Partners() {
               height={84}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-r-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/market-3.png"
               alt="market-3.png"
@@ -42,31 +45,32 @@ export default function Partners() {
               height={42}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-r-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/variety-1.png"
               alt="variety-1.png"
-              className="w-fit h-fit"
+              className="w-fit h-full"
               width={190}
               height={104}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px]">
+          <div className="flex justify-center items-center h-[140px]">
             <Image
               src="/partnership/icon/variety-2.png"
               alt="variety-2.png"
-              className="w-fit h-[135px]"
+              className="w-fit h-[90%]"
               width={75}
               height={96}
             />
           </div>
         </div>
 
-        <div className="text-[24px] py-[32px] font-bold border-y-2">
-          Technology and Engineering
+        <div className="text-[24px] p-[40px_80px] font-bold border-y-2">
+          Technology and <br />
+          Engineering
         </div>
-        <div className="grid grid-cols-2">
-          <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
+        <div className="grid grid-cols-5">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/technology-and-engineering-1.png"
               alt="technology-and-engineering-1.png"
@@ -75,7 +79,7 @@ export default function Partners() {
               height={58}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/technology-and-engineering-2.png"
               alt="technology-and-engineering-2.png"
@@ -84,7 +88,7 @@ export default function Partners() {
               height={75}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/technology-and-engineering-3.png"
               alt="technology-and-engineering-3.png"
@@ -93,7 +97,7 @@ export default function Partners() {
               height={56}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/technology-and-engineering-4.png"
               alt="technology-and-engineering-4.png"
@@ -102,22 +106,23 @@ export default function Partners() {
               height={47}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-r-2">
+          <div className="flex justify-center items-center h-[140px]">
             <Image
               src="/partnership/icon/technology-and-engineering-5.png"
               alt="technology-and-engineering-5.png"
-              className="w-fit h-[75px]"
+              className="w-fit h-fit"
               width={135}
               height={70}
             />
           </div>
         </div>
 
-        <div className="text-[24px] py-[32px] font-bold border-y-2">
-          Analysis, Testing and Clinical Trials
+        <div className="text-[24px] p-[40px_80px] font-bold border-y-2">
+          Analysis, Testing <br />
+          and Clinical Trials
         </div>
-        <div className="grid grid-cols-2">
-          <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
+        <div className="grid grid-cols-5">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/analysis-1.png"
               alt="analysis-1.png"
@@ -126,7 +131,7 @@ export default function Partners() {
               height={49}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/analysis-2.png"
               alt="analysis-2.png"
@@ -135,7 +140,7 @@ export default function Partners() {
               height={96}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/analysis-3.png"
               alt="analysis-3.png"
@@ -144,7 +149,7 @@ export default function Partners() {
               height={44}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-b-2">
+          <div className="flex justify-center items-center h-[140px] border-r-2">
             <Image
               src="/partnership/icon/analysis-4.png"
               alt="analysis-4.png"
@@ -153,7 +158,7 @@ export default function Partners() {
               height={39}
             />
           </div>
-          <div className="flex justify-center items-center h-[167px] border-r-2">
+          <div className="flex justify-center items-center h-[140px]">
             <Image
               src="/partnership/icon/analysis-5.png"
               alt="analysis-5.png"
@@ -165,7 +170,8 @@ export default function Partners() {
         </div>
       </div>
 
-      <div className="mx-[20px] w-[calc(100vw-40px)] hidden tablet:block">
+      {/* Mobile */}
+      <div className="mx-[20px] w-[calc(100vw-40px)] block tablet:hidden">
         <div className="text-[24px] py-[32px] font-bold border-b-2">
           Market Analysis and Planning
         </div>

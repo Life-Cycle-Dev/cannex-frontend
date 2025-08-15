@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     <>
       <div className="flex justify-center">
-        <div className="h-[2px] w-[calc(100vw-40px)] bg-black"></div>
+        <div className="h-[2px] w-[calc(100vw-40px)] tablet:w-full bg-black"></div>
       </div>
       <div className="w-full pt-12 py-4 px-5 tablet:pb-0 tablet:px-20 flex flex-col tablet:flex-row gap-12">
         <div className="flex flex-col gap-10 max-w-[406px]">
