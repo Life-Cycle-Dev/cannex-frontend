@@ -71,7 +71,7 @@ export class BackendClient {
       const response = await this.client.get("/api/events", {
         params: {
           ...params,
-          "sort[0]": "createdAt:asc",
+          "sort[0]": sort,
           "filters[title][$containsi]": search,
           populate: "image",
         },
