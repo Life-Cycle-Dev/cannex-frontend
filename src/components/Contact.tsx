@@ -170,7 +170,7 @@ export default function Contact() {
       <div className="mt-10">
         <Button
           text="Submit"
-          suffixIcon={<RightUpIcon />}
+          suffixIcon={<RightUpIcon className="w-4 h-4" />}
           className="w-[238px]"
           type="secondaryBlack"
           disabled={

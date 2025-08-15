@@ -25,6 +25,7 @@ export default function ShareButton({ imageUrl, title, url }: ShareInfo) {
           url,
         });
       }}
+      isAnimate={false}
       suffixIcon={<ShareIcon className="hover:text-crystalGreen" />}
     />
   );
