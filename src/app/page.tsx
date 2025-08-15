@@ -4,13 +4,13 @@
 import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
-import ProductsGrid from "@/components/ProductsGrid";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import Contact from "@/components/Contact";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { useEffect } from "react";
 import Supplying from "@/components/Supplying";
 import AOS from "aos";
+import Products from "@/components/Products";
 
 export default function Home() {
   const { setNavigate } = useHelperContext()();
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </section>
       <About />
-      <ProductsGrid />
+      <Products />
       <Supplying />
       <Contact />
     </div>

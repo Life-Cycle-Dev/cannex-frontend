@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "./Button";
 import Image from "next/image";
 import RightUpIcon from "./icons/RightUpIcon";
+import AOS from "aos";
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="w-full">
       <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
@@ -23,14 +31,20 @@ export default function About() {
         <div className="w-full max-w-[629px] flex flex-col gap-6">
           <div className="flex flex-col gap-2 tablet:gap-6">
             <div className="flex flex-col gap-4">
-              <div className="py-0.5 px-2 bg-black text-white w-fit">
+              <div
+                data-aos="fade-right"
+                className="py-0.5 px-2 bg-black text-white w-fit"
+              >
                 Brand Introduction
               </div>
-              <p className="text-[32px] tablet:text-[52px] font-bold">
+              <p
+                data-aos="fade-down"
+                className="text-[32px] tablet:text-[52px] font-bold"
+              >
                 Where Expertise Meets Collaboration.
               </p>
             </div>
-            <p>
+            <p data-aos="fade-up">
               <span className="font-medium">
                 Cannex was born from a global alliance between Cannex Pharma and
                 Siam Agri-Bio — combining world-class cultivation and extraction
@@ -42,13 +56,15 @@ export default function About() {
               </span>
             </p>
           </div>
-          <Button
-            text="Learn about cannex"
-            type="secondaryBlack"
-            href="/about-us"
-            className="w-full tablet:w-fit"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
-          />
+          <div data-aos="fade-up">
+            <Button
+              text="Learn about cannex"
+              type="secondaryBlack"
+              href="/about-us"
+              className="w-full tablet:w-fit"
+              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            />
+          </div>
         </div>
       </div>
 
