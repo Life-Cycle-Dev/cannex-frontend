@@ -36,7 +36,7 @@ export default function Page() {
       <div className="w-full">
         <div className="relative w-full h-[375px] tablet:h-[590px]">
           <Image
-            src="/contact-banner-img.jpg"
+            src="/asset/contact-banner-img.jpg"
             alt="Contact Banner"
             layout="fill"
             className="w-full h-full object-cover"
@@ -82,7 +82,7 @@ export default function Page() {
             <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
               <div className="relative w-full h-[324px]">
                 <Image
-                  src="/headquarter-img.png"
+                  src="/asset/headquarter-img.png"
                   alt="headquarter"
                   className="w-full h-full object-cover"
                   layout="fill"
@@ -101,7 +101,7 @@ export default function Page() {
             <div className="w-full tablet:border-[2px_2px_0px_0px]">
               <div className="relative w-full h-[324px]">
                 <Image
-                  src="/lab-img.png"
+                  src="/asset/lab-img.png"
                   alt="lab"
                   className="w-full h-full object-cover"
                   layout="fill"
