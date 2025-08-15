@@ -23,7 +23,7 @@ export default function RnD() {
           alt="Research & Development"
           width={1920}
           height={800}
-          className="hidden md:block w-full h-auto object-cover"
+          className="hidden tablet:block w-full h-auto object-cover"
           sizes="100vw"
           priority
         />
@@ -33,14 +33,13 @@ export default function RnD() {
           alt="Research & Development"
           width={375}
           height={375}
-          className="block md:hidden w-full h-auto object-cover"
+          className="block tablet:hidden w-full h-auto object-cover"
           sizes="100vw"
           priority
         />
 
-        {/* Overlay text aligned with same container as below */}
         <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
-          <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8">
+          <div className="mx-auto w-full px-6 desktop:px-8 pt-16 tablet:pt-0">
             <h1 className="text-5xl desktop:text-7xl font-bold text-black w-fit leading-tight">
               Research
               <br />

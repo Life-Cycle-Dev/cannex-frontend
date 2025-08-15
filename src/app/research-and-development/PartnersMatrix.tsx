@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -49,7 +50,7 @@ export default function PartnersMatrix(): any {
   return (
     <section className="w-full bg-white text-foreground">
       <div className="w-full px-0">
-        <div className="h-px w-full bg-[var(--border)]" />
+        <div className="h-px w-full bg-black" />
         <div className="grid grid-cols-1 tablet:grid-cols-[420px_1fr] w-full">
           {data.map((cat: any, idx: any) =>
             cat.splitRow && cat.subCategories ? (
@@ -68,7 +69,7 @@ export default function PartnersMatrix(): any {
             ),
           )}
         </div>
-        <div className="h-px w-full bg-neutral200" />
+        <div className="h-px w-full bg-black" />
       </div>
     </section>
   );
@@ -79,20 +80,21 @@ function Row({ title, logos, borderTop }: any): any {
     <>
       <div
         className={[
-          "md:col-span-2 w-full",
-          borderTop ? "border-t border-neutral200" : "",
-        ].join(" ")}>
-        <div className="grid grid-cols-1 md:grid-cols-[420px_1fr]">
+          "tablet:col-span-2 w-full",
+          borderTop ? "border-t-2 border-black" : "",
+        ].join(" ")}
+      >
+        <div className="grid grid-cols-1 tablet:grid-cols-[420px_1fr]">
           <div className="px-6 desktop:px-8 py-6 desktop:py-8">
-            <h3 className="text-lg md:text-xl font-extrabold leading-snug">
+            <h3 className="text-lg tablet:text-xl font-extrabold leading-snug">
               {breakTwoLines(title)}
             </h3>
           </div>
           <div />
         </div>
-        <div className="h-px w-full bg-neutral200" />
+        <div className="h-px w-full bg-black" />
       </div>
-      <div className="md:col-span-2 p-0">
+      <div className="tablet:col-span-2 p-0">
         <LogosStrip logos={logos} cols={5} />
       </div>
     </>
@@ -102,36 +104,37 @@ function Row({ title, logos, borderTop }: any): any {
 function LogosStrip({ logos = [] as any[], cols = 5 }: any): any {
   const desktopCols =
     cols === 2
-      ? "md:grid-cols-2"
+      ? "tablet:grid-cols-2"
       : cols === 3
-      ? "md:grid-cols-3"
-      : "md:grid-cols-5";
+      ? "tablet:grid-cols-3"
+      : "tablet:grid-cols-5";
 
   const visible = logos.slice(0, cols);
 
   const mobileCols = 2;
   const mobileRemainder = visible.length % mobileCols;
-  const mobileFillerCount = (mobileCols - mobileRemainder) % mobileCols; 
+  const mobileFillerCount = (mobileCols - mobileRemainder) % mobileCols;
   const desktopFillerCount = Math.max(0, cols - visible.length);
 
   const cellBorderClass = (iMobile: number, iDesktop: number) => {
-    const baseLeft = iMobile % 2 !== 0 ? "border-l" : "border-l-0";
-    const baseTop = iMobile >= 2 ? "border-t" : "border-t-0";
-    const mdLeft = iDesktop % 5 !== 0 ? "md:border-l" : "md:border-l-0";
-    const mdTop = iDesktop >= 5 ? "md:border-t" : "md:border-t-0";
+    const baseLeft = iMobile % 2 !== 0 ? "border-l-2" : "border-l-0";
+    const baseTop = iMobile >= 2 ? "border-t-2" : "border-t-0";
+    const mdLeft = iDesktop % 5 !== 0 ? "tablet:border-l-2" : "tablet:border-l-0";
+    const mdTop = iDesktop >= 5 ? "tablet:border-t-2" : "tablet:border-t-0";
     return `${baseLeft} ${baseTop} ${mdLeft} ${mdTop}`;
   };
 
   return (
-    <div className="w-full border-r border-b border-neutral200">
+    <div className="w-full border-r-2 border-black">
       <div className={`grid grid-cols-2 ${desktopCols} gap-0 w-full`}>
         {visible.map((l: any, i: number) => (
           <div
             key={i}
             className={`${cellBorderClass(
               i,
-              i
-            )} border-neutral200 h-[96px] md:h-[112px] desktop:h-[128px] grid place-items-center`}>
+              i,
+            )} border-black h-[96px] tablet:h-[112px] desktop:h-[128px] grid place-items-center`}
+          >
             <img
               src={l.src}
               alt={l.alt}
@@ -148,8 +151,8 @@ function LogosStrip({ logos = [] as any[], cols = 5 }: any): any {
               key={`mf-${k}`}
               className={`${cellBorderClass(
                 iMobile,
-                0
-              )} border-neutral200 h-[96px] md:h-[112px] desktop:h-[128px] grid place-items-center md:hidden`}
+                0,
+              )} border-black h-[96px] tablet:h-[112px] desktop:h-[128px] grid place-items-center tablet:hidden`}
             />
           );
         })}
@@ -161,8 +164,8 @@ function LogosStrip({ logos = [] as any[], cols = 5 }: any): any {
               key={`df-${k}`}
               className={`${cellBorderClass(
                 0,
-                iDesktop
-              )} border-neutral200 h-[96px] md:h-[112px] desktop:h-[128px] hidden md:grid place-items-center`}
+                iDesktop,
+              )} border-black h-[96px] tablet:h-[112px] desktop:h-[128px] hidden tablet:grid place-items-center`}
             />
           );
         })}
@@ -170,8 +173,6 @@ function LogosStrip({ logos = [] as any[], cols = 5 }: any): any {
     </div>
   );
 }
-
-
 
 function SplitRow({ subs, borderTop }: any): any {
   const left = subs?.[0] ?? { title: "", logos: [] };
@@ -181,54 +182,31 @@ function SplitRow({ subs, borderTop }: any): any {
   return (
     <div
       className={[
-        "md:col-span-2 w-full",
-        borderTop ? "border-t border-neutral200" : "",
-      ].join(" ")}>
-      <div className="md:hidden">
+        "tablet:col-span-2 w-full",
+        borderTop ? "border-t-2 border-black" : "",
+      ].join(" ")}
+    >
+      <div className="tablet:hidden">
         <Row title={left.title} logos={left.logos} borderTop={false} />
         <Row title={right.title} logos={right.logos} borderTop />
       </div>
 
-      <div className="hidden md:block">
+      <div className="hidden tablet:block">
         <div className="grid grid-cols-5 w-full">
-          <div className="col-span-3 px-6 desktop:px-8 py-6 desktop:py-8 border-r border-neutral200">
-            <h3 className="text-lg md:text-xl font-extrabold leading-snug">
+          <div className="col-span-3 px-6 desktop:px-8 py-6 border-r-1 desktop:py-8 border-black">
+            <h3 className="text-lg tablet:text-xl font-extrabold leading-snug">
               {breakTwoLines(left.title)}
             </h3>
           </div>
-          <div className="col-span-2 px-6 desktop:px-8 py-6 desktop:py-8">
-            <h3 className="text-lg md:text-xl font-extrabold leading-snug">
+          <div className="col-span-2 px-6 desktop:px-8 py-6 border-l-1 desktop:py-8">
+            <h3 className="text-lg tablet:text-xl font-extrabold leading-snug">
               {breakTwoLines(right.title)}
             </h3>
           </div>
         </div>
-        <div className="h-px w-full bg-neutral200" />
+        <div className="h-px w-full bg-black" />
         <LogosStrip logos={allLogos} cols={5} />
       </div>
-    </div>
-  );
-}
-
-function LogosGrid({ logos }: any): any {
-  const filled = [...logos];
-  while (filled.length < 5) filled.push(null);
-
-  return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-0 w-full">
-      {filled.map((l, i) => (
-        <div
-          key={i}
-          className="aspect-[3/2] w-full border border-neutral200 bg-white grid place-items-center p-3">
-          {l ? (
-            <img
-              src={l.src}
-              alt={l.alt}
-              className="max-h-full max-w-full object-contain"
-              loading="lazy"
-            />
-          ) : null}
-        </div>
-      ))}
     </div>
   );
 }
