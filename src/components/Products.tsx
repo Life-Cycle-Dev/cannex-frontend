@@ -64,7 +64,7 @@ function ProductCard({ data }: { data: Card }) {
         </div>
       </div>
 
-      <div className="relative w-full aspect-square">
+      <div className="relative w-full aspect-square bg-white">
         <Image
           src={data.img}
           alt={data.imgAlt}
@@ -76,7 +76,7 @@ function ProductCard({ data }: { data: Card }) {
         />
       </div>
       <div className="p-4 flex flex-col gap-4 tablet:p-6">
-        <div className="absolute inset-0 group-hover:bg-black group-focus-visible:bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-1500 ease-out z-[-10]" />
+        <div className="absolute inset-0 group-hover:bg-black group-focus-visible:bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-2000 ease-out z-[-10]" />
         <p className="whitespace-pre-line font-bold leading-[120%] text-2xl tablet:text-[32px] group-hover:text-crystalGreen group-focus-visible:text-crystalGreen">
           {data.title}
         </p>
