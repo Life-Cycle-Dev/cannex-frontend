@@ -15,13 +15,13 @@ export default function SupportingInformation() {
           <div className="p-6 tablet:px-20 tablet:py-4 text-2xl tablet:text-[32px] font-bold leading-[120%] tablet:border-r-[2px]">
             Cannabinoid Compounds
           </div>
-          <div className="h-[108px]  flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]">
+          <div className="tablet:h-[108px]  flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]">
             CBD / THC / CBN / CBG / Terpenes / Mitragynine
           </div>
         </div>
 
         <div className="border-t-[2px] flex flex-col">
-          <div className="h-[108px] p-6 tablet:px-20 tablet:py-4 text-2xl tablet:text-[32px] font-bold leading-[120%] tablet:border-r-[2px]">
+          <div className="tablet:h-[108px] p-6 tablet:px-20 tablet:py-4 text-2xl tablet:text-[32px] font-bold leading-[120%] tablet:border-r-[2px]">
             Product Formats
           </div>
           <div className="flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]">
@@ -31,7 +31,7 @@ export default function SupportingInformation() {
         </div>
 
         <div className="border-t-[2px] flex flex-col">
-          <div className="h-[108px] p-6 tablet:px-20 tablet:py-4 text-2xl tablet:text-[32px] font-bold leading-[120%]">
+          <div className="tablet:h-[108px] p-6 tablet:px-20 tablet:py-4 text-2xl tablet:text-[32px] font-bold leading-[120%]">
             Testing & Certification
           </div>
           <div className="flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px]">
