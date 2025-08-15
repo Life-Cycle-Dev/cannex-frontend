@@ -12,6 +12,7 @@ import {
   useState,
 } from "react";
 import ShareProvider from "@/components/ShareProvider";
+import { useLoadingContext } from "./loading-provider";
 
 interface ShareInfo {
   imageUrl: string;
@@ -26,6 +27,7 @@ interface HelperContextType {
   setNavigate: (value: string) => void;
   shareInfo?: ShareInfo | null;
   setShareInfo: (payload: ShareInfo) => void;
+  setLoading: (value: boolean) => void;
 }
 
 const HelperContext = createContext<() => HelperContextType>(() => {
@@ -36,6 +38,7 @@ const HelperContext = createContext<() => HelperContextType>(() => {
     setNavigate: () => {},
     shareInfo: undefined,
     setShareInfo: () => {},
+    setLoading: () => {},
   };
 });
 
@@ -43,6 +46,7 @@ export function HelperProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [navigate, setNavigate] = useState<string>("");
   const [shareInfo, setShareInfo] = useState<ShareInfo | null>();
+  const setLoading = useLoadingContext();
 
   const useHelper = useCallback(
     () => ({
@@ -52,6 +56,7 @@ export function HelperProvider({ children }: { children: ReactNode }) {
       navigate,
       shareInfo,
       setShareInfo,
+      setLoading,
     }),
     [navigate],
   );

@@ -5,7 +5,6 @@
 import React, { useEffect, useState } from "react";
 import SearchBox from "../../components/SearchBox";
 import Filter from "../../components/Filter";
-import { BackendClient } from "@/lib/backend-client";
 import RightUpIcon from "../../components/icons/RightUpIcon";
 import { formatDate } from "@/utils/format";
 import ArrowUp from "../../components/icons/ArrowUp";
@@ -13,12 +12,14 @@ import Button from "../../components/Button";
 import Link from "next/link";
 import { Event } from "@/types/event";
 import { SortOption } from "@/types/paginate";
+import { useHelperContext } from "@/components/providers/helper-provider";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
   const [datas, setDatas] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
+  const { backendClient, setLoading } = useHelperContext()();
 
   const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
     label: "Newest",
@@ -39,8 +40,8 @@ export default function Pagination() {
   }, [page, searchText, filter]);
 
   const fetchData = async (p: number, q: string) => {
-    const client = new BackendClient();
-    const response = await client.getEventPagination(
+    setLoading(true);
+    const response = await backendClient.getEventPagination(
       {
         "pagination[withCount]": "true",
         "pagination[pageSize]": 6,
@@ -49,6 +50,7 @@ export default function Pagination() {
       filter.value,
       q,
     );
+    setLoading(false);
     setDatas(response.data ?? []);
     const pc =
       (response as any)?.meta?.pagination?.pageCount ??

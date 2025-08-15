@@ -36,7 +36,7 @@ function Policy() {
 }
 
 export default function Contact() {
-  const { backendClient } = useHelperContext()();
+  const { backendClient, setLoading } = useHelperContext()();
   const [reasons, setReasons] = useState<string[]>([]);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -54,6 +54,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     const payload: ContactForm = {
       firstname: formData.name,
       lastname: formData.lastName,
@@ -62,6 +63,8 @@ export default function Contact() {
       message: formData.message,
     };
     const isSubmittedForm = await backendClient.createContactForm(payload);
+    setLoading(false);
+
     if (!isSubmittedForm) {
       alert("There was an error sending your message. Please try again later.");
       return;

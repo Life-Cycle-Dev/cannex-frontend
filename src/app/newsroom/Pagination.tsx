@@ -19,7 +19,7 @@ export default function Pagination() {
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
-  const { backendClient } = useHelperContext()();
+  const { backendClient, setLoading } = useHelperContext()();
   const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
     label: "Newest",
     value: "createdAt:desc",
@@ -39,6 +39,7 @@ export default function Pagination() {
   }, [page, searchText, filter]);
 
   const fetchData = async (p: number, q: string) => {
+    setLoading(true);
     const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
@@ -48,6 +49,7 @@ export default function Pagination() {
       filter.value,
       q,
     );
+    setLoading(false);
     setDatas(response.data ?? []);
     const pc =
       (response as any)?.meta?.pagination?.pageCount ??
