@@ -46,8 +46,8 @@ export default async function Page({ params, searchParams }: PageProps) {
             <Button
               text="Share"
               type="secondaryBlack"
-              className="w-fit"
-              suffixIcon={<ShareIcon />}
+              className="w-fit cursor-pointer "
+              suffixIcon={<ShareIcon className="hover:text-crystalGreen"/>}
             />
           </div>
         </div>

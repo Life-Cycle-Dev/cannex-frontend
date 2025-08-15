@@ -34,7 +34,7 @@ export default function Button({
       case "primary":
         return "bg-black text-white hover:text-crystalGreen";
       case "secondaryBlack":
-        return "text-black border-[2px] border-black hover:border-none hover:bg-black hover:text-crystalGreen";
+        return "text-black border-[2px] border-black hover:bg-black hover:text-crystalGreen";
       case "secondaryWhite":
         return "text-white border-[2px] border-white hover:border-none hover:bg-black hover:text-crystalGreen";
       case "pagination":
