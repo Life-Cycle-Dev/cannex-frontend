@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MapSvg from "./icons/MapSvg";
 import CannexSvg from "./icons/CannexSvg";
+import AOS from "aos";
 
 export default function Supplying() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
+
   return (
     <div className="bg-black text-white h-fit">
       <div className="w-full p-[48px_20px_80px_20px] tablet:p-[80px_80px_103px_80px] flex flex-col gap-6 tablet:gap-0">

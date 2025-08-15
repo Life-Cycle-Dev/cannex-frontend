@@ -4,13 +4,13 @@ export default function MapSvg({ className }: { className?: string }) {
   return (
     <svg
       className={className}
-      width="984"
-      height="526"
+      width={984}
+      height={526}
       viewBox="0 0 984 526"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_173_10854)">
+      <g clipPath="url(#clip0_173_10854)">
         <path
           d="M248.416 518.03H240.401V526H242.05L248.416 519.651V518.03Z"
           fill="white"
@@ -804,7 +804,7 @@ export default function MapSvg({ className }: { className?: string }) {
       </g>
       <defs>
         <clipPath id="clip0_173_10854">
-          <rect width="984" height="526" fill="white" />
+          <rect width={984} height={526} fill="white" />
         </clipPath>
       </defs>
     </svg>
