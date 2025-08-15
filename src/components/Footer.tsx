@@ -42,7 +42,6 @@ export default function Footer() {
                 alt="Cannex Logo"
                 width={200}
                 height={40}
-                className=""
               />
             </div>
             <div className="flex flex-col gap-6">
@@ -74,8 +73,9 @@ export default function Footer() {
                   href={getContactByKey(social.key)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
+                  className="relative group overflow-hidden p-0.5 font-bold text-black hover:text-crystalGreen"
                 >
+                  <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
                   {social.name}
                 </Link>
               ))}
@@ -101,9 +101,10 @@ export default function Footer() {
                 <Link
                   key={menu.path}
                   href={menu.path}
-                  className="py-[14px] px-1 text-black hover:text-crystalGreen hover:bg-black font-medium w-fit"
+                  className="relative group overflow-hidden my-[14px] px-1 text-black hover:text-crystalGreen font-medium w-fit"
                   rel="noopener noreferrer"
                 >
+                  <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
                   {menu.title}
                 </Link>
               ))}
@@ -113,17 +114,19 @@ export default function Footer() {
                 <Link
                   key={menu.path}
                   href={menu.path}
-                  className="py-[14px] px-1 text-black hover:text-crystalGreen hover:bg-black font-medium w-fit"
+                  className="relative group overflow-hidden my-[14px] px-1 text-black hover:text-crystalGreen font-medium w-fit"
                   rel="noopener noreferrer"
                 >
+                  <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
                   {menu.title}
                 </Link>
               ))}
               <Link
                 href="/contact"
-                className="py-[14px] px-1 text-black hover:text-crystalGreen hover:bg-black font-medium w-fit"
+                className="relative group overflow-hidden my-[14px] px-1 text-black hover:text-crystalGreen font-medium w-fit"
                 rel="noopener noreferrer"
               >
+                <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
                 Contact Us & Inquiry
               </Link>
             </div>
@@ -137,14 +140,16 @@ export default function Footer() {
                 className="
                   absolute transition-transform duration-500 ease-out 
                   group-hover:-translate-y-10 group-hover:text-black
-                ">
+                "
+              >
                 <ArrowUp />
               </div>
               <div
                 className="
                   absolute transition-transform duration-500 ease-out
                   text-crystalGreen translate-y-10 group-hover:translate-y-0
-                ">
+                "
+              >
                 <ArrowUp />
               </div>
             </button>
@@ -156,15 +161,17 @@ export default function Footer() {
           <Link
             href="/privacy-policy"
             target="_blank"
-            className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
+            className="relative group overflow-hidden p-0.5 font-bold text-black hover:text-crystalGreen"
           >
+            <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
             Privacy Policy
           </Link>
           <Link
             href="/terms-of-use"
             target="_blank"
-            className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
+            className="relative group overflow-hidden p-0.5 font-bold text-black hover:text-crystalGreen"
           >
+            <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
             Terms of Use
           </Link>
         </div>
