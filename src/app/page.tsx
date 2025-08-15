@@ -32,7 +32,7 @@ export default function Home() {
           <div className="relative w-full h-[375px] tablet:min-h-[calc(100vh-133px)]">
             <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
             <Image
-              src="/hero-section-img.png"
+              src="/asset/hero-section-img.png"
               alt="Hero Background"
               layout="fill"
               className="h-full w-full object-cover"

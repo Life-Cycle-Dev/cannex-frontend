@@ -18,7 +18,7 @@ export default function About() {
         <div className="w-full flex justify-end tablet:-mt-8">
           <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
             <Image
-              src="/iconic.png"
+              src="/asset/iconic.png"
               alt="iconic"
               className="object-contain w-full h-full"
               width={343}
@@ -72,7 +72,7 @@ export default function About() {
         <div className="mt-8 tablet:mt-7">
           <div className="mt-7 hidden tablet:block w-full">
             <Image
-              src="/product-horizontal.png"
+              src="/asset/product-horizontal.png"
               alt="product"
               className="h-full w-full object-cover"
               width={1185}
@@ -82,7 +82,7 @@ export default function About() {
           </div>
           <div className="tablet:hidden">
             <Image
-              src="/product-vertical.png"
+              src="/asset/product-vertical.png"
               alt="product"
               className="w-full h-auto object-contain"
               quality={95}

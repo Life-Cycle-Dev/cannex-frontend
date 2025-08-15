@@ -3,8 +3,8 @@
 import Image from "next/image";
 import FocusAreas from "./FocusAreas";
 import ScientificCollaboration from "./ScientificCollaboration";
-import PartnersMatrix from "./PartnersMatrix";
 import { useRef, useState } from "react";
+import Partners from "@/components/Partners";
 
 export default function RnD() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -19,7 +19,7 @@ export default function RnD() {
     <main className="bg-white">
       <div className="relative w-full">
         <Image
-          src="/Research_Development.png"
+          src="/asset/research-development.png"
           alt="Research & Development"
           width={1920}
           height={800}
@@ -81,7 +81,7 @@ export default function RnD() {
           {/* Image */}
           <div className="desktop:col-span-5">
             <Image
-              src="/cannex-42.png"
+              src="/asset/cannex-42.png"
               alt="Cannabis flower macro"
               width={900}
               height={700}
@@ -99,7 +99,7 @@ export default function RnD() {
             ref={videoRef}
             src="/video/rnd.mp4"
             className="absolute inset-0 h-full w-full object-cover"
-            poster="/Research_Development.png" // fallback image before play
+            poster="/asset/research-development.png" // fallback image before play
             controls={playing} // show controls after starting
             preload="metadata"
             onEnded={() => setPlaying(false)}
@@ -129,7 +129,7 @@ export default function RnD() {
       </section>
       <FocusAreas />
       <ScientificCollaboration />
-      <PartnersMatrix />
+      <Partners />
     </main>
   );
 }
