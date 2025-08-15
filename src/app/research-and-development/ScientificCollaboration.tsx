@@ -30,21 +30,21 @@ export default function ScientificCollaboration() {
       id="scientific-collaboration"
       aria-labelledby="scientific-collaboration-title"
       className="bg-white text-foreground">
-      {/* Heading container */}
-      <div className="mx-auto w-full max-w-[1200px] px-6 desktop:px-8 py-10 desktop:py-14">
+      {/* Heading */}
+      <div className="mx-auto w-full  px-6 desktop:px-8 py-10 desktop:py-14">
         <h2
           id="scientific-collaboration-title"
           className="text-4xl tablet:text-5xl desktop:text-6xl font-bold leading-tight">
-          <span className="bg-crystalGreen px-1">Scientific Collaboration</span>
+          <span>Scientific Collaboration</span>
           <br />
-          <span>We partner with</span>
-        </h2>
+        </h2>{" "}
+        <span>We partner with</span>
       </div>
 
-      {/* Top divider (outside the grid box for visual rhythm) */}
+      {/* Top divider */}
       <div className="h-px w-full bg-neutral200" aria-hidden="true" />
 
-      {/* Table-style grid (full-bleed) */}
+      {/* Table-style grid */}
       <div
         role="table"
         className="w-full grid grid-cols-1 tablet:grid-cols-3 border-x border-b border-neutral200">
@@ -52,10 +52,10 @@ export default function ScientificCollaboration() {
           <div
             key={i}
             role="row"
-            className={`
-              ${i < PARTNERS.length - 1 ? "border-r border-neutral200" : ""}
-            `}>
-            <div role="cell" className="p-5 tablet:p-6">
+            className={
+              i < PARTNERS.length - 1 ? "border-r border-neutral200" : ""
+            }>
+            <div role="cell" className="p-5">
               <h3 className="text-xl tablet:text-2xl font-bold leading-snug">
                 {p.title}
                 <br />
@@ -64,14 +64,14 @@ export default function ScientificCollaboration() {
             </div>
             <div
               role="cell"
-              className="border-t border-neutral200 p-5 tablet:p-6 text-sm tablet:text-base text-foreground/80 whitespace-pre-line">
+              className="border-t border-neutral200 p-5 text-sm tablet:text-base text-foreground/80 whitespace-pre-line">
               {p.body}
             </div>
           </div>
         ))}
       </div>
 
-      {/* Bottom divider to close the section */}
+      {/* Bottom divider */}
       <div className="h-px w-full bg-neutral200" aria-hidden="true" />
     </section>
   );
