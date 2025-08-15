@@ -11,6 +11,7 @@ import ArrowUp from "../../components/icons/ArrowUp";
 import Button from "../../components/Button";
 import Link from "next/link";
 import { Event } from "@/types/event";
+import { SortOption } from "@/types/paginate";
 
 export default function Pagination() {
   const [searchText, setSearchText] = useState<string>("");
@@ -18,13 +19,23 @@ export default function Pagination() {
   const [page, setPage] = useState<number>(1);
   const [pageCount, setPageCount] = useState<number>(1);
 
+  const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
+    label: "Newest",
+    value: "createdAt:desc",
+  });
+
+  const filterItem: { label: string; value: SortOption }[] = [
+    { label: "Newest", value: "createdAt:desc" },
+    { label: "Popular", value: "view:desc" },
+  ];
+
   useEffect(() => {
     setPage(1);
   }, [searchText]);
 
   useEffect(() => {
     fetchData(page, searchText);
-  }, [page, searchText]);
+  }, [page, searchText, filter]);
 
   const fetchData = async (p: number, q: string) => {
     const client = new BackendClient();
@@ -34,7 +45,7 @@ export default function Pagination() {
         "pagination[pageSize]": 6,
         "pagination[page]": p,
       },
-      "createdAt:desc",
+      filter.value,
       q,
     );
     setDatas(response.data ?? []);
@@ -153,13 +164,7 @@ export default function Pagination() {
           />
         </div>
         <div className="mb-[48px] tablet:mb-0">
-          <Filter
-            items={[
-              { label: "Newest", value: "newest" },
-              { label: "Popular", value: "popular" },
-            ]}
-            value={{ label: "Popular", value: "popular" }}
-          />
+          <Filter items={filterItem} value={filter} onChange={setFilter} />
         </div>
       </div>
 

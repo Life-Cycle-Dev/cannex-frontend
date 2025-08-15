@@ -5,6 +5,7 @@ import {
   getEmptyPagenate,
   PagenateResponse,
   PaginateParams,
+  SortOption,
 } from "@/types/paginate";
 import { WebConfig } from "@/types/web-config";
 import axios, { AxiosInstance } from "axios";
@@ -24,7 +25,7 @@ export class BackendClient {
 
   async getNewsRoomsPagination(
     params: PaginateParams,
-    sort: 'createdAt:desc' | 'view:desc',
+    sort: SortOption,
     search: string = "",
   ): Promise<PagenateResponse<NewsRooms>> {
     try {
@@ -64,7 +65,7 @@ export class BackendClient {
 
   async getEventPagination(
     params: PaginateParams,
-    sort: 'createdAt:desc' | 'view:desc',
+    sort: SortOption,
     search: string = "",
   ): Promise<PagenateResponse<Event>> {
     try {
