@@ -33,8 +33,8 @@ export default function Home() {
               quality={100}
             />
           </div>
-          <div className="absolute z-10 top-[clamp(1rem,268px,calc(100vh-584px))] left-5 tablet:left-20 bottom-0">
-            <div className="h-full w-full flex flex-col gap-8 tablet:justify-center">
+          <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-10vh left-5 tablet:left-20 bottom-0">
+            <div className="w-full flex flex-col gap-8 tablet:justify-center">
               <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
                 <p className="bg-crystalGreen w-fit">Pharmaceutical-</p>
                 <p className="tablet:hidden bg-crystalGreen w-fit">-Grade</p>
@@ -59,7 +59,7 @@ export default function Home() {
 
               <div className="hidden tablet:block">
                 <Button
-                  href=""
+                  href="/products"
                   text="Explore our products"
                   type="secondaryWhite"
                   className="w-fit"
@@ -71,10 +71,10 @@ export default function Home() {
 
           <div className="tablet:hidden">
             <Button
-              href=""
+              href="/products"
               text="Explore our products"
               type="primary"
-              className="w-full !h-12"
+              className="w-full"
               suffixIcon={<RightUpIcon className="w-4 h-4" />}
             />
           </div>
