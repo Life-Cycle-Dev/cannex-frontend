@@ -58,7 +58,7 @@ function ProductCard({ data }: { data: Card }) {
       aria-label={data.title.replace(/\n/g, " ")}
       className="group relative isolate overflow-hidden cursor-pointer border-b-[2px] border-black border-r-[2px]"
     >
-      <div className="w-full flex justify-end">
+      <div className="w-full flex justify-end bg-white">
         <div className="h-12 w-12 grid place-items-center group-hover:bg-black group-focus-visible:bg-black">
           <RightUpIcon className="w-8 h-8 text-black group-hover:text-crystalGreen group-focus-visible:text-crystalGreen" />
         </div>
