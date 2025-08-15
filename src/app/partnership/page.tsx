@@ -1,4 +1,5 @@
 import Image from "next/image";
+import KeyAlliances from "@/app/partnership/KeyAlliances";
 
 export default function Page() {
   return (
@@ -78,6 +79,7 @@ export default function Page() {
           <div className="flex justify-center items-center h-[167px]"></div>
         </div>
       </div>
+      <KeyAlliances />
     </div>
   );
 }
