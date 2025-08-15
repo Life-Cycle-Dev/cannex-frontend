@@ -1,5 +1,7 @@
 "use client";
 
+import QuoteBottomIcon from "@/components/icons/QuoteBottomIcon";
+import QuoteTopIcon from "@/components/icons/QuoteTopIcon";
 import Image from "next/image";
 
 export default function Page() {
@@ -62,7 +64,7 @@ export default function Page() {
       </div>
       <div className="min-h-[200px] w-full tablet:hidden"></div>
 
-      <div className="mx-[20px] py-[64px] tablet:p-[80px] grid grid-cols-1 border-t-2 tablet:grid-cols-2">
+      <div className="mx-[20px] py-[64px] tablet:p-[80px] grid grid-cols-1 border-t-2 tablet:border-t-0 tablet:grid-cols-2">
         <div className="text-[40px] tablet:text-[52px] font-bold">
           Reimagining Medical Cannabis with Science and Purpose
         </div>
@@ -83,6 +85,26 @@ export default function Page() {
             as any pharmaceutical product. It&apos;s not just about being
             natural — it&apos;s about being <b>scientifically precise.</b>
           </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 tablet:grid-cols-2 border-t-2">
+        <div className="border-b-2 tablet:border-b-0 tablet:border-r-2">
+          <Image
+            src="/about-us/about-us-lab.jpg"
+            alt="lab"
+            className="object-cover h-full"
+            width={863}
+            height={576}
+          />
+        </div>
+        <div className="flex flex-col items-start justify-center px-[46px] py-[40px] tablet:py-[20px] gap-2">
+          <QuoteTopIcon />
+          <div className="text-[40px] font-bold">
+            This is the standard that defines us, and the promise we deliver in
+            every drop.
+          </div>
+          <QuoteBottomIcon />
         </div>
       </div>
     </div>
