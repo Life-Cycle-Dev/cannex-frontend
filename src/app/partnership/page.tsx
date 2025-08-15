@@ -1,10 +1,11 @@
+import Partners from "@/components/Partners";
 import Image from "next/image";
 import KeyAlliances from "@/app/partnership/KeyAlliances";
 
 export default function Page() {
   return (
     <div>
-      <div className="tablet:h-[590px] flex flex-col tablet:flex-row">
+      <div className="tablet:h-[590px] flex flex-col tablet:flex-row tablet:border-b-2">
         <div className="w-full tablet:w-[55%] h-full tablet:border-r-2 flex flex-col">
           <div className="w-full h-fit text-[46px] tablet:text-[72px] font-bold p-[32px_20px] tablet:border-b-2 tablet:p-[64px_8%]">
             Partnership

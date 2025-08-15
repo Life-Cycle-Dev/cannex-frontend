@@ -4,17 +4,24 @@
 import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import About from "@/components/About";
-import ProductsGrid from "@/components/ProductsGrid";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import Contact from "@/components/Contact";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { useEffect } from "react";
+import Supplying from "@/components/Supplying";
+import AOS from "aos";
+import Products from "@/components/Products";
 
 export default function Home() {
   const { setNavigate } = useHelperContext()();
 
   useEffect(() => {
     setNavigate("Home");
+
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
   }, []);
 
   return (
@@ -34,7 +41,7 @@ export default function Home() {
               quality={100}
             />
           </div>
-          <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-10vh left-5 tablet:left-20 bottom-0">
+          <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
             <div className="w-full flex flex-col gap-8 tablet:justify-center">
               <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
                 <p className="bg-crystalGreen w-fit">Pharmaceutical-</p>
@@ -52,13 +59,16 @@ export default function Home() {
                 <p className="tablet:hidden bg-white w-fit">Clinical</p>
                 <p className="tablet:hidden bg-white w-fit">Precision.</p>
               </div>
-              <p className="font-semibold text-black tablet:text-white tablet:w-[425px]">
+              <p
+                data-aos="fade-down"
+                className="font-semibold text-black tablet:text-white tablet:w-[425px]"
+              >
                 From plant to product — Cannex unites American genetics, Thai
                 innovation, and Japanese-grade extraction to deliver premium
                 medical cannabis, globally.
               </p>
 
-              <div className="hidden tablet:block">
+              <div data-aos="fade-right" className="hidden tablet:block">
                 <Button
                   href="/products"
                   text="Explore our products"
@@ -82,7 +92,8 @@ export default function Home() {
         </div>
       </section>
       <About />
-      <ProductsGrid />
+      <Products />
+      <Supplying />
       <Contact />
     </div>
   );
