@@ -1,5 +1,6 @@
 import CannexSvg from "@/components/icons/CannexSvg";
 import SupportingInformation from "@/components/SupportingInformation";
+import WrapUp from "@/components/WrapUp";
 import Image from "next/image";
 
 const products = [
@@ -167,6 +168,7 @@ export default function Page() {
       </div>
 
       <SupportingInformation />
+      <WrapUp />
     </div>
   );
 }
