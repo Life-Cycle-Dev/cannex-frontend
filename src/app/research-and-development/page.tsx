@@ -3,8 +3,8 @@
 import Image from "next/image";
 import FocusAreas from "./FocusAreas";
 import ScientificCollaboration from "./ScientificCollaboration";
-import PartnersMatrix from "./PartnersMatrix";
 import { useRef, useState } from "react";
+import Partners from "@/components/Partners";
 
 export default function RnD() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -129,7 +129,7 @@ export default function RnD() {
       </section>
       <FocusAreas />
       <ScientificCollaboration />
-      <PartnersMatrix />
+      <Partners />
     </main>
   );
 }
