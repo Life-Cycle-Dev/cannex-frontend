@@ -39,7 +39,9 @@ export default function Pagination() {
   }, [page, searchText, filter]);
 
   const fetchData = async (p: number, q: string) => {
-    setLoading(true);
+    if (q === "") {
+      setLoading(true);
+    }
     const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
