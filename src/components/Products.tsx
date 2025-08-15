@@ -15,25 +15,25 @@ const products: Card[] = [
   {
     title: "Premium\nCanabis Flower",
     desc: "Cultivated by California experts,\noptimized for terpene-rich,\npharmaceutical-grade quality.",
-    img: "/prod-flower.png",
+    img: "/product/product-flower.png",
     imgAlt: "flower",
   },
   {
     title: "CBD Isolate\n[Crystal Powder]",
     desc: "Ultra-pure, pharmaceutical-grade isolate with 0.0% THC — perfect for precision blending.",
-    img: "/prod-isolate.png",
+    img: "/product/product-isolate.png",
     imgAlt: "isolate powder",
   },
   {
     title: "Medical\nCannabis Oil",
     desc: "A standardized, THC-free extract developed for global healthcare needs.",
-    img: "/prod-oil.png",
+    img: "/product/product-oil.png",
     imgAlt: "medical oil",
   },
   {
     title: "Custom\nFormulation",
     desc: "Tailored cannabinoid profiles for partner brands — from R&D to full-scale production.",
-    img: "/prod-custom.png",
+    img: "/product/product-custom.png",
     imgAlt: "custom oil",
   },
 ];

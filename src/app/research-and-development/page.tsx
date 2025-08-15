@@ -19,7 +19,7 @@ export default function RnD() {
     <main className="bg-white">
       <div className="relative w-full">
         <Image
-          src="/Research_Development.png"
+          src="/research-development.png"
           alt="Research & Development"
           width={1920}
           height={800}
@@ -99,7 +99,7 @@ export default function RnD() {
             ref={videoRef}
             src="/video/rnd.mp4"
             className="absolute inset-0 h-full w-full object-cover"
-            poster="/Research_Development.png" // fallback image before play
+            poster="/research-development.png" // fallback image before play
             controls={playing} // show controls after starting
             preload="metadata"
             onEnded={() => setPlaying(false)}
