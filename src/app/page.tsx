@@ -9,6 +9,7 @@ import RightUpIcon from "@/components/icons/RightUpIcon";
 import Contact from "@/components/Contact";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { useEffect } from "react";
+import Supplying from "@/components/Supplying";
 
 export default function Home() {
   const { setNavigate } = useHelperContext()();
@@ -83,6 +84,7 @@ export default function Home() {
       </section>
       <About />
       <ProductsGrid />
+      <Supplying />
       <Contact />
     </div>
   );
