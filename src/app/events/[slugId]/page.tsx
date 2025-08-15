@@ -3,6 +3,7 @@
 import Button from "@/components/Button";
 import ShareIcon from "@/components/icons/ShareIcon";
 import Markdown from "@/components/Markdown";
+import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
@@ -43,11 +44,10 @@ export default async function Page({ params, searchParams }: PageProps) {
           </div>
           <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
             <div className="text-gray-400">{formatDate(data.createdAt)}</div>
-            <Button
-              text="Share"
-              type="secondaryBlack"
-              className="w-fit cursor-pointer "
-              suffixIcon={<ShareIcon className="hover:text-crystalGreen" />}
+            <ShareButton
+              imageUrl={data.image.url}
+              title={data.title}
+              url={`/newsroom/${slugId}`}
             />
           </div>
         </div>
