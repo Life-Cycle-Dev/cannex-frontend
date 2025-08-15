@@ -24,7 +24,8 @@ export default function Dropdown({
   };
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full flex gap-1 items-center">
+      {!value && <p className="text-crystalGreen">*</p>}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}

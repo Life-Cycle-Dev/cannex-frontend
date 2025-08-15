@@ -118,9 +118,16 @@ export default function Contact() {
         />
         <Field
           name="email"
+          type="email"
           value={formData.email}
           onChange={handleChange}
           placeholder="Email"
+          state={
+            formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+              ? "error"
+              : "default"
+          }
+          errorMessage="Please enter a valid email address."
         />
         <DropdownField
           value={formData.reason}
