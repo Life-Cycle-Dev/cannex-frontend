@@ -4,6 +4,7 @@ import Image from "next/image";
 const products = [
   {
     title: "Premium\nCanabis Flower",
+    img: "/product/product-flower.png",
     subTittle: "Cultivated by California experts. Certified for medical use.",
     description:
       "Our cannabis flowers are cultivated indoors at our Bangkok site by California growers from Cookies Maywood. Each batch is carefully grown, harvested, and cured to retain terpene richness and potency.",
@@ -18,6 +19,7 @@ const products = [
   },
   {
     title: "CBD Isolate [Crystal Powder]",
+    img: "/product/product-isolate.png",
     subTittle: "Ultra-pure. THC-Free. Ready for global formulation.",
     description:
       "Our pharmaceutical-grade CBD isolate is extracted using advanced Japanese technology and crystallized to ≥99% purity — with 0.0% THC content. Ideal for blending into wellness, nutraceutical, and therapeutic products where precision and compliance matter most.",
@@ -31,6 +33,7 @@ const products = [
   },
   {
     title: "Medical Cannabis Oil",
+    img: "/product/product-oil.png",
     subTittle: "Standardized. THC-Free. Clinically oriented.",
     description:
       "Cannex oils are developed in our ISO Class 7 cleanroom facility under strict PIC/S GMP conditions. Each batch is standardized for consistent cannabinoid content and tailored for healthcare and medical applications.",
@@ -44,6 +47,7 @@ const products = [
   },
   {
     title: "Custom Formulation",
+    img: "/product/product-custom.png",
     subTittle: "Your Formula. Our Precision.",
     description:
       "We partner with brands and medical license holders to co-develop proprietary cannabinoid products — from R&D to scaled manufacturing. Whether you seek a unique terpene profile or minor cannabinoid blend, our lab and QA/QC ecosystem ensures your vision becomes a viable, compliant product.",
@@ -91,7 +95,7 @@ export default function Page() {
         </div>
       </div>
       <div className="relative">
-        <div className="w-full h-[375px] tablet:h-[720px] border-b-[2px]">
+        <div className="w-full h-[375px] tablet:h-[720px]">
           <Image
             src="/product-banner.jpg"
             alt="product banner"
@@ -103,6 +107,62 @@ export default function Page() {
           />
         </div>
         <CannexSvg className="absolute bottom-0 w-full fill-black" />
+      </div>
+      <div>
+        {products.map((product, idx) => (
+          <div
+            key={idx}
+            className={`border-t-[2px] grid tablet:grid-cols-2 ${
+              idx % 2 === 1
+                ? "tablet:[&>*:first-child]:order-2 [&>*:last-child]:order-1"
+                : ""
+            }`}
+          >
+            <div
+              className={`w-full relative border-b-[2px] tablet:border-b-0 p-[42px] tablet:p-20 
+                  ${idx % 2 === 1 ? "" : "tablet:border-r-[2px]"}`}
+            >
+              <Image
+                src={product.img}
+                alt={product.title}
+                className="w-full h-full object-contain"
+                width={360}
+                height={360}
+                quality={95}
+                priority
+              />
+            </div>
+
+            <div
+              className={`p-[32px_20px_16px_20px] tablet:p-[96px_80px_92px_64px] w-full flex flex-col gap-8
+                ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
+            >
+              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] whitespace-pre-line">
+                {product.title}
+              </p>
+              <p className="font-bold text-2xl leading-[120%]">
+                {product.subTittle}
+              </p>
+              <p className="font-medium leading-[125%]">
+                {product.description}
+              </p>
+
+              <div className="font-medium leading-[125%] tablet:grid tablet:grid-cols-2 border-t-2 border-l-2 border-r-2">
+                {product.details.map((detail, index) => (
+                  <div
+                    key={index}
+                    className={`p-4 tablet:px-6 border-b-2
+                       ${index % 2 === 0 ? "tablet:border-r-2" : ""}`}
+                  >
+                    {detail}
+                  </div>
+                ))}
+              </div>
+
+              <p className="font-medium leading-[125%]">{product.disclaimer}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
