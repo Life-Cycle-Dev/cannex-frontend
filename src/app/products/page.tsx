@@ -1,4 +1,5 @@
 import CannexSvg from "@/components/icons/CannexSvg";
+import SupportingInformation from "@/components/SupportingInformation";
 import Image from "next/image";
 
 const products = [
@@ -164,6 +165,8 @@ export default function Page() {
           </div>
         ))}
       </div>
+
+      <SupportingInformation />
     </div>
   );
 }
