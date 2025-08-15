@@ -3,7 +3,8 @@ declare type ButtonType =
   | "secondaryBlack"
   | "secondaryWhite"
   | "pagination"
-  | "paginationFocus";
+  | "paginationFocus"
+  | "share";
 
 interface Props {
   text: string;
@@ -41,6 +42,8 @@ export default function Button({
         return "text-black border-[1px] border-neutral100 hover:border-black hover:bg-black hover:text-crystalGreen";
       case "paginationFocus":
         return "text-black border-[1px] border-crystalGreen bg-crystalGreen";
+      case "share":
+        return "justify-start text-black hover:bg-black hover:text-crystalGreen hover:border-black";
     }
   }
 
@@ -48,7 +51,7 @@ export default function Button({
     <button
       disabled={disabled}
       onClick={href ? () => (window.location.href = href) : onClick}
-      className={`h-10 inline-flex items-center justify-center gap-2 px-4 font-medium 
+      className={`h-10 inline-flex items-center justify-center gap-2 px-4 font-medium cursor-pointer
         ${resolveButtonClass()} ${className}`}
     >
       {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
