@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import { useCallback, useState } from "react";
-import CloseIcon from "../icons/CloseIcon";
-import Button from "../Button";
-import CopyIcon from "../icons/CopyIcon";
-import LineIcon from "../icons/LineIcon";
-import FacebookIcon from "../icons/FacebookIcon";
+import CloseIcon from "./icons/CloseIcon";
+import Button from "./Button";
+import LineIcon from "./icons/LineIcon";
+import CopyIcon from "./icons/CopyIcon";
+import FacebookIcon from "./icons/FacebookIcon";
 
 interface ShareInfo {
   imageUrl: string;

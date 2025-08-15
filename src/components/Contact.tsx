@@ -22,7 +22,11 @@ function Policy() {
   return (
     <p className="font-medium text-black">
       I have read and accepted terms and conditions specified in the{" "}
-      <a href="/privacy-policy" className="text-crystalGreen hover:underline">
+      <a
+        href="/privacy-policy"
+        target="_blank"
+        className="text-crystalGreen hover:underline"
+      >
         Privacy Policy
       </a>{" "}
       and do hereby consent to the collecting, processing and/or disclosing of
@@ -70,7 +74,7 @@ export default function Contact() {
       message: "",
       isAccepted: false,
     });
-    alert("Your message has been sent successfully!");
+    window.location.href = "thank-you";
   };
 
   const fetchData = async () => {

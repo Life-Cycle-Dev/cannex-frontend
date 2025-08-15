@@ -11,7 +11,7 @@ import {
   useContext,
   useState,
 } from "react";
-import ShareProvider from "./ShareProvider";
+import ShareProvider from "@/components/ShareProvider";
 
 interface ShareInfo {
   imageUrl: string;

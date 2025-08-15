@@ -141,17 +141,15 @@ export default function Footer() {
       <div className="tablet:mt-8 border-y-[2px] py-6 px-5 tablet:px-20 flex flex-col gap-8 tablet:flex-row tablet:justify-between tablet:items-center">
         <div className="flex gap-6">
           <Link
-            href=""
+            href="/privacy-policy"
             target="_blank"
-            rel="noopener noreferrer"
             className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
           >
             Privacy Policy
           </Link>
           <Link
-            href=""
+            href="/terms-of-use"
             target="_blank"
-            rel="noopener noreferrer"
             className="p-0.5 font-bold text-black hover:text-crystalGreen bg-white hover:bg-black"
           >
             Terms of Use
