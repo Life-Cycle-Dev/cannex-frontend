@@ -1,13 +1,12 @@
 import React from "react";
 
-export default function MapSvg() {
+export default function MapSvg({ className = "" }: { className?: string }) {
   return (
     <svg
-      width={519}
-      height={277}
       viewBox="0 0 519 277"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={`w-[519px] h-[277px] ${className}`}
     >
       <g clipPath="url(#clip0_1133_5536)">
         <path

@@ -109,9 +109,9 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="p-[96px_80px] border-y-2">
+      <div className="tablet:p-[96px_80px] mx-[20px] py-[64px] border-y-2 ">
         <div className="mb-[48px]">
-          <div className="text-[52px] font-bold">
+          <div className="text-[24px] tablet:text-[52px] font-bold">
             Our Origin:
             <br /> A Global Collaboration for Global Standards
           </div>
@@ -129,13 +129,14 @@ export default function Page() {
         <ResolveMap />
 
         <div className="flex justify-center">
-          <div className="text-center">
+          <div className="text-[14px] text-left tablet:text-center">
             Together, we create a vertically integrated system —
             <b>from seed to shelf,</b> built to meet the most rigorous
             international standards.
           </div>
         </div>
       </div>
+
       <div className="">TODO</div>
     </div>
   );
