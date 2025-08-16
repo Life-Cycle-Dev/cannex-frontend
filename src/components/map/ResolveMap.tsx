@@ -21,7 +21,7 @@ export default function ResolveMap() {
               <UnitedState />
               <div className="text-[20px] font-bold">The United States</div>
             </div>
-            <div className="w-[350px] text-[14px]">
+            <div className="w-[350px] text-[14px] text-left">
               Through <b>Cannex Pharma</b>, our founding team from{" "}
               <b>Cookies Maywood</b>
               brings world-class cultivation techniques, exclusive cannabis
@@ -36,7 +36,7 @@ export default function ResolveMap() {
               <Thailand />
               <div className="text-[20px] font-bold">Thailand</div>
             </div>
-            <div className="w-[350px] text-[14px]">
+            <div className="w-[350px] text-[14px] text-left">
               Thailand is home to our <b>integrated operations</b> — from indoor
               cultivation to pharmaceutical-grade extraction. With government
               support, Thai regulatory alignment, and Southeast Asian
@@ -51,7 +51,7 @@ export default function ResolveMap() {
               <Japan />
               <div className="text-[20px] font-bold">Japan</div>
             </div>
-            <div className="w-[350px] text-[14px]">
+            <div className="w-[350px] text-[14px] text-left">
               Japan contributes its{" "}
               <b>scientific discipline, pharmaceutical innovation,</b> and
               regulatory precision — enabling advanced
@@ -71,7 +71,7 @@ export default function ResolveMap() {
             <UnitedState />
             <div className="text-[20px] font-bold">The United States</div>
           </div>
-          <div className="text-[14px]">
+          <div className="text-[14px] text-left">
             Through <b>Cannex Pharma</b>, our founding team from{" "}
             <b>Cookies Maywood</b>
             brings world-class cultivation techniques, exclusive cannabis
@@ -88,7 +88,7 @@ export default function ResolveMap() {
             <Thailand />
             <div className="text-[20px] font-bold">Thailand</div>
           </div>
-          <div className="text-[14px]">
+          <div className="text-[14px] text-left">
             Thailand is home to our <b>integrated operations</b> — from indoor
             cultivation to pharmaceutical-grade extraction. With government
             support, Thai regulatory alignment, and Southeast Asian
@@ -103,7 +103,7 @@ export default function ResolveMap() {
             <Japan />
             <div className="text-[20px] font-bold">Japan</div>
           </div>
-          <div className="text-[14px]">
+          <div className="text-[14px] text-left">
             Japan contributes its{" "}
             <b>scientific discipline, pharmaceutical innovation,</b> and
             regulatory precision — enabling advanced

@@ -7,5 +7,5 @@ export const getClassNameAnimation = (
   ): string => {
     const base = `transition-all duration-[${duration}ms] delay-[${delay}ms]`;
   
-    return `${base} ${show ? end : start}`;
+    return ` ${base} ${show ? end : start} `;
   };
