@@ -1,5 +1,8 @@
-import Partners from "@/components/Partners";
 import Image from "next/image";
+import KeyAlliances from "@/app/partnership/KeyAlliances";
+import OfferAndAudience from "@/app/partnership/OfferAndAudience";
+import Certificates from "@/app/partnership/Certificates";
+import Supplying from "@/components/Supplying";
 
 export default function Page() {
   return (
@@ -43,8 +46,45 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-      <Partners />
+      <div className="mx-[20px]">
+        <div className="text-[24px] py-[32px] font-bold border-b-2">
+          Market Analysis and Planning
+        </div>
+        <div className="grid grid-cols-2">
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-1.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-2.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]">
+            <Image
+              src="/partnership/icon/market-3.png"
+              alt="market-1.png"
+              className="w-fit h-fit"
+              width={135}
+              height={51}
+            />
+          </div>
+          <div className="flex justify-center items-center h-[167px]"></div>
+        </div>
+      </div>
+      <KeyAlliances />
+      <Certificates />
+      <Supplying />
+      <OfferAndAudience />
     </div>
   );
 }
