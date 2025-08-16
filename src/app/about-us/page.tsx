@@ -37,11 +37,10 @@ export default function Page() {
                 {(show) => (
                   <div
                     className={`
-                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms]
+                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] du
                       ${getClassNameAnimation(
                         show,
                         300,
-                        0,
                         "opacity-0 -translate-x-10",
                         "opacity-100 translate-x-0",
                       )}
@@ -63,7 +62,6 @@ export default function Page() {
                           ${getClassNameAnimation(
                             show,
                             100,
-                            0,
                             "opacity-0 translate-y-10",
                             "opacity-100 translate-y-0",
                           )}
@@ -128,7 +126,6 @@ export default function Page() {
                         ${getClassNameAnimation(
                           show,
                           300,
-                          0,
                           "opacity-0",
                           `opacity-100 animate-reveal-ltr ${item.animateClassName}`,
                         )}
@@ -154,7 +151,6 @@ export default function Page() {
                 ${getClassNameAnimation(
                   show,
                   1000,
-                  0,
                   "opacity-0 -translate-y-10",
                   "opacity-100 translate-y-0",
                 )}
@@ -171,7 +167,6 @@ export default function Page() {
               className={`tablet:p-[15px_20px] ${getClassNameAnimation(
                 show,
                 1000,
-                0,
                 "opacity-0 -translate-x-10",
                 "opacity-100 translate-x-0",
               )}`}
@@ -209,7 +204,6 @@ export default function Page() {
                   getClassNameAnimation(
                     show,
                     1000,
-                    0,
                     "opacity-0 translate-y-30",
                     "opacity-100 translate-y-0",
                   )
@@ -227,7 +221,6 @@ export default function Page() {
                 className={getClassNameAnimation(
                   show,
                   500,
-                  0,
                   "opacity-0 translate-y-5",
                   "opacity-100 translate-y-0",
                 )}
@@ -243,7 +236,6 @@ export default function Page() {
                   getClassNameAnimation(
                     show,
                     1000,
-                    0,
                     "opacity-0 -translate-x-20",
                     "opacity-100 translate-x-0",
                   )
@@ -261,7 +253,6 @@ export default function Page() {
                 className={getClassNameAnimation(
                   show,
                   500,
-                  0,
                   "opacity-0 -translate-y-5",
                   "opacity-100 translate-y-0",
                 )}
@@ -281,7 +272,6 @@ export default function Page() {
                   getClassNameAnimation(
                     show,
                     500,
-                    0,
                     "opacity-0 -translate-x-10",
                     "opacity-100 translate-x-0",
                   )
@@ -301,7 +291,6 @@ export default function Page() {
                   getClassNameAnimation(
                     show,
                     500,
-                    0,
                     "opacity-0 -translate-y-5",
                     "opacity-100 translate-y-0",
                   )
@@ -319,11 +308,25 @@ export default function Page() {
             {(show) => (
               <div
                 className={
-                  "text-[20px]" + getClassNameAnimation(show, 500, 0, "opacity-0 translate-y-5", "opacity-100 translate-y-0")
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
                 }
               >
-                Cannex is the product of a powerful alliance between three
-                nations:
+                Cannex is the product of a powerful alliance between{" "}
+                <b
+                  style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                  className={
+                    "highlight-animate" +
+                    getClassNameAnimation(show, 1000, "", "highlight-run")
+                  }
+                >
+                  three nations:
+                </b>
               </div>
             )}
           </ScrollReveal>

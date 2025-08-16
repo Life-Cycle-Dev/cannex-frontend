@@ -97,7 +97,7 @@ export default function RnD() {
         <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
           <video
             ref={videoRef}
-            src="/video/rnd.mp4"
+            src="/asset/rnd.mp4"
             className="absolute inset-0 h-full w-full object-cover"
             poster="/asset/research-development.png" // fallback image before play
             controls={playing} // show controls after starting
