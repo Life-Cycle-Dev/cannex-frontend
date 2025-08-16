@@ -199,21 +199,64 @@ export default function Page() {
 
       <div className="grid grid-cols-1 tablet:grid-cols-2 border-t-2">
         <div className="border-b-2 tablet:border-b-0 tablet:border-r-2">
-          <Image
-            src="/about-us/about-us-lab.jpg"
-            alt="lab"
-            className="object-cover h-full w-full"
-            width={863}
-            height={576}
-          />
+          <ScrollReveal once>
+            {(show) => (
+              <Image
+                src="/about-us/about-us-lab.jpg"
+                alt="lab"
+                className={
+                  "object-cover h-full w-full " +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    0,
+                    "opacity-0 translate-y-30",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+                width={863}
+                height={576}
+              />
+            )}
+          </ScrollReveal>
         </div>
         <div className="flex flex-col items-start justify-center px-[46px] py-[40px] tablet:py-[20px] gap-2">
-          <QuoteTopIcon />
-          <div className="text-[40px] font-bold">
-            This is the standard that defines us, and the promise we deliver in
-            every drop.
-          </div>
-          <QuoteBottomIcon />
+          <ScrollReveal once>
+            {(show) => (
+              <QuoteTopIcon
+                className={getClassNameAnimation(
+                  show,
+                  500,
+                  0,
+                  "opacity-0 translate-y-5",
+                  "opacity-100 translate-y-0",
+                )}
+              />
+            )}
+          </ScrollReveal>
+
+          <ScrollReveal once>
+            {(show) => (
+              <div className={"text-[40px] font-bold" + getClassNameAnimation(show, 500, 0, "opacity-0 -translate-x-5", "opacity-100 translate-x-0")}>
+                This is the standard that defines us, and the promise we deliver
+                in every drop.
+              </div>
+            )}
+          </ScrollReveal>
+
+          <ScrollReveal once>
+            {(show) => (
+              <QuoteBottomIcon
+                className={getClassNameAnimation(
+                  show,
+                  500,
+                  0,
+                  "opacity-0 -translate-y-5",
+                  "opacity-100 translate-y-0",
+                )}
+              />
+            )}
+          </ScrollReveal>
         </div>
       </div>
 
