@@ -35,7 +35,7 @@ export default function NavBar() {
   }, [open]);
 
   return (
-    <header className="w-full top-0 z-50 bg-white text-foreground border-y-2">
+    <header className="w-full relative top-0 z-50 bg-white text-foreground border-y-2">
       <div className="hidden tablet:block">
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">

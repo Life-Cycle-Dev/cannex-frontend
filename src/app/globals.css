@@ -132,7 +132,7 @@ body {
   color: var(--black) !important;
 }
 
-.w-md-editor-toolbar li > button * {
+.w-md-editor-toolbar li>button * {
   color: white !important;
 }
 
@@ -155,4 +155,73 @@ body {
 .w-md-editor-show-preview .w-md-editor-preview {
   box-shadow: none !important;
   border: none;
+}
+
+@keyframes reveal-ltr {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* แถบ background วิ่งตาม */
+@keyframes bg-sweep {
+  0% {
+    left: 0;
+    width: 0%;
+  }
+
+  50% {
+    left: 0;
+    width: 100%;
+  }
+
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+
+@layer utilities {
+  .reveal-ltr {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    will-change: clip-path, opacity;
+    background-color: transparent;
+  }
+
+  .animate-reveal-ltr {
+    animation: reveal-ltr 1s ease-out forwards;
+    opacity: 1;
+  }
+
+  .animate-reveal-ltr.reveal-crystalGreen {
+    background-color: var(--color-crystalGreen);
+  }
+
+  .animate-reveal-ltr.reveal-white {
+    background-color: var(--color-white);
+  }
+
+  .animate-reveal-ltr.reveal-festivalCaramel {
+    background-color: var(--color-festivalCaramel);
+  }
+
+  .reveal-ltr::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+  }
+
+  .animate-reveal-ltr::after {
+    animation: bg-sweep 1s ease-out forwards;
+  }
 }

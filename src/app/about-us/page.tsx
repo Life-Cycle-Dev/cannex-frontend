@@ -1,5 +1,6 @@
 "use client";
 
+import ScrollReveal from "@/components/animation/ScrollReveal";
 import ConsistencyIcon from "@/components/icons/partnership/ConsistencyIcon";
 import EfficacyIcon from "@/components/icons/partnership/EfficacyIcon";
 import SafetyIcon from "@/components/icons/partnership/SafetyIcon";
@@ -7,8 +8,15 @@ import QuoteBottomIcon from "@/components/icons/QuoteBottomIcon";
 import QuoteTopIcon from "@/components/icons/QuoteTopIcon";
 import ResolveMap from "@/components/map/ResolveMap";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setShow(true);
+  }, []);
+
   return (
     <div>
       <div className="w-full h-[961px]">
@@ -32,36 +40,103 @@ export default function Page() {
           />
           <div className="absolute inset-0 z-1 flex flex-col justify-start items-center text-white font-bold">
             <div>
-              <div className="text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px]">
-                About
+              <ScrollReveal>
+                {(show) => (
+                  <div
+                    className={`
+                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms]
+                      ${
+                        show
+                          ? "opacity-100 translate-x-0"
+                          : "opacity-0 -translate-x-10"
+                      }
+                    `}
+                  >
+                    About
+                  </div>
+                )}
+              </ScrollReveal>
+
+              <div className="flex justify-center text-[26vw] leading-[40%] font-bold">
+                {"cannex".split("").map((char, i) => (
+                  <ScrollReveal key={i}>
+                    {(show) => (
+                      <span
+                        style={{ transitionDelay: `${i * 100}ms` }}
+                        className={`
+                        transition-all inline-block duration-[100ms]
+                        ${
+                          show
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-10"
+                        }
+                      `}
+                      >
+                        {char}
+                      </span>
+                    )}
+                  </ScrollReveal>
+                ))}
               </div>
-              <div className="text-[26vw] leading-[40%]">cannex</div>
             </div>
           </div>
 
           <div className="absolute z-4 left-[7vw] bottom-[-140px] tablet:bottom-[30px] flex-col justify-start items-start text-black">
-            <div className="flex flex-col gap-3">
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-crystalGreen hidden tablet:block">
-                Pharmaceutical-
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-crystalGreen hidden tablet:block">
-                Grade Formulation,
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-crystalGreen block tablet:hidden">
-                Pharmaceutical
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-crystalGreen block tablet:hidden">
-                -Grade
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-crystalGreen block tablet:hidden">
-                Formulation,
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-white">
-                Crafted with
-              </div>
-              <div className="text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] bg-white">
-                Clinical Precision.
-              </div>
+            <div className="flex flex-col">
+              {[
+                {
+                  text: "Pharmaceutical-",
+                  className: "hidden tablet:block mb-3",
+                  animateClassName: "reveal-crystalGreen",
+                },
+                {
+                  text: "Grade Formulation,",
+                  className: "bg-crystalGreen hidden tablet:block mb-3",
+                  animateClassName: "reveal-crystalGreen",
+                },
+                {
+                  text: "Pharmaceutical",
+                  className: "block tablet:hidden mb-3",
+                  animateClassName: "reveal-crystalGreen",
+                },
+                {
+                  text: "-Grade",
+                  className: "block tablet:hidden mb-3",
+                  animateClassName: "reveal-crystalGreen",
+                },
+                {
+                  text: "Formulation,",
+                  className: "block tablet:hidden mb-3",
+                  animateClassName: "reveal-crystalGreen",
+                },
+                {
+                  text: "Crafted with",
+                  className: "mb-3",
+                  animateClassName: "reveal-white",
+                },
+                {
+                  text: "Clinical Precision.",
+                  className: "mb-3",
+                  animateClassName: "reveal-white",
+                },
+              ].map((item, i) => (
+                <ScrollReveal key={i} once>
+                  {(show) => (
+                    <div
+                      className={`text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] ${item.className}`}
+                    >
+                      <span
+                        style={{ animationDelay: `${i * 100}ms` }}
+                        className={`reveal-ltr ${
+                          show ? "animate-reveal-ltr" : ""
+                        } ${item.animateClassName}`}
+                      >
+                        {item.text}
+                      </span>
+                    </div>
+                  )}
+                </ScrollReveal>
+              ))}
             </div>
           </div>
         </div>
@@ -197,7 +272,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
