@@ -3,7 +3,7 @@ import React from "react";
 
 export default function MapWithCursor({
   className = "",
-  style = "",
+  style = {},
 }: {
   className?: string;
   style?: any;
