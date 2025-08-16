@@ -752,75 +752,150 @@ export default function Page() {
         )}
       </ScrollReveal>
 
-      <div className="tablet:px-20 text-[30px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2">
-        <div className="">What Defines Us:</div>
-        <div className="">The Cannex Pillars</div>
-      </div>
-      <div className="grid grid-cols-1 tablet:grid-cols-3">
-        {[
-          {
-            title: "Pharmaceutical-Grade Formulation",
-            desc: "Our cultivation, extraction, and packaging processes meet or exceed pharmaceutical standards — including GACP, PIC/S GMP, and EU-GMP guidelines (in progress).",
-            bottom: -59,
-          },
-          {
-            title: "Science-Led Integrity",
-            desc: "We prioritize transparency, traceability, and scientific validation — so every product is verifiable, reproducible, and built on data, not trends.",
-            bottom: -59,
-          },
-          {
-            title: "Human-Centered Wellness Innovation",
-            desc: "We design every formulation around real needs — chronic pain, inflammation, anxiety, and beyond — putting patients and healthcare providers at the heart of our innovation.",
-            bottom: -58,
-          },
-        ].map((item, index) => {
-          return (
-            <div className="relative" key={index}>
+      <ScrollReveal once>
+        {(show) => (
+          <>
+            <div
+              className={
+                "tablet:px-20 text-[30px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-y-5",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
+              <div className="">What Defines Us:</div>
+              <div className="">The Cannex Pillars</div>
+            </div>
+            <div className="grid grid-cols-1 tablet:grid-cols-3">
+              {[
+                {
+                  title: "Pharmaceutical-Grade Formulation",
+                  desc: "Our cultivation, extraction, and packaging processes meet or exceed pharmaceutical standards — including GACP, PIC/S GMP, and EU-GMP guidelines (in progress).",
+                  bottom: -59,
+                },
+                {
+                  title: "Science-Led Integrity",
+                  desc: "We prioritize transparency, traceability, and scientific validation — so every product is verifiable, reproducible, and built on data, not trends.",
+                  bottom: -59,
+                },
+                {
+                  title: "Human-Centered Wellness Innovation",
+                  desc: "We design every formulation around real needs — chronic pain, inflammation, anxiety, and beyond — putting patients and healthcare providers at the heart of our innovation.",
+                  bottom: -58,
+                },
+              ].map((item, index) => {
+                return (
+                  <div
+                    className={
+                      "relative" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-20",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                    key={index}
+                  >
+                    <div
+                      style={{
+                        transitionDelay: `${index * 200 + 200}ms`,
+                        animationDelay: `${index * 200 + 200}ms`,
+                      }}
+                      className={`font-bold flex items-center text-2xl h-[90px] mx-[20px] tablet:mx-0 tablet:border-r-2 border-b-2 tablet:px-20 ${
+                        index != 0 && "border-t-2 tablet:border-t-0"
+                      }`}
+                    >
+                      {item.title}
+                    </div>
+                    <div className="tablet:border-r-2 py-8 h-[335px] tablet:h-[230px]">
+                      <div className="px-[20px] tablet:px-20 line-clamp-5">
+                        {item.desc}
+                      </div>
+                      <div
+                        style={{ bottom: item.bottom }}
+                        className={`absolute right-5 tablet:right-[1px] text-right mr-[-4px] text-[145px] font-bold`}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </ScrollReveal>
+
+      <ScrollReveal once>
+        {(show) => (
+          <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
+            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
+              <Image
+                src="/about-us/about-us-last-section.jpg"
+                alt="about-us-last-section"
+                className={
+                  "h-full w-full object-cover" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-20",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+                width={720}
+                height={540}
+              />
+            </div>
+            <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">
               <div
-                className={`font-bold flex items-center text-2xl h-[90px] mx-[20px] tablet:mx-0 tablet:border-r-2 border-b-2 tablet:px-20 ${
-                  index != 0 && "border-t-2 tablet:border-t-0"
-                }`}
+                className={
+                  "text-[52px] font-bold" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )
+                }
               >
-                {item.title}
+                The Cannex Commitment
               </div>
-              <div className="tablet:border-r-2 py-8 h-[335px] tablet:h-[230px]">
-                <div className="px-[20px] tablet:px-20 line-clamp-5">
-                  {item.desc}
-                </div>
-                <div
-                  style={{ bottom: item.bottom }}
-                  className={`absolute right-5 tablet:right-[1px] text-right mr-[-4px] text-[145px] font-bold`}
-                >
-                  {index + 1}
-                </div>
+              <div
+                className={
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                From California genetics to Japanese engineering and Thai
+                execution, Cannex is more than a brand — it is a{" "}
+                <b>new benchmark</b> for medical cannabis worldwide.
+              </div>
+              <div
+                className={
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                Rooted in science. Driven by collaboration. Committed to care.
               </div>
             </div>
-          );
-        })}
-      </div>
-
-      <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
-        <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full">
-          <Image
-            src="/about-us/about-us-last-section.jpg"
-            alt="about-us-last-section"
-            className="h-full w-full object-cover"
-            width={720}
-            height={540}
-          />
-        </div>
-        <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">
-          <div className="text-[52px] font-bold">The Cannex Commitment</div>
-          <div className="text-[20px]">
-            From California genetics to Japanese engineering and Thai execution,
-            Cannex is more than a brand — it is a <b>new benchmark</b> for medical
-            cannabis worldwide.
           </div>
-          <div className="text-[20px]">
-            Rooted in science. Driven by collaboration. Committed to care.
-          </div>
-        </div>
-      </div>
+        )}
+      </ScrollReveal>
     </div>
   );
 }
