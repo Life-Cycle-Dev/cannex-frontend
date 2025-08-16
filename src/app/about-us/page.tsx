@@ -427,12 +427,12 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
+              <div className="flex flex-col  items-start gap-4">
                 <SafetyIcon />
                 <div className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Safety
                 </div>
-                <div className="self-stretch ont-medium leading-[125%]">
+                <div className="self-stretch font-medium leading-[125%]">
                   Every batch is tested for cannabinoids and contaminants using
                   HPLC and LC-MS/MS
                 </div>
@@ -451,12 +451,12 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
+              <div className="flex flex-col items-start gap-4">
                 <ConsistencyIcon />
                 <div className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Consistency
                 </div>
-                <div className="self-stretch ont-medium leading-[125%]">
+                <div className="self-stretch font-medium leading-[125%]">
                   Genetics, terpene profiles, and potency are maintained
                   lot-to-lot
                 </div>
@@ -466,7 +466,7 @@ export default function Page() {
             <div
               style={{ transitionDelay: "400ms", animationDelay: "400ms" }}
               className={
-                "flex justify-start items-center  py-10 tablet:px-20" +
+                "flex justify-start items-center py-10 tablet:px-20" +
                 getClassNameAnimation(
                   show,
                   1000,
@@ -475,12 +475,12 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
+              <div className="flex flex-col items-start gap-4">
                 <EfficacyIcon />
                 <div className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Consistency
                 </div>
-                <div className="self-stretch ont-medium leading-[125%]">
+                <div className="self-stretch font-medium leading-[125%]">
                   Genetics, terpene profiles, and potency are maintained
                   lot-to-lot
                 </div>
