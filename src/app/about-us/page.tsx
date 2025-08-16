@@ -319,10 +319,13 @@ export default function Page() {
               >
                 Cannex is the product of a powerful alliance between{" "}
                 <b
-                  style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                  style={{
+                    transitionDelay: "500ms",
+                    animationDelay: "500ms",
+                  }}
                   className={
                     "highlight-animate" +
-                    getClassNameAnimation(show, 1000, "", "highlight-run")
+                    getClassNameAnimation(show, 500, "", "highlight-run")
                   }
                 >
                   three nations:
@@ -334,13 +337,28 @@ export default function Page() {
 
         <ResolveMap />
 
-        <div className="flex justify-center">
-          <div className="text-[14px] text-left tablet:text-center">
-            Together, we create a vertically integrated system —
-            <b>from seed to shelf,</b> built to meet the most rigorous
-            international standards.
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+              className={
+                "flex justify-center" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 translate-y-5",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
+              <div className="text-[14px] text-left tablet:text-center">
+                Together, we create a vertically integrated system —
+                <b>from seed to shelf,</b> built to meet the most rigorous
+                international standards.
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
       <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
