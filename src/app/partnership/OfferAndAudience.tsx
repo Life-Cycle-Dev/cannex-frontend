@@ -29,7 +29,7 @@ const AUDIENCE: Bullet[] = [
 
 export default function OfferAndAudience() {
   return (
-    <section className="w-full bg-white text-[var(--foreground)] border-t-2 border-b-2 border-black">
+    <section className="w-full bg-white text-[var(--foreground)]   border-black">
       <div className="grid grid-cols-1 desktop:grid-cols-2">
         {/* LEFT */}
         <Column

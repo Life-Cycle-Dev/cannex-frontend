@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import MapSvg from "./icons/MapSvg";
 import CannexSvg from "./icons/CannexSvg";

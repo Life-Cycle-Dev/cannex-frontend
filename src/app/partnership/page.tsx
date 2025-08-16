@@ -1,6 +1,8 @@
-import Partners from "@/components/Partners";
 import Image from "next/image";
 import KeyAlliances from "@/app/partnership/KeyAlliances";
+import OfferAndAudience from "@/app/partnership/OfferAndAudience";
+import Certificates from "@/app/partnership/Certificates";
+import Supplying from "@/components/Supplying";
 
 export default function Page() {
   return (
@@ -44,7 +46,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-
       <div className="mx-[20px]">
         <div className="text-[24px] py-[32px] font-bold border-b-2">
           Market Analysis and Planning
@@ -81,6 +82,9 @@ export default function Page() {
         </div>
       </div>
       <KeyAlliances />
+      <Certificates />
+      <Supplying />
+      <OfferAndAudience />
     </div>
   );
 }

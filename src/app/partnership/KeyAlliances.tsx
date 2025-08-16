@@ -43,18 +43,29 @@ export default function Home() {
       {/* กรอบนอก */}
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2  border-black">
-        {/* Title */}
-        <div className="border-black px-[80px] py-[64px]">
+        className="w-full border-t-2 border-b-2  border-black">
+        <div className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]">
           <h1
             id="alliances-title"
-            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight">
+            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]">
             Our Key Strategic
             <br />
             Alliances
           </h1>
         </div>
-
+        <div className="mt-[20px] desktop:hidden border-t-[2px] border-black">
+          <div className="relative w-full aspect-[16/10]">
+            <Image
+              src="/partners/Image.png"
+              alt="Scientists in cleanroom gear"
+              fill
+              priority
+              quality={90}
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
         {/* Grid: ซ้าย/ขวา */}
         <div className="grid grid-cols-1 desktop:grid-cols-2">
           {/* LEFT: 3 บล็อก */}
@@ -65,17 +76,16 @@ export default function Home() {
           </div>
 
           {/* RIGHT: รูปภาพ */}
-          <div className="desktop:row-span-3 border-t-2 desktop:border-t-0 desktop:border-l-2 border-black">
-            {/* ปรับคอนเทนเนอร์: ใช้ aspect ratio บนจอเล็ก / ให้เต็มคอลัมน์บนเดสก์ท็อปโดยไม่ยัด min-h เกินจริง */}
-            <div className="relative w-full aspect-[16/10] desktop:aspect-auto desktop:h-full border-t-2">
+          <div className="hidden desktop:block desktop:row-span-3 border-l-2 border-black">
+            <div className="relative w-full h-full border-t-[2px]">
               <Image
-                src="/partners/Image.png" // ใช้รูปความละเอียดสูง (แนะนำ ≥1600px กว้าง)
+                src="/partners/Image.png"
                 alt="Scientists in cleanroom gear"
                 fill
                 priority
                 quality={90}
                 sizes="(min-width: 1280px) 50vw, 100vw"
-                className="object-cover"
+                className="object-cover "
               />
             </div>
           </div>
@@ -95,12 +105,15 @@ function AllianceItem({
 }) {
   return (
     <div
-      className={[
-        "border-black",
-        isFirst ? "border-t-2" : "border-t-2",
-        "border-b-0",
-      ].join(" ")}>
-      <div className="px-[80px] pt-[32px] pb-[32px]">
+      className={`
+        border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0
+      `}>
+      <div
+        className={`
+          desktop:px-[80px]      
+          desktop:mx-0
+          pt-[32px] pb-[32px]
+        `}>
         <h3 className="mt-0 desktop:mt-[32px] text-xl desktop:text-2xl font-extrabold leading-snug flex items-start gap-3">
           <span aria-hidden className="text-2xl">
             {data.flag}
@@ -108,7 +121,7 @@ function AllianceItem({
           <span>{data.title}</span>
         </h3>
 
-        <ul className="mt-3 space-y-1 text-sm desktop:text-[15px] text-neutral900">
+        <ul className="mt-3 space-y-1 text-sm desktop:text-[15px] text-neutral-900">
           {data.bullets.map((b, i) => (
             <li key={i} className="pl-4 relative leading-relaxed">
               <span className="absolute left-0 top-2 block w-1 h-1 rounded-full bg-black" />
@@ -120,5 +133,3 @@ function AllianceItem({
     </div>
   );
 }
-
-
