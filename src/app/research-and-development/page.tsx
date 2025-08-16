@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import FocusAreas from "./FocusAreas";
 import ScientificCollaboration from "./ScientificCollaboration";
 import { useRef, useState } from "react";
 import Partners from "@/components/Partners";
+import FocusArea from "./FocusArea";
 
 export default function Page() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -115,7 +115,7 @@ export default function Page() {
           )}
         </div>
       </section>
-      <FocusAreas />
+      <FocusArea />
       <ScientificCollaboration />
       <Partners />
     </main>
