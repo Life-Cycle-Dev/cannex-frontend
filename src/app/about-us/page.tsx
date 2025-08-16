@@ -2,6 +2,7 @@
 
 import QuoteBottomIcon from "@/components/icons/QuoteBottomIcon";
 import QuoteTopIcon from "@/components/icons/QuoteTopIcon";
+import ResolveMap from "@/components/map/ResolveMap";
 import Image from "next/image";
 
 export default function Page() {
@@ -93,7 +94,7 @@ export default function Page() {
           <Image
             src="/about-us/about-us-lab.jpg"
             alt="lab"
-            className="object-cover h-full"
+            className="object-cover h-full w-full"
             width={863}
             height={576}
           />
@@ -105,6 +106,32 @@ export default function Page() {
             every drop.
           </div>
           <QuoteBottomIcon />
+        </div>
+      </div>
+
+      <div className="p-[96px_80px] border-t-2">
+        <div className="mb-[48px]">
+          <div className="text-[52px] font-bold">
+            Our Origin:
+            <br /> A Global Collaboration for Global Standards
+          </div>
+          <div className="text-[16px] py-[24px]">
+            Cannex was founded to meet the rising need for safe, standardized,
+            and clinically trusted cannabis products — and we knew that
+            achieving this required more than cultivation alone. It required
+            science, compliance, and collaboration across continents.
+          </div>
+          <div className="text-[20px]">
+            Cannex is the product of a powerful alliance between three nations:
+          </div>
+        </div>
+
+        <ResolveMap />
+
+        <div className="flex justify-center">
+          Together, we create a vertically integrated system —
+          <b>from seed to shelf,</b> built to meet the most rigorous
+          international standards.
         </div>
       </div>
     </div>
