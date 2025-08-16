@@ -490,127 +490,267 @@ export default function Page() {
         )}
       </ScrollReveal>
 
-      <div className="w-full h-[500px] tablet:h-[720px] relative">
-        <div className="w-full h-full">
-          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
-          <Image
-            src="/about-us/about-us-what-we-belive.jpg"
-            alt="about-us-what-we-belive"
-            className="w-full h-full object-cover"
-            width={1440}
-            height={720}
-          />
-        </div>
-        <div className="absolute top-0 right-0 w-full h-full p-[20px] tablet:p-[64px_80px] flex flex-col tablet:flex-row gap-13">
-          <div className="flex flex-col gap-3">
-            <div className="text-white text-5xl font-bold leading-[57.20px]">
-              What We Believe
-            </div>
-            <div className="text-white text-base font-medium leading-tight">
-              Medical cannabis should be held to the same standards as any
-              pharmaceutical product.
-            </div>
-          </div>
+      <ScrollReveal once>
+        {(show) => (
+          <>
+            <div className="w-full h-[500px] tablet:h-[720px] relative">
+              <div className="w-full h-full overflow-hidden">
+                <div className="absolute top-0 right-0 z-1 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
+                <Image
+                  src="/about-us/about-us-what-we-belive.jpg"
+                  alt="about-us-what-we-belive"
+                  className={
+                    "w-full h-full object-cover z-0 will-change-transform zoom-origin-center " +
+                    getClassNameAnimation(
+                      show,
+                      1000,
+                      "zoom-from",
+                      "animate-zoom-to-fit",
+                    )
+                  }
+                  width={1440}
+                  height={720}
+                />
+              </div>
+              <div className="absolute z-2 top-0 right-0 w-full h-full p-[20px] tablet:p-[64px_80px] flex flex-col tablet:flex-row gap-13">
+                <div className="flex flex-col gap-3">
+                  <div
+                    className={
+                      "text-white text-5xl font-bold leading-[57.20px]" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    What We Believe
+                  </div>
+                  <div
+                    className={
+                      "text-white text-base font-medium leading-tight" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    Medical cannabis should be held to the same standards as any
+                    pharmaceutical product.
+                  </div>
+                </div>
 
-          {/* Desktop */}
-          <div className="flex-col tablet:gap-2 hidden tablet:flex">
-            <div className="text-white text-3xl font-bold leading-10">
-              It should be
-            </div>
-            <div className="self-stretch justify-start">
-              <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-                formulated with precision,
-              </span>
-              <span className="text-white text-2xl font-bold leading-7">
-                {" "}
-                not guesswork.
-              </span>
-            </div>
-            <div className="self-stretch justify-start">
-              <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-                developed with scientific evidence,
-              </span>
-              <span className="text-white text-2xl font-bold leading-7">
-                {" "}
-                not assumptions.
-              </span>
-            </div>
-            <div className="self-stretch justify-start">
-              <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-                delivered with integrity,
-              </span>
-              <span className="text-white text-2xl font-bold leading-7">
-                {" "}
-                not inconsistency.
-              </span>
-            </div>
-          </div>
+                {/* Desktop */}
+                <div className="flex-col z-2 tablet:gap-2 hidden tablet:flex">
+                  <div
+                    className={
+                      "text-white text-3xl font-bold leading-10" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    It should be
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      formulated with precision,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not guesswork.
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch z-2 justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      developed with scientific evidence,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not assumptions.
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch z-2 justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      delivered with integrity,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not inconsistency.
+                    </span>
+                  </div>
+                </div>
 
-          {/* Mobile */}
-          <div className="absolute bottom-2 block tablet:hidden">
-            <div className="text-white text-3xl font-bold leading-10">
-              It should be
-            </div>
-            <div className="self-stretch justify-start">
-              <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-                formulated with precision,
-              </span>
-              <span className="text-white text-2xl font-bold leading-7">
-                {" "}
-                not guesswork.
-              </span>
-            </div>
-          </div>
-        </div>
+                {/* Mobile */}
+                <div className="absolute z-2 bottom-2 block tablet:hidden">
+                  <div
+                    className={
+                      "text-white text-3xl font-bold leading-10" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    It should be
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      formulated with precision,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not guesswork.
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-        {/* Desktop */}
-        <div className="absolute tablet:bottom-10 w-full justify-center hidden tablet:flex">
-          <div className="w-full text-center justify-start">
-            <span className="text-white text-base font-medium leading-tight">
-              We believe in{" "}
-            </span>
-            <span className="text-crystalGreen text-base font-bold leading-tight">
-              empowering communities, supporting physicians
-            </span>
-            <span className="text-white text-base font-medium leading-tight">
-              , and delivering products that truly improve lives — with clarity,
-              transparency, and compassion.
-            </span>
-          </div>
-        </div>
-      </div>
+              {/* Desktop */}
+              <div
+                style={{
+                  transitionDelay: "500ms",
+                  animationDelay: "500ms",
+                }}
+                className={
+                  "absolute z-2 tablet:bottom-10 w-full justify-center hidden tablet:flex" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                <div className="w-full text-center justify-start">
+                  <span className="text-white text-base font-medium leading-tight">
+                    We believe in{" "}
+                  </span>
+                  <span className="text-crystalGreen text-base font-bold leading-tight">
+                    empowering communities, supporting physicians
+                  </span>
+                  <span className="text-white text-base font-medium leading-tight">
+                    , and delivering products that truly improve lives — with
+                    clarity, transparency, and compassion.
+                  </span>
+                </div>
+              </div>
+            </div>
 
-      {/* Mobile */}
-      <div className="mt-1 mx-5 pb-10 border-b-2 flex flex-col gap-2 tablet:hidden">
-        <div>
-          <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-            developed with scientific evidence,
-          </span>
-          <span className="text-black text-2xl font-bold leading-7">
-          {" "}not assumptions.
-          </span>
-        </div>
-        <div>
-          <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
-            delivered with integrity,
-          </span>
-          <span className="text-black text-2xl font-bold leading-7">
-            {" "}not inconsistency.
-          </span>
-        </div>
-        <div className="w-full text-left mt-4 justify-start">
-          <span className="text-black text-base font-medium leading-tight">
-            We believe in{" "}
-          </span>
-          <span className="text-crystalGreen text-base font-bold leading-tight">
-            empowering communities, supporting physicians
-          </span>
-          <span className="text-black text-base font-medium leading-tight">
-            , and delivering products that truly improve lives — with clarity,
-            transparency, and compassion.
-          </span>
-        </div>
-      </div>
+            {/* Mobile */}
+            <div
+              className={
+                "mt-1 mx-5 pb-10 border-b-2 flex flex-col gap-2 tablet:hidden" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )
+              }
+              style={{
+                transitionDelay: "500ms",
+                animationDelay: "500ms",
+              }}
+            >
+              <div>
+                <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                  developed with scientific evidence,
+                </span>
+                <span className="text-black text-2xl font-bold leading-7">
+                  {" "}
+                  not assumptions.
+                </span>
+              </div>
+              <div>
+                <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                  delivered with integrity,
+                </span>
+                <span className="text-black text-2xl font-bold leading-7">
+                  {" "}
+                  not inconsistency.
+                </span>
+              </div>
+              <div className="w-full text-left mt-4 justify-start">
+                <span className="text-black text-base font-medium leading-tight">
+                  We believe in{" "}
+                </span>
+                <span className="text-crystalGreen text-base font-bold leading-tight">
+                  empowering communities, supporting physicians
+                </span>
+                <span className="text-black text-base font-medium leading-tight">
+                  , and delivering products that truly improve lives — with
+                  clarity, transparency, and compassion.
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+      </ScrollReveal>
     </div>
   );
 }

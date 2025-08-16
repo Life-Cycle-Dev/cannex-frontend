@@ -28,7 +28,7 @@ export default function ScrollReveal({
           }
         });
       },
-      { threshold: 0.2 },
+      { threshold: 0.7 },
     );
 
     if (ref.current) observer.observe(ref.current);
