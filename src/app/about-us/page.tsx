@@ -109,7 +109,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="tablet:p-[96px_80px] mx-[20px] py-[64px] border-y-2 ">
+      <div className="tablet:p-[96px_80px] mx-[20px] tablet:mx-0 py-[64px] border-y-2 ">
         <div className="mb-[48px]">
           <div className="text-[24px] tablet:text-[52px] font-bold">
             Our Origin:
