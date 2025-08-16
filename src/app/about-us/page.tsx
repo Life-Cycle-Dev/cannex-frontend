@@ -319,10 +319,13 @@ export default function Page() {
               >
                 Cannex is the product of a powerful alliance between{" "}
                 <b
-                  style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                  style={{
+                    transitionDelay: "500ms",
+                    animationDelay: "500ms",
+                  }}
                   className={
                     "highlight-animate" +
-                    getClassNameAnimation(show, 1000, "", "highlight-run")
+                    getClassNameAnimation(show, 500, "", "highlight-run")
                   }
                 >
                   three nations:
@@ -334,72 +337,158 @@ export default function Page() {
 
         <ResolveMap />
 
-        <div className="flex justify-center">
-          <div className="text-[14px] text-left tablet:text-center">
-            Together, we create a vertically integrated system —
-            <b>from seed to shelf,</b> built to meet the most rigorous
-            international standards.
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+              className={
+                "flex justify-center" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 translate-y-5",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
+              <div className="text-[14px] text-left tablet:text-center">
+                Together, we create a vertically integrated system —
+                <b>from seed to shelf,</b> built to meet the most rigorous
+                international standards.
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
       <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
-        <div className="text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold">
-          <div>Our Mission: </div>
-          <div>Raising the Global Standard</div>
-        </div>
-        <div className="text-[16px] flex flex-col gap-3">
-          <div>
-            We don’t just grow cannabis — we{" "}
-            <b>engineer medical-grade wellness solutions.</b> Cannex exists to
-            bridge the gap between traditional cultivation and modern
-            pharmaceutical expectations.
-          </div>
-          <div>
-            With clinical-grade facilities, stringent quality assurance, and
-            transparent global compliance, we ensure:
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={
+                "text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div>Our Mission: </div>
+              <div>Raising the Global Standard</div>
+            </div>
+          )}
+        </ScrollReveal>
+
+        <ScrollReveal once>
+          {(show) => (
+            <div className="text-[16px] flex flex-col gap-3">
+              <div
+                className={getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )}
+              >
+                We don’t just grow cannabis — we{" "}
+                <b>engineer medical-grade wellness solutions.</b> Cannex exists
+                to bridge the gap between traditional cultivation and modern
+                pharmaceutical expectations.
+              </div>
+              <div
+                className={getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )}
+              >
+                With clinical-grade facilities, stringent quality assurance, and
+                transparent global compliance, we ensure:
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
-      <div className="grid grid-cols-1 tablet:grid-cols-3  mx-[20px] tablet:mx-0">
-        <div className="flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <SafetyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Safety
+      <ScrollReveal once>
+        {(show) => (
+          <div className="grid grid-cols-1 tablet:grid-cols-3  mx-[20px] tablet:mx-0">
+            <div
+              className={
+                "flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col  items-start gap-4">
+                <SafetyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Safety
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Every batch is tested for cannabinoids and contaminants using
+                  HPLC and LC-MS/MS
+                </div>
+              </div>
             </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Every batch is tested for cannabinoids and contaminants using HPLC
-              and LC-MS/MS
-            </div>
-          </div>
-        </div>
 
-        <div className="flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <ConsistencyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Consistency
+            <div
+              style={{ transitionDelay: "200ms", animationDelay: "200ms" }}
+              className={
+                "flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col items-start gap-4">
+                <ConsistencyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Consistency
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Genetics, terpene profiles, and potency are maintained
+                  lot-to-lot
+                </div>
+              </div>
             </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Genetics, terpene profiles, and potency are maintained lot-to-lot
-            </div>
-          </div>
-        </div>
 
-        <div className="flex justify-start items-center  py-10 tablet:px-20">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <EfficacyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Consistency
-            </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Genetics, terpene profiles, and potency are maintained lot-to-lot
+            <div
+              style={{ transitionDelay: "400ms", animationDelay: "400ms" }}
+              className={
+                "flex justify-start items-center py-10 tablet:px-20" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col items-start gap-4">
+                <EfficacyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Consistency
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Genetics, terpene profiles, and potency are maintained
+                  lot-to-lot
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </ScrollReveal>
     </div>
   );
 }
