@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-/* ---------- Data ---------- */
 type Alliance = { flag: string; title: string; bullets: string[] };
 
 const ALLIANCES: Alliance[] = [
@@ -43,11 +42,13 @@ export default function Home() {
       {/* กรอบนอก */}
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2 border-b-2  border-black">
+        className="w-full border-t-2 border-b-2  border-black"
+      >
         <div className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]">
           <h1
             id="alliances-title"
-            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]">
+            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
+          >
             Our Key Strategic
             <br />
             Alliances
@@ -56,7 +57,7 @@ export default function Home() {
         <div className="mt-[20px] desktop:hidden border-t-[2px] border-black">
           <div className="relative w-full aspect-[16/10]">
             <Image
-              src="/partners/Image.png"
+              src="/partnership/Image.png"
               alt="Scientists in cleanroom gear"
               fill
               priority
@@ -70,8 +71,8 @@ export default function Home() {
         <div className="grid grid-cols-1 desktop:grid-cols-2">
           {/* LEFT: 3 บล็อก */}
           <div className="border-black">
-            {ALLIANCES.map((a, i) => (
-              <AllianceItem key={a.title} data={a} isFirst={i === 0} />
+            {ALLIANCES.map((a) => (
+              <AllianceItem key={a.title} data={a} />
             ))}
           </div>
 
@@ -79,7 +80,7 @@ export default function Home() {
           <div className="hidden desktop:block desktop:row-span-3 border-l-2 border-black">
             <div className="relative w-full h-full border-t-[2px]">
               <Image
-                src="/partners/Image.png"
+                src="/partnership/Image.png"
                 alt="Scientists in cleanroom gear"
                 fill
                 priority
@@ -96,24 +97,20 @@ export default function Home() {
 }
 
 /* ---------- Subcomponent ---------- */
-function AllianceItem({
-  data,
-  isFirst,
-}: {
-  data: Alliance;
-  isFirst?: boolean;
-}) {
+function AllianceItem({ data }: { data: Alliance }) {
   return (
     <div
       className={`
         border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0
-      `}>
+      `}
+    >
       <div
         className={`
           desktop:px-[80px]      
           desktop:mx-0
           pt-[32px] pb-[32px]
-        `}>
+        `}
+      >
         <h3 className="mt-0 desktop:mt-[32px] text-xl desktop:text-2xl font-extrabold leading-snug flex items-start gap-3">
           <span aria-hidden className="text-2xl">
             {data.flag}

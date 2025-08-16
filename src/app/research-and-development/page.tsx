@@ -29,7 +29,7 @@ export default function RnD() {
         />
 
         <Image
-          src="/rnd/Image 1_1.png"
+          src="/research-and-development/Image 1_1.png"
           alt="Research & Development"
           width={375}
           height={375}

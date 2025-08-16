@@ -18,7 +18,7 @@ export default function FocusAreas() {
 
           {/* Row 1: mobile -> Image then Text / desktop -> col 2 (img), col 3 (text) */}
           <CellImage
-            src="/rnd/Image 3_4-2.png"
+            src="/research-and-development/Image 3_4-2.png"
             alt="Cannabinoid research equipment"
             className="desktop:col-start-2"
           />
@@ -36,7 +36,7 @@ export default function FocusAreas() {
 
           {/* Row 2: mobile -> Image then Text / desktop -> same row (row 2), text left (col 2), image right (col 3) */}
           <CellImage
-            src="/rnd/Image 3_4-1.png"
+            src="/research-and-development/Image 3_4-1.png"
             alt="Precision pipetting in lab"
             className="desktop:col-start-3 desktop:row-start-2"
           />
@@ -53,7 +53,7 @@ export default function FocusAreas() {
 
           {/* Row 3: mobile -> Image then Text / desktop -> col 2 (img), col 3 (text) */}
           <CellImage
-            src="/rnd/Image 3_4.png"
+            src="/research-and-development/Image 3_4.png"
             alt="Gloved hand holding sample"
             className="desktop:col-start-2 desktop:row-start-3"
           />
