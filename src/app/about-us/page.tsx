@@ -766,8 +766,8 @@ export default function Page() {
                 )
               }
             >
-              <div className="">What Defines Us:</div>
-              <div className="">The Cannex Pillars</div>
+              <div>What Defines Us:</div>
+              <div>The Cannex Pillars</div>
             </div>
             <div className="grid grid-cols-1 tablet:grid-cols-3">
               {[
