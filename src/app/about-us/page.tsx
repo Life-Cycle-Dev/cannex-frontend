@@ -37,11 +37,10 @@ export default function Page() {
                 {(show) => (
                   <div
                     className={`
-                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms]
+                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] du
                       ${getClassNameAnimation(
                         show,
                         300,
-                        0,
                         "opacity-0 -translate-x-10",
                         "opacity-100 translate-x-0",
                       )}
@@ -63,7 +62,6 @@ export default function Page() {
                           ${getClassNameAnimation(
                             show,
                             100,
-                            0,
                             "opacity-0 translate-y-10",
                             "opacity-100 translate-y-0",
                           )}
@@ -128,7 +126,6 @@ export default function Page() {
                         ${getClassNameAnimation(
                           show,
                           300,
-                          0,
                           "opacity-0",
                           `opacity-100 animate-reveal-ltr ${item.animateClassName}`,
                         )}
@@ -154,7 +151,6 @@ export default function Page() {
                 ${getClassNameAnimation(
                   show,
                   1000,
-                  0,
                   "opacity-0 -translate-y-10",
                   "opacity-100 translate-y-0",
                 )}
@@ -171,7 +167,6 @@ export default function Page() {
               className={`tablet:p-[15px_20px] ${getClassNameAnimation(
                 show,
                 1000,
-                0,
                 "opacity-0 -translate-x-10",
                 "opacity-100 translate-x-0",
               )}`}
@@ -198,8 +193,8 @@ export default function Page() {
       </div>
 
       <div className="grid grid-cols-1 tablet:grid-cols-2 border-t-2">
-        <div className="border-b-2 tablet:border-b-0 tablet:border-r-2">
-          <ScrollReveal once>
+        <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 overflow-y-hidden">
+          <ScrollReveal className="h-full" once>
             {(show) => (
               <Image
                 src="/about-us/about-us-lab.jpg"
@@ -209,7 +204,6 @@ export default function Page() {
                   getClassNameAnimation(
                     show,
                     1000,
-                    0,
                     "opacity-0 translate-y-30",
                     "opacity-100 translate-y-0",
                   )
@@ -227,7 +221,6 @@ export default function Page() {
                 className={getClassNameAnimation(
                   show,
                   500,
-                  0,
                   "opacity-0 translate-y-5",
                   "opacity-100 translate-y-0",
                 )}
@@ -237,7 +230,17 @@ export default function Page() {
 
           <ScrollReveal once>
             {(show) => (
-              <div className={"text-[40px] font-bold" + getClassNameAnimation(show, 500, 0, "opacity-0 -translate-x-5", "opacity-100 translate-x-0")}>
+              <div
+                className={
+                  "text-[40px] font-bold" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-x-20",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
                 This is the standard that defines us, and the promise we deliver
                 in every drop.
               </div>
@@ -250,7 +253,6 @@ export default function Page() {
                 className={getClassNameAnimation(
                   show,
                   500,
-                  0,
                   "opacity-0 -translate-y-5",
                   "opacity-100 translate-y-0",
                 )}
@@ -262,19 +264,72 @@ export default function Page() {
 
       <div className="tablet:p-[96px_80px] mx-[20px] tablet:mx-0 py-[64px] border-y-2 ">
         <div className="mb-[48px]">
-          <div className="text-[24px] tablet:text-[52px] font-bold">
-            Our Origin:
-            <br /> A Global Collaboration for Global Standards
-          </div>
-          <div className="text-[16px] py-[24px]">
-            Cannex was founded to meet the rising need for safe, standardized,
-            and clinically trusted cannabis products — and we knew that
-            achieving this required more than cultivation alone. It required
-            science, compliance, and collaboration across continents.
-          </div>
-          <div className="text-[20px]">
-            Cannex is the product of a powerful alliance between three nations:
-          </div>
+          <ScrollReveal once>
+            {(show) => (
+              <div
+                className={
+                  "text-[24px] tablet:text-[52px] font-bold" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
+                Our Origin:
+                <br /> A Global Collaboration for Global Standards
+              </div>
+            )}
+          </ScrollReveal>
+
+          <ScrollReveal>
+            {(show) => (
+              <div
+                className={
+                  "text-[16px] py-[24px]" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 -translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                Cannex was founded to meet the rising need for safe,
+                standardized, and clinically trusted cannabis products — and we
+                knew that achieving this required more than cultivation alone.
+                It required science, compliance, and collaboration across
+                continents.
+              </div>
+            )}
+          </ScrollReveal>
+          <ScrollReveal>
+            {(show) => (
+              <div
+                className={
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                Cannex is the product of a powerful alliance between{" "}
+                <b
+                  style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                  className={
+                    "highlight-animate" +
+                    getClassNameAnimation(show, 1000, "", "highlight-run")
+                  }
+                >
+                  three nations:
+                </b>
+              </div>
+            )}
+          </ScrollReveal>
         </div>
 
         <ResolveMap />

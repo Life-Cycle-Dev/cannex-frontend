@@ -194,6 +194,18 @@ body {
   }
 }
 
+@keyframes bg-highlight {
+  0% {
+    left: 0;
+    width: 0%;
+  }
+
+  100% {
+    left: 0;
+    width: 100%;
+  }
+}
+
 @layer utilities {
   .reveal-ltr {
     position: relative;
@@ -232,5 +244,24 @@ body {
 
   .animate-reveal-ltr::after {
     animation: bg-sweep-ltr 1s ease-out forwards;
+  }
+
+  .highlight-animate {
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight-animate::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: var(--color-crystalGreen);
+    z-index: -1;
+  }
+
+  .highlight-run::after {
+    animation: bg-highlight 2s ease-out forwards;
   }
 }
