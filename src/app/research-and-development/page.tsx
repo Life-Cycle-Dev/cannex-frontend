@@ -6,7 +6,7 @@ import ScientificCollaboration from "./ScientificCollaboration";
 import { useRef, useState } from "react";
 import Partners from "@/components/Partners";
 
-export default function RnD() {
+export default function Page() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const handlePlay = () => {
