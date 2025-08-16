@@ -167,7 +167,6 @@ body {
   }
 }
 
-/* แถบ background วิ่งตาม */
 @keyframes bg-sweep {
   0% {
     left: 0;
