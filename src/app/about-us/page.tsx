@@ -109,7 +109,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="p-[96px_80px] border-t-2">
+      <div className="p-[96px_80px] border-y-2">
         <div className="mb-[48px]">
           <div className="text-[52px] font-bold">
             Our Origin:
@@ -129,11 +129,14 @@ export default function Page() {
         <ResolveMap />
 
         <div className="flex justify-center">
-          Together, we create a vertically integrated system —
-          <b>from seed to shelf,</b> built to meet the most rigorous
-          international standards.
+          <div className="text-center">
+            Together, we create a vertically integrated system —
+            <b>from seed to shelf,</b> built to meet the most rigorous
+            international standards.
+          </div>
         </div>
       </div>
+      <div className="">TODO</div>
     </div>
   );
 }
