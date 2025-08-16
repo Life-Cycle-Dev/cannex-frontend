@@ -1,5 +1,4 @@
 "use client";
-
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import ConsistencyIcon from "@/components/icons/partnership/ConsistencyIcon";
 import EfficacyIcon from "@/components/icons/partnership/EfficacyIcon";
@@ -7,16 +6,10 @@ import SafetyIcon from "@/components/icons/partnership/SafetyIcon";
 import QuoteBottomIcon from "@/components/icons/QuoteBottomIcon";
 import QuoteTopIcon from "@/components/icons/QuoteTopIcon";
 import ResolveMap from "@/components/map/ResolveMap";
+import { getClassNameAnimation } from "@/utils/animation-helper";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Page() {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    setShow(true);
-  }, []);
-
   return (
     <div>
       <div className="w-full h-[961px]">
@@ -45,11 +38,13 @@ export default function Page() {
                   <div
                     className={`
                       text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms]
-                      ${
-                        show
-                          ? "opacity-100 translate-x-0"
-                          : "opacity-0 -translate-x-10"
-                      }
+                      ${getClassNameAnimation(
+                        show,
+                        300,
+                        0,
+                        "opacity-0 -translate-x-10",
+                        "opacity-100 translate-x-0",
+                      )}
                     `}
                   >
                     About
@@ -64,13 +59,15 @@ export default function Page() {
                       <span
                         style={{ transitionDelay: `${i * 100}ms` }}
                         className={`
-                        transition-all inline-block duration-[100ms]
-                        ${
-                          show
-                            ? "opacity-100 translate-y-0"
-                            : "opacity-0 translate-y-10"
-                        }
-                      `}
+                          inline-block 
+                          ${getClassNameAnimation(
+                            show,
+                            100,
+                            0,
+                            "opacity-0 translate-y-10",
+                            "opacity-100 translate-y-0",
+                          )}
+                        `}
                       >
                         {char}
                       </span>
@@ -91,7 +88,7 @@ export default function Page() {
                 },
                 {
                   text: "Grade Formulation,",
-                  className: "bg-crystalGreen hidden tablet:block mb-3",
+                  className: "hidden tablet:block mb-3",
                   animateClassName: "reveal-crystalGreen",
                 },
                 {
@@ -127,9 +124,15 @@ export default function Page() {
                     >
                       <span
                         style={{ animationDelay: `${i * 100}ms` }}
-                        className={`reveal-ltr ${
-                          show ? "animate-reveal-ltr" : ""
-                        } ${item.animateClassName}`}
+                        className={`reveal-ltr 
+                        ${getClassNameAnimation(
+                          show,
+                          300,
+                          0,
+                          "opacity-0",
+                          `opacity-100 animate-reveal-ltr ${item.animateClassName}`,
+                        )}
+                        `}
                       >
                         {item.text}
                       </span>
@@ -144,27 +147,54 @@ export default function Page() {
       <div className="min-h-[200px] w-full tablet:hidden"></div>
 
       <div className="mx-[20px] py-[64px] tablet:p-[80px] grid grid-cols-1 border-t-2 tablet:border-t-0 tablet:grid-cols-2">
-        <div className="text-[40px] tablet:text-[52px] font-bold">
-          Reimagining Medical Cannabis with Science and Purpose
-        </div>
-        <div className="tablet:p-[15px_20px]">
-          <div className="mt-[16px] tablet:mt-0">
-            Medical cannabis is undergoing a global transformation — from an
-            alternative remedy to a credible therapeutic solution. With growing
-            acceptance among physicians, patients, and regulators, the demand
-            for cannabis products that meet{" "}
-            <b>pharmaceutical-grade standards</b> has never been higher
-          </div>
-          <div className="mt-[20px]">
-            At Cannex, we believe that{" "}
-            <b>
-              medical cannabis formulations deserve the same level of precision,
-              quality control, and scientific discipline
-            </b>
-            as any pharmaceutical product. It&apos;s not just about being
-            natural — it&apos;s about being <b>scientifically precise.</b>
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={`text-[40px] tablet:text-[52px] font-bold transition-all duration-[500ms]
+                ${getClassNameAnimation(
+                  show,
+                  1000,
+                  0,
+                  "opacity-0 -translate-y-10",
+                  "opacity-100 translate-y-0",
+                )}
+              `}
+            >
+              Reimagining Medical Cannabis with Science and Purpose
+            </div>
+          )}
+        </ScrollReveal>
+
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={`tablet:p-[15px_20px] ${getClassNameAnimation(
+                show,
+                1000,
+                0,
+                "opacity-0 -translate-x-10",
+                "opacity-100 translate-x-0",
+              )}`}
+            >
+              <div className="mt-[16px] tablet:mt-0">
+                Medical cannabis is undergoing a global transformation — from an
+                alternative remedy to a credible therapeutic solution. With
+                growing acceptance among physicians, patients, and regulators,
+                the demand for cannabis products that meet{" "}
+                <b>pharmaceutical-grade standards</b> has never been higher
+              </div>
+              <div className="mt-[20px]">
+                At Cannex, we believe that{" "}
+                <b>
+                  medical cannabis formulations deserve the same level of
+                  precision, quality control, and scientific discipline
+                </b>
+                as any pharmaceutical product. It&apos;s not just about being
+                natural — it&apos;s about being <b>scientifically precise.</b>
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
       <div className="grid grid-cols-1 tablet:grid-cols-2 border-t-2">
