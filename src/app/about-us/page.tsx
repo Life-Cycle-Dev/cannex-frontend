@@ -159,7 +159,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 tablet:grid-cols-3 border-b-2 mx-[20px] tablet:mx-0">
+      <div className="grid grid-cols-1 tablet:grid-cols-3  mx-[20px] tablet:mx-0">
         <div className="flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2">
           <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
             <SafetyIcon />
