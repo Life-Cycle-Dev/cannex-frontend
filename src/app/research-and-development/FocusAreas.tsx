@@ -7,20 +7,20 @@ export default function FocusAreas() {
   return (
     <section className="bg-white w-full">
       <div className="w-full">
-        <div className="relative grid grid-cols-1 desktop:grid-cols-3 border border-neutral200 w-full">
-          <div className="desktop:row-span-3 p-6 desktop:p-8 border-b desktop:border-b-0 desktop:border-r border-neutral200 flex items-start">
-            <h3 className="text-3xl desktop:text-4xl font-bold leading-tight text-black">
+        <div className="relative grid grid-cols-1 tablet:grid-cols-3 border border-neutral200 w-full">
+          <div className="tablet:row-span-3 p-6 tablet:p-8 border-b tablet:border-b-0 tablet:border-r border-neutral200 flex items-start">
+            <h3 className="text-3xl tablet:text-4xl font-bold leading-tight text-black">
               Our Core
               <br />
               Focus Areas
             </h3>
           </div>
 
-          {/* Row 1: mobile -> Image then Text / desktop -> col 2 (img), col 3 (text) */}
+          {/* Row 1: mobile -> Image then Text / tablet -> col 2 (img), col 3 (text) */}
           <CellImage
             src="/research-and-development/Image 3_4-2.png"
             alt="Cannabinoid research equipment"
-            className="desktop:col-start-2"
+            className="tablet:col-start-2"
           />
           <CellText
             number="1"
@@ -31,14 +31,14 @@ export default function FocusAreas() {
               "Minor cannabinoid separation (CBG, CBC, CBN) for targeted effects",
               "Cannabinoid–terpene matching to enhance therapeutic outcomes",
             ]}
-            className="desktop:col-start-3"
+            className="tablet:col-start-3"
           />
 
-          {/* Row 2: mobile -> Image then Text / desktop -> same row (row 2), text left (col 2), image right (col 3) */}
+          {/* Row 2: mobile -> Image then Text / tablet -> same row (row 2), text left (col 2), image right (col 3) */}
           <CellImage
             src="/research-and-development/Image 3_4-1.png"
             alt="Precision pipetting in lab"
-            className="desktop:col-start-3 desktop:row-start-2"
+            className="tablet:col-start-3 tablet:row-start-2"
           />
           <CellText
             number="2"
@@ -48,14 +48,14 @@ export default function FocusAreas() {
               "Product development guided by clinical use cases and global compliance",
               "Terpene profile design for efficacy and flavor control",
             ]}
-            className="desktop:col-start-2 desktop:row-start-2"
+            className="tablet:col-start-2 tablet:row-start-2"
           />
 
-          {/* Row 3: mobile -> Image then Text / desktop -> col 2 (img), col 3 (text) */}
+          {/* Row 3: mobile -> Image then Text / tablet -> col 2 (img), col 3 (text) */}
           <CellImage
             src="/research-and-development/Image 3_4.png"
             alt="Gloved hand holding sample"
-            className="desktop:col-start-2 desktop:row-start-3"
+            className="tablet:col-start-2 tablet:row-start-3"
           />
           <CellText
             number="3"
@@ -65,7 +65,7 @@ export default function FocusAreas() {
               "Stability testing for export conditions (heat, humidity)",
               "Secure packaging for traceability and patient safety",
             ]}
-            className="desktop:col-start-3 desktop:row-start-3"
+            className="tablet:col-start-3 tablet:row-start-3"
           />
         </div>
       </div>
@@ -88,7 +88,8 @@ function CellImage({
         "relative border-t border-l border-neutral200",
         "w-full",
         className,
-      ].join(" ")}>
+      ].join(" ")}
+    >
       <Image
         src={src}
         alt={alt}
@@ -129,12 +130,13 @@ function CellText({
   return (
     <div
       className={[
-        "relative p-6 desktop:p-8 border border-neutral200 w-full",
+        "relative p-6 tablet:p-8 border border-neutral200 w-full",
         className,
-      ].join(" ")}>
-      <h4 className="text-xl desktop:text-5xl font-bold text-black">{title}</h4>
+      ].join(" ")}
+    >
+      <h4 className="text-xl tablet:text-5xl font-bold text-black">{title}</h4>
       <div className="mt-3 h-px w-full bg-neutral200" />
-      <ul className="mt-4 list-none text-sm desktop:text-base">
+      <ul className="mt-4 list-none text-sm tablet:text-base">
         {points.map((p, i) => {
           const [lead, tail] = splitLead(p);
           return (
@@ -145,7 +147,7 @@ function CellText({
           );
         })}
       </ul>
-      <span className="absolute -bottom-3 right-3 desktop:right-6 text-[72px] desktop:text-[96px] font-bold text-black select-none">
+      <span className="absolute -bottom-3 right-3 tablet:right-6 text-[72px] tablet:text-[96px] font-bold text-black select-none">
         {number}
       </span>
     </div>
