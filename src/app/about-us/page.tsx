@@ -298,7 +298,13 @@ export default function Page() {
               <div
                 className={
                   "text-[16px] py-[24px]" +
-                  getClassNameAnimation(show, 500, 0, "opacity-0 -translate-y-5", "opacity-100 translate-y-0")
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    0,
+                    "opacity-0 -translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
                 }
               >
                 Cannex was founded to meet the rising need for safe,
@@ -309,9 +315,18 @@ export default function Page() {
               </div>
             )}
           </ScrollReveal>
-          <div className="text-[20px]">
-            Cannex is the product of a powerful alliance between three nations:
-          </div>
+          <ScrollReveal>
+            {(show) => (
+              <div
+                className={
+                  "text-[20px]" + getClassNameAnimation(show, 500, 0, "opacity-0 translate-y-5", "opacity-100 translate-y-0")
+                }
+              >
+                Cannex is the product of a powerful alliance between three
+                nations:
+              </div>
+            )}
+          </ScrollReveal>
         </div>
 
         <ResolveMap />
