@@ -1,7 +1,13 @@
+"use client";
+
 import CannexSvg from "@/components/icons/CannexSvg";
 import SupportingInformation from "@/components/SupportingInformation";
 import WrapUp from "@/components/WrapUp";
 import Image from "next/image";
+import { useEffect } from "react";
+import AOS from "aos";
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
 
 const products = [
   {
@@ -65,10 +71,19 @@ const products = [
 ];
 
 export default function Page() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
   return (
     <div>
       <div className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6">
-        <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+        <p
+          data-aos="fade-down"
+          className="text-[46px] tablet:text-7xl font-bold leading-[110%]"
+        >
           Products
         </p>
         <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
@@ -88,7 +103,10 @@ export default function Page() {
               Designed for Global Markets.
             </p>
           </div>
-          <p className="font-medium leading-[125%] w-full tablet:w-[405px]">
+          <p
+            data-aos="fade-right"
+            className="font-medium leading-[125%] w-full tablet:w-[405px]"
+          >
             From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
             reliable, precisely formulated products developed for pharmacies,
             healthcare providers, and wellness innovators across Europe, Asia,
