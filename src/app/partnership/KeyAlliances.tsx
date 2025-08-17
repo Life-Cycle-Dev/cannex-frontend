@@ -6,7 +6,7 @@ type Alliance = { flag: string; title: string; bullets: string[] };
 
 const ALLIANCES: Alliance[] = [
   {
-    flag: "🇺🇸",
+    flag: "/partnership/icon/usa-flag.png",
     title: "Cannex Pharma (USA)",
     bullets: [
       "Founded by the team behind Cookies Maywood",
@@ -16,7 +16,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "🇯🇵",
+    flag: "/partnership/icon/jp-flag.png",
     title: "Japanese Pharmaceutical Partners",
     bullets: [
       "Advanced extraction, crystallization, and chromatography",
@@ -25,7 +25,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "🇹🇭",
+    flag: "/partnership/icon/th-flag.png",
     title: "Siam Agri-Bio (Thailand)",
     bullets: [
       "PIC/S GMP-certified facility for extraction & production",
@@ -39,16 +39,13 @@ const ALLIANCES: Alliance[] = [
 export default function Home() {
   return (
     <main className="bg-white text-[var(--foreground)]">
-      {/* กรอบนอก */}
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2 border-b-2  border-black"
-      >
+        className="w-full border-t-2 border-b-2  border-black">
         <div className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]">
           <h1
             id="alliances-title"
-            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
-          >
+            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]">
             Our Key Strategic
             <br />
             Alliances
@@ -99,21 +96,22 @@ export default function Home() {
 /* ---------- Subcomponent ---------- */
 function AllianceItem({ data }: { data: Alliance }) {
   return (
-    <div
-      className={`
-        border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0
-      `}
-    >
+    <div className="border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0">
       <div
         className={`
-          desktop:px-[80px]      
-          desktop:mx-0
-          pt-[32px] pb-[32px]
-        `}
-      >
+          pb-[32px]
+          pt-[32px]           
+          desktop:pt-0
+          desktop:px-[80px]
+        `}>
         <h3 className="mt-0 desktop:mt-[32px] text-xl desktop:text-2xl font-extrabold leading-snug flex items-start gap-3">
-          <span aria-hidden className="text-2xl">
-            {data.flag}
+          <span aria-hidden className="relative w-6 h-6 flex-shrink-0">
+            <Image
+              src={data.flag}
+              alt={`${data.title}`}
+              fill
+              className="object-contain"
+            />
           </span>
           <span>{data.title}</span>
         </h3>
