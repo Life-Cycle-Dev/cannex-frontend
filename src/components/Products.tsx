@@ -56,11 +56,21 @@ function ProductCard({ data }: { data: Card }) {
       tabIndex={0}
       role="button"
       aria-label={data.title.replace(/\n/g, " ")}
-      className="group relative isolate overflow-hidden cursor-pointer border-b-[2px] border-black border-r-[2px]"
+      className="group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black border-r-[2px]"
     >
       <div className="w-full flex justify-end bg-white">
-        <div className="h-12 w-12 grid place-items-center group-hover:bg-black group-focus-visible:bg-black">
-          <RightUpIcon className="w-8 h-8 text-black group-hover:text-crystalGreen group-focus-visible:text-crystalGreen" />
+        <div className="relative h-12 w-12 grid place-items-center group-hover:bg-black group-focus-visible:bg-black">
+          <RightUpIcon
+            className="
+              absolute transition-transform duration-500 ease-out
+              w-8 h-8 text-black group-hover:-translate-y-6 group-hover:translate-x-6
+          "/>
+          <RightUpIcon
+            className="
+              absolute transition-transform duration-500 ease-out
+              translate-y-8 -translate-x-8
+              w-8 h-8 text-crystalGreen group-hover:translate-y-0 group-hover:translate-x-0
+          "/>
         </div>
       </div>
 

@@ -6,8 +6,6 @@ import WrapUp from "@/components/WrapUp";
 import Image from "next/image";
 import { useEffect } from "react";
 import AOS from "aos";
-import ScrollReveal from "@/components/animation/ScrollReveal";
-import { getClassNameAnimation } from "@/utils/animation-helper";
 
 const products = [
   {
