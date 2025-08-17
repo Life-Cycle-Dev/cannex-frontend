@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 
 export default function MapWithCursor({
   className = "",
+  style = {},
 }: {
   className?: string;
+  style?: any;
 }) {
   return (
     <svg
@@ -11,6 +14,7 @@ export default function MapWithCursor({
       viewBox="0 0 699 298"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={style}
     >
       <g clipPath="url(#clip0_1_66)">
         <g clipPath="url(#clip1_1_66)">

@@ -161,7 +161,7 @@ export default function Pagination() {
   return (
     <div>
       <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
-        <div className="">
+        <div>
           <SearchBox
             placeholder="Search Events & Updated"
             value={searchText}

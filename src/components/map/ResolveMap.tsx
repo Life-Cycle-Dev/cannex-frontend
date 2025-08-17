@@ -9,23 +9,34 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 
 export default function ResolveMap() {
   return (
-    <ScrollReveal>
+    <ScrollReveal once>
       {(show) => (
         <>
           {/* Desktop */}
 
           <center className="relative w-full overflow-y-auto hidden tablet:block">
             <div className="relative w-[1310px] h-[480px]">
-              <div className="absolute left-[254px]">
-                <MapWithCursor />
+              <div className="absolute left-[254px] reveal-center">
+                <MapWithCursor
+                  style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+                  className={
+                    "mask-center" +
+                    getClassNameAnimation(show, 500, "", "animate-mask-center")
+                  }
+                />
               </div>
 
               {/* US */}
               <div
-                style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
                 className={
                   "absolute top-8 left-11" +
-                  getClassNameAnimation(show, 1000, "opacity-0 -translate-x-5", "opacity-100 translate-x-0")
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 -translate-x-5",
+                    "opacity-100 translate-x-0",
+                  )
                 }
               >
                 <div className="flex items-center gap-2 mb-2">
@@ -42,7 +53,18 @@ export default function ResolveMap() {
               </div>
 
               {/* TH */}
-              <div className="absolute bottom-13 left-[480px]">
+              <div
+                style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+                className={
+                  "absolute bottom-13 left-[480px]" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
                 <div className="flex items-center gap-2 mb-2">
                   <Thailand />
                   <div className="text-[20px] font-bold">Thailand</div>
@@ -57,7 +79,18 @@ export default function ResolveMap() {
               </div>
 
               {/* JP */}
-              <div className="absolute top-6 right-0">
+              <div
+                style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+                className={
+                  "absolute top-6 right-0" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 translate-x-5",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
                 <div className="flex items-center gap-2 mb-2">
                   <Japan />
                   <div className="text-[20px] font-bold">Japan</div>
@@ -77,7 +110,15 @@ export default function ResolveMap() {
           {/* Mobile */}
           <div className="w-full block tablet:hidden">
             {/* US */}
-            <div>
+            <div
+              className={getClassNameAnimation(
+                show,
+                500,
+                "opacity-0 -translate-x-5",
+                "opacity-100 translate-x-0",
+              )}
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+            >
               <div className="flex items-center gap-2 mb-2">
                 <UnitedState />
                 <div className="text-[20px] font-bold">The United States</div>
@@ -91,11 +132,27 @@ export default function ResolveMap() {
               </div>
             </div>
 
-            <Map className="w-full my-[24px]" />
+            <Map
+              className={
+                "w-full my-[24px] mask-center" +
+                getClassNameAnimation(show, 500, "", "animate-mask-center")
+              }
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+            />
 
             {/* TH */}
-            <div>
-              <div className="flex items-center gap-2 mb-2">
+            <div style={{ transitionDelay: "500ms", animationDelay: "500ms" }}>
+              <div
+                className={
+                  "flex items-center gap-2 mb-2" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
                 <Thailand />
                 <div className="text-[20px] font-bold">Thailand</div>
               </div>
@@ -107,9 +164,19 @@ export default function ResolveMap() {
                 and beyond.
               </div>
             </div>
-
             {/* JP */}
-            <div className="py-[32px]">
+            <div
+              className={
+                "py-[32px]" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 translate-x-5",
+                  "opacity-100 translate-x-0",
+                )
+              }
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+            >
               <div className="flex items-center gap-2 mb-2">
                 <Japan />
                 <div className="text-[20px] font-bold">Japan</div>

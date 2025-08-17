@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import FocusAreas from "./FocusAreas";
 import ScientificCollaboration from "./ScientificCollaboration";
 import { useRef, useState } from "react";
 import Partners from "@/components/Partners";
+import FocusArea from "./FocusArea";
 
-export default function RnD() {
+export default function Page() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const handlePlay = () => {
@@ -17,30 +17,20 @@ export default function RnD() {
 
   return (
     <main className="bg-white">
-      <div className="relative w-full">
+      <div className="relative w-full h-[436px] tablet:h-[590px]">
         <Image
           src="/asset/research-development.png"
           alt="Research & Development"
           width={1920}
           height={800}
-          className="hidden tablet:block w-full h-auto object-cover"
-          sizes="100vw"
-          priority
-        />
-
-        <Image
-          src="/research-and-development/Image 1_1.png"
-          alt="Research & Development"
-          width={375}
-          height={375}
-          className="block tablet:hidden w-full h-auto object-cover"
+          className="w-full h-full object-cover"
           sizes="100vw"
           priority
         />
 
         <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
-          <div className="mx-auto w-full px-6 desktop:px-8 pt-16 tablet:pt-0">
-            <h1 className="text-5xl desktop:text-7xl font-bold text-black w-fit leading-tight">
+          <div className="mx-auto w-full px-6 tablet:px-8 pt-16 tablet:pt-0">
+            <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight">
               Research
               <br />
               &amp; Development
@@ -51,10 +41,10 @@ export default function RnD() {
 
       {/* INTRO SECTION */}
       <section className="bg-white">
-        <div className="mx-auto w-full  px-6 desktop:px-8 py-10 desktop:py-14 grid gap-8 desktop:grid-cols-12 items-center">
+        <div className="mx-auto w-full px-6 tablet:px-8 py-10 tablet:py-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8 items-center">
           {/* Text */}
-          <div className="desktop:col-span-7">
-            <h2 className="text-4xl tablet:text-5xl desktop:text-6xl font-bold leading-tight text-black">
+          <div className="tablet:col-span-7 w-full max-w-[733px]">
+            <h2 className="text-[40px] tablet:text-[52px] font-bold leading-tight text-black">
               <span className="bg-crystalGreen px-1">
                 Science-Driven Innovation
               </span>
@@ -62,7 +52,7 @@ export default function RnD() {
               <span>for Tomorrow’s Therapeutics</span>
             </h2>
 
-            <p className="mt-6 text-neutral900">
+            <p className="mt-6 font-medium leading-[125%]">
               At Cannex, research is not a department — it’s the foundation of
               everything we do. We believe that advancing the future of medical
               cannabis starts with asking the right questions, investing in the
@@ -70,7 +60,7 @@ export default function RnD() {
               demanded of pharmaceutical products.
             </p>
 
-            <p className="mt-4 text-neutral900">
+            <p className="mt-4 font-medium leading-[125%]">
               Our R&amp;D ecosystem bridges cutting-edge science from Japan,
               clinical collaboration in Thailand, and product innovation that
               meets the regulatory standards of the world’s most demanding
@@ -79,22 +69,20 @@ export default function RnD() {
           </div>
 
           {/* Image */}
-          <div className="desktop:col-span-5">
+          <div className="w-full full">
             <Image
               src="/asset/cannex-42.png"
               alt="Cannabis flower macro"
               width={900}
               height={700}
-              sizes="(min-width:1200px) 40vw, 100vw"
-              className="w-full h-auto object-contain "
+              className="w-full h-full object-contain "
               quality={95}
             />
           </div>
         </div>
       </section>
       <section className="relative w-full border border-neutral200">
-        {/* Keep a consistent 16:9 frame */}
-        <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+        <div className="relative w-full h-[750px] tablet:h-[720px] border-y-[2px]">
           <video
             ref={videoRef}
             src="/asset/rnd.mp4"
@@ -127,7 +115,7 @@ export default function RnD() {
           )}
         </div>
       </section>
-      <FocusAreas />
+      <FocusArea />
       <ScientificCollaboration />
       <Partners />
     </main>

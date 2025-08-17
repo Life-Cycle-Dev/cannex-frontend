@@ -319,10 +319,13 @@ export default function Page() {
               >
                 Cannex is the product of a powerful alliance between{" "}
                 <b
-                  style={{ transitionDelay: "1000ms", animationDelay: "1000ms" }}
+                  style={{
+                    transitionDelay: "500ms",
+                    animationDelay: "500ms",
+                  }}
                   className={
                     "highlight-animate" +
-                    getClassNameAnimation(show, 1000, "", "highlight-run")
+                    getClassNameAnimation(show, 500, "", "highlight-run")
                   }
                 >
                   three nations:
@@ -334,72 +337,565 @@ export default function Page() {
 
         <ResolveMap />
 
-        <div className="flex justify-center">
-          <div className="text-[14px] text-left tablet:text-center">
-            Together, we create a vertically integrated system —
-            <b>from seed to shelf,</b> built to meet the most rigorous
-            international standards.
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
+              className={
+                "flex justify-center" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 translate-y-5",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
+              <div className="text-[14px] text-left tablet:text-center">
+                Together, we create a vertically integrated system —
+                <b>from seed to shelf,</b> built to meet the most rigorous
+                international standards.
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
       <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
-        <div className="text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold">
-          <div>Our Mission: </div>
-          <div>Raising the Global Standard</div>
-        </div>
-        <div className="text-[16px] flex flex-col gap-3">
-          <div>
-            We don’t just grow cannabis — we{" "}
-            <b>engineer medical-grade wellness solutions.</b> Cannex exists to
-            bridge the gap between traditional cultivation and modern
-            pharmaceutical expectations.
-          </div>
-          <div>
-            With clinical-grade facilities, stringent quality assurance, and
-            transparent global compliance, we ensure:
-          </div>
-        </div>
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={
+                "text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div>Our Mission: </div>
+              <div>Raising the Global Standard</div>
+            </div>
+          )}
+        </ScrollReveal>
+
+        <ScrollReveal once>
+          {(show) => (
+            <div className="text-[16px] flex flex-col gap-3">
+              <div
+                className={getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )}
+              >
+                We don’t just grow cannabis — we{" "}
+                <b>engineer medical-grade wellness solutions.</b> Cannex exists
+                to bridge the gap between traditional cultivation and modern
+                pharmaceutical expectations.
+              </div>
+              <div
+                className={getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )}
+              >
+                With clinical-grade facilities, stringent quality assurance, and
+                transparent global compliance, we ensure:
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
-      <div className="grid grid-cols-1 tablet:grid-cols-3  mx-[20px] tablet:mx-0">
-        <div className="flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <SafetyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Safety
+      <ScrollReveal once>
+        {(show) => (
+          <div className="grid grid-cols-1 tablet:grid-cols-3  mx-[20px] tablet:mx-0">
+            <div
+              className={
+                "flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col  items-start gap-4">
+                <SafetyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Safety
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Every batch is tested for cannabinoids and contaminants using
+                  HPLC and LC-MS/MS
+                </div>
+              </div>
             </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Every batch is tested for cannabinoids and contaminants using HPLC
-              and LC-MS/MS
-            </div>
-          </div>
-        </div>
 
-        <div className="flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <ConsistencyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Consistency
+            <div
+              style={{ transitionDelay: "200ms", animationDelay: "200ms" }}
+              className={
+                "flex justify-start items-center border-b-2 tablet:border-b-0 py-10 tablet:px-20 tablet:border-r-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col items-start gap-4">
+                <ConsistencyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Consistency
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Genetics, terpene profiles, and potency are maintained
+                  lot-to-lot
+                </div>
+              </div>
             </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Genetics, terpene profiles, and potency are maintained lot-to-lot
-            </div>
-          </div>
-        </div>
 
-        <div className="flex justify-start items-center  py-10 tablet:px-20">
-          <div className="flex flex-col flex-shrink-0 items-start gap-4 w-80">
-            <EfficacyIcon />
-            <div className="self-stretch text-[2rem] font-bold leading-[120%]">
-              Consistency
-            </div>
-            <div className="self-stretch ont-medium leading-[125%]">
-              Genetics, terpene profiles, and potency are maintained lot-to-lot
+            <div
+              style={{ transitionDelay: "400ms", animationDelay: "400ms" }}
+              className={
+                "flex justify-start items-center py-10 tablet:px-20" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-2",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
+              <div className="flex flex-col items-start gap-4">
+                <EfficacyIcon />
+                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                  Consistency
+                </div>
+                <div className="self-stretch font-medium leading-[125%]">
+                  Genetics, terpene profiles, and potency are maintained
+                  lot-to-lot
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </ScrollReveal>
+
+      <ScrollReveal once>
+        {(show) => (
+          <>
+            <div className="w-full h-[500px] tablet:h-[720px] relative">
+              <div className="w-full h-full overflow-hidden">
+                <div className="absolute top-0 right-0 z-1 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
+                <Image
+                  src="/about-us/about-us-what-we-belive.jpg"
+                  alt="about-us-what-we-belive"
+                  className={
+                    "w-full h-full object-cover z-0 will-change-transform zoom-origin-center " +
+                    getClassNameAnimation(
+                      show,
+                      1000,
+                      "zoom-from",
+                      "animate-zoom-to-fit",
+                    )
+                  }
+                  width={1440}
+                  height={720}
+                />
+              </div>
+              <div className="absolute z-2 top-0 right-0 w-full h-full p-[20px] tablet:p-[64px_80px] flex flex-col tablet:flex-row gap-13">
+                <div className="flex flex-col gap-3">
+                  <div
+                    className={
+                      "text-white text-5xl font-bold leading-[57.20px]" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    What We Believe
+                  </div>
+                  <div
+                    className={
+                      "text-white text-base font-medium leading-tight" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    Medical cannabis should be held to the same standards as any
+                    pharmaceutical product.
+                  </div>
+                </div>
+
+                {/* Desktop */}
+                <div className="flex-col z-2 tablet:gap-2 hidden tablet:flex">
+                  <div
+                    className={
+                      "text-white text-3xl font-bold leading-10" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    It should be
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      formulated with precision,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not guesswork.
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch z-2 justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      developed with scientific evidence,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not assumptions.
+                    </span>
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch z-2 justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      delivered with integrity,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not inconsistency.
+                    </span>
+                  </div>
+                </div>
+
+                {/* Mobile */}
+                <div className="absolute z-2 bottom-2 block tablet:hidden">
+                  <div
+                    className={
+                      "text-white text-3xl font-bold leading-10" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    It should be
+                  </div>
+                  <div
+                    style={{
+                      transitionDelay: "500ms",
+                      animationDelay: "500ms",
+                    }}
+                    className={
+                      "self-stretch justify-start" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-5",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                  >
+                    <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                      formulated with precision,
+                    </span>
+                    <span className="text-white text-2xl font-bold leading-7">
+                      {" "}
+                      not guesswork.
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop */}
+              <div
+                style={{
+                  transitionDelay: "500ms",
+                  animationDelay: "500ms",
+                }}
+                className={
+                  "absolute z-2 tablet:bottom-10 w-full justify-center hidden tablet:flex" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-5",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                <div className="w-full text-center justify-start">
+                  <span className="text-white text-base font-medium leading-tight">
+                    We believe in{" "}
+                  </span>
+                  <span className="text-crystalGreen text-base font-bold leading-tight">
+                    empowering communities, supporting physicians
+                  </span>
+                  <span className="text-white text-base font-medium leading-tight">
+                    , and delivering products that truly improve lives — with
+                    clarity, transparency, and compassion.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile */}
+            <div
+              className={
+                "mt-1 mx-5 pb-10 border-b-2 flex flex-col gap-2 tablet:hidden" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-5",
+                  "opacity-100 translate-x-0",
+                )
+              }
+              style={{
+                transitionDelay: "500ms",
+                animationDelay: "500ms",
+              }}
+            >
+              <div>
+                <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                  developed with scientific evidence,
+                </span>
+                <span className="text-black text-2xl font-bold leading-7">
+                  {" "}
+                  not assumptions.
+                </span>
+              </div>
+              <div>
+                <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
+                  delivered with integrity,
+                </span>
+                <span className="text-black text-2xl font-bold leading-7">
+                  {" "}
+                  not inconsistency.
+                </span>
+              </div>
+              <div className="w-full text-left mt-4 justify-start">
+                <span className="text-black text-base font-medium leading-tight">
+                  We believe in{" "}
+                </span>
+                <span className="text-crystalGreen text-base font-bold leading-tight">
+                  empowering communities, supporting physicians
+                </span>
+                <span className="text-black text-base font-medium leading-tight">
+                  , and delivering products that truly improve lives — with
+                  clarity, transparency, and compassion.
+                </span>
+              </div>
+            </div>
+          </>
+        )}
+      </ScrollReveal>
+
+      <ScrollReveal once>
+        {(show) => (
+          <>
+            <div
+              className={
+                "tablet:px-20 text-[30px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-y-5",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
+              <div>What Defines Us:</div>
+              <div>The Cannex Pillars</div>
+            </div>
+            <div className="grid grid-cols-1 tablet:grid-cols-3">
+              {[
+                {
+                  title: "Pharmaceutical-Grade Formulation",
+                  desc: "Our cultivation, extraction, and packaging processes meet or exceed pharmaceutical standards — including GACP, PIC/S GMP, and EU-GMP guidelines (in progress).",
+                  bottom: -59,
+                },
+                {
+                  title: "Science-Led Integrity",
+                  desc: "We prioritize transparency, traceability, and scientific validation — so every product is verifiable, reproducible, and built on data, not trends.",
+                  bottom: -59,
+                },
+                {
+                  title: "Human-Centered Wellness Innovation",
+                  desc: "We design every formulation around real needs — chronic pain, inflammation, anxiety, and beyond — putting patients and healthcare providers at the heart of our innovation.",
+                  bottom: -58,
+                },
+              ].map((item, index) => {
+                return (
+                  <div
+                    className={
+                      "relative" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-20",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                    key={index}
+                  >
+                    <div
+                      style={{
+                        transitionDelay: `${index * 200 + 200}ms`,
+                        animationDelay: `${index * 200 + 200}ms`,
+                      }}
+                      className={`font-bold flex items-center text-2xl h-[90px] mx-[20px] tablet:mx-0 tablet:border-r-2 border-b-2 tablet:px-20 ${
+                        index != 0 && "border-t-2 tablet:border-t-0"
+                      }`}
+                    >
+                      {item.title}
+                    </div>
+                    <div className="tablet:border-r-2 py-8 h-[335px] tablet:h-[230px]">
+                      <div className="px-[20px] tablet:px-20 line-clamp-5">
+                        {item.desc}
+                      </div>
+                      <div
+                        style={{ bottom: item.bottom }}
+                        className={`absolute right-5 tablet:right-[1px] text-right mr-[-4px] text-[145px] font-bold`}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </ScrollReveal>
+
+      <ScrollReveal once>
+        {(show) => (
+          <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
+            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
+              <Image
+                src="/about-us/about-us-last-section.jpg"
+                alt="about-us-last-section"
+                className={
+                  "h-full w-full object-cover" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 translate-y-20",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+                width={720}
+                height={540}
+              />
+            </div>
+            <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">
+              <div
+                className={
+                  "text-[52px] font-bold" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
+                The Cannex Commitment
+              </div>
+              <div
+                className={
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                From California genetics to Japanese engineering and Thai
+                execution, Cannex is more than a brand — it is a{" "}
+                <b>new benchmark</b> for medical cannabis worldwide.
+              </div>
+              <div
+                className={
+                  "text-[20px]" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                Rooted in science. Driven by collaboration. Committed to care.
+              </div>
+            </div>
+          </div>
+        )}
+      </ScrollReveal>
     </div>
   );
 }

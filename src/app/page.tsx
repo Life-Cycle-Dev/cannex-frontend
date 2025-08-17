@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Supplying from "@/components/Supplying";
 import AOS from "aos";
 import Products from "@/components/Products";
+import RnD from "@/components/RnD";
 
 export default function Home() {
   const { setNavigate } = useHelperContext()();
@@ -93,6 +94,7 @@ export default function Home() {
       </section>
       <About />
       <Products />
+      <RnD />
       <Supplying />
       <Contact />
     </div>
