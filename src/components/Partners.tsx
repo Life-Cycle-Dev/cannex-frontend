@@ -49,7 +49,7 @@ export default function Partners() {
             <Image
               src="/partnership/icon/variety-1.png"
               alt="variety-1.png"
-              className="w-fit h-full"
+              className="w-fit h-[80%]"
               width={190}
               height={104}
             />
@@ -214,7 +214,7 @@ export default function Partners() {
             <Image
               src="/partnership/icon/variety-1.png"
               alt="variety-1.png"
-              className="w-fit h-fit"
+              className="w-fit h-[80%]"
               width={190}
               height={104}
             />
