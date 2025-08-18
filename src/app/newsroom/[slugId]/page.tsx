@@ -81,9 +81,9 @@ export default async function Page({ params, searchParams }: PageProps) {
               <div className="w-fit text-white bg-black p-[2px_8px]">
                 Newsroom
               </div>
-              <div className="text-[46px] font-bold break-words leading-[110%]">
+              <h1 className="text-[46px] font-bold break-words leading-[110%]">
                 {data.title}
-              </div>
+              </h1>
             </div>
             <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
               <div className="text-gray-400">{formatDate(data.createdAt)}</div>
