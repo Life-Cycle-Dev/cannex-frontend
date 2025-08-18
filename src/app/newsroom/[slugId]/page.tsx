@@ -51,6 +51,8 @@ export async function generateMetadata({
         },
       ],
       siteName: "cannex",
+      publishedTime: data.publishedAt ?? new Date().toISOString(),
+      modifiedTime: data.updatedAt ?? new Date().toISOString(),
     },
     keywords: data.seo?.keywords ?? [],
   };
