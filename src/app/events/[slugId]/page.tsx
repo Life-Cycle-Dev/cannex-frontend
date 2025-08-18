@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
-import Seo from "@/components/Seo";
 import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
@@ -22,7 +21,7 @@ export async function generateMetadata({
   const preview = searchParams?.preview === "true";
   const client = new BackendClient();
 
-  const response = await client.getNewsRoomsBySlugId(
+  const response = await client.getEventBySlugId(
     slugId,
     preview ? "draft" : "published",
   );
