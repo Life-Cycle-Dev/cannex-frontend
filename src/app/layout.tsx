@@ -67,7 +67,7 @@ export async function generateMetadata({
       canonical: data?.canonicalURL ?? process.env.NEXT_PUBLIC_FRONTEND_PATH,
     },
     openGraph: {
-      url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
+      url: data?.canonicalURL ?? process.env.NEXT_PUBLIC_FRONTEND_PATH,
       title: data?.metaTitle ?? "",
       description: data?.metaDescription ?? "",
       images: [
