@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
-import Seo from "@/components/Seo";
 import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
