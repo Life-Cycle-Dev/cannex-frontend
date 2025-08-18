@@ -7,10 +7,54 @@ import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: any;
   searchParams?: any;
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { slugId } = params;
+  const preview = searchParams?.preview === "true";
+  const client = new BackendClient();
+
+  const response = await client.getNewsRoomsBySlugId(
+    slugId,
+    preview ? "draft" : "published",
+  );
+
+  if (!response.data.length) {
+    return {};
+  }
+
+  const data = response.data[0];
+
+  return {
+    title: data.seo?.metaTitle ?? data.title,
+    description: data.seo?.metaDescription ?? "",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+    },
+    openGraph: {
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      title: data.seo?.metaTitle ?? data.title,
+      description: data.seo?.metaDescription ?? "",
+      images: [
+        {
+          url: data.seo?.metaImage?.url ?? data.image?.url,
+          width: data.seo?.metaImage?.width ?? 1200,
+          height: data.seo?.metaImage?.height ?? 630,
+          alt: data.seo?.metaImage?.alternativeText ?? data.title,
+        },
+      ],
+      siteName: "cannex",
+    },
+    keywords: data.seo?.keywords ?? [],
+  };
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
@@ -31,24 +75,6 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   return (
     <>
-      <Seo
-        title={data.seo?.metaTitle ?? ""}
-        description={data.seo?.metaDescription ?? ""}
-        openGraph={{
-          url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
-          title: data.seo?.metaTitle ?? "",
-          description: data.seo?.metaDescription ?? "",
-          images: [
-            {
-              url: data.seo?.metaImage?.url ?? "",
-              width: data.seo?.metaImage?.width,
-              height: data.seo?.metaImage?.height,
-              alt: data.seo?.metaImage?.alternativeText ?? "",
-            },
-          ],
-          site_name: "cannex",
-        }}
-      />
       <div className="w-full">
         <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
           <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full flex flex-col gap-6">
