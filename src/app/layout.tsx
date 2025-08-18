@@ -22,6 +22,26 @@ interface Props {
   params: { slug?: string[] };
 }
 
+const jsonLdOrg = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "cannex",
+  url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
+  logo: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/asset/iconic.png`,
+};
+
+const jsonLdSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "cannex",
+  url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: Props): Promise<Metadata | void> {
@@ -103,6 +123,14 @@ export default async function RootLayout({
           </HelperProvider>
           <Footer />
         </LoadingProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
+        />
       </body>
     </html>
   );
