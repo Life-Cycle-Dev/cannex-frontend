@@ -28,6 +28,7 @@ export default function Page() {
   }, []);
 
   return (
+    <>
     <div className="w-full">
       <div className="w-full">
         <div className="relative w-full h-[375px] tablet:h-[590px]">
@@ -120,5 +121,6 @@ export default function Page() {
       <Contact />
       <Map />
     </div>
+    </>
   );
 }

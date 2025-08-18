@@ -1,4 +1,5 @@
 import { FileContent } from "./file";
+import { Seo } from "./paginate";
 
 export interface Event {
     id: number;
@@ -12,4 +13,5 @@ export interface Event {
     slug: string;
     description: string;
     image: FileContent;
+    seo: Seo;
 }

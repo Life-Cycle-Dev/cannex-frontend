@@ -34,7 +34,8 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          populate: "image",
+          "populate[0]": "image",
+          "populate[1]": "seo",
         },
       });
       return response.data;
@@ -52,7 +53,8 @@ export class BackendClient {
       const response = await this.client.get("/api/newsrooms", {
         params: {
           "filters[slug][$eq]": slagId,
-          populate: "image",
+          "populate[0]": "image",
+          "populate[1]": "seo",
           status,
         },
       });
@@ -74,7 +76,8 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          populate: "image",
+          "populate[0]": "image",
+          "populate[1]": "seo",
         },
       });
       return response.data;
@@ -92,7 +95,8 @@ export class BackendClient {
       const response = await this.client.get("/api/events", {
         params: {
           "filters[slug][$eq]": slagId,
-          populate: "image",
+          "populate[0]": "image",
+          "populate[1]": "seo",
           status,
         },
       });

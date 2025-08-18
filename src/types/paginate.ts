@@ -1,3 +1,5 @@
+import { FileContent } from "./file";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Paginate {
     page: number;
@@ -35,4 +37,12 @@ export const getEmptyPagenate = (): PagenateResponse<any> => {
             }
         }
     }
+}
+
+export interface Seo {
+    metaTitle: string;
+    metaDescription: string;
+    keywords: string;
+    canonicalURL: string;
+    metaImage: FileContent;
 }

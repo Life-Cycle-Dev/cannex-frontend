@@ -1,4 +1,5 @@
 import { FileContent } from "./file";
+import { Seo } from "./paginate";
 
 export interface NewsRooms {
     id: number;
@@ -12,4 +13,5 @@ export interface NewsRooms {
     slug: string;
     description: string;
     image: FileContent;
+    seo: Seo;
 }
