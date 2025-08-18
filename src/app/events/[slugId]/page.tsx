@@ -5,12 +5,56 @@ import Seo from "@/components/Seo";
 import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import React from "react";
 
 interface PageProps {
   params: any;
   searchParams?: any;
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const { slugId } = params;
+  const preview = searchParams?.preview === "true";
+  const client = new BackendClient();
+
+  const response = await client.getNewsRoomsBySlugId(
+    slugId,
+    preview ? "draft" : "published",
+  );
+
+  if (!response.data.length) {
+    return {};
+  }
+
+  const data = response.data[0];
+
+  return {
+    title: data.seo?.metaTitle ?? data.title,
+    description: data.seo?.metaDescription ?? "",
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+    },
+    openGraph: {
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      title: data.seo?.metaTitle ?? data.title,
+      description: data.seo?.metaDescription ?? "",
+      images: [
+        {
+          url: data.seo?.metaImage?.url ?? data.image?.url,
+          width: data.seo?.metaImage?.width ?? 1200,
+          height: data.seo?.metaImage?.height ?? 630,
+          alt: data.seo?.metaImage?.alternativeText ?? data.title,
+        },
+      ],
+      siteName: "cannex",
+    },
+    keywords: data.seo?.keywords ?? [],
+  };
 }
 
 export default async function Page({ params, searchParams }: PageProps) {

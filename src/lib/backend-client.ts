@@ -5,6 +5,7 @@ import {
   getEmptyPagenate,
   PagenateResponse,
   PaginateParams,
+  Seo,
   SortOption,
 } from "@/types/paginate";
 import { ContactConfig, ContactFormConfig } from "@/types/web-config";
@@ -34,8 +35,9 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          "populate[0]": "image",
-          "populate[1]": "seo",
+          "populate[image][fields][0]": "*",
+          "populate[seo][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "*",
         },
       });
       return response.data;
@@ -53,8 +55,9 @@ export class BackendClient {
       const response = await this.client.get("/api/newsrooms", {
         params: {
           "filters[slug][$eq]": slagId,
-          "populate[0]": "image",
-          "populate[1]": "seo",
+          "populate[image][fields][0]": "*",
+          "populate[seo][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "*",
           status,
         },
       });
@@ -76,8 +79,9 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          "populate[0]": "image",
-          "populate[1]": "seo",
+          "populate[image][fields][0]": "*",
+          "populate[seo][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "*",
         },
       });
       return response.data;
@@ -95,8 +99,9 @@ export class BackendClient {
       const response = await this.client.get("/api/events", {
         params: {
           "filters[slug][$eq]": slagId,
-          "populate[0]": "image",
-          "populate[1]": "seo",
+          "populate[image][fields][0]": "*",
+          "populate[seo][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "*",
           status,
         },
       });
@@ -138,4 +143,20 @@ export class BackendClient {
       return false;
     }
   }
+
+  async getSeoFromPage(page: "homepage" | "aboutUsPage" | "productPage" | "researchAndDevelopmentPage" | "partnershipPage" | "contactUsAndInquiryPage" | "newsroomPage" | "eventPage"): Promise<Seo | null> {
+    try {
+      const params: Record<string, string> = {
+        "populate[0]": page,
+        [`populate[${page}][populate][metaImage][fields][0]`]: "*",
+      };
+
+      const response = await this.client.get("/api/seo", { params });
+      return response.data.data[page];
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
 }
