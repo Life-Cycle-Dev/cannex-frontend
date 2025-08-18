@@ -1,24 +1,23 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import RightUpIcon from "./icons/RightUpIcon";
 import { useHelperContext } from "./providers/helper-provider";
-import { WebConfig } from "@/types/web-config";
+import { ContactConfig } from "@/types/web-config";
 
 export default function Map() {
   const { backendClient } = useHelperContext()();
-  const [linkAddress, setLinkAddress] = useState("");
-  const [googleMaps, setGoogleMaps] = useState<WebConfig[]>([]);
+  const [linkAddress, setLinkAddress] = useState<string>("");
+  const [googleMaps, setGoogleMaps] = useState<string>("");
+  const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
   const fetchData = async () => {
-    const response = await backendClient.getGoogleMaps();
-    if (response.data) {
-      setLinkAddress(
-        response.data.find(
-          (item) => item.key === "contact.headquarter-google-map"
-        )?.value ?? ""
-      );
-      setGoogleMaps(response.data);
+    const response = await backendClient.getContactConfig();
+    if (response) {
+      setContactInfo(response);
+      setLinkAddress(response.headquarterAddress);
+      setGoogleMaps(response?.headquarterGoogleMap);
     }
   };
 
@@ -44,11 +43,7 @@ export default function Map() {
           className="w-fit bg-white"
           suffixIcon={<RightUpIcon className="w-4 h-4" />}
           onClick={() => {
-            setLinkAddress(
-              googleMaps.find(
-                (item) => item.key === "contact.headquarter-google-map"
-              )?.value ?? ""
-            );
+            setLinkAddress(contactInfo?.headquarterGoogleMap ?? "");
           }}
         />
         <Button
@@ -57,10 +52,7 @@ export default function Map() {
           className="w-fit bg-white"
           suffixIcon={<RightUpIcon className="w-4 h-4" />}
           onClick={() => {
-            setLinkAddress(
-              googleMaps.find((item) => item.key === "contact.lab-google-map")
-                ?.value ?? ""
-            );
+            setLinkAddress(contactInfo?.labGoogleMap ?? "");
           }}
         />
       </div>

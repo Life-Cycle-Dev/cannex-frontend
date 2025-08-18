@@ -9,21 +9,16 @@ import Link from "next/link";
 import { MENUS, SOCIAL_MEDIAS } from "@/utils/constant";
 import ArrowUp from "./icons/ArrowUp";
 import { useHelperContext } from "./providers/helper-provider";
-import { WebConfig } from "@/types/web-config";
+import { ContactConfig } from "@/types/web-config";
 
 export default function Footer() {
   const { backendClient } = useHelperContext()();
-  const [contactInfo, setContactInfo] = useState<WebConfig[]>([]);
-
-  const getContactByKey = (key: string) => {
-    const contact = contactInfo.find((item) => item.key === key);
-    return contact ? contact.value : "";
-  };
+  const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
   const fetchData = async () => {
-    const response = await backendClient.getContactInfo();
-    if (response.data) {
-      setContactInfo(response.data);
+    const response = await backendClient.getContactConfig();
+    if (response) {
+      setContactInfo(response);
     }
   };
 
@@ -51,17 +46,13 @@ export default function Footer() {
               <div className="flex flex-col gap-2">
                 <p className="font-bold">Cannex Laboratory Company Limited</p>
                 <p className="font-medium">
-                  [HQ] {getContactByKey("contact.headquarter-address")}
+                  [HQ] {contactInfo?.headquarterAddress}
                 </p>
-                <p className="font-medium">
-                  [Lab] {getContactByKey("contact.lab-address")}
-                </p>
-                <p className="font-medium">
-                  TAX ID {getContactByKey("contact.tax-id")}
-                </p>
+                <p className="font-medium">[Lab] {contactInfo?.labAddress}</p>
+                <p className="font-medium">TAX ID {contactInfo?.taxId}</p>
               </div>
               <Button
-                text={getContactByKey("contact.phone")}
+                text={contactInfo?.phone ?? ""}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit"
                 prefixIcon={<PhoneIcon />}
@@ -73,7 +64,7 @@ export default function Footer() {
               {SOCIAL_MEDIAS.map((social) => (
                 <Link
                   key={social.name}
-                  href={getContactByKey(social.key)}
+                  href={contactInfo?.[social?.key] ?? ""}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative group overflow-hidden p-0.5 font-bold text-black hover:text-crystalGreen"

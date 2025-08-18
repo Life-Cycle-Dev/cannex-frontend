@@ -7,7 +7,7 @@ import {
   PaginateParams,
   SortOption,
 } from "@/types/paginate";
-import { WebConfig } from "@/types/web-config";
+import { ContactConfig, ContactFormConfig } from "@/types/web-config";
 import axios, { AxiosInstance } from "axios";
 
 export class BackendClient {
@@ -103,27 +103,23 @@ export class BackendClient {
     }
   }
 
-  async getContactInfo(): Promise<PagenateResponse<WebConfig>> {
+  async getContactConfig(): Promise<ContactConfig | null> {
     try {
-      const response = await this.client.get(
-        "/api/web-configs?filters[key][$startsWith]=contact."
-      );
-      return response.data;
+      const response = await this.client.get("/api/config");
+      return response.data.data;
     } catch (e) {
       console.log(e);
-      return getEmptyPagenate();
+      return null;
     }
   }
 
-  async getContactFormReason(): Promise<PagenateResponse<WebConfig>> {
+  async getContactFormConfig(): Promise<ContactFormConfig | null> {
     try {
-      const response = await this.client.get(
-        "/api/web-configs?filters[key][$eq]=contact-form.reason"
-      );
+      const response = await this.client.get("/contact-form-config");
       return response.data;
     } catch (e) {
       console.log(e);
-      return getEmptyPagenate();
+      return null;
     }
   }
 
@@ -136,18 +132,6 @@ export class BackendClient {
     } catch (e) {
       console.log(e);
       return false;
-    }
-  }
-
-  async getGoogleMaps(): Promise<PagenateResponse<WebConfig>> {
-    try {
-      const response = await this.client.get(
-        "/api/web-configs?filters[key][$eq][0]=contact.lab-google-map&filters[key][$eq][1]=contact.headquarter-google-map"
-      );
-      return response.data;
-    } catch (e) {
-      console.log(e);
-      return getEmptyPagenate();
     }
   }
 }

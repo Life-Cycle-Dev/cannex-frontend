@@ -7,23 +7,19 @@ import EmailIcon from "@/components/icons/EmailIcon";
 import PhoneIcon from "@/components/icons/PhoneIcon";
 import Map from "@/components/Map";
 import { useHelperContext } from "@/components/providers/helper-provider";
-import { WebConfig } from "@/types/web-config";
+import { ContactConfig } from "@/types/web-config";
 import Image from "next/legacy/image";
 import React, { useEffect, useState } from "react";
 
 export default function Page() {
   const { backendClient } = useHelperContext()();
-  const [contactInfo, setContactInfo] = useState<WebConfig[]>([]);
+  const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
-  const getContactByKey = (key: string) => {
-    const contact = contactInfo.find((item) => item.key === key);
-    return contact ? contact.value : "";
-  };
 
   const fetchData = async () => {
-    const response = await backendClient.getContactInfo();
-    if (response.data) {
-      setContactInfo(response.data);
+    const response = await backendClient.getContactConfig();
+    if (response) {
+      setContactInfo(response);
     }
   };
 
@@ -60,18 +56,18 @@ export default function Page() {
             <div className="w-full gap-2">
               <p className="text-[14px] font-bold">Business Inquiries</p>
               <p className="text-2xl tablet:text-[32px] font-bold">
-                {getContactByKey("contact.company-name")}
+                {contactInfo?.companyName}
               </p>
             </div>
             <div className="w-full flex flex-col tablet:flex-row flex-wrap gap-4 tablet:gap-6">
               <Button
-                text={getContactByKey("contact.phone")}
+                text={contactInfo?.phone ?? ""}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<PhoneIcon />}
               />
               <Button
-                text={getContactByKey("contact.email")}
+                text={contactInfo?.email ?? ""}
                 type="secondaryBlack"
                 className="w-full tablet:w-fit shrink-0"
                 prefixIcon={<EmailIcon />}
@@ -92,7 +88,7 @@ export default function Page() {
                 />
               </div>
               <div className="py-8 px-6 border-t-[2px] relative">
-                {getContactByKey("contact.headquarter-address")}
+                {contactInfo?.headquarterAddress ?? ""}
                 <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                   Headquarter
                 </p>
@@ -111,7 +107,7 @@ export default function Page() {
                 />
               </div>
               <div className="py-8 px-6 border-t-[2px] relative">
-                {getContactByKey("contact.lab-address")}
+                {contactInfo?.labAddress ?? ""}
                 <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                   Lab
                 </p>
