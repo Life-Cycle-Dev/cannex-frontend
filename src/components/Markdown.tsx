@@ -1,12 +1,9 @@
 "use client";
+import DOMPurify from "isomorphic-dompurify";
 
-import MDEditor from "@uiw/react-md-editor";
-import React from "react";
-
-export default function Markdown({ value }: { value: string }) {
+export default function ContentView({ value }: { value: string }) {
+  const safe = DOMPurify.sanitize(value);
   return (
-    <div data-color-mode="light">
-      <MDEditor.Markdown source={value} className="whitespace-pre-wrap" />
-    </div>
+    <div className="ck-content" dangerouslySetInnerHTML={{ __html: safe }} />
   );
 }

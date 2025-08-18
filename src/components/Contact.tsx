@@ -81,9 +81,9 @@ export default function Contact() {
   };
 
   const fetchData = async () => {
-    const response = await backendClient.getContactFormReason();
-    if (response.data) {
-      setReasons(response.data[0].value.split(",").map((item) => item.trim()));
+    const response = await backendClient.getContactFormConfig();
+    if (response) {
+      setReasons(response.reason.split("\n"));
     }
   };
 
@@ -176,7 +176,6 @@ export default function Contact() {
           disabled={
             !formData.isAccepted ||
             !formData.reason ||
-            !formData.message ||
             !formData.email ||
             !formData.name ||
             !formData.lastName

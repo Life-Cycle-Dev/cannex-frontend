@@ -115,8 +115,8 @@ export class BackendClient {
 
   async getContactFormConfig(): Promise<ContactFormConfig | null> {
     try {
-      const response = await this.client.get("/contact-form-config");
-      return response.data;
+      const response = await this.client.get("/api/contact-form-config");
+      return response.data.data;
     } catch (e) {
       console.log(e);
       return null;
