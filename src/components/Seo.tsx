@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function Seo(props: NextSeoProps) {
   useEffect(() => {
-    document.title = props.title ?? "cannex";
+    document.title = props.title ?? "Cannex";
   }, []);
 
   return <NextSeo {...props} />;

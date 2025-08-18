@@ -65,7 +65,7 @@ export default async function Page({ params, searchParams }: PageProps) {
               <ShareButton
                 imageUrl={data.image.url}
                 title={data.title}
-                url={`/newsroom/${slugId}`}
+                url={`/events/${slugId}`}
               />
             </div>
           </div>
