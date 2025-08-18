@@ -48,7 +48,7 @@ export default function Home() {
               </div>
               <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
                 <div className="w-full flex flex-col gap-8 tablet:justify-center">
-                  <div className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
+                  <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
                     <p
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -160,7 +160,7 @@ export default function Home() {
                     >
                       Precision.
                     </p>
-                  </div>
+                  </h1>
                   <p
                     style={{
                       animationDelay: `2500ms`,

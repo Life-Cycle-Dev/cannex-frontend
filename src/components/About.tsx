@@ -31,12 +31,12 @@ export default function About() {
         <div className="w-full max-w-[629px] flex flex-col gap-6">
           <div className="flex flex-col gap-2 tablet:gap-6">
             <div className="flex flex-col gap-4">
-              <div
+              <h2
                 data-aos="fade-right"
                 className="py-0.5 px-2 bg-black text-white w-fit"
               >
                 Brand Introduction
-              </div>
+              </h2>
               <p
                 data-aos="fade-down"
                 className="text-[32px] tablet:text-[52px] font-bold"
