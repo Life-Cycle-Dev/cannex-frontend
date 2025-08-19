@@ -129,7 +129,7 @@ function ItemRow({ item }: { item: Certification }) {
         <div className="border border-black/25 rounded-[6px] overflow-hidden bg-white shadow-sm">
           <img
             src={item.image.src}
-            alt={item.image.alt ?? item.title}
+            alt={item.title}
             className="block w-full h-auto"
             loading="lazy"
           />

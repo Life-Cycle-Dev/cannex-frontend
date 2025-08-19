@@ -166,6 +166,7 @@ export class BackendClient {
           "populate[events][fields][0]": "title",
           "populate[events][fields][1]": "description",
           "populate[events][fields][2]": "publishedAt",
+          "populate[events][fields][3]": "slug",
           "populate[events][populate][image][fields][0]": "url",
           "populate[events][populate][image][fields][1]": "alternativeText"
         }

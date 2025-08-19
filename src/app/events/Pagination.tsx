@@ -97,7 +97,7 @@ export default function Pagination() {
           <img
             src={data?.image?.url ?? ""}
             className="w-full h-full object-cover border-y-2 "
-            alt={data?.image?.alternativeText ?? ""}
+            alt={data.title ?? ""}
           />
         </div>
 
@@ -160,7 +160,7 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
+      <div className="flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:py-[40px] flex justify-between">
         <div>
           <SearchBox
             placeholder="Search Events & Updated"

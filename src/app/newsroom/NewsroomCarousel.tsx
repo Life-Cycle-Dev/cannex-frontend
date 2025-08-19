@@ -12,12 +12,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
   if (!items || items.length === 0) {
     return (
-      <div className="flex justify-between h-full border-b-2">
-        <div className="min-w-[79px] h-full border-r-2" />
-        <div className="w-full flex items-center justify-center text-gray-500">
-          No newsroom yet
-        </div>
-        <div className="min-w-[79px] h-full border-l-2" />
+      <div>
       </div>
     );
   }
@@ -57,7 +52,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               <img
                 key={it.id}
                 src={it?.image?.url || "/placeholder.png"}
-                alt={it?.image?.alternativeText || it?.title || "news image"}
+                alt={it?.title || it?.title || "news image"}
                 className="
                   w-full h-full object-cover flex-shrink-0 cursor-pointer
                 "

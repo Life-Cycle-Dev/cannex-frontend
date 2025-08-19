@@ -100,7 +100,7 @@ export default async function Page({ params, searchParams }: PageProps) {
           <img
             className="w-full h-full object-cover"
             src={data?.image?.url ?? ""}
-            alt={data?.image?.alternativeText ?? ""}
+            alt={data.title ?? ""}
           />
         </div>
       </div>
