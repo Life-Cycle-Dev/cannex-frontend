@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeftUpIcon from "./icons/LeftUpIcon";
 import RightDownIcon from "./icons/RightDownIcon";
+import CloseIcon from "./icons/CloseIcon";
+import AOS from "aos";
 
 interface DropdownProps {
   options: string[];
@@ -22,6 +24,14 @@ export default function Dropdown({
     onChange(option);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+      easing: "ease-in-out", // ถ้าอยากให้ smooth
+    });
+  }, []);
 
   return (
     <div className="relative w-full flex gap-1 items-center">
@@ -49,22 +59,38 @@ export default function Dropdown({
       </button>
 
       {isOpen && (
-        <ul className="absolute w-full top-11 bg-white border shadow-lg z-10">
-          <li className="px-4 py-2.5 bg-black text-crystalGreen font-medium">
-            Please select
-          </li>
-          {options.map((option, index) => (
-            <li
-              key={option}
-              onClick={() => handleSelect(option)}
-              className={`px-4 py-2.5 hover:bg-gray cursor-pointer ${
-                index < options.length - 1 ? "border-b" : ""
-              }`}
-            >
-              {option}
+        <>
+          <div
+            className="tablet:hidden fixed w-full h-full top-0 left-0 z-9 bg-[#80808080]"
+            onClick={() => setIsOpen(false)}
+          ></div>
+          <ul
+            data-aos="fade-up"
+            className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0"
+          >
+            <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
+              Reason for Contact
+              <CloseIcon
+                className="w-[18px] h-[18px]"
+                onClick={() => setIsOpen(false)}
+              />
+            </div>
+            <li className="hidden tablet:block px-4 py-2.5 bg-black text-crystalGreen font-medium">
+              Please select
             </li>
-          ))}
-        </ul>
+            {options.map((option, index) => (
+              <li
+                key={option}
+                onClick={() => handleSelect(option)}
+                className={`px-4 py-2.5 hover:bg-gray cursor-pointer ${
+                  index < options.length - 1 ? "border-b" : ""
+                }`}
+              >
+                {option}
+              </li>
+            ))}
+          </ul>
+        </>
       )}
     </div>
   );
