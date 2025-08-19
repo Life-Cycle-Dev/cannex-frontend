@@ -73,14 +73,14 @@ export default function NavBar() {
       </div>
 
       {/* MOBILE: logo left + black square hamburger (kept) */}
-      <div className="desktop:hidden">
+      <div className="desktop:hidden w-full">
         <NavBarBase isShowLogo={!open}>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-controls={panelId}
             aria-expanded={open}
             onClick={() => setOpen((s) => !s)}
-            className={`w-16 h-16 flex items-center justify-center shrink-0 ${
+            className={`w-16 h-16 flex items-center justify-center absolute right-0 ${
               open ? "bg-white" : "bg-black"
             }`}
           >
