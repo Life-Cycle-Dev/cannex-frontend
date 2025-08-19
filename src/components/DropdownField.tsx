@@ -25,7 +25,6 @@ export default function Dropdown({
 
   return (
     <div className="relative w-full flex gap-1 items-center">
-      {!value && <p className="text-crystalGreen">*</p>}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -34,7 +33,10 @@ export default function Dropdown({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {value || placeholder}
+        <div className="flex gap-1">
+          {value || placeholder}
+          {!value && <p className="text-crystalGreen">*</p>}
+        </div>
         <div className="p-1">
           {isOpen ? (
             <LeftUpIcon className="text-crystalGreen" />

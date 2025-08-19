@@ -3,21 +3,21 @@ import CloseIcon from "./icons/CloseIcon";
 
 interface Props {
   value: string | undefined;
-  name?: string;
   type?: "text" | "email" | "password";
   state?: "default" | "error";
   placeholder?: string;
   errorMessage?: string;
+  required?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export default function Field({
   value = "",
-  name,
   type = "text",
   state = "default",
   placeholder,
   errorMessage,
+  required = false,
   onChange,
 }: Props) {
   const [isHovered, setIsHovered] = useState(false);
@@ -27,7 +27,7 @@ export default function Field({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`border-b-[2px] pt-3 pb-2 flex 
+        className={`h-10 border-b-[2px] pt-3 pb-2 flex 
           ${
             state === "error"
               ? "border-festivalCaramel"
@@ -36,39 +36,50 @@ export default function Field({
               : "border-black"
           }`}
       >
-        <div className="w-full flex items-center gap-1">
-          {!value && <p className="text-crystalGreen">*</p>}
+        <div className="w-full relative">
           <input
             type={type}
-            name={name}
             value={value}
             onChange={onChange}
-            placeholder={placeholder}
-            className="outline-none placeholder:text-black w-full"
+            required={required}
+            placeholder=" "
+            className="outline-none w-full text-md font-medium placeholder:text-black placeholder:text-md placeholder:font-medium peer"
           />
+          {!value &&
+            (required ? (
+              <div className="absolute left-0 top-0 flex gap-1 text-md font-medium pointer-events-none peer-valid:hidden peer-focus:hidden">
+                <p>{placeholder}</p>
+                <p className="text-crystalGreen">*</p>
+              </div>
+            ) : (
+              <div className="absolute left-0 top-0 flex gap-1 text-md font-medium pointer-events-none peer-focus:hidden">
+                <p>{placeholder}</p>
+              </div>
+            ))}
         </div>
 
         {value && (
-          <CloseIcon
-            className={`w-5 h-5 cursor-auto ${
-              state === "error"
-                ? "text-festivalCaramel"
-                : isHovered
-                ? "text-crystalGreen"
-                : "text-black"
-            }`}
-            onClick={() => {
-              if (onChange) {
-                const event = {
-                  target: {
-                    value: "",
-                    name: name,
-                  },
-                } as React.ChangeEvent<HTMLInputElement>;
-                onChange(event);
-              }
-            }}
-          />
+          <div className="w-5 h-5 flex items-center justify-center">
+            <CloseIcon
+              className={`w-2.5 h-2.5 cursor-auto ${
+                state === "error"
+                  ? "text-festivalCaramel"
+                  : isHovered
+                  ? "text-crystalGreen"
+                  : "text-black"
+              }`}
+              onClick={() => {
+                if (onChange) {
+                  const event = {
+                    target: {
+                      value: "",
+                    },
+                  } as React.ChangeEvent<HTMLInputElement>;
+                  onChange(event);
+                }
+              }}
+            />
+          </div>
         )}
       </div>
       {errorMessage && state === "error" && (

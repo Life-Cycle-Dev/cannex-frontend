@@ -8,7 +8,7 @@ interface Props extends PropsWithChildren {
 
 export default function NavBarBase({ children, isShowLogo = true }: Props) {
   return (
-    <div className="w-full tablet:border-y-2 border-black bg-white">
+    <div className="w-full border-black bg-white">
       <div className="flex h-16 w-full items-center justify-center">
         {isShowLogo && (
           <Link href="/" className="h-8">

@@ -20,7 +20,10 @@ interface FormData {
 
 function Policy() {
   return (
-    <p className="font-medium text-black">
+    <p
+      className="font-medium text-black cursor-pointer select-none"
+      onClick={(e) => e.preventDefault()}
+    >
       I have read and accepted terms and conditions specified in the{" "}
       <a
         href="/privacy-policy"
@@ -47,9 +50,12 @@ export default function Contact() {
     isAccepted: false,
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    field: keyof FormData
+  ) => {
+    const { value } = e.target;
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -112,22 +118,22 @@ export default function Contact() {
 
       <div className="mt-10 tablet:mt-12 flex flex-col gap-8 tablet:grid tablet:grid-cols-2 tablet:gap-x-16 tablet:gap-y-8">
         <Field
-          name="name"
+          required={true}
           value={formData.name}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, "name")}
           placeholder="Name"
         />
         <Field
-          name="lastName"
+          required={true}
           value={formData.lastName}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, "lastName")}
           placeholder="Last Name"
         />
         <Field
-          name="email"
+          required={true}
           type="email"
           value={formData.email}
-          onChange={handleChange}
+          onChange={(e) => handleChange(e, "email")}
           placeholder="Email"
           state={
             formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
@@ -149,9 +155,8 @@ export default function Contact() {
         />
         <div className="tablet:col-span-2">
           <Field
-            name="message"
             value={formData.message}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, "message")}
             placeholder="Message"
           />
         </div>
@@ -171,7 +176,7 @@ export default function Contact() {
         <Button
           text="Submit"
           suffixIcon={<RightUpIcon className="w-4 h-4" />}
-          className="w-[238px]"
+          className="w-full tablet:w-[238px]"
           type="secondaryBlack"
           disabled={
             !formData.isAccepted ||
