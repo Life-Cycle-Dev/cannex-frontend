@@ -46,10 +46,11 @@ export default function Page() {
               <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
                 Connect with Cannex
               </p>
-              <p className="font-medium">
+              <p className="font-medium w-full">
                 Whether you&apos;re a licensed importer, healthcare
-                professional, research institution, or investor — we’re here to
-                build lasting value together.
+                professional, research institution,
+                <br className="hidden tablet:block" /> or investor — we’re here
+                to build lasting value together.
               </p>
             </div>
             <div className="px-6 pt-4 pb-10 tablet:p-[32px_64px_32px_64px] flex flex-col tablet:flex-row tablet:items-end gap-8 tablet:gap-0">
@@ -86,11 +87,11 @@ export default function Page() {
             </div>
             <div className="mt-8 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
               <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
-                <div className="relative w-full h-[324px]">
+                <div className="relative w-full aspect-2/1">
                   <Image
                     src="/asset/headquarter-img.png"
                     alt="headquarter"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[0px_-55px]"
                     layout="fill"
                     width={1920}
                     height={400}
@@ -99,17 +100,17 @@ export default function Page() {
                 </div>
                 <div className="py-8 px-6 border-t-[2px] relative">
                   {contactInfo?.headquarterAddress ?? ""}
-                  <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
+                  <p className="text-[20px] text-white font-bold bg-black py-1.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                     Headquarter
                   </p>
                 </div>
               </div>
               <div className="w-full tablet:border-[2px_2px_0px_0px]">
-                <div className="relative w-full h-[324px]">
+                <div className="relative w-full aspect-2/1">
                   <Image
                     src="/asset/lab-img.png"
                     alt="lab"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-[0px_-88px]"
                     layout="fill"
                     width={1920}
                     height={400}
@@ -118,7 +119,7 @@ export default function Page() {
                 </div>
                 <div className="py-8 px-6 border-t-[2px] relative">
                   {contactInfo?.labAddress ?? ""}
-                  <p className="text-[20px] text-white font-bold bg-black py-2.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
+                  <p className="text-[20px] text-white font-bold bg-black py-1.5 px-2.5 absolute top-0 left-6 transform -translate-y-1/2">
                     Lab
                   </p>
                 </div>

@@ -65,7 +65,7 @@ export default function NavBar() {
                 href="/contact"
                 className="h-12 w-fit px-0 cursor-pointer"
                 text="Contact Us & Inquiry"
-                suffixIcon={<RightUpIcon className="" />}
+                suffixIcon={<RightUpIcon className="w-4 h-4" />}
               />
             </div>
           </nav>
