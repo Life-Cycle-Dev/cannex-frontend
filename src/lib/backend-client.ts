@@ -159,4 +159,39 @@ export class BackendClient {
     }
   }
 
+  async getEventHighlight(): Promise<Event[]> {
+    try {
+      const response = await this.client.get("/api/highlight", {
+        params: {
+          "populate[events][fields][0]": "title",
+          "populate[events][fields][1]": "description",
+          "populate[events][fields][2]": "publishedAt",
+          "populate[events][populate][image][fields][0]": "url",
+          "populate[events][populate][image][fields][1]": "alternativeText"
+        }
+      });
+      return response.data.data.events;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
+  }
+
+  async getNewsroomsHighlight(): Promise<NewsRooms[]> {
+    try {
+      const response = await this.client.get("/api/highlight", {
+        params: {
+          "populate[newsrooms][fields][0]": "title",
+          "populate[newsrooms][fields][1]": "description",
+          "populate[newsrooms][fields][2]": "publishedAt",
+          "populate[newsrooms][populate][image][fields][0]": "url",
+          "populate[newsrooms][populate][image][fields][1]": "alternativeText"
+        }
+      });
+      return response.data.data.newsrooms;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
+  }
 }
