@@ -36,7 +36,7 @@ export default function Map() {
         referrerPolicy="no-referrer-when-downgrade"
         src={linkAddress}
       ></iframe>
-      <div className="flex flex-col gap-4 absolute top-4 right-4 tablet:right-20 tablet:top-10">
+      <div className="flex flex-col gap-4 absolute left-4 bottom-4 tablet:left-auto tablet:bottom-auto tablet:right-20 tablet:top-10">
         <Button
           text="HQ Directions"
           type="secondaryBlack"
