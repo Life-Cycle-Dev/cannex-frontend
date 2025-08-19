@@ -23,7 +23,7 @@ export interface PagenateResponse<T> {
     meta: MetadataPaginate;
 }
 
-export type SortOption = "createdAt:desc" | "view:desc";
+export type SortOption = "publishedAt:desc" | "view:desc";
 
 export const getEmptyPagenate = (): PagenateResponse<any> => {
     return {

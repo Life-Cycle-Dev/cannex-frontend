@@ -23,11 +23,11 @@ export default function Pagination() {
 
   const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
     label: "Newest",
-    value: "createdAt:desc",
+    value: "publishedAt:desc",
   });
 
   const filterItem: { label: string; value: SortOption }[] = [
-    { label: "Newest", value: "createdAt:desc" },
+    { label: "Newest", value: "publishedAt:desc" },
     { label: "Popular", value: "view:desc" },
   ];
 
