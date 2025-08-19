@@ -95,9 +95,9 @@ export default function Pagination() {
       >
         <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
           <img
-            src={data.image.url}
+            src={data?.image?.url ?? ""}
             className="w-full h-full object-cover border-y-2 "
-            alt={data.image.name}
+            alt={data?.image?.alternativeText ?? ""}
           />
         </div>
 

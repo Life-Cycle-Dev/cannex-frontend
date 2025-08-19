@@ -89,7 +89,7 @@ export default async function Page({ params, searchParams }: PageProps) {
           <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
             <div className="text-gray-400">{formatDate(data.createdAt)}</div>
             <ShareButton
-              imageUrl={data.image.url}
+              imageUrl={data?.image?.url ?? ""}
               title={data.title}
               url={`/events/${slugId}`}
             />
@@ -99,8 +99,8 @@ export default async function Page({ params, searchParams }: PageProps) {
         <div className="w-full h-[280px] tablet:h-[475px] border-[2px_0px_2px_0px] tablet:border-[0px_0px_0px_2px]">
           <img
             className="w-full h-full object-cover"
-            src={data.image.url}
-            alt={data.image.name}
+            src={data?.image?.url ?? ""}
+            alt={data?.image?.alternativeText ?? ""}
           />
         </div>
       </div>
