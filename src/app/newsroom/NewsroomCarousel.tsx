@@ -12,7 +12,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
   if (!items || items.length === 0) {
     return (
-      <div className="flex justify-between min-h-[315px] tablet:min-h-[415px] border-b-2">
+      <div className="flex justify-between h-full border-b-2">
         <div className="min-w-[79px] h-full border-r-2" />
         <div className="w-full flex items-center justify-center text-gray-500">
           No newsroom yet
@@ -35,21 +35,21 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   const current = items[index];
 
   return (
-    <div className="flex justify-between tablet:border-b-2">
-      <div className="min-w-[79px] border-r-2 hidden tablet:block" />
+    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
 
       <div className="w-full flex tablet:flex-row flex-col">
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
-            min-w-full tablet:min-w-[45%] h-[315px] tablet:h-[413px]
+            min-w-full tablet:min-w-[35%] max-h-[50%] min-h-[50%] tablet:max-h-full tablet:min-h-full
             relative overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
         >
           <div
             className="
-              h-full flex transition-transform duration-500 ease-out
+              flex h-full transition-transform duration-500 ease-out
             "
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
@@ -70,12 +70,12 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           </div>
         </div>
 
-        <div className="w-full">
+        <div className="w-full h-[calc(50%-66px)] tablet:h-full relative">
           <Link
             href={`/newsroom/${current.slug}`}
             className="
               w-full flex flex-col pb-20 
-              tablet:border-0 tablet:h-[349px] tablet:pb-0 
+              tablet:border-0 h-full tablet:pb-0 
               relative group overflow-hidden cursor-pointer
             "
           >
@@ -128,7 +128,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
             </div>
           </Link>
 
-          <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex">
+          <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
             <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
               {items.map((_, i) => (
                 <button
@@ -223,7 +223,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
         </div>
       </div>
 
-      <div className="min-w-[79px] border-l-2 hidden tablet:block" />
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
     </div>
   );
 }

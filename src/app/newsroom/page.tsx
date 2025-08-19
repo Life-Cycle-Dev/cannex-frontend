@@ -29,13 +29,13 @@ export default async function Page() {
       </div>
 
       <div className="border-t-2" />
-      <div className="px-[20px] tablet:px-0">
-        <div className="block min-h-[315px] mb-[64px] tablet:mb-0 tablet:min-h-fit">
+      <div className="px-[20px] tablet:px-0 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
+        <div className="h-full mb-[64px] tablet:mb-0">
           <NewsroomCarousel items={items} />
         </div>
-
-        <Pagination />
       </div>
+      <Pagination />
+
     </>
   );
 }
