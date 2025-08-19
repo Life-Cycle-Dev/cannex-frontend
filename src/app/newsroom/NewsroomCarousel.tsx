@@ -107,9 +107,9 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 ${hover ? "translate-y-0" : "translate-y-full"}`}
             />
 
-            <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
+            <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
