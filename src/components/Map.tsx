@@ -17,7 +17,7 @@ export default function Map() {
     if (response) {
       setContactInfo(response);
       setLinkAddress(response.headquarterAddress);
-      setGoogleMaps(response?.headquarterGoogleMap);
+      setGoogleMaps(response.headquarterGoogleMap);
     }
   };
 
@@ -34,7 +34,7 @@ export default function Map() {
         loading="lazy"
         allowFullScreen
         referrerPolicy="no-referrer-when-downgrade"
-        src={linkAddress}
+        src={googleMaps}
       ></iframe>
       <div className="flex flex-col gap-4 absolute left-4 bottom-4 tablet:left-auto tablet:bottom-auto tablet:right-20 tablet:top-10">
         <Button
