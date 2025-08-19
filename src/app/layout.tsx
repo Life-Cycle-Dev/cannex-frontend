@@ -58,8 +58,6 @@ export async function generateMetadata({
     | "eventPage"
     | "none" = "none";
 
-  console.log(params?.slug);
-
   if (path === "/") {
     page = "homepage";
   } else if (path === "/about-us") {
