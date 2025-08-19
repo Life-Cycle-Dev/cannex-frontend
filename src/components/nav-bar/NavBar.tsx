@@ -35,8 +35,8 @@ export default function NavBar() {
   }, [open]);
 
   return (
-    <header className="w-full relative top-0 z-50 bg-white text-foreground border-y-2">
-      <div className="hidden tablet:block">
+    <header className="sticky w-full top-0 z-50 bg-white text-foreground border-y-2">
+      <div className="hidden desktop:block">
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -50,7 +50,7 @@ export default function NavBar() {
         <div className="h-[2px] w-full bg-black" />
         <div className="flex justify-end items-stretch scroll-auto">
           <nav className="w-full flex items-center justify-end">
-            <div className="w-full flex items-center justify-end">
+            <div className="flex items-center justify-end">
               {MENUS.map((m) => (
                 <Menu
                   key={m.path}
@@ -65,7 +65,7 @@ export default function NavBar() {
                 href="/contact"
                 className="h-12 w-fit px-0 cursor-pointer"
                 text="Contact Us & Inquiry"
-                suffixIcon={<RightUpIcon className="w-4 h-4" />}
+                suffixIcon={<RightUpIcon className="" />}
               />
             </div>
           </nav>
@@ -73,7 +73,7 @@ export default function NavBar() {
       </div>
 
       {/* MOBILE: logo left + black square hamburger (kept) */}
-      <div className="tablet:hidden">
+      <div className="desktop:hidden">
         <NavBarBase isShowLogo={!open}>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
