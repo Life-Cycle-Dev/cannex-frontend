@@ -33,10 +33,10 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   };
 
   const current = items[index];
-
+  
   return (
-    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
+    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
 
       <div className="w-full flex tablet:flex-row flex-col">
         <div
@@ -109,7 +109,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
             <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
@@ -223,7 +223,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
         </div>
       </div>
 
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
     </div>
   );
 }

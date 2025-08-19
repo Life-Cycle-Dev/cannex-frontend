@@ -29,7 +29,7 @@ export default async function Page() {
       </div>
 
       <div className="border-t-2" />
-      <div className="px-[20px] tablet:px-0 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
+      <div className="px-[20px] tablet:px-0 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
         <div className="h-full mb-[64px] tablet:mb-0">
           <NewsroomCarousel items={items} />
         </div>
