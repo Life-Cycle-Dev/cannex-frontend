@@ -28,12 +28,12 @@ export default function Dropdown({
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-full pt-3 pb-2 focus:outline-none flex items-center justify-between border-b-[2px] hover:border-crystalGreen
+        className={`h-10 w-full pt-3 pb-2 focus:outline-none flex items-center justify-between border-b-[2px] hover:border-crystalGreen
           ${isOpen ? "border-crystalGreen" : "border-black"}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="flex gap-1">
+        <div className="flex gap-1 text-md font-medium">
           {value || placeholder}
           {!value && <p className="text-crystalGreen">*</p>}
         </div>
@@ -49,7 +49,7 @@ export default function Dropdown({
       </button>
 
       {isOpen && (
-        <ul className="absolute w-full mt-1 bg-white border shadow-lg z-10">
+        <ul className="absolute w-full top-11 bg-white border shadow-lg z-10">
           <li className="px-4 py-2.5 bg-black text-crystalGreen font-medium">
             Please select
           </li>
@@ -57,7 +57,7 @@ export default function Dropdown({
             <li
               key={option}
               onClick={() => handleSelect(option)}
-              className={`px-4 py-2.5 hover:bg-neutral-50 cursor-pointer ${
+              className={`px-4 py-2.5 hover:bg-gray cursor-pointer ${
                 index < options.length - 1 ? "border-b" : ""
               }`}
             >
