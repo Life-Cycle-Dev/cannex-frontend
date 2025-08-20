@@ -5,6 +5,7 @@ import NavBar from "@/components/nav-bar/NavBar";
 import Footer from "@/components/Footer";
 import { HelperProvider } from "@/components/providers/helper-provider";
 import { LoadingProvider } from "@/components/providers/loading-provider";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,26 +43,28 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-      >
-        <LoadingProvider>
-          <HelperProvider>
-            <NavBar />
-            {children}
-          </HelperProvider>
-          <Footer />
-        </LoadingProvider>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
-        />
-      </body>
-    </html>
+    <Suspense fallback={<div></div>}>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+        >
+          <LoadingProvider>
+            <HelperProvider>
+              <NavBar />
+              {children}
+            </HelperProvider>
+            <Footer />
+          </LoadingProvider>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSite) }}
+          />
+        </body>
+      </html>
+    </Suspense>
   );
 }
