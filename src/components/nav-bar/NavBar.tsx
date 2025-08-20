@@ -11,12 +11,30 @@ import RightUpIcon from "../icons/RightUpIcon";
 import { MENUS } from "@/utils/constant";
 
 export default function NavBar() {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isShow, setIsShow] = useState(true);
   const panelId = useId();
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const update = () => {
+      const current = window.scrollY;
+      if (current < lastScrollY) {
+        setIsShow(true);
+      } else {
+        setIsShow(false);
+      }
+      lastScrollY = current;
+    };
+
+    window.addEventListener("scroll", update);
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   // lock scroll when mobile menu open
   useEffect(() => {
-    if (!open) return;
+    if (!isOpen) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
@@ -24,18 +42,23 @@ export default function NavBar() {
         document.body.style.overflow = prev;
       }
     };
-  }, [open]);
+  }, [isOpen]);
 
   // esc to close
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false);
     addEventListener("keydown", onKey);
     return () => removeEventListener("keydown", onKey);
-  }, [open]);
+  }, [isOpen]);
 
   return (
-    <header className="sticky w-full top-0 z-50 bg-white text-foreground border-y-2">
+    <header
+      className={`w-full top-0 z-50 bg-white text-foreground border-y-2 transition-transform duration-300 ${
+        isShow ? "sticky translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      {/* DESKTOP */}
       <div className="hidden desktop:block">
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">
@@ -72,31 +95,31 @@ export default function NavBar() {
         </div>
       </div>
 
-      {/* MOBILE: logo left + black square hamburger (kept) */}
+      {/* MOBILE */}
       <div className="desktop:hidden w-full">
-        <NavBarBase isShowLogo={!open}>
+        <NavBarBase isShowLogo={!isOpen}>
           <button
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-controls={panelId}
-            aria-expanded={open}
-            onClick={() => setOpen((s) => !s)}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((s) => !s)}
             className={`w-16 h-16 flex items-center justify-center absolute right-0 ${
-              open ? "bg-white" : "bg-black"
+              isOpen ? "bg-white" : "bg-black"
             }`}
           >
-            <Hamburger state={open ? "close" : "default"} />
+            <Hamburger state={isOpen ? "close" : "default"} />
           </button>
         </NavBarBase>
       </div>
 
-      {open && (
+      {isOpen && (
         <nav className="flex flex-col gap-0 p-4 min-h-[100dvh]">
           {MENUS.map((m) => (
             <div key={m.path} className="flex flex-col">
               <Menu
                 title={m.title}
                 href={m.path}
-                onClick={() => setOpen(false)}
+                onClick={() => setIsOpen(false)}
                 variant="mobile"
               />
             </div>
@@ -106,7 +129,7 @@ export default function NavBar() {
             className="w-full mt-6 h-12"
             text="Contact Us & Inquiry"
             suffixIcon={<RightUpIcon className="w-4 h-4" />}
-            onClick={() => setOpen(false)}
+            onClick={() => setIsOpen(false)}
           />
         </nav>
       )}

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
+import { cache } from "react";
 import Markdown from "@/components/Markdown";
 import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
@@ -7,39 +8,39 @@ import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 interface PageProps {
   params: any;
   searchParams?: any;
 }
 
-export async function generateMetadata({
-  params,
-  searchParams,
-}: PageProps): Promise<Metadata> {
-  const { slugId } = params;
-  const preview = searchParams?.preview === "true";
+const getNewsRoom = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
-
   const response = await client.getNewsRoomsBySlugId(
     slugId,
     preview ? "draft" : "published",
   );
+  return response.data[0] ?? null;
+});
 
-  if (!response.data.length) {
-    return {};
-  }
+export async function generateMetadata({
+  params,
+  searchParams,
+}: PageProps): Promise<Metadata> {
+  const preview = (await searchParams?.preview) === "true";
+  const data = await getNewsRoom(params.slugId, preview);
 
-  const data = response.data[0];
+  if (!data) return {};
 
   return {
     title: data.seo?.metaTitle ?? data.title,
     description: data.seo?.metaDescription ?? "",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
     },
     openGraph: {
-      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
       title: data.seo?.metaTitle ?? data.title,
       description: data.seo?.metaDescription ?? "",
       images: [
@@ -59,56 +60,47 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const { slugId } = await params;
   const preview = (await searchParams?.preview) === "true";
-  const client = new BackendClient();
+  const data = await getNewsRoom(params.slugId, preview);
 
-  const response = await client.getNewsRoomsBySlugId(
-    slugId,
-    preview ? "draft" : "published",
-  );
-
-  if (response.data.length === 0) {
-    return notFound();
-  }
-
-  const data = response.data[0];
+  if (!data) return notFound();
 
   return (
-    <>
-      <div className="w-full">
-        <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
-          <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full flex flex-col gap-6">
-            <div className="flex flex-col gap-4">
-              <div className="w-fit text-white bg-black p-[2px_8px]">
-                Newsroom
-              </div>
-              <h1 className="text-[46px] font-bold break-words leading-[110%]">
-                {data.title}
-              </h1>
-            </div>
-            <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
-              <div className="text-gray-400">{formatDate(data.createdAt)}</div>
-              <ShareButton
-                imageUrl={data?.image?.url ?? ""}
-                title={data.title}
-                url={`/newsroom/${slugId}`}
-              />
-            </div>
+    <div className="w-full">
+      <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
+        <div className="p-[32px_20px_40px_20px] tablet:p-[0px_64px_0px_80px] w-full flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
+            <Link
+              href="/newsroom"
+              className="w-fit text-white bg-black p-[2px_8px]"
+            >
+              Newsroom
+            </Link>
+            <h1 className="text-[46px] font-bold break-words leading-[110%]">
+              {data.title}
+            </h1>
           </div>
-
-          <div className="w-full h-[280px] tablet:h-[475px] border-[2px_0px_2px_0px] tablet:border-[0px_0px_0px_2px]">
-            <img
-              className="w-full h-full object-cover"
-              src={data?.image?.url ?? ""}
-              alt={data?.image?.alternativeText ?? ""}
+          <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
+            <div className="text-gray-400">{formatDate(data.createdAt)}</div>
+            <ShareButton
+              imageUrl={data?.image?.url ?? ""}
+              title={data.title}
+              url={`/newsroom/${params.slugId}`}
             />
           </div>
         </div>
-        <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
-          <Markdown value={data.content} />
+
+        <div className="w-full tablet:self-start aspect-[4/3] border-y-2 tablet:border-y-0 tablet:border-l-2">
+          <img
+            className="w-full h-full object-cover"
+            src={data?.image?.url ?? ""}
+            alt={data.title ?? ""}
+          />
         </div>
       </div>
-    </>
+      <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
+        <Markdown value={data.content} />
+      </div>
+    </div>
   );
 }

@@ -5,16 +5,9 @@ import React from "react";
 
 export default async function Page() {
   const backendClient = new BackendClient();
-  const response = await backendClient.getNewsRoomsPagination(
-    {
-      "pagination[withCount]": "true",
-      "pagination[pageSize]": 3,
-      "pagination[page]": 1,
-    },
-    "view:desc",
-  );
+  const response = await backendClient.getNewsroomsHighlight();
 
-  const items = response?.data ?? [];
+  const items = response ?? [];
 
   return (
     <>
@@ -29,7 +22,7 @@ export default async function Page() {
       </div>
 
       <div className="border-t-2" />
-      <div className="px-[20px] tablet:px-0 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
+      <div className="px-[20px] tablet:px-0 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
         <div className="h-full mb-[64px] tablet:mb-0">
           <NewsroomCarousel items={items} />
         </div>

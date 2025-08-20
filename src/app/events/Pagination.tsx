@@ -2,7 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
 import React, { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import SearchBox from "../../components/SearchBox";
 import Filter from "../../components/Filter";
 import RightUpIcon from "../../components/icons/RightUpIcon";
@@ -15,25 +17,44 @@ import { SortOption } from "@/types/paginate";
 import { useHelperContext } from "@/components/providers/helper-provider";
 
 export default function Pagination() {
-  const [searchText, setSearchText] = useState<string>("");
-  const [datas, setDatas] = useState<Event[]>([]);
-  const [page, setPage] = useState<number>(1);
-  const [pageCount, setPageCount] = useState<number>(1);
+  const searchParams = useSearchParams();
+  const router = useRouter();
   const { backendClient, setLoading } = useHelperContext()();
 
-  const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
-    label: "Newest",
-    value: "publishedAt:desc",
-  });
+  const getSortFromQuery = (): { label: string; value: SortOption } => {
+    const sort = searchParams.get("sort");
+    if (sort === "popular") return { label: "Popular", value: "view:desc" };
+    return { label: "Newest", value: "publishedAt:desc" };
+  };
+
+  const [searchText, setSearchText] = useState<string>(
+    searchParams.get("search") ?? "",
+  );
+  const [page, setPage] = useState<number>(
+    parseInt(searchParams.get("page") ?? "1", 10),
+  );
+  const [filter, setFilter] = useState<{ label: string; value: SortOption }>(
+    getSortFromQuery(),
+  );
+
+  const [datas, setDatas] = useState<Event[]>([]);
+  const [pageCount, setPageCount] = useState<number>(1);
 
   const filterItem: { label: string; value: SortOption }[] = [
     { label: "Newest", value: "publishedAt:desc" },
     { label: "Popular", value: "view:desc" },
   ];
 
+  // Sync to URL
   useEffect(() => {
-    setPage(1);
-  }, [searchText]);
+    const params = new URLSearchParams();
+    if (searchText) params.set("search", searchText);
+    if (page > 1) params.set("page", String(page));
+    if (filter.value === "view:desc") params.set("sort", "popular");
+    else params.set("sort", "newest");
+
+    router.push(`/events?${params.toString()}`);
+  }, [searchText, page, filter]);
 
   useEffect(() => {
     fetchData(page, searchText);
@@ -97,7 +118,7 @@ export default function Pagination() {
           <img
             src={data?.image?.url ?? ""}
             className="w-full h-full object-cover border-y-2 "
-            alt={data?.image?.alternativeText ?? ""}
+            alt={data.title ?? ""}
           />
         </div>
 
@@ -106,21 +127,8 @@ export default function Pagination() {
 
           <div className="relative z-20">
             <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
-              <RightUpIcon
-                className="
-                  absolute text-black w-full h-full
-                  transition-transform duration-500 ease-out
-                  group-hover:-translate-y-5 group-hover:translate-x-5
-                "
-              />
-              <RightUpIcon
-                className="
-                  absolute text-crystalGreen w-full h-full
-                  translate-y-5 -translate-x-5
-                  transition-transform duration-500 ease-out
-                  group-hover:translate-y-0 group-hover:translate-x-0
-                "
-              />
+              <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
+              <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
             </div>
 
             <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
@@ -160,7 +168,7 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
+      <div className="flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:py-[40px] flex justify-between">
         <div>
           <SearchBox
             placeholder="Search Events & Updated"

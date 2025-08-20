@@ -108,7 +108,7 @@ function AllianceItem({ data }: { data: Alliance }) {
           <span aria-hidden className="relative w-6 h-6 flex-shrink-0">
             <Image
               src={data.flag}
-              alt={`${data.title}`}
+              alt={data.title}
               fill
               className="object-contain"
             />

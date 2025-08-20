@@ -104,13 +104,14 @@ export default function Contact() {
     >
       <div className="flex flex-col gap-6">
         <p className="text-2xl tablet:text-[32px] font-medium">
-          Let’s Collaborate for a Healthier Future.
+          Let’s Collaborate for <br /> a Healthier Future.
         </p>
         <p className="text-[32px] tablet:text-[52px] font-bold">
           <span>
             Whether you&apos;re a pharmaceutical company, wellness brand, or
             distributor,
-          </span>{" "}
+          </span>
+          <br />
           <span className="bg-crystalGreen">Cannex is ready</span>{" "}
           <span>to power your product pipeline.</span>
         </p>

@@ -2,7 +2,9 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
+
 import React, { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import SearchBox from "../../components/SearchBox";
 import Filter from "../../components/Filter";
 import { NewsRooms } from "@/types/new-rooms";
@@ -15,24 +17,40 @@ import { useHelperContext } from "@/components/providers/helper-provider";
 import { SortOption } from "@/types/paginate";
 
 export default function Pagination() {
-  const [searchText, setSearchText] = useState<string>("");
-  const [datas, setDatas] = useState<NewsRooms[]>([]);
-  const [page, setPage] = useState<number>(1);
-  const [pageCount, setPageCount] = useState<number>(1);
-  const { backendClient, setLoading } = useHelperContext()();
-  const [filter, setFilter] = useState<{ label: string; value: SortOption }>({
-    label: "Newest",
-    value: "publishedAt:desc",
-  });
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const filterItem: { label: string; value: SortOption }[] = [
+  const { backendClient, setLoading } = useHelperContext()();
+
+  const getSortFromQuery = (): { label: string; value: SortOption } => {
+    const sort = searchParams.get("sort");
+    if (sort === "popular") return { label: "Popular", value: "view:desc" };
+    return { label: "Newest", value: "publishedAt:desc" };
+  };
+
+  const [searchText, setSearchText] = useState(
+    searchParams.get("search") ?? "",
+  );
+  const [datas, setDatas] = useState<NewsRooms[]>([]);
+  const [page, setPage] = useState<number>(
+    parseInt(searchParams.get("page") ?? "1", 10),
+  );
+  const [pageCount, setPageCount] = useState<number>(1);
+  const [filter, setFilter] = useState(getSortFromQuery());
+
+  const filterItem = [
     { label: "Newest", value: "publishedAt:desc" },
     { label: "Popular", value: "view:desc" },
   ];
 
   useEffect(() => {
-    setPage(1);
-  }, [searchText]);
+    const params = new URLSearchParams();
+    if (searchText) params.set("search", searchText);
+    if (page > 1) params.set("page", String(page));
+    params.set("sort", filter.value === "view:desc" ? "popular" : "newest");
+
+    router.push(`/newsroom?${params.toString()}`);
+  }, [searchText, page, filter]);
 
   useEffect(() => {
     fetchData(page, searchText);
@@ -42,6 +60,7 @@ export default function Pagination() {
     if (q === "") {
       setLoading(true);
     }
+
     const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
@@ -51,6 +70,7 @@ export default function Pagination() {
       filter.value,
       q,
     );
+
     setLoading(false);
     setDatas(response.data ?? []);
     const pc =
@@ -102,7 +122,7 @@ export default function Pagination() {
           <img
             src={data?.image?.url ?? ""}
             className="w-full h-full object-cover border-y-2 "
-            alt={data?.image?.alternativeText ?? ""}
+            alt={data?.title ?? ""}
           />
         </div>
 
@@ -111,21 +131,8 @@ export default function Pagination() {
 
           <div className="relative z-20">
             <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
-              <RightUpIcon
-                className="
-                  absolute text-black w-full h-full
-                  transition-transform duration-500 ease-out
-                  group-hover:-translate-y-5 group-hover:translate-x-5
-                "
-              />
-              <RightUpIcon
-                className="
-                  absolute text-crystalGreen w-full h-full
-                  translate-y-5 -translate-x-5
-                  transition-transform duration-500 ease-out
-                  group-hover:translate-y-0 group-hover:translate-x-0
-                "
-              />
+              <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
+              <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
             </div>
 
             <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
@@ -165,7 +172,7 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="flex-col gap-[48px] tablet:flex-row tablet:p-[80px] flex justify-between">
+      <div className="flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:py-[40px] flex justify-between">
         <div>
           <SearchBox
             placeholder="Search Newsroom"

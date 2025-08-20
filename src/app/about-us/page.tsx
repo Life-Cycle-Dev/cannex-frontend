@@ -35,7 +35,7 @@ export default function Page() {
             <div>
               <ScrollReveal>
                 {(show) => (
-                  <div
+                  <h1
                     className={`
                       text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] du
                       ${getClassNameAnimation(
@@ -47,7 +47,7 @@ export default function Page() {
                     `}
                   >
                     About
-                  </div>
+                  </h1>
                 )}
               </ScrollReveal>
 
@@ -266,7 +266,7 @@ export default function Page() {
         <div className="mb-[48px]">
           <ScrollReveal once>
             {(show) => (
-              <div
+              <h2
                 className={
                   "text-[24px] tablet:text-[52px] font-bold" +
                   getClassNameAnimation(
@@ -279,7 +279,7 @@ export default function Page() {
               >
                 Our Origin:
                 <br /> A Global Collaboration for Global Standards
-              </div>
+              </h2>
             )}
           </ScrollReveal>
 
@@ -364,7 +364,7 @@ export default function Page() {
       <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
         <ScrollReveal once>
           {(show) => (
-            <div
+            <h2
               className={
                 "text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold" +
                 getClassNameAnimation(
@@ -377,7 +377,7 @@ export default function Page() {
             >
               <div>Our Mission: </div>
               <div>Raising the Global Standard</div>
-            </div>
+            </h2>
           )}
         </ScrollReveal>
 
@@ -755,7 +755,7 @@ export default function Page() {
       <ScrollReveal once>
         {(show) => (
           <>
-            <div
+            <h2
               className={
                 "tablet:px-20 text-[30px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2" +
                 getClassNameAnimation(
@@ -768,7 +768,7 @@ export default function Page() {
             >
               <div>What Defines Us:</div>
               <div>The Cannex Pillars</div>
-            </div>
+            </h2>
             <div className="grid grid-cols-1 tablet:grid-cols-3">
               {[
                 {

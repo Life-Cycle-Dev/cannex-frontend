@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Home from "./home";
 import { BackendClient } from "@/lib/backend-client";
 
 export async function generateMetadata(): Promise<Metadata | void> {
@@ -13,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata | void> {
     | "contactUsAndInquiryPage"
     | "newsroomPage"
     | "eventPage"
-    | "none" = "homepage";
+    | "none" = "productPage";
 
   const data = await client.getSeoFromPage(page);
 
@@ -43,6 +42,10 @@ export async function generateMetadata(): Promise<Metadata | void> {
   };
 }
 
-export default async function Page() {
-  return <Home />;
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return <>{children}</>;
 }

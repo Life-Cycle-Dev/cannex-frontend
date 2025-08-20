@@ -12,12 +12,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
   if (!items || items.length === 0) {
     return (
-      <div className="flex justify-between h-full border-b-2">
-        <div className="min-w-[79px] h-full border-r-2" />
-        <div className="w-full flex items-center justify-center text-gray-500">
-          No newsroom yet
-        </div>
-        <div className="min-w-[79px] h-full border-l-2" />
+      <div>
       </div>
     );
   }
@@ -35,14 +30,14 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   const current = items[index];
 
   return (
-    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)]">
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
+    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
 
       <div className="w-full flex tablet:flex-row flex-col">
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
-            min-w-full tablet:min-w-[35%] max-h-[50%] min-h-[50%] tablet:max-h-full tablet:min-h-full
+            min-w-full tablet:min-w-[45%] max-h-[50%] min-h-[50%] tablet:max-h-full tablet:min-h-full
             relative overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
@@ -57,7 +52,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               <img
                 key={it.id}
                 src={it?.image?.url || "/placeholder.png"}
-                alt={it?.image?.name || it?.title || "news image"}
+                alt={it?.title || it?.title || "news image"}
                 className="
                   w-full h-full object-cover flex-shrink-0 cursor-pointer
                 "
@@ -109,7 +104,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
             <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
@@ -119,7 +114,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.createdAt ? formatDate(current.createdAt) : ""}
               </div>
               <p
-                className={`relative z-10 line-clamp-4 ${
+                className={`relative z-10 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >
@@ -128,102 +123,105 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
             </div>
           </Link>
 
-          <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
-            <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
-              {items.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  className={`w-[8px] h-[8px] cursor-pointer ${
-                    i === index ? "bg-crystalGreen" : "bg-black"
-                  }`}
-                />
-              ))}
-            </div>
+          {items.length > 1 && (
+            <>
+              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
+                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                  {items.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setIndex(i)}
+                      className={`w-[8px] h-[8px] cursor-pointer ${
+                        i === index ? "bg-crystalGreen" : "bg-black"
+                      }`}
+                    />
+                  ))}
+                </div>
 
-            <div className="flex">
-              <button
-                onClick={goPrev}
-                className={`group overflow-hidden relative w-16 h-16 border-t-2 border-l-2 flex justify-center items-center 
+                <div className="flex">
+                  <button
+                    onClick={goPrev}
+                    className={`group overflow-hidden relative w-16 h-16 border-t-2 border-l-2 flex justify-center items-center 
                   ${
                     index === 0
                       ? "border-neutral100 text-neutral100 cursor-not-allowed"
                       : "cursor-pointer hover:bg-black"
                   }`}
-                disabled={index === 0}
-              >
-                {index !== 0 ? (
-                  <>
-                    <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen translate-x-14 group-hover:translate-x-0" />
-                    <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out group-hover:-translate-x-14" />
-                  </>
-                ) : (
-                  <RightUpIcon className="-rotate-135 w-8 h-8" />
-                )}
-              </button>
-              <button
-                onClick={goNext}
-                aria-label="Next"
-                className={`group relative w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center overflow-hidden ${
-                  index === items.length - 1
-                    ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
-                    : "cursor-pointer hover:bg-black"
-                }`}
-                disabled={index === items.length - 1}
-              >
-                {index !== items.length - 1 ? (
-                  <>
-                    <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen -translate-x-14 group-hover:translate-x-0" />
-                    <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out group-hover:translate-x-14" />
-                  </>
-                ) : (
-                  <RightUpIcon className="rotate-45 w-8 h-8" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
-            <button
-              onClick={goPrev}
-              className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
+                    disabled={index === 0}
+                  >
+                    {index !== 0 ? (
+                      <>
+                        <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen translate-x-14 group-hover:translate-x-0" />
+                        <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out group-hover:-translate-x-14" />
+                      </>
+                    ) : (
+                      <RightUpIcon className="-rotate-135 w-8 h-8" />
+                    )}
+                  </button>
+                  <button
+                    onClick={goNext}
+                    aria-label="Next"
+                    className={`group relative w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center overflow-hidden ${
+                      index === items.length - 1
+                        ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
+                        : "cursor-pointer hover:bg-black"
+                    }`}
+                    disabled={index === items.length - 1}
+                  >
+                    {index !== items.length - 1 ? (
+                      <>
+                        <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen -translate-x-14 group-hover:translate-x-0" />
+                        <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out group-hover:translate-x-14" />
+                      </>
+                    ) : (
+                      <RightUpIcon className="rotate-45 w-8 h-8" />
+                    )}
+                  </button>
+                </div>
+              </div>
+              <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+                <button
+                  onClick={goPrev}
+                  className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
                   ${
                     index === 0
                       ? "border-neutral100 text-neutral100 cursor-not-allowed"
                       : "cursor-pointer"
                   }`}
-              disabled={index === 0}
-            >
-              <RightUpIcon className="-rotate-135 w-8 h-8" />
-            </button>
-            <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
-              {items.map((_, i) => (
+                  disabled={index === 0}
+                >
+                  <RightUpIcon className="-rotate-135 w-8 h-8" />
+                </button>
+                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                  {items.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setIndex(i)}
+                      className={`w-[8px] h-[8px] cursor-pointer ${
+                        i === index ? "bg-crystalGreen" : "bg-black"
+                      }`}
+                    />
+                  ))}
+                </div>
                 <button
-                  key={i}
-                  onClick={() => setIndex(i)}
-                  className={`w-[8px] h-[8px] cursor-pointer ${
-                    i === index ? "bg-crystalGreen" : "bg-black"
+                  onClick={goNext}
+                  aria-label="Next"
+                  className={`w-16 h-16 border-t-2 border-l-2 border-r-2 border-black flex justify-center items-center ${
+                    index === items.length - 1
+                      ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                      : "cursor-pointer"
                   }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={goNext}
-              aria-label="Next"
-              className={`w-16 h-16 border-t-2 border-l-2 border-r-2 border-black flex justify-center items-center ${
-                index === items.length - 1
-                  ? "border-neutral100 text-neutral100 cursor-not-allowed"
-                  : "cursor-pointer"
-              }`}
-              disabled={index === items.length - 1}
-            >
-              <RightUpIcon className="rotate-45 w-8 h-8" />
-            </button>
-          </div>
+                  disabled={index === items.length - 1}
+                >
+                  <RightUpIcon className="rotate-45 w-8 h-8" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
 
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-311px)] tablet:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
+      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
     </div>
   );
 }

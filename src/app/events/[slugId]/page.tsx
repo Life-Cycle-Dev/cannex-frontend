@@ -5,8 +5,19 @@ import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { cache } from "react";
+
+const getEvent = cache(async (slugId: string, preview: boolean) => {
+  const client = new BackendClient();
+  const response = await client.getEventBySlugId(
+    slugId,
+    preview ? "draft" : "published",
+  );
+
+  return response.data[0] ?? null;
+});
 
 interface PageProps {
   params: any;
@@ -17,29 +28,19 @@ export async function generateMetadata({
   params,
   searchParams,
 }: PageProps): Promise<Metadata> {
-  const { slugId } = params;
-  const preview = searchParams?.preview === "true";
-  const client = new BackendClient();
+  const preview = (await searchParams?.preview) === "true";
+  const data = await getEvent(params.slugId, preview);
 
-  const response = await client.getEventBySlugId(
-    slugId,
-    preview ? "draft" : "published",
-  );
-
-  if (!response.data.length) {
-    return {};
-  }
-
-  const data = response.data[0];
+  if (!data) return {};
 
   return {
     title: data.seo?.metaTitle ?? data.title,
     description: data.seo?.metaDescription ?? "",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
     },
     openGraph: {
-      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
       title: data.seo?.metaTitle ?? data.title,
       description: data.seo?.metaDescription ?? "",
       images: [
@@ -59,29 +60,22 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const { slugId } = await params;
   const preview = (await searchParams?.preview) === "true";
-  const client = new BackendClient();
+  const data = await getEvent(params.slugId, preview);
 
-  const response = await client.getEventBySlugId(
-    slugId,
-    preview ? "draft" : "published",
-  );
-
-  if (response.data.length === 0) {
-    return notFound();
-  }
-
-  const data = response.data[0];
+  if (!data) return notFound();
 
   return (
     <div className="w-full">
       <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
-        <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full flex flex-col gap-6">
+        <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full  flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <div className="w-fit text-white bg-black p-[2px_8px]">
+            <Link
+              href="/events"
+              className="w-fit text-white bg-black p-[2px_8px]"
+            >
               Events & Updated
-            </div>
+            </Link>
             <h1 className="text-[46px] font-bold break-words leading-[110%]">
               {data.title}
             </h1>
@@ -91,16 +85,16 @@ export default async function Page({ params, searchParams }: PageProps) {
             <ShareButton
               imageUrl={data?.image?.url ?? ""}
               title={data.title}
-              url={`/events/${slugId}`}
+              url={`/events/${params.slugId}`}
             />
           </div>
         </div>
 
-        <div className="w-full h-[280px] tablet:h-[475px] border-[2px_0px_2px_0px] tablet:border-[0px_0px_0px_2px]">
+        <div className="w-full tablet:self-start aspect-[4/3] border-y-2 tablet:border-y-0 tablet:border-l-2">
           <img
             className="w-full h-full object-cover"
             src={data?.image?.url ?? ""}
-            alt={data?.image?.alternativeText ?? ""}
+            alt={data.title ?? ""}
           />
         </div>
       </div>
