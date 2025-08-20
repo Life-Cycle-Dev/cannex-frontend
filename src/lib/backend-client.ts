@@ -185,6 +185,7 @@ export class BackendClient {
           "populate[newsrooms][fields][0]": "title",
           "populate[newsrooms][fields][1]": "description",
           "populate[newsrooms][fields][2]": "publishedAt",
+          "populate[newsrooms][fields][3]": "slug",
           "populate[newsrooms][populate][image][fields][0]": "url",
           "populate[newsrooms][populate][image][fields][1]": "alternativeText"
         }

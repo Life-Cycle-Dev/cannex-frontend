@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
 import ShareButton from "@/components/ShareButton";
@@ -6,40 +5,41 @@ import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import React from "react";
+import React, { cache } from "react";
+
+
+const getEvent = cache(async (slugId: string, preview: boolean) => {
+  const client = new BackendClient();
+  const response = await client.getEventBySlugId(
+    slugId,
+    preview ? "draft" : "published",
+  );
+
+  return response.data[0] ?? null;
+})
 
 interface PageProps {
-  params: any;
-  searchParams?: any;
+  params: { slugId: string };
+  searchParams?: { preview?: string };
 }
 
 export async function generateMetadata({
   params,
   searchParams,
 }: PageProps): Promise<Metadata> {
-  const { slugId } = params;
   const preview = searchParams?.preview === "true";
-  const client = new BackendClient();
+  const data = await getEvent(params.slugId, preview);
 
-  const response = await client.getEventBySlugId(
-    slugId,
-    preview ? "draft" : "published",
-  );
-
-  if (!response.data.length) {
-    return {};
-  }
-
-  const data = response.data[0];
+  if (!data) return {};
 
   return {
     title: data.seo?.metaTitle ?? data.title,
     description: data.seo?.metaDescription ?? "",
     alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      canonical: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
     },
     openGraph: {
-      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${slugId}`,
+      url: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/newsroom/${params.slugId}`,
       title: data.seo?.metaTitle ?? data.title,
       description: data.seo?.metaDescription ?? "",
       images: [
@@ -59,20 +59,10 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const { slugId } = await params;
-  const preview = (await searchParams?.preview) === "true";
-  const client = new BackendClient();
+  const preview = searchParams?.preview === "true";
+  const data = await getEvent(params.slugId, preview);
 
-  const response = await client.getEventBySlugId(
-    slugId,
-    preview ? "draft" : "published",
-  );
-
-  if (response.data.length === 0) {
-    return notFound();
-  }
-
-  const data = response.data[0];
+  if (!data) return notFound();
 
   return (
     <div className="w-full">
@@ -91,7 +81,7 @@ export default async function Page({ params, searchParams }: PageProps) {
             <ShareButton
               imageUrl={data?.image?.url ?? ""}
               title={data.title}
-              url={`/events/${slugId}`}
+              url={`/events/${params.slugId}`}
             />
           </div>
         </div>
