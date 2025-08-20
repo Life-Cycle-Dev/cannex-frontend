@@ -9,7 +9,6 @@ export interface Event {
     content: string;
     publishedAt: string;
     updatedAt: string;
-    publishedAt: string;
     slug: string;
     description: string;
     image: FileContent;

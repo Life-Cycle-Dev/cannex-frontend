@@ -13,5 +13,4 @@ export interface FileContent {
     url: string;
     publishedAt: string;
     updatedAt: string;
-    publishedAt: string;
 }
