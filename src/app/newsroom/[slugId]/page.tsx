@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import { cache } from "react";
 import Markdown from "@/components/Markdown";
@@ -9,15 +10,15 @@ import React from "react";
 import type { Metadata } from "next";
 
 interface PageProps {
-  params: { slugId: string };
-  searchParams?: { preview?: string };
+  params: any;
+  searchParams?: any;
 }
 
 const getNewsRoom = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview ? "draft" : "published"
+    preview ? "draft" : "published",
   );
   return response.data[0] ?? null;
 });
@@ -26,7 +27,7 @@ export async function generateMetadata({
   params,
   searchParams,
 }: PageProps): Promise<Metadata> {
-  const preview = searchParams?.preview === "true";
+  const preview = (await searchParams?.preview) === "true";
   const data = await getNewsRoom(params.slugId, preview);
 
   if (!data) return {};
@@ -58,7 +59,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const preview = searchParams?.preview === "true";
+  const preview = (await searchParams?.preview) === "true";
   const data = await getNewsRoom(params.slugId, preview);
 
   if (!data) return notFound();

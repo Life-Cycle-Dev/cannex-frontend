@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 import Markdown from "@/components/Markdown";
 import ShareButton from "@/components/ShareButton";
@@ -19,15 +20,15 @@ const getEvent = cache(async (slugId: string, preview: boolean) => {
 })
 
 interface PageProps {
-  params: { slugId: string };
-  searchParams?: { preview?: string };
+  params: any;
+  searchParams?: any;
 }
 
 export async function generateMetadata({
   params,
   searchParams,
 }: PageProps): Promise<Metadata> {
-  const preview = searchParams?.preview === "true";
+  const preview = (await searchParams?.preview) === "true";
   const data = await getEvent(params.slugId, preview);
 
   if (!data) return {};
@@ -59,7 +60,7 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
-  const preview = searchParams?.preview === "true";
+  const preview = (await searchParams?.preview) === "true";
   const data = await getEvent(params.slugId, preview);
 
   if (!data) return notFound();
