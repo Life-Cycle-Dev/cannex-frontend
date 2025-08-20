@@ -5,9 +5,9 @@ import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
 import { formatDate } from "@/utils/format";
 import { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
-
 
 const getEvent = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
@@ -17,7 +17,7 @@ const getEvent = cache(async (slugId: string, preview: boolean) => {
   );
 
   return response.data[0] ?? null;
-})
+});
 
 interface PageProps {
   params: any;
@@ -68,11 +68,14 @@ export default async function Page({ params, searchParams }: PageProps) {
   return (
     <div className="w-full">
       <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
-        <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full flex flex-col gap-6">
+        <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full  flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <div className="w-fit text-white bg-black p-[2px_8px]">
+            <Link
+              href="/events"
+              className="w-fit text-white bg-black p-[2px_8px]"
+            >
               Events & Updated
-            </div>
+            </Link>
             <h1 className="text-[46px] font-bold break-words leading-[110%]">
               {data.title}
             </h1>
@@ -87,7 +90,7 @@ export default async function Page({ params, searchParams }: PageProps) {
           </div>
         </div>
 
-        <div className="w-full h-[280px] tablet:h-[475px] border-[2px_0px_2px_0px] tablet:border-[0px_0px_0px_2px]">
+        <div className="w-full tablet:self-start aspect-[4/3] border-y-2 tablet:border-y-0 tablet:border-l-2">
           <img
             className="w-full h-full object-cover"
             src={data?.image?.url ?? ""}
