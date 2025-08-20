@@ -9,6 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
 import { PaginationCard } from "../Pagination";
+import { StickyBar } from "@/components/StickyBar";
 
 const getEvent = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
@@ -70,6 +71,11 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   return (
     <div className="w-full">
+      <StickyBar
+        title={data.title}
+        url={`/events/${params.slugId}`}
+        imageUrl={data?.image?.url ?? ""}
+      />
       <div className="flex flex-col tablet:flex-row tablet:items-stretch tablet:border-b-[2px]">
         <div
           className="w-full tablet:w-1/2 flex flex-col justify-center gap-6 tablet:gap-8

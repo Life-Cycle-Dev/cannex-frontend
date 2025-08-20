@@ -28,6 +28,8 @@ interface HelperContextType {
   shareInfo?: ShareInfo | null;
   setShareInfo: (payload: ShareInfo) => void;
   setLoading: (value: boolean) => void;
+  setIsNavbarSticky: (value: boolean) => void;
+  isNavbarSticky: boolean;
 }
 
 const HelperContext = createContext<() => HelperContextType>(() => {
@@ -39,6 +41,8 @@ const HelperContext = createContext<() => HelperContextType>(() => {
     shareInfo: undefined,
     setShareInfo: () => {},
     setLoading: () => {},
+    setIsNavbarSticky: () => {},
+    isNavbarSticky: true,
   };
 });
 
@@ -46,6 +50,7 @@ export function HelperProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [navigate, setNavigate] = useState<string>("");
   const [shareInfo, setShareInfo] = useState<ShareInfo | null>();
+  const [isNavbarSticky, setIsNavbarSticky] = useState<boolean>(true);
   const setLoading = useLoadingContext();
 
   const useHelper = useCallback(
@@ -57,8 +62,10 @@ export function HelperProvider({ children }: { children: ReactNode }) {
       shareInfo,
       setShareInfo,
       setLoading,
+      isNavbarSticky,
+      setIsNavbarSticky,
     }),
-    [navigate],
+    [navigate, isNavbarSticky],
   );
 
   return (

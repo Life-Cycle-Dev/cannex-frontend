@@ -8,16 +8,22 @@ interface ShareInfo {
   imageUrl: string;
   title: string;
   url: string;
+  hasBorder?: boolean;
 }
 
-export default function ShareButton({ imageUrl, title, url }: ShareInfo) {
+export default function ShareButton({
+  imageUrl,
+  title,
+  url,
+  hasBorder = true,
+}: ShareInfo) {
   const { setShareInfo } = useHelperContext()();
 
   return (
     <Button
       text="Share"
       type="secondaryBlack"
-      className="w-fit cursor-pointer"
+      className={"w-fit cursor-pointer " + (!hasBorder && "border-none w-full text-[20px] !justify-between px-[20px] tablet:w-fit tablet:!justify-center")}
       onClick={() => {
         setShareInfo({
           imageUrl,

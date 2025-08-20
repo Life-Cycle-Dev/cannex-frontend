@@ -10,6 +10,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PaginationCard } from "../Pagination";
+import { StickyBar } from "@/components/StickyBar";
 
 interface PageProps {
   params: any;
@@ -70,6 +71,12 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   return (
     <div className="w-full">
+      <StickyBar
+        title={data.title}
+        url={`/newsroom/${params.slugId}`}
+        imageUrl={data?.image?.url ?? ""}
+      />
+
       <div className="flex flex-col tablet:flex-row tablet:items-stretch tablet:border-b-[2px]">
         <div
           className="w-full tablet:w-1/2 flex flex-col justify-center gap-6 tablet:gap-8
@@ -111,7 +118,9 @@ export default async function Page({ params, searchParams }: PageProps) {
       </div>
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">
-        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">Our Newsroom</div>
+        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
+          Our Newsroom
+        </div>
         <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
           {randomNewsroom.map((data, index) => (
             <PaginationCard

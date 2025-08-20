@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect, useId, useState } from "react";
@@ -9,8 +10,10 @@ import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import RightUpIcon from "../icons/RightUpIcon";
 import { MENUS } from "@/utils/constant";
+import { useHelperContext } from "../providers/helper-provider";
 
 export default function NavBar() {
+  const { isNavbarSticky } = useHelperContext()();
   const [isOpen, setIsOpen] = useState(false);
   const [isShow, setIsShow] = useState(true);
   const panelId = useId();
@@ -28,9 +31,11 @@ export default function NavBar() {
       lastScrollY = current;
     };
 
-    window.addEventListener("scroll", update);
-    return () => window.removeEventListener("scroll", update);
-  }, []);
+    if (isNavbarSticky) {
+      window.addEventListener("scroll", update);
+      return () => window.removeEventListener("scroll", update);
+    }
+  }, [isNavbarSticky]);
 
   // lock scroll when mobile menu open
   useEffect(() => {
@@ -55,7 +60,8 @@ export default function NavBar() {
   return (
     <header
       className={`w-full top-0 z-50 bg-white text-foreground border-y-2 transition-transform duration-300 ${
-        isShow ? "sticky translate-y-0" : "-translate-y-full"
+        isNavbarSticky &&
+        (isShow ? "sticky translate-y-0" : "-translate-y-full")
       }`}
     >
       {/* DESKTOP */}
