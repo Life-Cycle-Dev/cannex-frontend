@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect, useState } from "react";
 import ShareButton from "@/components/ShareButton";
+import { useHelperContext } from "./providers/helper-provider";
 
 export function StickyBar({
   title,
@@ -13,8 +15,10 @@ export function StickyBar({
 }) {
   const [progress, setProgress] = useState(0);
   const [show, setShow] = useState(false);
+  const { setIsNavbarSticky } = useHelperContext()();
 
   useEffect(() => {
+    setIsNavbarSticky(false);
     const handleScroll = () => {
       const totalHeight =
         document.documentElement.scrollHeight -
