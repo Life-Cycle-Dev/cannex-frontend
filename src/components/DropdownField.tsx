@@ -27,7 +27,7 @@ export default function Dropdown({
 
   useEffect(() => {
     AOS.init({
-      duration: 1500,
+      duration: 500,
       once: true,
       easing: "ease-in-out", // ถ้าอยากให้ smooth
     });
@@ -61,12 +61,12 @@ export default function Dropdown({
       {isOpen && (
         <>
           <div
-            className="tablet:hidden fixed w-full h-full top-0 left-0 z-9 bg-[#80808080]"
+            className="fixed w-full h-full top-0 left-0 z-9 bg-[#80808080] tablet:bg-transparent"
             onClick={() => setIsOpen(false)}
           ></div>
           <ul
-            data-aos="fade-up"
-            className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0"
+            data-aos="fade-up tablet:fade-down"
+            className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto"
           >
             <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
               Reason for Contact
