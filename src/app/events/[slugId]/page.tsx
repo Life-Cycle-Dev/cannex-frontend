@@ -67,8 +67,11 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col tablet:flex-row tablet:border-b-[2px]">
-        <div className="p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px] w-full  flex flex-col gap-6">
+      <div className="flex flex-col tablet:flex-row tablet:items-stretch tablet:border-b-[2px]">
+        <div
+          className="w-full tablet:w-1/2 flex flex-col justify-center gap-6 tablet:gap-8
+                  p-[32px_20px_40px_20px] tablet:p-[0px_64px_0px_80px]"
+        >
           <div className="flex flex-col gap-4">
             <Link
               href="/events"
@@ -79,9 +82,10 @@ export default async function Page({ params, searchParams }: PageProps) {
             <h1 className="text-[46px] font-bold break-words leading-[110%]">
               {data.title}
             </h1>
-          </div>
-          <div className="w-full h-full flex tablet:flex-col items-center tablet:items-start justify-between">
             <div className="text-gray-400">{formatDate(data.createdAt)}</div>
+          </div>
+
+          <div className="w-full flex tablet:flex-col items-center tablet:items-start justify-between">
             <ShareButton
               imageUrl={data?.image?.url ?? ""}
               title={data.title}
@@ -90,7 +94,7 @@ export default async function Page({ params, searchParams }: PageProps) {
           </div>
         </div>
 
-        <div className="w-full tablet:self-start aspect-[4/3] border-y-2 tablet:border-y-0 tablet:border-l-2">
+        <div className="w-full tablet:w-1/2 tablet:self-stretch aspect-[4/3] border-y-2 tablet:border-y-0 tablet:border-l-2">
           <img
             className="w-full h-full object-cover"
             src={data?.image?.url ?? ""}
@@ -98,6 +102,7 @@ export default async function Page({ params, searchParams }: PageProps) {
           />
         </div>
       </div>
+
       <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
         <Markdown value={data.content} />
       </div>
