@@ -75,14 +75,14 @@ export default function Dropdown({
                 onClick={() => setIsOpen(false)}
               />
             </div>
-            <li className="hidden tablet:block px-4 py-2.5 bg-black text-crystalGreen font-medium">
+            <li className="hidden h-10 tablet:block px-4 py-2.5 bg-black text-crystalGreen font-medium">
               Please select
             </li>
             {options.map((option, index) => (
               <li
                 key={option}
                 onClick={() => handleSelect(option)}
-                className={`px-4 py-2.5 hover:bg-gray cursor-pointer ${
+                className={`h-10 px-4 py-2.5 hover:bg-black hover:text-crystalGreen focus:bg-black focus:text-crystalGreen cursor-pointer font-medium leading-[125%] ${
                   index < options.length - 1 ? "border-b" : ""
                 }`}
               >
