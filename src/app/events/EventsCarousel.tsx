@@ -48,8 +48,8 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
   const exitEnd = direction === 1 ? "-translate-x-full" : "translate-x-full";
 
   return (
-    <div className="flex flex-col tablet:flex-row min-w-[1000px] max-w-[1000px]">
-      <div className="w-[450px] h-[450px] relative overflow-hidden">
+    <div className="flex flex-col w-[calc(100vw-40px)] tablet:flex-row tablet:min-w-[1000px] tablet:max-w-[1000px]">
+      <div className="w-[calc(100vw-40px)] h-[calc(100vw-40px)] tablet:w-[450px] tablet:h-[450px] relative overflow-hidden">
         {prevItem && (
           <Link href={`/events/${prevItem.slug}`}>
             <img
@@ -61,7 +61,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               onTouchStart={() => setHover(true)}
               onTouchEnd={() => setHover(false)}
               className={`
-                absolute inset-0 w-full h-full object-cover border-x-2 border-y-2 tablet:border-y-0
+                absolute inset-0 w-full h-full object-cover tablet:border-x-2 tablet:border-y-0
                 transition-transform duration-[${DURATION}ms] ease-out
                 ${animating ? exitEnd : "translate-x-0"}
                 cursor-pointer
@@ -80,7 +80,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             onTouchStart={() => setHover(true)}
             onTouchEnd={() => setHover(false)}
             className={`
-              absolute inset-0 w-full h-full object-cover border-x-2 border-y-2 tablet:border-y-0
+              absolute inset-0 w-full h-full object-cover tablet:border-x-2 tablet:border-y-0
               transition-transform duration-[${DURATION}ms] ease-out
               ${
                 prev !== null
@@ -95,7 +95,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
         </Link>
       </div>
 
-      <div className="relative max-w-[550px]">
+      <div className="relative w-[calc(100vw-40px)] tablet:max-w-[550px] tablet:min-w-[550px]">
         <Link
           href={`/events/${current.slug}`}
           className="
@@ -133,7 +133,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             }`}
           />
 
-          <div className="pt-5 tablet:pt-2 px-6 tablet:px-16 flex flex-col gap-3">
+          <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
             <h2
               className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-2 ${
                 hover ? "text-crystalGreen" : ""
