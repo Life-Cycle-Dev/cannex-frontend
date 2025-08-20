@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import CloseIcon from "./icons/CloseIcon";
 import Button from "./Button";
 import LineIcon from "./icons/LineIcon";
 import CopyIcon from "./icons/CopyIcon";
 import FacebookIcon from "./icons/FacebookIcon";
+import AOS from "aos";
 
 interface ShareInfo {
   imageUrl: string;
@@ -27,24 +28,32 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
 
   const shareToLine = useCallback(() => {
     const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(
-      url,
+      url
     )}`;
     window.open(lineUrl, "_blank", "noopener,noreferrer");
   }, [url]);
 
   const shareToFacebook = useCallback(() => {
     const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      url,
+      url
     )}`;
     window.open(fbUrl, "_blank", "noopener,noreferrer");
   }, [url]);
 
   const shareToX = useCallback(() => {
     const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      url,
+      url
     )}&text=${encodeURIComponent(title)}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
   }, [url, title]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      once: true,
+      easing: "ease-in-out",
+    });
+  }, []);
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center">
@@ -53,25 +62,30 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
         onClick={onClose}
       ></div>
 
-      <div className="relative p-0 tablet:p-[24px] bg-white z-10 w-[90vw] tablet:w-[592px]">
+      <div
+        data-aos="fade-up"
+        data-aos-anchor-placement="bottom-bottom"
+        className="absolute bottom-0 tablet:relative p-0 tablet:p-6 bg-white z-10 w-full tablet:w-[592px]"
+      >
         <div className="flex justify-between items-center border-b-2 tablet:border-b-0 p-[24px] tablet:p-0">
-          <div className="text-[24px] font-bold">Share</div>
-          <CloseIcon
-            className="w-[16px] h-[16px] cursor-pointer"
-            onClick={onClose}
-          />
+          <div className="text-xl tablet:text-2xl leading-[125%] tablet:leading-[120%] font-bold">
+            Share
+          </div>
+          <CloseIcon className="w-4 h-4 cursor-pointer" onClick={onClose} />
         </div>
 
-        <div className="my-[24px] flex items-center gap-[16px] p-[24px] tablet:p-0">
+        <div className="flex flex-col tablet:flex-row tablet:items-center gap-4 py-6 px-6 tablet:p-0 tablet:mt-4">
           <img
-            className="w-[128px] h-[72px] object-cover"
+            className="w-[196px] tablet:w-[128px] h-[110px] tablet:h-[72px] object-cover"
             src={imageUrl}
             alt="share alt"
           />
-          <div className="text-[24px] line-clamp-2 font-bold">{title}</div>
+          <h4 className="text-2xl leading-[120%] line-clamp-2 font-bold">
+            {title}
+          </h4>
         </div>
 
-        <div className="grid grid-cols-1 tablet:grid-cols-2 tablet:border-2 border-black relative">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 tablet:border-2 border-black relative tablet:mt-6">
           <Button
             text="Copy Link"
             type="share"

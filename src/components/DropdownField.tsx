@@ -29,7 +29,7 @@ export default function Dropdown({
     AOS.init({
       duration: 500,
       once: true,
-      easing: "ease-in-out", // ถ้าอยากให้ smooth
+      easing: "ease-in-out",
     });
   }, []);
 
