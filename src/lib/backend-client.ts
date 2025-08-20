@@ -35,7 +35,7 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          "populate[image][fields][0]": "*",
+          "populate[image][fields][0]": "url",
           "populate[seo][fields][0]": "*",
           "populate[seo][populate][metaImage][fields][0]": "*",
         },
@@ -55,7 +55,7 @@ export class BackendClient {
       const response = await this.client.get("/api/newsrooms", {
         params: {
           "filters[slug][$eq]": slagId,
-          "populate[image][fields][0]": "*",
+          "populate[image][fields][0]": "url",
           "populate[seo][fields][0]": "*",
           "populate[seo][populate][metaImage][fields][0]": "*",
           status,
@@ -79,9 +79,12 @@ export class BackendClient {
           ...params,
           "sort[0]": sort,
           "filters[title][$containsi]": search,
-          "populate[image][fields][0]": "*",
+          "populate[image][fields][0]": "url",
           "populate[seo][fields][0]": "*",
-          "populate[seo][populate][metaImage][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "url",
+          "populate[seo][populate][metaImage][fields][1]": "width",
+          "populate[seo][populate][metaImage][fields][2]": "height",
+          "populate[seo][populate][metaImage][fields][3]": "alternativeText",
         },
       });
       return response.data;
@@ -99,9 +102,12 @@ export class BackendClient {
       const response = await this.client.get("/api/events", {
         params: {
           "filters[slug][$eq]": slagId,
-          "populate[image][fields][0]": "*",
+          "populate[image][fields][0]": "url",
           "populate[seo][fields][0]": "*",
-          "populate[seo][populate][metaImage][fields][0]": "*",
+          "populate[seo][populate][metaImage][fields][0]": "url",
+          "populate[seo][populate][metaImage][fields][1]": "width",
+          "populate[seo][populate][metaImage][fields][2]": "height",
+          "populate[seo][populate][metaImage][fields][3]": "alternativeText",
           status,
         },
       });
