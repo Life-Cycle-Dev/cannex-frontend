@@ -8,6 +8,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import React, { cache } from "react";
+import { PaginationCard } from "../Pagination";
 
 const getEvent = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
@@ -60,8 +61,10 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
+  const client = new BackendClient();
   const preview = (await searchParams?.preview) === "true";
   const data = await getEvent(params.slugId, preview);
+  const randomEvents = await client.getRandomEvents();
 
   if (!data) return notFound();
 
@@ -79,10 +82,10 @@ export default async function Page({ params, searchParams }: PageProps) {
             >
               Events & Updated
             </Link>
-            <h1 className="text-[46px] font-bold break-words leading-[110%]">
+            <h1 className="text-[46px] font-bold break-words leading-[110%] line-clamp-2">
               {data.title}
             </h1>
-            <div className="text-gray-400">{formatDate(data.createdAt)}</div>
+            <div className="text-gray-400">{formatDate(data.publishedAt)}</div>
           </div>
 
           <div className="w-full flex tablet:flex-col items-center tablet:items-start justify-between">
@@ -105,6 +108,22 @@ export default async function Page({ params, searchParams }: PageProps) {
 
       <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
         <Markdown value={data.content} />
+      </div>
+
+      <div className="border-t-2 mx-[20px] tablet:mx-0">
+        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
+          Our Events & Updated
+        </div>
+        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
+          {randomEvents.map((data, index) => (
+            <PaginationCard
+              datas={randomEvents}
+              key={data.id}
+              data={data}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

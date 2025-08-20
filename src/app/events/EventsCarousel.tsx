@@ -142,7 +142,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               {current?.title ?? "-"}
             </h2>
             <div className="relative z-10 text-gray-400 text-md">
-              {current?.createdAt ? formatDate(current.createdAt) : ""}
+              {current?.publishedAt ? formatDate(current.publishedAt) : ""}
             </div>
             <div
               className={`relative z-10 text-md line-clamp-4 group-hover:text-white ${
@@ -155,100 +155,100 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
         </Link>
 
         {items.length > 1 && (
-            <>
-              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
-                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
-                  {items.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setIndex(i)}
-                      className={`w-[8px] h-[8px] cursor-pointer ${
-                        i === index ? "bg-crystalGreen" : "bg-black"
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                <div className="flex">
+          <>
+            <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
+              <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                {items.map((_, i) => (
                   <button
-                    onClick={goPrev}
-                    className={`group overflow-hidden relative w-16 h-16 border-t-2 border-l-2 flex justify-center items-center 
+                    key={i}
+                    onClick={() => setIndex(i)}
+                    className={`w-[8px] h-[8px] cursor-pointer ${
+                      i === index ? "bg-crystalGreen" : "bg-black"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex">
+                <button
+                  onClick={goPrev}
+                  className={`group overflow-hidden relative w-16 h-16 border-t-2 border-l-2 flex justify-center items-center 
                   ${
                     index === 0
                       ? "border-neutral100 text-neutral100 cursor-not-allowed"
                       : "cursor-pointer hover:bg-black"
                   }`}
-                    disabled={index === 0}
-                  >
-                    {index !== 0 ? (
-                      <>
-                        <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen translate-x-14 group-hover:translate-x-0" />
-                        <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out group-hover:-translate-x-14" />
-                      </>
-                    ) : (
-                      <RightUpIcon className="-rotate-135 w-8 h-8" />
-                    )}
-                  </button>
-                  <button
-                    onClick={goNext}
-                    aria-label="Next"
-                    className={`group relative w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center overflow-hidden ${
-                      index === items.length - 1
-                        ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
-                        : "cursor-pointer hover:bg-black"
-                    }`}
-                    disabled={index === items.length - 1}
-                  >
-                    {index !== items.length - 1 ? (
-                      <>
-                        <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen -translate-x-14 group-hover:translate-x-0" />
-                        <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out group-hover:translate-x-14" />
-                      </>
-                    ) : (
-                      <RightUpIcon className="rotate-45 w-8 h-8" />
-                    )}
-                  </button>
-                </div>
-              </div>
-              <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+                  disabled={index === 0}
+                >
+                  {index !== 0 ? (
+                    <>
+                      <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen translate-x-14 group-hover:translate-x-0" />
+                      <RightUpIcon className="absolute -rotate-135 w-8 h-8 transition-transform duration-500 ease-out group-hover:-translate-x-14" />
+                    </>
+                  ) : (
+                    <RightUpIcon className="-rotate-135 w-8 h-8" />
+                  )}
+                </button>
                 <button
-                  onClick={goPrev}
-                  className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
+                  onClick={goNext}
+                  aria-label="Next"
+                  className={`group relative w-16 h-16 border-t-2 border-l-2 border-black flex justify-center items-center overflow-hidden ${
+                    index === items.length - 1
+                      ? "border-t-neutral100 text-neutral100 cursor-not-allowed"
+                      : "cursor-pointer hover:bg-black"
+                  }`}
+                  disabled={index === items.length - 1}
+                >
+                  {index !== items.length - 1 ? (
+                    <>
+                      <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out text-crystalGreen -translate-x-14 group-hover:translate-x-0" />
+                      <RightUpIcon className="absolute rotate-45 w-8 h-8 transition-transform duration-500 ease-out group-hover:translate-x-14" />
+                    </>
+                  ) : (
+                    <RightUpIcon className="rotate-45 w-8 h-8" />
+                  )}
+                </button>
+              </div>
+            </div>
+            <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+              <button
+                onClick={goPrev}
+                className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
                   ${
                     index === 0
                       ? "border-neutral100 text-neutral100 cursor-not-allowed"
                       : "cursor-pointer"
                   }`}
-                  disabled={index === 0}
-                >
-                  <RightUpIcon className="-rotate-135 w-8 h-8" />
-                </button>
-                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
-                  {items.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setIndex(i)}
-                      className={`w-[8px] h-[8px] cursor-pointer ${
-                        i === index ? "bg-crystalGreen" : "bg-black"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <button
-                  onClick={goNext}
-                  aria-label="Next"
-                  className={`w-16 h-16 border-t-2 border-l-2 border-r-2 border-black flex justify-center items-center ${
-                    index === items.length - 1
-                      ? "border-neutral100 text-neutral100 cursor-not-allowed"
-                      : "cursor-pointer"
-                  }`}
-                  disabled={index === items.length - 1}
-                >
-                  <RightUpIcon className="rotate-45 w-8 h-8" />
-                </button>
+                disabled={index === 0}
+              >
+                <RightUpIcon className="-rotate-135 w-8 h-8" />
+              </button>
+              <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                {items.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setIndex(i)}
+                    className={`w-[8px] h-[8px] cursor-pointer ${
+                      i === index ? "bg-crystalGreen" : "bg-black"
+                    }`}
+                  />
+                ))}
               </div>
-            </>
-          )}
+              <button
+                onClick={goNext}
+                aria-label="Next"
+                className={`w-16 h-16 border-t-2 border-l-2 border-r-2 border-black flex justify-center items-center ${
+                  index === items.length - 1
+                    ? "border-neutral100 text-neutral100 cursor-not-allowed"
+                    : "cursor-pointer"
+                }`}
+                disabled={index === items.length - 1}
+              >
+                <RightUpIcon className="rotate-45 w-8 h-8" />
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

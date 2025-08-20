@@ -7,7 +7,7 @@ export interface Event {
     title: string;
     index: number;
     content: string;
-    createdAt: string;
+    publishedAt: string;
     updatedAt: string;
     publishedAt: string;
     slug: string;

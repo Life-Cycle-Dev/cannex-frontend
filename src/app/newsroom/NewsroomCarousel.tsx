@@ -11,10 +11,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   const [hover, setHover] = useState(false);
 
   if (!items || items.length === 0) {
-    return (
-      <div>
-      </div>
-    );
+    return <div></div>;
   }
 
   const goNext = () => {
@@ -111,7 +108,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.title ?? "-"}
               </h2>
               <div className="relative z-10 text-gray-400 text-[16px]">
-                {current?.createdAt ? formatDate(current.createdAt) : ""}
+                {current?.publishedAt ? formatDate(current.publishedAt) : ""}
               </div>
               <p
                 className={`relative z-10 ${

@@ -11,7 +11,7 @@ export interface FileContent {
     mime: string;
     size: number;
     url: string;
-    createdAt: string;
+    publishedAt: string;
     updatedAt: string;
     publishedAt: string;
 }

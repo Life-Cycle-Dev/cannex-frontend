@@ -54,7 +54,7 @@ export const PaginationCard = ({
             {data.title}
           </div>
           <div className="text-gray-400 tablet:px-[40px] text-[16px]">
-            {formatDate(data.createdAt)}
+            {formatDate(data.publishedAt)}
           </div>
           <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}

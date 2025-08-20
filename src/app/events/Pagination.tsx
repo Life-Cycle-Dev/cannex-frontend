@@ -16,6 +16,55 @@ import { Event } from "@/types/event";
 import { SortOption } from "@/types/paginate";
 import { useHelperContext } from "@/components/providers/helper-provider";
 
+export const PaginationCard = ({
+  datas,
+  data,
+  index,
+}: {
+  datas: Event[];
+  data: Event;
+  index: number;
+}) => {
+  return (
+    <Link
+      href={`/events/${data.slug}`}
+      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+        ${index % 3 === 0 && "tablet:border-l-2"}
+        ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
+      `}
+    >
+      <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
+        <img
+          src={data?.image?.url ?? ""}
+          className="w-full h-full object-cover border-y-2 "
+          alt={data.title ?? ""}
+        />
+      </div>
+
+      <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
+        <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
+
+        <div className="relative z-20">
+          <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
+            <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
+            <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
+          </div>
+
+          <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+            {data.title}
+          </div>
+          <div className="text-gray-400 tablet:px-[40px] text-[16px]">
+            {formatDate(data.publishedAt)}
+          </div>
+          <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
+            {data.description ?? ""}
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+};
+
 export default function Pagination() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -104,48 +153,6 @@ export default function Pagination() {
     }
     return pages;
   };
-
-  const PaginationCard = ({ data, index }: { data: Event; index: number }) => {
-    return (
-      <Link
-        href={`/events/${data.slug}`}
-        className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
-          ${index % 3 === 0 && "tablet:border-l-2"}
-          ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
-        `}
-      >
-        <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
-          <img
-            src={data?.image?.url ?? ""}
-            className="w-full h-full object-cover border-y-2 "
-            alt={data.title ?? ""}
-          />
-        </div>
-
-        <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
-          <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
-
-          <div className="relative z-20">
-            <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
-              <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
-              <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
-            </div>
-
-            <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
-              {data.title}
-            </div>
-            <div className="text-gray-400 tablet:px-[40px] text-[16px]">
-              {formatDate(data.createdAt)}
-            </div>
-            <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
-              {data.description ?? ""}
-            </div>
-          </div>
-        </div>
-      </Link>
-    );
-  };
-
   const renderPaginationButtons = () => (
     <div>
       {getPaginationPages().map((p, idx) =>
@@ -183,7 +190,12 @@ export default function Pagination() {
 
       <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
         {datas.map((data, index) => (
-          <PaginationCard key={data.id} data={data} index={index} />
+          <PaginationCard
+            key={data.id}
+            datas={datas}
+            data={data}
+            index={index}
+          />
         ))}
       </div>
 

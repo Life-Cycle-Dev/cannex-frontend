@@ -202,4 +202,24 @@ export class BackendClient {
       return [];
     }
   }
+
+  async getRandomNewsrooms(): Promise<NewsRooms[]> {
+    try {
+      const response = await this.client.get("/api/newsrooms/random?limit=3");
+      return response.data.data;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
+  }
+
+  async getRandomEvents(): Promise<Event[]> {
+    try {
+      const response = await this.client.get("/api/events/random?limit=3");
+      return response.data.data;
+    } catch (e) {
+      console.log(e);
+      return [];
+    }
+  }
 }
