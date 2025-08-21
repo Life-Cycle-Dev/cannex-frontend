@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Button from "./Button";
+import Button from "@/components/Button";
 import Image from "next/image";
-import RightUpIcon from "./icons/RightUpIcon";
+import RightUpIcon from "@/components/icons/RightUpIcon";
 import AOS from "aos";
 
 export default function About() {

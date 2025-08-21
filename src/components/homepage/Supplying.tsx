@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect } from "react";
-import MapSvg from "./icons/MapSvg";
-import CannexSvg from "./icons/CannexSvg";
+import MapSvg from "@/components/icons/MapSvg";
+import CannexSvg from "@/components/icons/CannexSvg";
 import AOS from "aos";
 
 export default function Supplying() {

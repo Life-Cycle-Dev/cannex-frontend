@@ -3,17 +3,19 @@
 
 import Image from "next/legacy/image";
 import Button from "@/components/Button";
-import About from "@/components/About";
 import RightUpIcon from "@/components/icons/RightUpIcon";
-import Contact from "@/components/Contact";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { useEffect } from "react";
-import Supplying from "@/components/Supplying";
 import AOS from "aos";
-import Products from "@/components/Products";
-import RnD from "@/components/RnD";
+import Products from "@/components/homepage/Products";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import About from "@/components/homepage/About";
+import RnD from "@/components/homepage/RnD";
+import Supplying from "@/components/homepage/Supplying";
+import Contact from "@/components/homepage/Contact";
+import Newsroom from "@/components/homepage/Newsroom";
+import EventsAndUpdated from "@/components/homepage/EventsAndUpdated";
 
 export default function Home() {
   const { setNavigate } = useHelperContext()();
@@ -224,6 +226,8 @@ export default function Home() {
       <About />
       <Products />
       <RnD />
+      <Newsroom />
+      <EventsAndUpdated />
       <Supplying />
       <Contact />
     </div>

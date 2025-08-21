@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useState } from "react";
-import Field from "./Field";
-import DropdownField from "./DropdownField";
-import Button from "./Button";
-import RightUpIcon from "./icons/RightUpIcon";
-import CheckBox from "./CheckBox";
-import { useHelperContext } from "./providers/helper-provider";
+import Field from "@/components/Field";
+import DropdownField from "@/components/DropdownField";
+import Button from "@/components/Button";
+import RightUpIcon from "@/components/icons/RightUpIcon";
+import CheckBox from "@/components/CheckBox";
+import { useHelperContext } from "@/components/providers/helper-provider";
 import { ContactForm } from "@/types/contact-forms";
 
 interface FormData {

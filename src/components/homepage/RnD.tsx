@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Button from "./Button";
-import RightUpIcon from "./icons/RightUpIcon";
+import Button from "@/components/Button";
+import RightUpIcon from "@/components/icons/RightUpIcon";
 
 export default function RnD() {
   return (
