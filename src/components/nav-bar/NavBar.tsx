@@ -7,7 +7,7 @@ import Link from "next/link";
 import NavBarBase from "./NavBarBase";
 import Hamburger from "./Hamburger";
 import Menu from "./Menu";
-import Image from "next/legacy/image";
+
 import Button from "@/components/Button";
 import RightUpIcon from "../icons/RightUpIcon";
 import { MENUS } from "@/utils/constant";

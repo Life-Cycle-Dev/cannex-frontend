@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import Image from "next/legacy/image";
 import Button from "@/components/Button";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import { useHelperContext } from "@/components/providers/helper-provider";
@@ -41,7 +40,7 @@ export default function Home() {
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
                   src="/asset/hero-section-img.png"
-                  alt="Hero Background"
+                  alt="Image | Cannex"
                   className="h-full w-full object-cover"
                 />
               </div>

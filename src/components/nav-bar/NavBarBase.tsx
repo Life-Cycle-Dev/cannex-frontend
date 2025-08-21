@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from "next/legacy/image";
+
 import Link from "next/link";
 import { PropsWithChildren } from "react";
 

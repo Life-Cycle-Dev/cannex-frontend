@@ -56,7 +56,7 @@ export default function Home() {
           <div className="relative w-full aspect-[16/10]">
             <img
               src="/partnership/Image.png"
-              alt="Scientists in cleanroom gear"
+              alt="Image | Cannex"
               className="object-cover"
             />
           </div>
@@ -75,7 +75,7 @@ export default function Home() {
             <div className="relative w-full h-full border-t-[2px]">
               <img
                 src="/partnership/Image.png"
-                alt="Scientists in cleanroom gear"
+                alt="Image | Cannex"
                 className="object-cover "
               />
             </div>

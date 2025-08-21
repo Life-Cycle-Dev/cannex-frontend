@@ -1,7 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-
-import Image from "next/legacy/image";
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import PhoneIcon from "./icons/PhoneIcon";
@@ -35,10 +34,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
             <div className="w-[200px]">
-              <img
-                src="/logo-default.svg"
-                alt="Cannex Logo"
-              />
+              <img src="/logo-default.svg" alt="Image | Cannex" />
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">

@@ -22,35 +22,35 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/market-1.png"
-              alt="market-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/market-2.png"
-              alt="market-2.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/market-3.png"
-              alt="market-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/variety-1.png"
-              alt="variety-1.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
             <img
               src="/partnership/icon/variety-2.png"
-              alt="variety-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
@@ -64,35 +64,35 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-1.png"
-              alt="technology-and-engineering-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-2.png"
-              alt="technology-and-engineering-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-3.png"
-              alt="technology-and-engineering-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-4.png"
-              alt="technology-and-engineering-4.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
             <img
               src="/partnership/icon/technology-and-engineering-5.png"
-              alt="technology-and-engineering-5.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
@@ -106,35 +106,35 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/analysis-1.png"
-              alt="analysis-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/analysis-2.png"
-              alt="analysis-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/analysis-3.png"
-              alt="analysis-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
             <img
               src="/partnership/icon/analysis-4.png"
-              alt="analysis-4.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
             <img
               src="/partnership/icon/analysis-5.png"
-              alt="analysis-5.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
@@ -150,21 +150,21 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
             <img
               src="/partnership/icon/market-1.png"
-              alt="market-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
             <img
               src="/partnership/icon/market-2.png"
-              alt="market-2.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
             <img
               src="/partnership/icon/market-3.png"
-              alt="market-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
@@ -178,14 +178,14 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[167px] border-r-2">
             <img
               src="/partnership/icon/variety-1.png"
-              alt="variety-1.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px]">
             <img
               src="/partnership/icon/variety-2.png"
-              alt="variety-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
@@ -198,35 +198,35 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
             <img
               src="/partnership/icon/technology-and-engineering-1.png"
-              alt="technology-and-engineering-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
             <img
               src="/partnership/icon/technology-and-engineering-2.png"
-              alt="technology-and-engineering-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-3.png"
-              alt="technology-and-engineering-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
             <img
               src="/partnership/icon/technology-and-engineering-4.png"
-              alt="technology-and-engineering-4.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
             <img
               src="/partnership/icon/technology-and-engineering-5.png"
-              alt="technology-and-engineering-5.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
@@ -239,35 +239,35 @@ export default function Partners() {
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
             <img
               src="/partnership/icon/analysis-1.png"
-              alt="analysis-1.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
             <img
               src="/partnership/icon/analysis-2.png"
-              alt="analysis-2.png"
+              alt="Image | Cannex"
               className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
             <img
               src="/partnership/icon/analysis-3.png"
-              alt="analysis-3.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
             <img
               src="/partnership/icon/analysis-4.png"
-              alt="analysis-4.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
             <img
               src="/partnership/icon/analysis-5.png"
-              alt="analysis-5.png"
+              alt="Image | Cannex"
               className="w-[60%]"
             />
           </div>

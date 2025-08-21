@@ -22,7 +22,7 @@ export default function Page() {
           <div className="h-[375px] tablet:h-[352px] border-y-2 tablet:border-y-0">
             <img
               src="/partnership/hero-section.jpg"
-              alt="hero-section"
+              alt="Image | Cannex"
               className="w-full h-full object-cover"
             />
           </div>

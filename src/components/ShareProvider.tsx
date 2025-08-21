@@ -78,7 +78,7 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
           <img
             className="w-[196px] tablet:w-[128px] h-[110px] tablet:h-[72px] object-cover"
             src={imageUrl}
-            alt="share alt"
+            alt="Image | Cannex"
           />
           <h4 className="text-2xl leading-[120%] line-clamp-2 font-bold">
             {title}

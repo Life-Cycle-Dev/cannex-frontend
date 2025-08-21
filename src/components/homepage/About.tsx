@@ -20,7 +20,7 @@ export default function About() {
           <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
             <img
               src="/asset/iconic.png"
-              alt="iconic"
+              alt="Image | Cannex"
               className="object-contain w-full h-full"
             />
           </div>
@@ -70,14 +70,14 @@ export default function About() {
           <div className="mt-7 hidden tablet:block w-full">
             <img
               src="/asset/product-horizontal.png"
-              alt="product"
+              alt="Image | Cannex"
               className="h-full w-full object-cover"
             />
           </div>
           <div className="tablet:hidden">
             <img
               src="/asset/product-vertical.png"
-              alt="product"
+              alt="Image | Cannex"
               className="w-full h-auto object-contain"
             />
           </div>

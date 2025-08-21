@@ -117,7 +117,7 @@ export default function Page() {
         <div className="w-full h-[375px] tablet:h-[720px]">
           <img
             src="/product-banner.jpg"
-            alt="product banner"
+            alt="Image | Cannex"
             className="w-full h-full object-cover"
           />
         </div>

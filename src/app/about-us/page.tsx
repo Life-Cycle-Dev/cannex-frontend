@@ -19,12 +19,12 @@ export default function Page() {
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(175deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0)_100%)]"></div>
           <img
             src={"/about-us/about-us-hero-section.jpg"}
-            alt="about-us-hero-section"
+            alt="Image | Cannex"
             className="absolute z-0 top-0 left-0 w-full h-full object-cover object-top"
           />
           <img
             src={"/about-us/about-us-hero-section-no-bg.png"}
-            alt="about-us-hero-section"
+            alt="Image | Cannex"
             className="absolute z-2 top-0 left-0 w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 z-1 flex flex-col justify-start items-center text-white font-bold">
@@ -194,7 +194,7 @@ export default function Page() {
             {(show) => (
               <img
                 src="/about-us/about-us-lab.jpg"
-                alt="lab"
+                alt="Image | Cannex"
                 className={
                   "object-cover h-full w-full " +
                   getClassNameAnimation(
@@ -493,7 +493,7 @@ export default function Page() {
                 <div className="absolute top-0 right-0 z-1 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
                 <img
                   src="/about-us/about-us-what-we-belive.jpg"
-                  alt="about-us-what-we-belive"
+                  alt="Image | Cannex"
                   className={
                     "w-full h-full object-cover z-0 will-change-transform zoom-origin-center " +
                     getClassNameAnimation(
@@ -833,7 +833,7 @@ export default function Page() {
             <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
               <img
                 src="/about-us/about-us-last-section.jpg"
-                alt="about-us-last-section"
+                alt="Image | Cannex"
                 className={
                   "h-full w-full object-cover" +
                   getClassNameAnimation(

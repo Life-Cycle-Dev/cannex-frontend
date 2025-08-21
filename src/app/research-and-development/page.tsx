@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import ScientificCollaboration from "./ScientificCollaboration";
@@ -19,7 +20,7 @@ export default function Page() {
       <div className="relative w-full h-[436px] tablet:h-[590px]">
         <img
           src="/asset/research-development.png"
-          alt="Research & Development"
+          alt="Image | Cannex"
           className="w-full h-full object-cover"
           sizes="100vw"
         />
@@ -68,9 +69,8 @@ export default function Page() {
           <div className="w-full full">
             <img
               src="/asset/cannex-42.png"
-              alt="Cannabis flower macro"
+              alt="Image | Cannex"
               className="w-full h-full object-contain "
-              quality={95}
             />
           </div>
         </div>

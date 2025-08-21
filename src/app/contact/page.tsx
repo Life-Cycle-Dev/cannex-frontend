@@ -9,7 +9,7 @@ import PhoneIcon from "@/components/icons/PhoneIcon";
 import Map from "@/components/Map";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { ContactConfig } from "@/types/web-config";
-import Image from "next/legacy/image";
+
 import React, { useEffect, useState } from "react";
 
 export default function Page() {
@@ -34,7 +34,7 @@ export default function Page() {
           <div className="relative w-full h-[375px] tablet:h-[590px]">
             <img
               src="/asset/contact-banner-img.jpg"
-              alt="Contact Banner"
+              alt="Image | Cannex"
               className="w-full h-full object-cover"
             />
           </div>
@@ -87,7 +87,7 @@ export default function Page() {
                 <div className="relative w-full aspect-2/1">
                   <img
                     src="/asset/headquarter-img.png"
-                    alt="headquarter"
+                    alt="Image | Cannex"
                     className="w-full h-full object-cover object-[0px_-55px]"
                   />
                 </div>
@@ -102,7 +102,7 @@ export default function Page() {
                 <div className="relative w-full aspect-2/1">
                   <img
                     src="/asset/lab-img.png"
-                    alt="lab"
+                    alt="Image | Cannex"
                     className="w-full h-full object-cover object-[0px_-88px]"
                   />
                 </div>
