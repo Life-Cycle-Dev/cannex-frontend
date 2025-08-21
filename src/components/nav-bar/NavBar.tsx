@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -68,7 +69,7 @@ export default function NavBar() {
       <div className="hidden desktop:block">
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">
-            <Image
+            <img
               src="/logo-default.svg"
               alt="Cannex Logo"
               width={200}

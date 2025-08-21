@@ -35,11 +35,9 @@ export default function Footer() {
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
             <div className="w-[200px]">
-              <Image
+              <img
                 src="/logo-default.svg"
                 alt="Cannex Logo"
-                width={200}
-                height={40}
               />
             </div>
             <div className="flex flex-col gap-6">

@@ -1,6 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-
-import Image from "next/image";
 
 type Alliance = { flag: string; title: string; bullets: string[] };
 
@@ -41,11 +40,13 @@ export default function Home() {
     <main className="bg-white text-[var(--foreground)]">
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2 border-b-2  border-black">
+        className="w-full border-t-2 border-b-2  border-black"
+      >
         <div className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]">
           <h1
             id="alliances-title"
-            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]">
+            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
+          >
             Our Key Strategic
             <br />
             Alliances
@@ -53,13 +54,9 @@ export default function Home() {
         </div>
         <div className="mt-[20px] desktop:hidden border-t-[2px] border-black">
           <div className="relative w-full aspect-[16/10]">
-            <Image
+            <img
               src="/partnership/Image.png"
               alt="Scientists in cleanroom gear"
-              fill
-              priority
-              quality={90}
-              sizes="100vw"
               className="object-cover"
             />
           </div>
@@ -76,13 +73,9 @@ export default function Home() {
           {/* RIGHT: รูปภาพ */}
           <div className="hidden desktop:block desktop:row-span-3 border-l-2 border-black">
             <div className="relative w-full h-full border-t-[2px]">
-              <Image
+              <img
                 src="/partnership/Image.png"
                 alt="Scientists in cleanroom gear"
-                fill
-                priority
-                quality={90}
-                sizes="(min-width: 1280px) 50vw, 100vw"
                 className="object-cover "
               />
             </div>
@@ -103,15 +96,11 @@ function AllianceItem({ data }: { data: Alliance }) {
           pt-[32px]           
           desktop:pt-0
           desktop:px-[80px]
-        `}>
+        `}
+      >
         <h3 className="mt-0 desktop:mt-[32px] text-xl desktop:text-2xl font-extrabold leading-snug flex items-start gap-3">
           <span aria-hidden className="relative w-6 h-6 flex-shrink-0">
-            <Image
-              src={data.flag}
-              alt={data.title}
-              fill
-              className="object-contain"
-            />
+            <img src={data.flag} alt={data.title} className="object-contain" />
           </span>
           <span>{data.title}</span>
         </h3>

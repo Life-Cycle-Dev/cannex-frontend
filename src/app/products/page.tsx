@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import CannexSvg from "@/components/icons/CannexSvg";
 import SupportingInformation from "@/components/SupportingInformation";
 import WrapUp from "@/components/WrapUp";
-import Image from "next/image";
+
 import { useEffect } from "react";
 import AOS from "aos";
 
@@ -114,14 +115,10 @@ export default function Page() {
       </div>
       <div className="relative">
         <div className="w-full h-[375px] tablet:h-[720px]">
-          <Image
+          <img
             src="/product-banner.jpg"
             alt="product banner"
-            width={1440}
-            height={961}
             className="w-full h-full object-cover"
-            quality={100}
-            priority
           />
         </div>
         <CannexSvg className="absolute bottom-0 w-full fill-black" />
@@ -140,14 +137,10 @@ export default function Page() {
               className={`w-full relative border-b-[2px] tablet:border-b-0 p-[42px] tablet:p-20 
                   ${idx % 2 === 1 ? "" : "tablet:border-r-[2px]"}`}
             >
-              <Image
+              <img
                 src={product.img}
                 alt={product.title}
                 className="w-full h-full object-contain"
-                width={360}
-                height={360}
-                quality={95}
-                priority
               />
             </div>
 

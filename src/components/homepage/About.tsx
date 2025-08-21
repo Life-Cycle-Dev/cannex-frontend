@@ -1,6 +1,7 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect } from "react";
 import Button from "@/components/Button";
-import Image from "next/image";
+
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import AOS from "aos";
 
@@ -17,14 +18,10 @@ export default function About() {
       <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
         <div className="w-full flex justify-end tablet:-mt-8">
           <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
-            <Image
+            <img
               src="/asset/iconic.png"
               alt="iconic"
               className="object-contain w-full h-full"
-              width={343}
-              height={343}
-              quality={90}
-              priority
             />
           </div>
         </div>
@@ -71,24 +68,17 @@ export default function About() {
       <div className="pb-[107px] relative">
         <div className="mt-8 tablet:mt-7">
           <div className="mt-7 hidden tablet:block w-full">
-            <Image
+            <img
               src="/asset/product-horizontal.png"
               alt="product"
               className="h-full w-full object-cover"
-              width={1185}
-              height={432}
-              quality={100}
             />
           </div>
           <div className="tablet:hidden">
-            <Image
+            <img
               src="/asset/product-vertical.png"
               alt="product"
               className="w-full h-auto object-contain"
-              quality={95}
-              width={1600}
-              height={600}
-              priority
             />
           </div>
 

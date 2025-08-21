@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
+
 import KeyAlliances from "@/app/partnership/KeyAlliances";
 import OfferAndAudience from "@/app/partnership/OfferAndAudience";
 import Certificates from "@/app/partnership/Certificates";
@@ -20,39 +21,24 @@ export default function Page() {
           </div>
 
           <div className="h-[375px] tablet:h-[352px] border-y-2 tablet:border-y-0">
-            <Image
+            <img
               src="/partnership/hero-section.jpg"
               alt="hero-section"
               className="w-full h-full object-cover"
-              width={864}
-              height={424}
-              quality={100}
             />
           </div>
         </div>
 
         <div className="flex flex-col gap-2 justify-center mx-[20px] pb-[64px] pt-[32px] border-b-2 tablet:w-[45%] tablet:border-b-0 tablet:mx-0 tablet:py-0 tablet:px-[80px]">
-          <Typewriter
-            text="Global"
-            startDelay={800}
-            delay={55}
-            className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit h-fit leading-[110%]"
-            hideCaretOnComplete
-          />
-          <Typewriter
-            text="Collaboration"
-            startDelay={1200}
-            delay={45}
-            className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit leading-[110%]"
-            hideCaretOnComplete
-          />
-          <Typewriter
-            text="for Local Impact"
-            startDelay={1600}
-            delay={40}
-            className="text-[52px] font-bold line-clamp-1"
-            hideCaretOnComplete
-          />
+          <div className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit h-fit leading-[110%]">
+            Global
+          </div>
+          <div className="text-[52px] font-bold line-clamp-1 bg-crystalGreen w-fit leading-[110%]">
+            Collaboration
+          </div>
+          <div className="text-[52px] font-bold line-clamp-1">
+            for Local Impact
+          </div>
 
           <div
             className={`

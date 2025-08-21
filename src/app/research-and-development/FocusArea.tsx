@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 type ContentItem = {
@@ -94,14 +93,10 @@ export default function FocusArea() {
               className={`w-full h-[375px] tablet:h-[572px] relative border-b-[2px] tablet:border-b-0
                         ${idx % 2 === 1 ? "" : "tablet:border-r-[2px]"}`}
             >
-              <Image
+              <img
                 src={item.imgSrc}
                 alt={item.title}
                 className="w-full h-full object-cover"
-                width={360}
-                height={360}
-                quality={95}
-                priority
               />
             </div>
 

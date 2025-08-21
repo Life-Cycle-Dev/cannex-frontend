@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import ConsistencyIcon from "@/components/icons/partnership/ConsistencyIcon";
@@ -7,7 +8,6 @@ import QuoteBottomIcon from "@/components/icons/QuoteBottomIcon";
 import QuoteTopIcon from "@/components/icons/QuoteTopIcon";
 import ResolveMap from "@/components/map/ResolveMap";
 import { getClassNameAnimation } from "@/utils/animation-helper";
-import Image from "next/image";
 
 export default function Page() {
   return (
@@ -17,19 +17,15 @@ export default function Page() {
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0)_50%)]"></div>
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(135deg,rgba(0,0,0,0)_50%,rgba(0,0,0,0.5)_100%)]"></div>
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(175deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0)_100%)]"></div>
-          <Image
+          <img
             src={"/about-us/about-us-hero-section.jpg"}
             alt="about-us-hero-section"
             className="absolute z-0 top-0 left-0 w-full h-full object-cover object-top"
-            width={1440}
-            height={961}
           />
-          <Image
+          <img
             src={"/about-us/about-us-hero-section-no-bg.png"}
             alt="about-us-hero-section"
             className="absolute z-2 top-0 left-0 w-full h-full object-cover object-top"
-            width={1440}
-            height={961}
           />
           <div className="absolute inset-0 z-1 flex flex-col justify-start items-center text-white font-bold">
             <div>
@@ -196,7 +192,7 @@ export default function Page() {
         <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 overflow-y-hidden">
           <ScrollReveal className="h-full" once>
             {(show) => (
-              <Image
+              <img
                 src="/about-us/about-us-lab.jpg"
                 alt="lab"
                 className={
@@ -208,7 +204,6 @@ export default function Page() {
                     "opacity-100 translate-y-0",
                   )
                 }
-                width={863}
                 height={576}
               />
             )}
@@ -496,7 +491,7 @@ export default function Page() {
             <div className="w-full h-[500px] tablet:h-[720px] relative">
               <div className="w-full h-full overflow-hidden">
                 <div className="absolute top-0 right-0 z-1 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
-                <Image
+                <img
                   src="/about-us/about-us-what-we-belive.jpg"
                   alt="about-us-what-we-belive"
                   className={
@@ -508,8 +503,6 @@ export default function Page() {
                       "animate-zoom-to-fit",
                     )
                   }
-                  width={1440}
-                  height={720}
                 />
               </div>
               <div className="absolute z-2 top-0 right-0 w-full h-full p-[20px] tablet:p-[64px_80px] flex flex-col tablet:flex-row gap-13">
@@ -838,7 +831,7 @@ export default function Page() {
         {(show) => (
           <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
             <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
-              <Image
+              <img
                 src="/about-us/about-us-last-section.jpg"
                 alt="about-us-last-section"
                 className={
@@ -850,8 +843,6 @@ export default function Page() {
                     "opacity-100 translate-y-0",
                   )
                 }
-                width={720}
-                height={540}
               />
             </div>
             <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">

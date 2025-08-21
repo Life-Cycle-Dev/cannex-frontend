@@ -1,4 +1,5 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
+
 import React from "react";
 
 export default function Partners() {
@@ -19,48 +20,38 @@ export default function Partners() {
 
         <div className="grid grid-cols-5">
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/market-1.png"
               alt="market-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={51}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/market-2.png"
               alt="market-2.png"
-              className="w-fit h-fit"
-              width={180}
-              height={84}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/market-3.png"
               alt="market-3.png"
-              className="w-fit h-fit"
-              width={134}
-              height={42}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/variety-1.png"
               alt="variety-1.png"
-              className="w-fit h-[80%]"
-              width={190}
-              height={104}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
-            <Image
+            <img
               src="/partnership/icon/variety-2.png"
               alt="variety-2.png"
-              className="w-fit h-[90%]"
-              width={75}
-              height={96}
+              className="h-[80%]"
             />
           </div>
         </div>
@@ -71,48 +62,38 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-5">
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-1.png"
               alt="technology-and-engineering-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={58}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-2.png"
               alt="technology-and-engineering-2.png"
-              className="w-fit h-fit"
-              width={93}
-              height={75}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-3.png"
               alt="technology-and-engineering-3.png"
-              className="w-fit h-fit"
-              width={136}
-              height={56}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-4.png"
               alt="technology-and-engineering-4.png"
-              className="w-fit h-fit"
-              width={143}
-              height={47}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-5.png"
               alt="technology-and-engineering-5.png"
-              className="w-fit h-fit"
-              width={135}
-              height={70}
+              className="w-[60%]"
             />
           </div>
         </div>
@@ -123,48 +104,38 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-5">
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-1.png"
               alt="analysis-1.png"
-              className="w-fit h-fit"
-              width={141}
-              height={49}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-2.png"
               alt="analysis-2.png"
-              className="w-fit h-fit"
-              width={96}
-              height={96}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-3.png"
               alt="analysis-3.png"
-              className="w-fit h-fit"
-              width={150}
-              height={44}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-4.png"
               alt="analysis-4.png"
-              className="w-fit h-fit"
-              width={135}
-              height={39}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[140px]">
-            <Image
+            <img
               src="/partnership/icon/analysis-5.png"
               alt="analysis-5.png"
-              className="w-fit h-fit"
-              width={136}
-              height={45}
+              className="w-[60%]"
             />
           </div>
         </div>
@@ -177,30 +148,24 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-2">
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
-            <Image
+            <img
               src="/partnership/icon/market-1.png"
               alt="market-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={51}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
-            <Image
+            <img
               src="/partnership/icon/market-2.png"
               alt="market-2.png"
-              className="w-fit h-fit"
-              width={180}
-              height={84}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/market-3.png"
               alt="market-3.png"
-              className="w-fit h-fit"
-              width={134}
-              height={42}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px]"></div>
@@ -211,21 +176,17 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-2">
           <div className="flex justify-center items-center h-[167px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/variety-1.png"
               alt="variety-1.png"
-              className="w-fit h-[80%]"
-              width={190}
-              height={104}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px]">
-            <Image
+            <img
               src="/partnership/icon/variety-2.png"
               alt="variety-2.png"
-              className="w-fit h-[135px]"
-              width={75}
-              height={96}
+              className="h-[80%]"
             />
           </div>
         </div>
@@ -235,48 +196,38 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-2">
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-1.png"
               alt="technology-and-engineering-1.png"
-              className="w-fit h-fit"
-              width={135}
-              height={58}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-2.png"
               alt="technology-and-engineering-2.png"
-              className="w-fit h-fit"
-              width={93}
-              height={75}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-3.png"
               alt="technology-and-engineering-3.png"
-              className="w-fit h-fit"
-              width={136}
-              height={56}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-4.png"
               alt="technology-and-engineering-4.png"
-              className="w-fit h-fit"
-              width={143}
-              height={47}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/technology-and-engineering-5.png"
               alt="technology-and-engineering-5.png"
-              className="w-fit h-[75px]"
-              width={135}
-              height={70}
+              className="w-[60%]"
             />
           </div>
         </div>
@@ -286,48 +237,38 @@ export default function Partners() {
         </div>
         <div className="grid grid-cols-2">
           <div className="flex justify-center items-center h-[167px] border-r-2 border-b-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-1.png"
               alt="analysis-1.png"
-              className="w-fit h-fit"
-              width={141}
-              height={49}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-2.png"
               alt="analysis-2.png"
-              className="w-fit h-fit"
-              width={96}
-              height={96}
+              className="h-[80%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2 border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-3.png"
               alt="analysis-3.png"
-              className="w-fit h-fit"
-              width={150}
-              height={44}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-b-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-4.png"
               alt="analysis-4.png"
-              className="w-fit h-fit"
-              width={135}
-              height={39}
+              className="w-[60%]"
             />
           </div>
           <div className="flex justify-center items-center h-[167px] border-r-2">
-            <Image
+            <img
               src="/partnership/icon/analysis-5.png"
               alt="analysis-5.png"
-              className="w-fit h-fit"
-              width={136}
-              height={45}
+              className="w-[60%]"
             />
           </div>
         </div>

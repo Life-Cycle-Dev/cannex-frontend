@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import Image from "next/legacy/image";
@@ -64,25 +65,23 @@ function ProductCard({ data }: { data: Card }) {
             className="
               absolute transition-transform duration-500 ease-out
               w-8 h-8 text-black group-hover:-translate-y-6 group-hover:translate-x-6
-          "/>
+          "
+          />
           <RightUpIcon
             className="
               absolute transition-transform duration-500 ease-out
               translate-y-8 -translate-x-8
               w-8 h-8 text-crystalGreen group-hover:translate-y-0 group-hover:translate-x-0
-          "/>
+          "
+          />
         </div>
       </div>
 
       <div className="relative w-full aspect-square bg-white">
-        <Image
+        <img
           src={data.img}
           alt={data.imgAlt}
-          width={360}
-          height={360}
           className="w-full h-full object-contain"
-          quality={95}
-          priority
         />
       </div>
       <div className="p-4 flex flex-col gap-4 tablet:p-6">

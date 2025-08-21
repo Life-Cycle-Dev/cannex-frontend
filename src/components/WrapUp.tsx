@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import Image from "next/image";
+
 import React from "react";
 import Button from "./Button";
 import RightUpIcon from "./icons/RightUpIcon";
@@ -20,14 +21,10 @@ export default function WrapUp() {
       <div className="pt-4 tablet:pt-16 pb-16 tablet:pb-0 w-full flex flex-col tablet:flex-col-reverse gap-4">
         <div className="flex justify-end">
           <div className="aspect-square w-[140px] tablet:w-[175px] shrink-0 relative">
-            <Image
+            <img
               src="/asset/iconic.png"
               alt="iconic"
               className="object-contain w-full h-full"
-              width={343}
-              height={343}
-              quality={90}
-              priority
             />
           </div>
         </div>

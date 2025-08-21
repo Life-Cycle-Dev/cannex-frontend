@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
@@ -12,7 +13,7 @@ export default function NavBarBase({ children, isShowLogo = true }: Props) {
       <div className="flex h-16 w-full items-center justify-center">
         {isShowLogo && (
           <Link href="/" className="h-8">
-            <Image
+            <img
               src="/logo-default.svg"
               alt="Cannex Logo"
               width={160}

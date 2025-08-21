@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
@@ -31,14 +32,10 @@ export default function Page() {
       <div className="w-full">
         <div className="w-full">
           <div className="relative w-full h-[375px] tablet:h-[590px]">
-            <Image
+            <img
               src="/asset/contact-banner-img.jpg"
               alt="Contact Banner"
-              layout="fill"
               className="w-full h-full object-cover"
-              width={1920}
-              height={400}
-              quality={100}
             />
           </div>
           <div className="relative bg-white border-b-[2px] tablet:border-b-0 mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
@@ -88,14 +85,10 @@ export default function Page() {
             <div className="mt-8 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
               <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
                 <div className="relative w-full aspect-2/1">
-                  <Image
+                  <img
                     src="/asset/headquarter-img.png"
                     alt="headquarter"
                     className="w-full h-full object-cover object-[0px_-55px]"
-                    layout="fill"
-                    width={1920}
-                    height={400}
-                    quality={100}
                   />
                 </div>
                 <div className="py-8 px-6 border-t-[2px] relative">
@@ -107,14 +100,10 @@ export default function Page() {
               </div>
               <div className="w-full tablet:border-[2px_2px_0px_0px]">
                 <div className="relative w-full aspect-2/1">
-                  <Image
+                  <img
                     src="/asset/lab-img.png"
                     alt="lab"
                     className="w-full h-full object-cover object-[0px_-88px]"
-                    layout="fill"
-                    width={1920}
-                    height={400}
-                    quality={100}
                   />
                 </div>
                 <div className="py-8 px-6 border-t-[2px] relative">

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import ScientificCollaboration from "./ScientificCollaboration";
 import { useRef, useState } from "react";
 import Partners from "@/components/Partners";
@@ -18,14 +17,11 @@ export default function Page() {
   return (
     <main className="bg-white">
       <div className="relative w-full h-[436px] tablet:h-[590px]">
-        <Image
+        <img
           src="/asset/research-development.png"
           alt="Research & Development"
-          width={1920}
-          height={800}
           className="w-full h-full object-cover"
           sizes="100vw"
-          priority
         />
 
         <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
@@ -70,11 +66,9 @@ export default function Page() {
 
           {/* Image */}
           <div className="w-full full">
-            <Image
+            <img
               src="/asset/cannex-42.png"
               alt="Cannabis flower macro"
-              width={900}
-              height={700}
               className="w-full h-full object-contain "
               quality={95}
             />
