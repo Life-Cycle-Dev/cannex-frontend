@@ -64,11 +64,11 @@ export default function Button({
       )}
 
       {suffixIcon && !disabled && isAnimate && (
-        <div className="flex items-center relative w-4 h-4 overflow-hidden">
+        <div className="flex items-center relative w-6 h-6 overflow-hidden">
           <div
             className="
             absolute transition-transform duration-500 ease-out
-            group-hover:-translate-y-3 group-hover:translate-x-3 group-hover:text-white
+            group-hover:-translate-y-6 group-hover:translate-x-6 group-hover:text-white
           "
           >
             {suffixIcon}
@@ -76,7 +76,7 @@ export default function Button({
           <div
             className="
               absolute transition-transform duration-500 ease-out
-              translate-y-3 -translate-x-3 text-crystalGreen
+              translate-y-6 -translate-x-6 text-crystalGreen
               group-hover:translate-y-0 group-hover:translate-x-0"
           >
             {suffixIcon}
