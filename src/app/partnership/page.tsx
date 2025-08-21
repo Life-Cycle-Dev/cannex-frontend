@@ -3,7 +3,7 @@ import Image from "next/image";
 import KeyAlliances from "@/app/partnership/KeyAlliances";
 import OfferAndAudience from "@/app/partnership/OfferAndAudience";
 import Certificates from "@/app/partnership/Certificates";
-import Supplying from "@/components/Supplying";
+import Supplying from "@/components/homepage/Supplying";
 import Partners from "@/components/Partners";
 import Typewriter from "@/components/Typewriter";
 

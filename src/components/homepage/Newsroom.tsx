@@ -8,22 +8,11 @@ import { useHelperContext } from "../providers/helper-provider";
 import Link from "next/link";
 import { formatDate } from "@/utils/format";
 
-export const Card = ({
-  datas,
-  data,
-  index,
-}: {
-  datas: NewsRooms[];
-  data: NewsRooms;
-  index: number;
-}) => {
+export const Card = ({ data }: { data: NewsRooms }) => {
   return (
     <Link
       href={`/newsroom/${data.slug}`}
-      className={`group overflow-hidden mx-[20px] tablet:mx-0 cursor-pointer border-0 tablet:border-r-2 
-          ${index % 3 === 0 && "tablet:border-l-2"}
-          ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
-        `}
+      className={`group overflow-hidden mx-[20px] tablet:mx-0 cursor-pointer border-0 tablet:border-r-2`}
     >
       <div className="w-full overflow-hidden aspect-[4/3]">
         <img
@@ -36,7 +25,7 @@ export const Card = ({
       <div className="relative py-[24px] tablet:py-0 overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative z-20 tablet:pb-6 flex items-center justify-center tablet:flex-col tablet:justify-start tablet:items-start">
+        <div className="relative h-full z-20 tablet:pb-6 flex items-center justify-center tablet:flex-col tablet:justify-start tablet:items-start">
           <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative hidden tablet:block">
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
@@ -107,8 +96,8 @@ export default function Newsroom() {
         </div>
       </div>
       <div className="grid grid-cols-1 tablet:grid-cols-4">
-        {datas.map((data, index) => (
-          <Card datas={datas} key={data.id} data={data} index={index} />
+        {datas.map((data) => (
+          <Card key={data.id} data={data} />
         ))}
       </div>
     </div>

@@ -2,7 +2,7 @@
 "use client";
 
 import Button from "@/components/Button";
-import Contact from "@/components/Contact";
+import Contact from "@/components/homepage/Contact";
 import EmailIcon from "@/components/icons/EmailIcon";
 import PhoneIcon from "@/components/icons/PhoneIcon";
 import Map from "@/components/Map";
