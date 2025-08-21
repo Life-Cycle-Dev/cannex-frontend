@@ -6,7 +6,6 @@ import OfferAndAudience from "@/app/partnership/OfferAndAudience";
 import Certificates from "@/app/partnership/Certificates";
 import Supplying from "@/components/homepage/Supplying";
 import Partners from "@/components/Partners";
-import Typewriter from "@/components/Typewriter";
 
 export default function Page() {
   return (
