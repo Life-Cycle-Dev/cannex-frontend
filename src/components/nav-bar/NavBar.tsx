@@ -120,7 +120,10 @@ export default function NavBar() {
       </div>
 
       {isOpen && (
-        <nav className="flex flex-col gap-0 p-4 min-h-[100dvh]">
+        <nav
+          className="flex flex-col gap-0 p-4 min-h-[100dvh] 
+               origin-top animate-slideDown tablet:hidden"
+        >
           {MENUS.map((m) => (
             <div key={m.path} className="flex flex-col">
               <Menu
