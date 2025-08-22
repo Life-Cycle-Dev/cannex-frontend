@@ -8,7 +8,6 @@ import { ContactConfig } from "@/types/web-config";
 
 export default function Map() {
   const { backendClient } = useHelperContext()();
-  const [linkAddress, setLinkAddress] = useState<string>("");
   const [googleMaps, setGoogleMaps] = useState<string>("");
   const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
@@ -16,7 +15,6 @@ export default function Map() {
     const response = await backendClient.getContactConfig();
     if (response) {
       setContactInfo(response);
-      setLinkAddress(response.headquarterAddress);
       setGoogleMaps(response.headquarterGoogleMap);
     }
   };
@@ -43,7 +41,7 @@ export default function Map() {
           className="w-fit bg-white"
           suffixIcon={<RightUpIcon />}
           onClick={() => {
-            setLinkAddress(contactInfo?.headquarterGoogleMap ?? "");
+            setGoogleMaps(contactInfo?.headquarterGoogleMap ?? "");
           }}
         />
         <Button
@@ -52,7 +50,7 @@ export default function Map() {
           className="w-fit bg-white"
           suffixIcon={<RightUpIcon />}
           onClick={() => {
-            setLinkAddress(contactInfo?.labGoogleMap ?? "");
+            setGoogleMaps(contactInfo?.labGoogleMap ?? "");
           }}
         />
       </div>
