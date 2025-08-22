@@ -21,7 +21,7 @@ const getNewsRoom = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview ? "draft" : "published",
+    preview ? "draft" : "published"
   );
   return response.data[0] ?? null;
 });
@@ -89,9 +89,9 @@ export default async function Page({ params, searchParams }: PageProps) {
             >
               Newsroom
             </Link>
-            <h1 className="text-[46px] font-bold break-words leading-[110%] line-clamp-2">
+            <h2 className="text-[52px] font-bold break-words leading-[110%]">
               {data.title}
-            </h1>
+            </h2>
             <div className="text-gray-400">{formatDate(data.publishedAt)}</div>
           </div>
 
@@ -113,7 +113,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         </div>
       </div>
 
-      <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
+      <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:mb-[137px] tablet:max-w-[842px]">
         <Markdown value={data.content} />
       </div>
 

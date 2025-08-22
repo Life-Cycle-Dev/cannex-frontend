@@ -69,7 +69,13 @@ export const PaginationCard = ({
   );
 };
 
-export default function Pagination() {
+export default function Pagination({
+  imageRadio,
+  isSkipBorderLogic,
+}: {
+  imageRadio?: number;
+  isSkipBorderLogic?: boolean;
+}) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
