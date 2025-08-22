@@ -41,22 +41,22 @@ export const PaginationCard = ({
         />
       </div>
 
-      <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
+      <div className="relative pb-6 tablet:pb-0 overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative z-20">
+        <div className="relative z-20 flex flex-col gap-4">
           <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+          <div className="text-[32px] mt-[-24px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
             {data.title}
           </div>
-          <div className="text-gray-400 tablet:px-[40px] text-[16px]">
+          <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
             {formatDate(data.publishedAt)}
           </div>
-          <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
+          <div className="text-[16px] mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
           </div>
         </div>
