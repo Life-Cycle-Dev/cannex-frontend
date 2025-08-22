@@ -102,7 +102,7 @@ export default function NavBar() {
       </div>
 
       {/* MOBILE */}
-      <div className="desktop:hidden w-full">
+      <div className="w-full">
         <NavBarBase isShowLogo={!isOpen}>
           <button
             aria-label={isOpen ? "Close menu" : "Open menu"}
