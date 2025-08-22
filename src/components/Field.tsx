@@ -36,26 +36,34 @@ export default function Field({
               : "border-black"
           }`}
       >
-        <div className="w-full relative">
+        <div
+          className={`w-full relative ${
+            state === "error" ? "text-festivalCaramel" : "text-black"
+          }`}
+        >
           <input
             type={type}
             value={value}
             onChange={onChange}
-            required={required}
             placeholder=" "
             className="outline-none w-full text-md font-medium placeholder:text-black placeholder:text-md placeholder:font-medium peer"
           />
-          {!value &&
-            (required ? (
-              <div className="absolute left-0 top-0 flex gap-1 text-md font-medium pointer-events-none peer-valid:hidden peer-focus:hidden">
-                <p>{placeholder}</p>
-                <p className="text-crystalGreen">*</p>
-              </div>
-            ) : (
-              <div className="absolute left-0 top-0 flex gap-1 text-md font-medium pointer-events-none peer-focus:hidden">
-                <p>{placeholder}</p>
-              </div>
-            ))}
+          {!value && (
+            <div className="absolute left-0 top-0 flex gap-1 text-md font-medium pointer-events-none peer-focus:hidden">
+              <p>{placeholder}</p>
+              {required && (
+                <p
+                  className={
+                    state === "error"
+                      ? "text-festivalCaramel"
+                      : "text-crystalGreen"
+                  }
+                >
+                  *
+                </p>
+              )}
+            </div>
+          )}
         </div>
 
         {value && (

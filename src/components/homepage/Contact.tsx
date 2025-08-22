@@ -49,6 +49,15 @@ export default function Contact() {
     message: "",
     isAccepted: false,
   });
+  const [formError, setFormError] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    reason: "",
+    isAccepted: false,
+  });
+  console.log("formError: ", formError);
+  console.log("formData: ", formData);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -60,6 +69,22 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("!formData.name: ", !formData.name);
+    if (
+      !formData.name ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.reason
+    ) {
+      setFormError({
+        name: !formData.name ? "Please enter your name." : "",
+        lastName: !formData.lastName ? "Please enter your last name." : "",
+        email: !formData.email ? "Please enter your email." : "",
+        reason: !formData.reason ? "Please select a reason for contact." : "",
+        isAccepted: !formData.isAccepted,
+      });
+      return;
+    }
     setLoading(true);
     const payload: ContactForm = {
       firstname: formData.name,
@@ -123,12 +148,16 @@ export default function Contact() {
           value={formData.name}
           onChange={(e) => handleChange(e, "name")}
           placeholder="Name"
+          state={formError.name ? "error" : "default"}
+          errorMessage={formError.name}
         />
         <Field
           required={true}
           value={formData.lastName}
           onChange={(e) => handleChange(e, "lastName")}
           placeholder="Last Name"
+          state={formError.lastName ? "error" : "default"}
+          errorMessage={formError.lastName}
         />
         <Field
           required={true}
@@ -137,11 +166,19 @@ export default function Contact() {
           onChange={(e) => handleChange(e, "email")}
           placeholder="Email"
           state={
-            formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+            (formData.email &&
+              !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) ||
+            formError.email
               ? "error"
               : "default"
           }
-          errorMessage="Please enter a valid email address."
+          errorMessage={
+            formData.email
+              ? "Please provide a valid email address."
+              : formError.email
+              ? formError.email
+              : ""
+          }
         />
         <DropdownField
           value={formData.reason}
@@ -179,13 +216,6 @@ export default function Contact() {
           suffixIcon={<RightUpIcon className="w-4 h-4" />}
           className="w-full tablet:w-[238px]"
           type="secondaryBlack"
-          disabled={
-            !formData.isAccepted ||
-            !formData.reason ||
-            !formData.email ||
-            !formData.name ||
-            !formData.lastName
-          }
         />
       </div>
     </form>
