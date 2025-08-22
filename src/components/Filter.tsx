@@ -57,10 +57,7 @@ export default function Filter({ items, value, onChange }: FilterProp) {
             className="fixed w-full h-full top-0 left-0 z-9 bg-[#80808080] tablet:bg-transparent"
             onClick={() => setIsOpen(false)}
           ></div>
-          <ul
-            data-aos="fade-up tablet:fade-down"
-            className="fixed tablet:mt-2 tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto"
-          >
+          <ul className="fixed tablet:mt-2 tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-30 inset-x-0 tablet:max-h-[215px] overflow-auto">
             <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
               Sort
               <CloseIcon
@@ -84,21 +81,6 @@ export default function Filter({ items, value, onChange }: FilterProp) {
               </li>
             ))}
           </ul>
-          {/* <div className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0">
-            {items.map((item) => (
-              <div
-                key={item.value}
-                onClick={() => handleSelect(item)}
-                className={`px-4 py-2 cursor-pointer hover:bg-black hover:text-crystalGreen ${
-                  active?.value === item.value
-                    ? "bg-black text-crystalGreen"
-                    : "text-black"
-                }`}
-              >
-                {item.label}
-              </div>
-            ))}
-          </div> */}
         </>
       )}
     </div>

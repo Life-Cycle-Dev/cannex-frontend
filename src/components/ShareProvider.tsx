@@ -62,11 +62,7 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
         onClick={onClose}
       ></div>
 
-      <div
-        data-aos="fade-up"
-        data-aos-anchor-placement="bottom-bottom"
-        className="absolute bottom-0 tablet:relative p-0 tablet:p-6 bg-white z-10 w-full tablet:w-[592px]"
-      >
+      <div className="absolute bottom-0 tablet:relative p-0 tablet:p-6 bg-white z-10 w-full tablet:w-[592px]">
         <div className="flex justify-between items-center border-b-2 tablet:border-b-0 p-[24px] tablet:p-0">
           <div className="text-xl tablet:text-2xl leading-[125%] tablet:leading-[120%] font-bold">
             Share

@@ -44,7 +44,7 @@ export const PaginationCard = ({
       <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative">
+        <div className="relative z-20">
           <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
