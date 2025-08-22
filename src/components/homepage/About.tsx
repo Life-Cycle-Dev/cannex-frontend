@@ -59,7 +59,7 @@ export default function About() {
               type="secondaryBlack"
               href="/about-us"
               className="w-full tablet:w-fit"
-              suffixIcon={<RightUpIcon className="w-4 h-4" />}
+              suffixIcon={<RightUpIcon />}
             />
           </div>
         </div>
@@ -119,7 +119,7 @@ export default function About() {
                 text="Explore our products"
                 href="/products"
                 className="w-full tablet:w-fit shrink-0"
-                suffixIcon={<RightUpIcon className="w-4 h-4" />}
+                suffixIcon={<RightUpIcon />}
               />
             </div>
           </div>

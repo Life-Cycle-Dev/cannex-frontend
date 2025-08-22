@@ -41,7 +41,7 @@ export default function Map() {
           text="HQ Directions"
           type="secondaryBlack"
           className="w-fit bg-white"
-          suffixIcon={<RightUpIcon className="w-4 h-4" />}
+          suffixIcon={<RightUpIcon />}
           onClick={() => {
             setLinkAddress(contactInfo?.headquarterGoogleMap ?? "");
           }}
@@ -50,7 +50,7 @@ export default function Map() {
           text="Lab Directions"
           type="secondaryBlack"
           className="w-fit bg-white"
-          suffixIcon={<RightUpIcon className="w-4 h-4" />}
+          suffixIcon={<RightUpIcon />}
           onClick={() => {
             setLinkAddress(contactInfo?.labGoogleMap ?? "");
           }}

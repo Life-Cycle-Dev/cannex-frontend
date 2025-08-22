@@ -91,7 +91,7 @@ export default function Newsroom() {
             text="Read all news"
             type="secondaryBlack"
             className="w-full tablet:w-fit !hidden tablet:!flex"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            suffixIcon={<RightUpIcon />}
           />
         </div>
       </div>

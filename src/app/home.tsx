@@ -199,7 +199,7 @@ export default function Home() {
                       text="Explore our products"
                       type="secondaryWhite"
                       className="w-fit"
-                      suffixIcon={<RightUpIcon className="w-4 h-4" />}
+                      suffixIcon={<RightUpIcon />}
                     />
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function Home() {
                   text="Explore our products"
                   type="primary"
                   className="w-full"
-                  suffixIcon={<RightUpIcon className="w-4 h-4" />}
+                  suffixIcon={<RightUpIcon />}
                 />
               </div>
             </div>

@@ -213,7 +213,7 @@ export default function Contact() {
       <div className="mt-10">
         <Button
           text="Submit"
-          suffixIcon={<RightUpIcon className="w-4 h-4" />}
+          suffixIcon={<RightUpIcon />}
           className="w-full tablet:w-[238px]"
           type="secondaryBlack"
         />
