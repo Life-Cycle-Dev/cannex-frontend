@@ -37,7 +37,7 @@ export default function WrapUp() {
             href="/contact"
             className="w-full tablet:w-fit px-0 cursor-pointer"
             text="Contact Us & Inquiry"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            suffixIcon={<RightUpIcon />}
           />
         </div>
       </div>

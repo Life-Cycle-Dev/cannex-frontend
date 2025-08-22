@@ -40,7 +40,7 @@ export default function RnD() {
           text="Research & Development"
           type="secondaryBlack"
           className="w-full tablet:w-fit"
-          suffixIcon={<RightUpIcon className="w-4 h-4" />}
+          suffixIcon={<RightUpIcon />}
         />
       </div>
     </div>

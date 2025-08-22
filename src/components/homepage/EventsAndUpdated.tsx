@@ -103,7 +103,7 @@ export default function EventsAndUpdated() {
             text="Read all events & updated"
             type="secondaryBlack"
             className="w-full tablet:w-fit !hidden tablet:!flex"
-            suffixIcon={<RightUpIcon className="w-4 h-4" />}
+            suffixIcon={<RightUpIcon />}
           />
         </div>
       </div>
