@@ -48,10 +48,13 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
   const exitEnd = direction === 1 ? "-translate-x-full" : "translate-x-full";
 
   return (
-    <div className="flex flex-col w-[calc(100vw-40px)] tablet:flex-row tablet:min-w-[1000px] tablet:max-w-[1000px]">
-      <div className="w-[calc(100vw-40px)] h-[calc(100vw-40px)] tablet:w-[450px] tablet:h-[450px] relative overflow-hidden">
+    <div className="flex flex-col tablet:border-t-2 tablet:flex-row desktop:border-t-0 desktop:flex-row desktop:w-[66.66%] tablet:w-[100%] items-stretch">
+      <div className="relative overflow-hidden desktop:w-[45%] tablet:w-[50%] aspect-square">
         {prevItem && (
-          <Link href={`/events/${prevItem.slug}`}>
+          <Link
+            className="block w-full h-full"
+            href={`/events/${prevItem.slug}`}
+          >
             <img
               key={`prev-${prevItem.id}`}
               src={prevItem.image.url}
@@ -61,8 +64,8 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               onTouchStart={() => setHover(true)}
               onTouchEnd={() => setHover(false)}
               className={`
-                absolute inset-0 w-full h-full object-cover tablet:border-x-2 tablet:border-y-0
-                transition-transform duration-[${DURATION}ms] ease-out
+                absolute inset-0 w-full h-full object-cover border-x-2
+                transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
                 ${animating ? exitEnd : "translate-x-0"}
                 cursor-pointer
               `}
@@ -70,7 +73,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
           </Link>
         )}
 
-        <Link href={`/events/${current.slug}`}>
+        <Link className="block w-full h-full" href={`/events/${current.slug}`}>
           <img
             key={`curr-${current.id}`}
             src={current.image.url}
@@ -80,8 +83,8 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             onTouchStart={() => setHover(true)}
             onTouchEnd={() => setHover(false)}
             className={`
-              absolute inset-0 w-full h-full object-cover tablet:border-x-2 tablet:border-y-0
-              transition-transform duration-[${DURATION}ms] ease-out
+              absolute inset-0 w-full h-full object-cover border-x-2
+              transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
               ${
                 prev !== null
                   ? animating
@@ -95,13 +98,12 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
         </Link>
       </div>
 
-      <div className="relative w-[calc(100vw-40px)] tablet:max-w-[550px] tablet:min-w-[550px]">
+      <div className="relative w-[calc(100vw-40px)] desktop:w-[55%] tablet:w-[50%] flex flex-col flex-1">
         <Link
           href={`/events/${current.slug}`}
           className="
-            w-full flex flex-col pb-20 
-            tablet:border-0 tablet:h-[386px] tablet:pb-0 
-            relative group overflow-hidden cursor-pointer
+            w-full flex flex-col flex-1 
+            desktop:border-0 relative group overflow-hidden cursor-pointer
           "
         >
           <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1">
@@ -133,7 +135,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             }`}
           />
 
-          <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
+          <div className="pb-5 desktop:px-[64px] tablet:px-[64px] flex flex-col gap-3 flex-1">
             <h2
               className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-2 ${
                 hover ? "text-crystalGreen" : ""
@@ -156,8 +158,8 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
         {items.length > 1 && (
           <>
-            <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
-              <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+            <div className="absolute bg-white bottom-0 left-0 w-full items-center justify-between border-b-2 desktop:border-b-0 hidden desktop:flex z-2">
+              <div className="pl-8 desktop:pl-16 flex gap-2 justify-start">
                 {items.map((_, i) => (
                   <button
                     key={i}
@@ -210,7 +212,8 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
                 </button>
               </div>
             </div>
-            <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+
+            <div className="mt-auto items-center justify-between border-b-2 desktop:border-b-0 flex desktop:hidden">
               <button
                 onClick={goPrev}
                 className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
@@ -223,7 +226,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               >
                 <RightUpIcon className="-rotate-135 w-8 h-8" />
               </button>
-              <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+              <div className="pl-8 desktop:pl-16 flex gap-2 justify-start">
                 {items.map((_, i) => (
                   <button
                     key={i}
