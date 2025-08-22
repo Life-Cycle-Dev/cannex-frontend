@@ -29,14 +29,18 @@ export const PaginationCard = ({
     <Link
       href={`/newsroom/${data.slug}`}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
-        ${index % 3 === 0 && "tablet:border-l-2"}
-        ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
+        ${
+          index < 4 &&
+          datas.length > 2 &&
+          "tablet:border-b-2 desktop:border-b-0"
+        }
+        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
       `}
     >
-      <div className="w-full overflow-hidden aspect-[4/3]">
+      <div className="w-full aspect-square border-y-2 tablet:border-t-0">
         <img
           src={data?.image?.url ?? ""}
-          className="w-full h-full object-cover border-y-2"
+          className="w-full h-full object-cover"
           alt={data?.title ?? ""}
         />
       </div>
@@ -56,7 +60,7 @@ export const PaginationCard = ({
           <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
             {formatDate(data.publishedAt)}
           </div>
-          <div className="text-[16px] mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
+          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
           </div>
         </div>
@@ -187,15 +191,17 @@ export default function Pagination() {
         </div>
       </div>
 
-      <div className="mx-5 tablet:mx-0 grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
-        {datas.map((data, index) => (
-          <PaginationCard
-            datas={datas}
-            key={data.id}
-            data={data}
-            index={index}
-          />
-        ))}
+      <div className="mx-5 tablet:mx-0 tablet:px-[80px]">
+        <div className="tablet:border-t-[2px] grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 tablet:border-l-[2px]">
+          {datas.map((data, index) => (
+            <PaginationCard
+              datas={datas}
+              key={data.id}
+              data={data}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-between border-t-2">

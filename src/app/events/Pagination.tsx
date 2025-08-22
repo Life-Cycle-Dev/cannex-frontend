@@ -29,34 +29,38 @@ export const PaginationCard = ({
     <Link
       href={`/events/${data.slug}`}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
-        ${index % 3 === 0 && "tablet:border-l-2"}
-        ${index < 3 && datas.length > 3 && "tablet:border-b-2"}
+        ${
+          index < 4 &&
+          datas.length > 2 &&
+          "tablet:border-b-2 desktop:border-b-0"
+        }
+        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
       `}
     >
-      <div className="w-full h-[340px] tablet:h-[420px] overflow-hidden">
+      <div className="w-full aspect-square border-y-2 tablet:border-t-0">
         <img
           src={data?.image?.url ?? ""}
-          className="w-full h-full object-cover border-y-2 "
-          alt={data.title ?? ""}
+          className="w-full h-full object-cover"
+          alt={data?.title ?? ""}
         />
       </div>
 
-      <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
+      <div className="relative pb-6 tablet:pb-0 overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative z-20">
+        <div className="relative z-20 flex flex-col gap-4">
           <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <div className="text-[32px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+          <div className="text-[32px] mt-[-24px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
             {data.title}
           </div>
-          <div className="text-gray-400 tablet:px-[40px] text-[16px]">
+          <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
             {formatDate(data.publishedAt)}
           </div>
-          <div className="text-[16px] pb-6 tablet:px-[40px] line-clamp-3 group-hover:text-white transition-colors duration-500">
+          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
           </div>
         </div>
@@ -68,6 +72,7 @@ export const PaginationCard = ({
 export default function Pagination() {
   const searchParams = useSearchParams();
   const router = useRouter();
+
   const { backendClient, setLoading } = useHelperContext()();
 
   const getSortFromQuery = (): { label: string; value: SortOption } => {
@@ -76,31 +81,26 @@ export default function Pagination() {
     return { label: "Newest", value: "publishedAt:desc" };
   };
 
-  const [searchText, setSearchText] = useState<string>(
+  const [searchText, setSearchText] = useState(
     searchParams.get("search") ?? ""
   );
+  const [datas, setDatas] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(
     parseInt(searchParams.get("page") ?? "1", 10)
   );
-  const [filter, setFilter] = useState<{ label: string; value: SortOption }>(
-    getSortFromQuery()
-  );
-
-  const [datas, setDatas] = useState<Event[]>([]);
   const [pageCount, setPageCount] = useState<number>(1);
+  const [filter, setFilter] = useState(getSortFromQuery());
 
-  const filterItem: { label: string; value: SortOption }[] = [
+  const filterItem = [
     { label: "Newest", value: "publishedAt:desc" },
     { label: "Popular", value: "view:desc" },
   ];
 
-  // Sync to URL
   useEffect(() => {
     const params = new URLSearchParams();
     if (searchText) params.set("search", searchText);
     if (page > 1) params.set("page", String(page));
-    if (filter.value === "view:desc") params.set("sort", "popular");
-    else params.set("sort", "newest");
+    params.set("sort", filter.value === "view:desc" ? "popular" : "newest");
 
     router.push(`/events?${params.toString()}`);
   }, [searchText, page, filter]);
@@ -113,6 +113,7 @@ export default function Pagination() {
     if (q === "") {
       setLoading(true);
     }
+
     const response = await backendClient.getEventPagination(
       {
         "pagination[withCount]": "true",
@@ -122,6 +123,7 @@ export default function Pagination() {
       filter.value,
       q
     );
+
     setLoading(false);
     setDatas(response.data ?? []);
     const pc =
@@ -153,6 +155,7 @@ export default function Pagination() {
     }
     return pages;
   };
+
   const renderPaginationButtons = () => (
     <div>
       {getPaginationPages().map((p, idx) =>
@@ -175,8 +178,8 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:py-[40px] flex justify-between">
-        <div>
+      <div className="mx-5 tablet:mx-0 flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:pt-[80px] tablet:pb-[40px] flex justify-between">
+        <div className="">
           <SearchBox
             placeholder="Search Events & Updated"
             value={searchText}
@@ -188,15 +191,17 @@ export default function Pagination() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
-        {datas.map((data, index) => (
-          <PaginationCard
-            key={data.id}
-            datas={datas}
-            data={data}
-            index={index}
-          />
-        ))}
+      <div className="mx-5 tablet:mx-0 tablet:px-[80px]">
+        <div className="tablet:border-t-[2px] grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 tablet:border-l-[2px]">
+          {datas.map((data, index) => (
+            <PaginationCard
+              datas={datas}
+              key={data.id}
+              data={data}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="flex justify-between border-t-2">
