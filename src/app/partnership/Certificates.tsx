@@ -28,28 +28,28 @@ const data: CompanyCertifications = {
           authority: "FDA (Thailand)",
           description:
             "Products made from hemp extracts are primarily limited to food and cosmetics. However, if used for other purposes, they must comply with relevant regulations and laws governing those products.",
-          image: { src: "/certs/mock-cert.png", alt: "Mock Certificate 1" },
+          image: { src: "/certs/manufacturing-of-hemp-derived-products.png", alt: "Hemp Extraction and Manufacturing" },
         },
         {
           title: "Manufacturing of Herbal Products Using Herbal Ingredients",
           authority: "FDA (Thailand)",
           description:
             "Herbal Extracts / Liquids / Alcohol Extracts / CBD Oil / Spray-Dried Products / Freeze-Dried Products / Other Ingredients.",
-          image: { src: "/certs/mock-cert.png", alt: "Mock Certificate 2" },
+          image: { src: "/certs/manufacturing-of-herbal-products-using-herbal-ingredients.png", alt: "Manufacturing of Herbal Products Using Herbal Ingredients" },
         },
         {
           title: "Manufacturing License",
           authority: "IEAT (Industrial Estate Authority of Thailand)",
           description:
             "IEAT is an industrial estate managed by the Thai government, providing a safe, secure, and efficient operating environment where environmental standards and infrastructure are centrally managed by the state.",
-          image: { src: "/certs/mock-cert.png", alt: "IEAT License" },
+          image: { src: "/certs/mock-cert.png", alt: "Manufacturing License" },
         },
         {
           title: "Thai GMP",
           authority: "GMP for Herbal Products Containing Hemp — FDA (Thailand)",
           description:
             "Thai GMP is a manufacturing quality standard ensuring the safety and quality of pharmaceuticals, supplements, and herbal products by regulating facilities, processes, and hygiene management.",
-          image: { src: "/certs/mock-cert.png", alt: "Thai GMP Certificate" },
+          image: { src: "/certs/mock-cert.png", alt: "Thai GMP" },
         },
       ],
     },
