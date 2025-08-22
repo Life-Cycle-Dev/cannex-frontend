@@ -77,13 +77,13 @@ export default function Pagination() {
   };
 
   const [searchText, setSearchText] = useState<string>(
-    searchParams.get("search") ?? "",
+    searchParams.get("search") ?? ""
   );
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10),
+    parseInt(searchParams.get("page") ?? "1", 10)
   );
   const [filter, setFilter] = useState<{ label: string; value: SortOption }>(
-    getSortFromQuery(),
+    getSortFromQuery()
   );
 
   const [datas, setDatas] = useState<Event[]>([]);
@@ -120,7 +120,7 @@ export default function Pagination() {
         "pagination[page]": p,
       },
       filter.value,
-      q,
+      q
     );
     setLoading(false);
     setDatas(response.data ?? []);
@@ -128,7 +128,7 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6),
+        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6)
       );
     setPageCount(pc);
   };
@@ -168,7 +168,7 @@ export default function Pagination() {
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        ),
+        )
       )}
     </div>
   );

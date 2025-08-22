@@ -44,7 +44,7 @@ export const PaginationCard = ({
       <div className="relative pb-6 tablet:h-[270px] tablet:pb-0 overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative z-20">
+        <div className="relative">
           <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
@@ -78,11 +78,11 @@ export default function Pagination() {
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? "",
+    searchParams.get("search") ?? ""
   );
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10),
+    parseInt(searchParams.get("page") ?? "1", 10)
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
@@ -117,7 +117,7 @@ export default function Pagination() {
         "pagination[page]": p,
       },
       filter.value,
-      q,
+      q
     );
 
     setLoading(false);
@@ -126,7 +126,7 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6),
+        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6)
       );
     setPageCount(pc);
   };
@@ -167,15 +167,15 @@ export default function Pagination() {
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        ),
+        )
       )}
     </div>
   );
 
   return (
     <div>
-      <div className="flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:py-[40px] flex justify-between">
-        <div>
+      <div className="mx-5 tablet:mx-0 flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:pt-[80px] tablet:pb-[40px] flex justify-between">
+        <div className="">
           <SearchBox
             placeholder="Search Newsroom"
             value={searchText}
@@ -187,7 +187,7 @@ export default function Pagination() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
+      <div className="mx-5 tablet:mx-0 grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
         {datas.map((data, index) => (
           <PaginationCard
             datas={datas}

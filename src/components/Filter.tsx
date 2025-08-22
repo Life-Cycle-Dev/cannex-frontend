@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
+import CloseIcon from "./icons/CloseIcon";
 
 interface FilterValue {
   label: string;
@@ -31,14 +32,17 @@ export default function Filter({ items, value, onChange }: FilterProp) {
   };
 
   return (
-    <div className="relative inline-block w-full">
+    <div className="relative w-full tablet:w-[130px]">
       <div
-        className={`inline-block text-sm border-b-2 w-full tablet:w-[130px] hover:border-crystalGreen hover:text-crystalGreen ${
+        className={`w-full flex justify-between items-center text-sm border-b-2 min-h-12 hover:border-crystalGreen hover:text-crystalGreen ${
           isOpen && "border-crystalGreen text-crystalGreen"
         }`}
       >
-        <div className="border-transparent cursor-pointer" onClick={toggleOpen}>
-          <div className="flex gap-2 justify-between items-center py-3">
+        <div
+          className="w-full border-transparent cursor-pointer"
+          onClick={toggleOpen}
+        >
+          <div className="flex gap-2 justify-between items-center w-full">
             <span className="text-black font-medium text-xl">
               {active?.label}
             </span>
@@ -46,22 +50,56 @@ export default function Filter({ items, value, onChange }: FilterProp) {
           </div>
         </div>
       </div>
+
       {isOpen && (
-        <div className="mt-1 border-2 absolute border-black shadow bg-white w-full tablet:w-[130px] z-10">
-          {items.map((item) => (
-            <div
-              key={item.value}
-              onClick={() => handleSelect(item)}
-              className={`px-4 py-2 cursor-pointer hover:bg-black hover:text-crystalGreen ${
-                active?.value === item.value
-                  ? "bg-black text-crystalGreen"
-                  : "text-black"
-              }`}
-            >
-              {item.label}
+        <>
+          <div
+            className="fixed w-full h-full top-0 left-0 z-9 bg-[#80808080] tablet:bg-transparent"
+            onClick={() => setIsOpen(false)}
+          ></div>
+          <ul
+            data-aos="fade-up tablet:fade-down"
+            className="fixed tablet:mt-2 tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto"
+          >
+            <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
+              Sort
+              <CloseIcon
+                className="w-[18px] h-[18px]"
+                onClick={() => setIsOpen(false)}
+              />
             </div>
-          ))}
-        </div>
+            {items.map((item, index) => (
+              <li
+                key={item.value}
+                onClick={() => handleSelect(item)}
+                className={`py-[14px] px-5 tablet:px-4 tablet:py-2.5 hover:bg-black hover:text-crystalGreen focus:bg-black focus:text-crystalGreen cursor-pointer font-medium leading-[125%] 
+                  ${index < items.length - 1 ? "border-b" : ""}
+                  ${
+                    active?.value === item.value
+                      ? "tablet:bg-black tablet:text-crystalGreen"
+                      : "text-black"
+                  }`}
+              >
+                {item.label}
+              </li>
+            ))}
+          </ul>
+          {/* <div className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0">
+            {items.map((item) => (
+              <div
+                key={item.value}
+                onClick={() => handleSelect(item)}
+                className={`px-4 py-2 cursor-pointer hover:bg-black hover:text-crystalGreen ${
+                  active?.value === item.value
+                    ? "bg-black text-crystalGreen"
+                    : "text-black"
+                }`}
+              >
+                {item.label}
+              </div>
+            ))}
+          </div> */}
+        </>
       )}
     </div>
   );

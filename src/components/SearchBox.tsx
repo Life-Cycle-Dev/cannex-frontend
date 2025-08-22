@@ -36,7 +36,9 @@ export default function SearchBox({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <SearchIcon className="w-6 h-6 text-gray" />
+      <div className="w-6 h-6 flex items-center justify-center shrink-0">
+        <SearchIcon className="w-[14px] h-[14px] text-gray" />
+      </div>
       <input
         type="text"
         value={text}
@@ -44,14 +46,16 @@ export default function SearchBox({
         onChange={handleChange}
         className="flex-1 outline-none text-black placeholder:text-gray text-[20px]"
       />
-      {text && (
-        <CloseIcon
-          className={`w-6 h-6 cursor-pointer ${
-            isHovered ? "text-crystalGreen" : "text-black"
-          }`}
-          onClick={handleClear}
-        />
-      )}
+      <div className="w-6 h-6 flex items-center justify-center shrink-0">
+        {text && (
+          <CloseIcon
+            className={`w-3 h-3 cursor-pointer ${
+              isHovered ? "text-crystalGreen" : "text-black"
+            }`}
+            onClick={handleClear}
+          />
+        )}
+      </div>
     </div>
   );
 }
