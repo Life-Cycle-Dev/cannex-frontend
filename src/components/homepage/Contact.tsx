@@ -20,20 +20,19 @@ interface FormData {
 
 function Policy() {
   return (
-    <p
-      className="font-medium text-black cursor-pointer select-none"
-      onClick={(e) => e.preventDefault()}
-    >
-      I have read and accepted terms and conditions specified in the{" "}
-      <a
-        href="/privacy-policy"
-        target="_blank"
-        className="text-crystalGreen hover:underline"
-      >
-        Privacy Policy
-      </a>{" "}
-      and do hereby consent to the collecting, processing and/or disclosing of
-      the personal data provided by me to fulfil the above-said purposes.
+    <p className="font-medium text-black cursor-pointer select-none">
+      <span onClick={(e) => e.preventDefault()}>
+        I have read and accepted terms and conditions specified in the{" "}
+      </span>
+      <span>
+        <a href="/privacy-policy" className="text-crystalGreen hover:underline">
+          Privacy Policy
+        </a>{" "}
+      </span>
+      <span onClick={(e) => e.preventDefault()}>
+        and do hereby consent to the collecting, processing and/or disclosing of
+        the personal data provided by me to fulfil the above-said purposes.
+      </span>
     </p>
   );
 }
@@ -54,22 +53,19 @@ export default function Contact() {
     lastName: "",
     email: "",
     reason: "",
-    isAccepted: false,
   });
-  console.log("formError: ", formError);
-  console.log("formData: ", formData);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     field: keyof FormData
   ) => {
     const { value } = e.target;
+    setFormError((prev) => ({ ...prev, [field]: "" }));
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("!formData.name: ", !formData.name);
     if (
       !formData.name ||
       !formData.lastName ||
@@ -79,9 +75,10 @@ export default function Contact() {
       setFormError({
         name: !formData.name ? "Please enter your name." : "",
         lastName: !formData.lastName ? "Please enter your last name." : "",
-        email: !formData.email ? "Please enter your email." : "",
-        reason: !formData.reason ? "Please select a reason for contact." : "",
-        isAccepted: !formData.isAccepted,
+        email: !formData.email ? "Please provide a valid email address." : "",
+        reason: !formData.reason
+          ? "Please select a reason for contacting us."
+          : "",
       });
       return;
     }
@@ -125,7 +122,7 @@ export default function Contact() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="px-5 tablet:px-20 py-[50px] tablet:border-t-[2px]"
+      className="px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:border-t-[2px]"
     >
       <div className="flex flex-col gap-6">
         <p className="text-2xl tablet:text-[32px] font-medium">
@@ -184,12 +181,18 @@ export default function Contact() {
           value={formData.reason}
           placeholder="Reason for Contact"
           onChange={(option) => {
+            setFormError((prev) => ({
+              ...prev,
+              reason: "",
+            }));
             setFormData((prev) => ({
               ...prev,
               reason: option,
             }));
           }}
           options={reasons}
+          state={formError.reason ? "error" : "default"}
+          errorMessage={formError.reason}
         />
         <div className="tablet:col-span-2">
           <Field

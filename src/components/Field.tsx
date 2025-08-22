@@ -27,7 +27,7 @@ export default function Field({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`h-10 border-b-[2px] pt-3 pb-2 flex 
+        className={`h-10 border-b-[1.5px] pt-3 pb-2 flex 
           ${
             state === "error"
               ? "border-festivalCaramel"
@@ -67,7 +67,7 @@ export default function Field({
         </div>
 
         {value && (
-          <div className="w-5 h-5 flex items-center justify-center">
+          <div className="w-5 h-5 shrink-0 flex items-center justify-center">
             <CloseIcon
               className={`w-2.5 h-2.5 cursor-auto ${
                 state === "error"

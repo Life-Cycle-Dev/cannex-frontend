@@ -9,6 +9,8 @@ interface DropdownProps {
   value: string;
   onChange: (option: string) => void;
   placeholder?: string;
+  state?: "default" | "error";
+  errorMessage?: string;
 }
 
 export default function Dropdown({
@@ -16,6 +18,8 @@ export default function Dropdown({
   value,
   onChange,
   placeholder = "Select...",
+  state,
+  errorMessage,
 }: DropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -34,18 +38,32 @@ export default function Dropdown({
   }, []);
 
   return (
-    <div className="relative w-full flex gap-1 items-center">
+    <div className="relative w-full flex flex-col gap-1">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`h-10 w-full pt-3 pb-2 focus:outline-none flex items-center justify-between border-b-[2px] hover:border-crystalGreen
-          ${isOpen ? "border-crystalGreen" : "border-black"}`}
+        className={`h-10 w-full pt-3 pb-2 focus:outline-none flex items-center justify-between border-b-[1.5px] 
+          ${
+            state === "error"
+              ? "border-festivalCaramel text-festivalCaramel"
+              : isOpen
+              ? "border-crystalGreen"
+              : "border-black hover:border-crystalGreen"
+          }`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex gap-1 text-md font-medium">
           {value || placeholder}
-          {!value && <p className="text-crystalGreen">*</p>}
+          {!value && (
+            <p
+              className={
+                state === "error" ? "text-festivalCaramel" : "text-crystalGreen"
+              }
+            >
+              *
+            </p>
+          )}
         </div>
         <div className="p-1">
           {isOpen ? (
@@ -57,6 +75,9 @@ export default function Dropdown({
           )}
         </div>
       </button>
+      <p className="text-festivalCaramel font-medium text-sm leading-[125%]">
+        {errorMessage}
+      </p>
 
       {isOpen && (
         <>
