@@ -102,7 +102,7 @@ export default function NavBar() {
       </div>
 
       {/* MOBILE */}
-      <div className="w-full">
+      <div className="desktop:hidden w-full">
         <NavBarBase isShowLogo={!isOpen}>
           <button
             aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -121,7 +121,7 @@ export default function NavBar() {
       {isOpen && (
         <nav
           className="flex flex-col gap-0 p-4 min-h-[100dvh] 
-               origin-top animate-slideDown tablet:hidden"
+               origin-top animate-slideDown desktop:hidden"
         >
           {MENUS.map((m) => (
             <div key={m.path} className="flex flex-col">
