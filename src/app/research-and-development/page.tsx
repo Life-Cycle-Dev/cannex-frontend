@@ -27,9 +27,9 @@ export default function Page() {
           sizes="100vw"
         />
 
-        <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
+        <div className="absolute bottom-0 left-0 w-full pt-6 tablet:pt-8">
           <div className="mx-auto w-full px-6 tablet:px-8 pt-16 tablet:pt-0">
-            <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight">
+            <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight mx-[20px] tablet:mx-0">
               Research
               <br />
               &amp; Development
@@ -49,10 +49,10 @@ export default function Page() {
               "opacity-100 translate-x-0",
             )}
           >
-            <div className="mx-auto w-full px-6 tablet:px-8 py-10 tablet:py-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8 items-center">
+            <div className="mx-auto w-full px-6 tablet:px-8 py-10 tablet:pt-[64px] tablet:pb-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8">
               {/* Text */}
               <div className="tablet:col-span-7 w-full max-w-[733px]">
-                <h2 className="text-[40px] tablet:text-[52px] font-bold leading-tight text-black">
+                <h2 className="text-[40px] tablet:text-[52px] font-bold leading-tight text-black mx-[20px] tablet:mx-0">
                   <span className="bg-crystalGreen px-1">
                     Science-Driven Innovation
                   </span>
@@ -60,7 +60,7 @@ export default function Page() {
                   <span>for Tomorrow&#39;s Therapeutics</span>
                 </h2>
 
-                <p className="mt-6 font-medium leading-[125%]">
+                <p className="mt-6 font-medium leading-[125%] mx-[20px] tablet:mx-0">
                   At Cannex, research is not a department — it&#39;s the
                   foundation of everything we do. We believe that advancing the
                   future of medical cannabis starts with asking the right
@@ -68,7 +68,7 @@ export default function Page() {
                   the same scientific rigor demanded of pharmaceutical products.
                 </p>
 
-                <p className="mt-4 font-medium leading-[125%]">
+                <p className="mt-4 font-medium leading-[125%] mx-[20px] tablet:mx-0">
                   Our R&amp;D ecosystem bridges cutting-edge science from Japan,
                   clinical collaboration in Thailand, and product innovation
                   that meets the regulatory standards of the world&#39;s most
