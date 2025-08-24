@@ -28,7 +28,7 @@ export default function Page() {
         />
 
         <div className="absolute bottom-0 left-0 w-full pt-6 tablet:pt-8">
-          <div className="mx-auto w-full px-6 tablet:px-8 pt-16 tablet:pt-0">
+          <div className="w-full tablet:px-8 pt-16 tablet:pt-0">
             <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight mx-[20px] tablet:mx-0">
               Research
               <br />
@@ -49,7 +49,7 @@ export default function Page() {
               "opacity-100 translate-x-0",
             )}
           >
-            <div className="mx-auto w-full px-6 tablet:px-8 py-10 tablet:pt-[64px] tablet:pb-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8">
+            <div className="mx-auto w-full tablet:px-8 py-10 tablet:pt-[64px] tablet:pb-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8">
               {/* Text */}
               <div className="tablet:col-span-7 w-full max-w-[733px]">
                 <h2 className="text-[40px] tablet:text-[52px] font-bold leading-tight text-black mx-[20px] tablet:mx-0">
