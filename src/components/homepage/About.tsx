@@ -13,13 +13,13 @@ export default function About() {
           {(show) => (
             <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
               <img
-                src="/asset/iconic.png"
+                src="/asset/iconic.webp"
                 alt="Image | Cannex"
                 className={`object-contain w-full h-full ${getClassNameAnimation(
                   show,
                   500,
                   "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}`}
               />
             </div>
@@ -34,7 +34,7 @@ export default function About() {
                   show,
                   500,
                   "opacity-0 -translate-x-10",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )}`}
               >
                 <div className="flex flex-col gap-4">
@@ -67,7 +67,7 @@ export default function About() {
                   show,
                   1000,
                   "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               >
                 <Button
@@ -91,19 +91,19 @@ export default function About() {
                 show,
                 1000,
                 "opacity-0 translate-y-20",
-                "opacity-100 translate-y-0",
+                "opacity-100 translate-y-0"
               )}`}
             >
               <div className="mt-7 hidden tablet:block w-full">
                 <img
-                  src="/asset/product-horizontal.png"
+                  src="/asset/product-horizontal.webp"
                   alt="Image | Cannex"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="tablet:hidden">
                 <img
-                  src="/asset/product-vertical.png"
+                  src="/asset/product-vertical.webp"
                   alt="Image | Cannex"
                   className="w-full h-auto object-contain"
                 />

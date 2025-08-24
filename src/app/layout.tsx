@@ -22,7 +22,7 @@ const jsonLdOrg = {
   "@type": "Organization",
   name: "cannex",
   url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
-  logo: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/asset/iconic.png`,
+  logo: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/asset/iconic.webp`,
 };
 
 const jsonLdSite = {

@@ -19,7 +19,7 @@ export default function Page() {
     <main className="bg-white">
       <div className="relative w-full h-[436px] tablet:h-[590px]">
         <img
-          src="/asset/research-development.png"
+          src="/asset/research-development.webp"
           alt="Image | Cannex"
           className="w-full h-full object-cover"
           sizes="100vw"
@@ -68,7 +68,7 @@ export default function Page() {
           {/* Image */}
           <div className="w-full full">
             <img
-              src="/asset/cannex-42.png"
+              src="/asset/cannex-42.webp"
               alt="Image | Cannex"
               className="w-full h-full object-contain "
             />
@@ -81,7 +81,7 @@ export default function Page() {
             ref={videoRef}
             src="/asset/rnd.mp4"
             className="absolute inset-0 h-full w-full object-cover"
-            poster="/asset/research-development.png" // fallback image before play
+            poster="/asset/research-development.webp" // fallback image before play
             controls={playing} // show controls after starting
             preload="metadata"
             onEnded={() => setPlaying(false)}

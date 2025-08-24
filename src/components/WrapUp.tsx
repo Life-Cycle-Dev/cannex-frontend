@@ -22,7 +22,7 @@ export default function WrapUp() {
         <div className="flex justify-end">
           <div className="aspect-square w-[140px] tablet:w-[175px] shrink-0 relative">
             <img
-              src="/asset/iconic.png"
+              src="/asset/iconic.webp"
               alt="Image | Cannex"
               className="object-contain w-full h-full"
             />

@@ -33,7 +33,7 @@ export default function Home() {
               <div className="relative w-full h-[375px] tablet:min-h-[calc(100vh-133px)]">
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
-                  src="/asset/hero-section-img.png"
+                  src="/asset/hero-section-img.webp"
                   alt="Image | Cannex"
                   className="h-full w-full object-cover"
                 />
@@ -48,7 +48,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
                         )
                       }
                     >
@@ -62,7 +62,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
                         )
                       }
                     >
@@ -76,7 +76,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
                         )
                       }
                     >
@@ -90,7 +90,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
                         )
                       }
                     >
@@ -104,7 +104,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -118,7 +118,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block",
+                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block"
                         )
                       }
                     >
@@ -132,7 +132,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -146,7 +146,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -164,7 +164,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -184,7 +184,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-x-10",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >

@@ -33,7 +33,7 @@ export default function Page() {
         <div className="w-full">
           <div className="relative w-full h-[375px] tablet:h-[590px]">
             <img
-              src="/asset/contact-banner-img.jpg"
+              src="/asset/contact-banner-img.webp"
               alt="Image | Cannex"
               className="w-full h-full object-cover"
             />
@@ -86,7 +86,7 @@ export default function Page() {
               <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
                 <div className="relative w-full aspect-2/1">
                   <img
-                    src="/asset/headquarter-img.png"
+                    src="/asset/headquarter-img.webp"
                     alt="Image | Cannex"
                     className="w-full h-full object-cover object-[0px_-55px]"
                   />
@@ -101,7 +101,7 @@ export default function Page() {
               <div className="w-full tablet:border-[2px_2px_0px_0px]">
                 <div className="relative w-full aspect-2/1">
                   <img
-                    src="/asset/lab-img.png"
+                    src="/asset/lab-img.webp"
                     alt="Image | Cannex"
                     className="w-full h-full object-cover object-[0px_-88px]"
                   />
