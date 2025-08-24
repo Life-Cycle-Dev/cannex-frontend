@@ -77,7 +77,7 @@ export default function Certificates() {
     <section className="w-full bg-white text-[var(--foreground)]">
       {/* Heading */}
       <ScrollReveal
-        className="px-[20px] desktop:px-[80px] py-[32px] desktop:py-[48px]"
+        className="mx-[20px] border-t-2 desktop:border-t-0 desktop:mx-0 desktop:px-[80px] py-[40px] desktop:py-[48px]"
         once
       >
         {(show) => (

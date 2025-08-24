@@ -9,7 +9,7 @@ import Partners from "@/components/Partners";
 
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <div
         id="hero-start"
         className="tablet:h-[590px] flex flex-col tablet:flex-row tablet:border-b-2"

@@ -43,7 +43,7 @@ export default function Home() {
     <main className="bg-white text-[var(--foreground)]">
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2 border-b-2  border-black"
+        className="w-full border-t-2 desktop:border-b-2 border-black"
       >
         <ScrollReveal
           className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]"
@@ -83,11 +83,11 @@ export default function Home() {
                 "opacity-100 translate-x-0",
               )}
             >
-              <div className="relative w-full aspect-[16/10]">
+              <div className="relative w-full h-full border-b-2 desktop:border-b-0">
                 <img
                   src="/partnership/Image.webp"
                   alt="Image | Cannex"
-                  className="object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function Home() {
                       "opacity-100 translate-x-0",
                     )}
                   >
-                    <AllianceItem data={a} />
+                    <AllianceItem data={a} index={idx} />
                   </div>
                 )}
               </ScrollReveal>
@@ -118,17 +118,19 @@ export default function Home() {
 
           {/* RIGHT: รูปภาพ */}
           <ScrollReveal
-            className="hidden desktop:block desktop:row-span-3 border-l-2 border-black"
+            className="hidden desktop:block desktop:row-span-3 border-l-2 border-black h-full"
             once
           >
             {(show) => (
               <div
-                className={getClassNameAnimation(
-                  show,
-                  2000,
-                  "opacity-0 translate-x-20",
-                  "opacity-100 translate-x-0",
-                )}
+                className={
+                  getClassNameAnimation(
+                    show,
+                    2000,
+                    "opacity-0 translate-x-20",
+                    "opacity-100 translate-x-0",
+                  ) + "h-full"
+                }
               >
                 <div className="relative w-full h-full border-t-[2px]">
                   <img
@@ -147,9 +149,13 @@ export default function Home() {
 }
 
 /* ---------- Subcomponent ---------- */
-function AllianceItem({ data }: { data: Alliance }) {
+function AllianceItem({ data, index }: { data: Alliance; index: number }) {
   return (
-    <div className="border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0">
+    <div
+      className={`border-black ${
+        index !== 0 && "border-t-2"
+      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0`}
+    >
       <div
         className={`
           pb-[32px]
