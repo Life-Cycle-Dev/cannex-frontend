@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
+
 interface Certification {
   title: string;
   authority: string;
@@ -73,11 +76,26 @@ export default function Certificates() {
   return (
     <section className="w-full bg-white text-[var(--foreground)]">
       {/* Heading */}
-      <div className="px-[20px] desktop:px-[80px] py-[32px] desktop:py-[48px]">
-        <h2 className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight desktop:pb-[0px]">
-          License and Certification
-        </h2>
-      </div>
+      <ScrollReveal
+        className="px-[20px] desktop:px-[80px] py-[32px] desktop:py-[48px]"
+        once
+      >
+        {(show) => (
+          <div
+            className={getClassNameAnimation(
+              show,
+              500,
+              "opacity-0 -translate-y-10",
+              "opacity-100 translate-y-0",
+            )}
+          >
+            <h2 className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight desktop:pb-[0px]">
+              License and Certification
+            </h2>
+          </div>
+        )}
+      </ScrollReveal>
+
       {/* Full-width divider */}
       <div className="border-b-2 border-black mx-[20px] desktop:mx-0 desktop:w-full" />
 
@@ -87,39 +105,65 @@ export default function Certificates() {
           {/* Desktop: 2 columns (right side has the vertical border only) */}
           <div className="desktop:grid desktop:grid-cols-2">
             {/* LEFT COLUMN */}
-            <div className="mx-[20px] desktop:px-[80px] desktop:mx-0">
-              <h3 className="mt-[40px] text-2xl tablet:text-3xl font-extrabold leading-snug mb-6">
-                {cat.category}
-              </h3>
-
-              {leftItems.map((it, i) => (
-                <div key={it.title} className="py-6">
-                  <ItemRow item={it} />
-                  {i !== leftItems.length - 1 && (
-                    <div className="mt-6  mx-[16px] tablet:mx-[20px] desktop:mx-0" />
+            <ScrollReveal
+              className="mx-[20px] desktop:px-[80px] desktop:mx-0"
+              once
+            >
+              {(show) => (
+                <div
+                  className={getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-x-20",
+                    "opacity-100 translate-x-0",
                   )}
+                >
+                  <h3 className="mt-[40px] text-2xl tablet:text-3xl font-extrabold leading-snug mb-6">
+                    {cat.category}
+                  </h3>
+
+                  {leftItems.map((it, i) => (
+                    <div key={it.title} className="py-6">
+                      <ItemRow item={it} />
+                      {i !== leftItems.length - 1 && (
+                        <div className="mt-6  mx-[16px] tablet:mx-[20px] desktop:mx-0" />
+                      )}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              )}
+            </ScrollReveal>
 
             {/* RIGHT COLUMN (desktop-only left border) */}
-            <div
+            <ScrollReveal
               className="
                 mx-[20px] desktop:mx-0
                 desktop:border-l-2 desktop:border-black
                 desktop:pl-[40px]
               "
+              once
             >
-              <div className="mt-[40px]" />
-              {rightItems.map((it, i) => (
-                <div key={it.title} className="py-6">
-                  <ItemRow item={it} />
-                  {i !== rightItems.length - 1 && (
-                    <div className="mt-6  border-black  tablet:mx-[20px] desktop:mx-0" />
+              {(show) => (
+                <div
+                  className={getClassNameAnimation(
+                    show,
+                    1500,
+                    "opacity-0 translate-x-20",
+                    "opacity-100 translate-x-0",
                   )}
+                >
+                  <div className="mt-[40px]" />
+                  {rightItems.map((it, i) => (
+                    <div key={it.title} className="py-6">
+                      <ItemRow item={it} />
+                      {i !== rightItems.length - 1 && (
+                        <div className="mt-6  border-black  tablet:mx-[20px] desktop:mx-0" />
+                      )}
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              )}
+            </ScrollReveal>
           </div>
         </div>
 

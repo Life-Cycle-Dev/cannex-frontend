@@ -1,5 +1,8 @@
 "use client";
 
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
+
 type PartnerBlock = {
   title: string;
   body: string;
@@ -28,41 +31,69 @@ export default function ScientificCollaboration() {
       className="bg-white text-foreground px-5 tablet:p-0 tablet:border-t-[2px]"
     >
       {/* Heading */}
-      <div className="w-full border-t-[2px] tablet:border-none py-10 tablet:p-[80px_80px_32px_80px] flex flex-col gap-4">
-        <p className="text-[40px] tablet:text-[52px] font-bold leading-[]">
-          Scientific Collaboration
-        </p>
-        <p className="tablet:text-xl font-medium leading-[125%]">
-          We partner with
-        </p>
-      </div>
-
-      <div
-        role="table"
-        className="w-full grid tablet:grid-cols-3 border-b-[2px]"
+      <ScrollReveal
+        className="w-full border-t-[2px] tablet:border-none py-10 tablet:p-[80px_80px_32px_80px] flex flex-col gap-4"
+        once
       >
-        {/* Title row */}
-        {PARTNERS.map((p, i) => (
+        {(show) => (
           <div
-            key={`title-${i}`}
-            role="cell"
-            className="border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-4 tablet:px-20 text-[32px] font-bold leading-[120%] flex items-center"
+            className={getClassNameAnimation(
+              show,
+              500,
+              "opacity-0 -translate-x-10",
+              "opacity-100 translate-x-0",
+            )}
           >
-            {p.title}
+            <p className="text-[40px] tablet:text-[52px] font-bold leading-[]">
+              Scientific Collaboration
+            </p>
+            <p className="tablet:text-xl font-medium leading-[125%]">
+              We partner with
+            </p>
           </div>
-        ))}
+        )}
+      </ScrollReveal>
 
-        {/* Body row */}
-        {PARTNERS.map((p, i) => (
-          <div
-            key={`body-${i}`}
-            role="cell"
-            className="border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-8 tablet:px-20 text-xl font-medium leading-[125%] whitespace-pre-line"
-          >
-            {p.body}
-          </div>
-        ))}
-      </div>
+      <ScrollReveal
+        className="w-full grid tablet:grid-cols-3 border-b-[2px]"
+        once
+      >
+        {(show) => (
+          <>
+            {/* Title row */}
+            {PARTNERS.map((p, i) => (
+              <div
+                key={`title-${i}`}
+                role="cell"
+                className={`border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-4 tablet:px-20 text-[32px] font-bold leading-[120%] flex items-center ${getClassNameAnimation(
+                  show,
+                  1000 + i * 200,
+                  "opacity-0 translate-x-20",
+                  "opacity-100 translate-x-0",
+                )}`}
+              >
+                {p.title}
+              </div>
+            ))}
+
+            {/* Body row */}
+            {PARTNERS.map((p, i) => (
+              <div
+                key={`body-${i}`}
+                role="cell"
+                className={`border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-8 tablet:px-20 text-xl font-medium leading-[125%] whitespace-pre-line ${getClassNameAnimation(
+                  show,
+                  1500 + i * 200,
+                  "opacity-0 translate-x-20",
+                  "opacity-100 translate-x-0",
+                )}`}
+              >
+                {p.body}
+              </div>
+            ))}
+          </>
+        )}
+      </ScrollReveal>
     </section>
   );
 }
