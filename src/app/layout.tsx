@@ -46,7 +46,7 @@ export default async function RootLayout({
     <Suspense fallback={<div></div>}>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overflow-x-hidden`}
         >
           <LoadingProvider>
             <HelperProvider>
