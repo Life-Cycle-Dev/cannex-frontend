@@ -50,6 +50,13 @@ export function StickyBar({
         const pct = ((y - start) / Math.max(1, end - start)) * 100;
         setProgress(clamp(pct));
       });
+
+      return () => {
+        setIsNavbarSticky(true);
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("resize", handleResize);
+        if (rafId.current) cancelAnimationFrame(rafId.current);
+      };
     };
 
     const handleResize = () => handleScroll();
