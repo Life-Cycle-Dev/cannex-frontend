@@ -94,6 +94,18 @@ export default function Pagination() {
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  // detect screen size
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const PAGE_SIZE = isMobile ? 10 : 15;
+
   const filterItem = [
     { label: "Newest", value: "publishedAt:desc" },
     { label: "Popular", value: "view:desc" },
@@ -110,7 +122,12 @@ export default function Pagination() {
 
   useEffect(() => {
     fetchData(page, searchText);
-  }, [page, searchText, filter]);
+  }, [page, searchText, filter, PAGE_SIZE]);
+
+  useEffect(() => {
+    // auto scroll to top when page change
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   const fetchData = async (p: number, q: string) => {
     if (q === "") {
@@ -120,7 +137,7 @@ export default function Pagination() {
     const response = await backendClient.getEventPagination(
       {
         "pagination[withCount]": "true",
-        "pagination[pageSize]": 6,
+        "pagination[pageSize]": PAGE_SIZE,
         "pagination[page]": p,
       },
       filter.value,
@@ -133,7 +150,9 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6),
+        Math.ceil(
+          ((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE,
+        ),
       );
     setPageCount(pc);
   };
@@ -215,8 +234,10 @@ export default function Pagination() {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className={`p-3 ${
-              page === 1 ? "opacity-40 cursor-not-allowed" : ""
+            className={`p-3 transition-all duration-300 ${
+              page === 1
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:bg-gray-200 hover:scale-105"
             }`}
             aria-label="Previous page"
           >
@@ -226,8 +247,10 @@ export default function Pagination() {
           <button
             onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
             disabled={page === pageCount}
-            className={`p-3 ${
-              page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+            className={`p-3 transition-all duration-300 ${
+              page === pageCount
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:bg-gray-200 hover:scale-105"
             }`}
             aria-label="Next page"
           >
@@ -242,8 +265,10 @@ export default function Pagination() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className={`p-3 ${
-                page === 1 ? "opacity-40 cursor-not-allowed" : ""
+              className={`p-3 transition-all duration-300 ${
+                page === 1
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-black hover:text-crystalGreen"
               }`}
               aria-label="Previous page"
             >
@@ -252,8 +277,10 @@ export default function Pagination() {
             <button
               onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
               disabled={page === pageCount}
-              className={`p-3 ${
-                page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+              className={`p-3 transition-all duration-300 ${
+                page === pageCount
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-black hover:text-crystalGreen"
               }`}
               aria-label="Next page"
             >
