@@ -1,17 +1,10 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import MapSvg from "@/components/icons/MapSvg";
 import CannexSvg from "@/components/icons/CannexSvg";
-import AOS from "aos";
 
 export default function Supplying() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
 
   return (
     <div className="bg-black text-white h-fit">

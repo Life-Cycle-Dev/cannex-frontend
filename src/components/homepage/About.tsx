@@ -1,17 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "@/components/Button";
 
 import RightUpIcon from "@/components/icons/RightUpIcon";
-import AOS from "aos";
 
 export default function About() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
 
   return (
     <div className="w-full">
@@ -29,19 +22,17 @@ export default function About() {
           <div className="flex flex-col gap-2 tablet:gap-6">
             <div className="flex flex-col gap-4">
               <h2
-                data-aos="fade-right"
                 className="py-0.5 px-2 bg-black text-white w-fit"
               >
                 Brand Introduction
               </h2>
               <p
-                data-aos="fade-down"
                 className="text-[32px] tablet:text-[52px] font-bold"
               >
                 Where Expertise Meets Collaboration.
               </p>
             </div>
-            <p data-aos="fade-up">
+            <p>
               <span className="font-medium">
                 Cannex was born from a global alliance between Cannex Pharma and
                 Siam Agri-Bio — combining world-class cultivation and extraction
@@ -53,7 +44,7 @@ export default function About() {
               </span>
             </p>
           </div>
-          <div data-aos="fade-up">
+          <div>
             <Button
               text="Learn about cannex"
               type="secondaryBlack"

@@ -6,7 +6,6 @@ import Button from "@/components/Button";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import { useHelperContext } from "@/components/providers/helper-provider";
 import { useEffect } from "react";
-import AOS from "aos";
 import Products from "@/components/homepage/Products";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
@@ -22,11 +21,6 @@ export default function Home() {
 
   useEffect(() => {
     setNavigate("Home");
-
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
   }, []);
 
   return (

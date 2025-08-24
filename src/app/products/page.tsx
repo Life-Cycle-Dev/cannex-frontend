@@ -5,9 +5,6 @@ import CannexSvg from "@/components/icons/CannexSvg";
 import SupportingInformation from "@/components/SupportingInformation";
 import WrapUp from "@/components/WrapUp";
 
-import { useEffect } from "react";
-import AOS from "aos";
-
 const products = [
   {
     title: "Premium\nCanabis Flower",
@@ -70,17 +67,10 @@ const products = [
 ];
 
 export default function Page() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
   return (
     <div>
       <div className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6">
         <p
-          data-aos="fade-down"
           className="text-[46px] tablet:text-7xl font-bold leading-[110%]"
         >
           Products
@@ -103,7 +93,6 @@ export default function Page() {
             </p>
           </div>
           <p
-            data-aos="fade-right"
             className="font-medium leading-[125%] w-full tablet:w-[405px]"
           >
             From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
