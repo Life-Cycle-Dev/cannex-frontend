@@ -3,6 +3,8 @@
 
 import React from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
 
 type Card = {
   title: string;
@@ -41,22 +43,39 @@ const products: Card[] = [
 export default function Products() {
   return (
     <section className="w-full mt-16">
-      <div className="grid grid-cols-2 tablet:grid-cols-4 border-t-[2px]">
-        {products.map((product, idx) => (
-          <ProductCard key={idx} data={product} />
-        ))}
-      </div>
+      <ScrollReveal className="grid grid-cols-2 tablet:grid-cols-4 border-t-[2px]">
+        {(show) => (
+          <>
+            {products.map((product, idx) => (
+              <ProductCard data={product} show={show} key={idx} index={idx} />
+            ))}
+          </>
+        )}
+      </ScrollReveal>
     </section>
   );
 }
 
-function ProductCard({ data }: { data: Card }) {
+function ProductCard({
+  data,
+  show,
+  index,
+}: {
+  data: Card;
+  show: boolean;
+  index: number;
+}) {
   return (
     <article
       tabIndex={0}
       role="button"
       aria-label={data.title.replace(/\n/g, " ")}
-      className="group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black border-r-[2px]"
+      className={`group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black border-r-[2px] ${getClassNameAnimation(
+        show,
+        500 + index * 200,
+        "opacity-0 translate-y-20",
+        "opacity-100 translate-y-0",
+      )}`}
     >
       <div className="w-full flex justify-end bg-white">
         <div className="relative h-12 w-12 grid place-items-center group-hover:bg-black group-focus-visible:bg-black">
