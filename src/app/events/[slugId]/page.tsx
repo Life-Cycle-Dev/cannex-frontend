@@ -70,7 +70,12 @@ export default async function Page({ params, searchParams }: PageProps) {
 
   return (
     <div className="w-full">
-      <Markdown value={data.content} data={data} imageUrl={data?.image?.url ?? ""} />
+      <Markdown
+        value={data.content}
+        data={data}
+        imageUrl={data?.image?.url ?? ""}
+        page="events"
+      />
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">
         <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">

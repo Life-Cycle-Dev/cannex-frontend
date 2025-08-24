@@ -74,6 +74,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         value={data.content}
         data={data}
         imageUrl={data?.image?.url ?? ""}
+        page="newsroom"
       />
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">

@@ -12,12 +12,14 @@ type ContentViewProps = {
   data: any;
   imageUrl: string;
   value: string;
+  page: "events" | "newsroom";
 };
 
 export default function ContentView({
   data,
   imageUrl,
   value,
+  page,
 }: ContentViewProps) {
   const safe = DOMPurify.sanitize(value);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -26,7 +28,7 @@ export default function ContentView({
     <>
       <StickyBar
         title={data.title}
-        url={`/events/${data.slugId}`}
+        url={`/${page}/${data.slugId}`}
         imageUrl={imageUrl ?? ""}
         revealOffset={80}
         targetRef={contentRef ?? null}
@@ -40,7 +42,7 @@ export default function ContentView({
           >
             <div className="flex flex-col gap-4">
               <Link
-                href="/events"
+                href={`/${page}`}
                 className="w-fit text-white bg-black p-[2px_8px]"
               >
                 Events & Updated
@@ -57,7 +59,7 @@ export default function ContentView({
               <ShareButton
                 imageUrl={data?.image?.url ?? ""}
                 title={data.title}
-                url={`/events/${data.slugId}`}
+                url={`/${page}/${data.slugId}`}
               />
             </div>
           </div>
