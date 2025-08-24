@@ -45,7 +45,7 @@ export default function ContentView({
                 href={`/${page}`}
                 className="w-fit text-white bg-black p-[2px_8px]"
               >
-                Events & Updated
+                {page === "events" ? "Events & Updated" : "Newsroom"}
               </Link>
               <h1 className="text-[46px] font-bold break-words leading-[110%] line-clamp-2">
                 {data.title}
