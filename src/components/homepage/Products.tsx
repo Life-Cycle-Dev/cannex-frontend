@@ -17,25 +17,25 @@ const products: Card[] = [
   {
     title: "Premium\nCanabis Flower",
     desc: "Cultivated by California experts,\noptimized for terpene-rich,\npharmaceutical-grade quality.",
-    img: "/product/product-flower.png",
+    img: "/product/product-flower.webp",
     imgAlt: "flower",
   },
   {
     title: "CBD Isolate\n[Crystal Powder]",
     desc: "Ultra-pure, pharmaceutical-grade isolate with 0.0% THC — perfect for precision blending.",
-    img: "/product/product-isolate.png",
+    img: "/product/product-isolate.webp",
     imgAlt: "isolate powder",
   },
   {
     title: "Medical\nCannabis Oil",
     desc: "A standardized, THC-free extract developed for global healthcare needs.",
-    img: "/product/product-oil.png",
+    img: "/product/product-oil.webp",
     imgAlt: "medical oil",
   },
   {
     title: "Custom\nFormulation",
     desc: "Tailored cannabinoid profiles for partner brands — from R&D to full-scale production.",
-    img: "/product/product-custom.png",
+    img: "/product/product-custom.webp",
     imgAlt: "custom oil",
   },
 ];
@@ -74,7 +74,7 @@ function ProductCard({
         show,
         500 + index * 200,
         "opacity-0 translate-y-20",
-        "opacity-100 translate-y-0",
+        "opacity-100 translate-y-0"
       )}`}
     >
       <div className="w-full flex justify-end bg-white">

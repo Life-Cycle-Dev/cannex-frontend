@@ -8,7 +8,7 @@ import WrapUp from "@/components/WrapUp";
 const products = [
   {
     title: "Premium\nCanabis Flower",
-    img: "/product/product-flower.png",
+    img: "/product/product-flower.webp",
     subTittle: "Cultivated by California experts. Certified for medical use.",
     description:
       "Our cannabis flowers are cultivated indoors at our Bangkok site by California growers from Cookies Maywood. Each batch is carefully grown, harvested, and cured to retain terpene richness and potency.",
@@ -23,7 +23,7 @@ const products = [
   },
   {
     title: "CBD Isolate [Crystal Powder]",
-    img: "/product/product-isolate.png",
+    img: "/product/product-isolate.webp",
     subTittle: "Ultra-pure. THC-Free. Ready for global formulation.",
     description:
       "Our pharmaceutical-grade CBD isolate is extracted using advanced Japanese technology and crystallized to ≥99% purity — with 0.0% THC content. Ideal for blending into wellness, nutraceutical, and therapeutic products where precision and compliance matter most.",
@@ -37,7 +37,7 @@ const products = [
   },
   {
     title: "Medical Cannabis Oil",
-    img: "/product/product-oil.png",
+    img: "/product/product-oil.webp",
     subTittle: "Standardized. THC-Free. Clinically oriented.",
     description:
       "Cannex oils are developed in our ISO Class 7 cleanroom facility under strict PIC/S GMP conditions. Each batch is standardized for consistent cannabinoid content and tailored for healthcare and medical applications.",
@@ -51,7 +51,7 @@ const products = [
   },
   {
     title: "Custom Formulation",
-    img: "/product/product-custom.png",
+    img: "/product/product-custom.webp",
     subTittle: "Your Formula. Our Precision.",
     description:
       "We partner with brands and medical license holders to co-develop proprietary cannabinoid products — from R&D to scaled manufacturing. Whether you seek a unique terpene profile or minor cannabinoid blend, our lab and QA/QC ecosystem ensures your vision becomes a viable, compliant product.",
@@ -70,9 +70,7 @@ export default function Page() {
   return (
     <div>
       <div className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6">
-        <p
-          className="text-[46px] tablet:text-7xl font-bold leading-[110%]"
-        >
+        <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
           Products
         </p>
         <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
@@ -92,9 +90,7 @@ export default function Page() {
               Designed for Global Markets.
             </p>
           </div>
-          <p
-            className="font-medium leading-[125%] w-full tablet:w-[405px]"
-          >
+          <p className="font-medium leading-[125%] w-full tablet:w-[405px]">
             From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
             reliable, precisely formulated products developed for pharmacies,
             healthcare providers, and wellness innovators across Europe, Asia,
@@ -105,7 +101,7 @@ export default function Page() {
       <div className="relative">
         <div className="w-full h-[375px] tablet:h-[720px]">
           <img
-            src="/product-banner.jpg"
+            src="/product-banner.webp"
             alt="Image | Cannex"
             className="w-full h-full object-cover"
           />

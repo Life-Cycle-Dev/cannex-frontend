@@ -12,7 +12,7 @@ const items: {
 }[] = [
   {
     title: "Cannabinoid Innovation",
-    imgSrc: "/asset/rnd-cell-1.jpg",
+    imgSrc: "/asset/rnd-cell-1.webp",
     contents: [
       {
         title: "Water-soluble CBD",
@@ -34,7 +34,7 @@ const items: {
   },
   {
     title: "Formulation Development",
-    imgSrc: "/asset/rnd-cell-2.jpg",
+    imgSrc: "/asset/rnd-cell-2.webp",
     contents: [
       {
         desc: "Custom ratios for tinctures, gummies, soft gels, vapes",
@@ -49,7 +49,7 @@ const items: {
   },
   {
     title: "Formulation Development",
-    imgSrc: "/asset/rnd-cell-3.jpg",
+    imgSrc: "/asset/rnd-cell-3.webp",
     contents: [
       {
         desc: "Dose-consistent delivery (sublingual, vapor, topical)",

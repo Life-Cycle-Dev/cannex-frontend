@@ -18,12 +18,12 @@ export default function Page() {
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(135deg,rgba(0,0,0,0)_50%,rgba(0,0,0,0.5)_100%)]"></div>
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(175deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0)_100%)]"></div>
           <img
-            src={"/about-us/about-us-hero-section.jpg"}
+            src={"/about-us/about-us-hero-section.webp"}
             alt="Image | Cannex"
             className="absolute z-0 top-0 left-0 w-full h-full object-cover object-top"
           />
           <img
-            src={"/about-us/about-us-hero-section-no-bg.png"}
+            src={"/about-us/about-us-hero-section-no-bg.webp"}
             alt="Image | Cannex"
             className="absolute z-2 top-0 left-0 w-full h-full object-cover object-top"
           />
@@ -38,7 +38,7 @@ export default function Page() {
                         show,
                         300,
                         "opacity-0 -translate-x-10",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )}
                     `}
                   >
@@ -59,7 +59,7 @@ export default function Page() {
                             show,
                             100,
                             "opacity-0 translate-y-10",
-                            "opacity-100 translate-y-0",
+                            "opacity-100 translate-y-0"
                           )}
                         `}
                       >
@@ -123,7 +123,7 @@ export default function Page() {
                           show,
                           300,
                           "opacity-0",
-                          `opacity-100 animate-reveal-ltr ${item.animateClassName}`,
+                          `opacity-100 animate-reveal-ltr ${item.animateClassName}`
                         )}
                         `}
                       >
@@ -148,7 +148,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-y-10",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               `}
             >
@@ -164,7 +164,7 @@ export default function Page() {
                 show,
                 1000,
                 "opacity-0 -translate-x-10",
-                "opacity-100 translate-x-0",
+                "opacity-100 translate-x-0"
               )}`}
             >
               <div className="mt-[16px] tablet:mt-0">
@@ -193,7 +193,7 @@ export default function Page() {
           <ScrollReveal className="h-full" once>
             {(show) => (
               <img
-                src="/about-us/about-us-lab.jpg"
+                src="/about-us/about-us-lab.webp"
                 alt="Image | Cannex"
                 className={
                   "object-cover h-full w-full " +
@@ -201,7 +201,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-30",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
                 height={576}
@@ -217,7 +217,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               />
             )}
@@ -232,7 +232,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-x-20",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -249,7 +249,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 -translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               />
             )}
@@ -268,7 +268,7 @@ export default function Page() {
                     show,
                     500,
                     "opacity-0 -translate-x-10",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -287,7 +287,7 @@ export default function Page() {
                     show,
                     500,
                     "opacity-0 -translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -308,7 +308,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -342,7 +342,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )
               }
             >
@@ -366,7 +366,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -384,7 +384,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )}
               >
                 We don’t just grow cannabis — we{" "}
@@ -397,7 +397,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )}
               >
                 With clinical-grade facilities, stringent quality assurance, and
@@ -418,7 +418,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -442,7 +442,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -466,7 +466,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -492,7 +492,7 @@ export default function Page() {
               <div className="w-full h-full overflow-hidden">
                 <div className="absolute top-0 right-0 z-1 w-full h-full bg-gradient-to-b from-black/70 via-black/0 to-black/70" />
                 <img
-                  src="/about-us/about-us-what-we-belive.jpg"
+                  src="/about-us/about-us-what-we-belive.webp"
                   alt="Image | Cannex"
                   className={
                     "w-full h-full object-cover z-0 will-change-transform zoom-origin-center " +
@@ -500,7 +500,7 @@ export default function Page() {
                       show,
                       1000,
                       "zoom-from",
-                      "animate-zoom-to-fit",
+                      "animate-zoom-to-fit"
                     )
                   }
                 />
@@ -514,7 +514,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -527,7 +527,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -545,7 +545,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -562,7 +562,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -585,7 +585,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -608,7 +608,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -631,7 +631,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -648,7 +648,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -675,7 +675,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -702,7 +702,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
               style={{
@@ -755,7 +755,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )
               }
             >
@@ -788,7 +788,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-20",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                     key={index}
@@ -832,7 +832,7 @@ export default function Page() {
           <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
             <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
               <img
-                src="/about-us/about-us-last-section.jpg"
+                src="/about-us/about-us-last-section.webp"
                 alt="Image | Cannex"
                 className={
                   "h-full w-full object-cover" +
@@ -840,7 +840,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-20",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               />
@@ -853,7 +853,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-x-10",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -866,7 +866,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-y-10",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -881,7 +881,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-y-10",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >

@@ -5,7 +5,7 @@ type Alliance = { flag: string; title: string; bullets: string[] };
 
 const ALLIANCES: Alliance[] = [
   {
-    flag: "/partnership/icon/usa-flag.png",
+    flag: "/partnership/icon/usa-flag.webp",
     title: "Cannex Pharma (USA)",
     bullets: [
       "Founded by the team behind Cookies Maywood",
@@ -15,7 +15,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/jp-flag.png",
+    flag: "/partnership/icon/jp-flag.webp",
     title: "Japanese Pharmaceutical Partners",
     bullets: [
       "Advanced extraction, crystallization, and chromatography",
@@ -24,7 +24,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/th-flag.png",
+    flag: "/partnership/icon/th-flag.webp",
     title: "Siam Agri-Bio (Thailand)",
     bullets: [
       "PIC/S GMP-certified facility for extraction & production",
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="mt-[20px] desktop:hidden border-t-[2px] border-black">
           <div className="relative w-full aspect-[16/10]">
             <img
-              src="/partnership/Image.png"
+              src="/partnership/Image.webp"
               alt="Image | Cannex"
               className="object-cover"
             />
@@ -74,7 +74,7 @@ export default function Home() {
           <div className="hidden desktop:block desktop:row-span-3 border-l-2 border-black">
             <div className="relative w-full h-full border-t-[2px]">
               <img
-                src="/partnership/Image.png"
+                src="/partnership/Image.webp"
                 alt="Image | Cannex"
                 className="object-cover w-full h-full"
               />
