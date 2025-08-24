@@ -57,7 +57,7 @@ export default function Contact() {
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement>,
-    field: keyof FormData
+    field: keyof FormData,
   ) => {
     const { value } = e.target;
     setFormError((prev) => ({ ...prev, [field]: "" }));
