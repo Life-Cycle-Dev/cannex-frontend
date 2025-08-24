@@ -14,7 +14,7 @@ export default function NavBarBase({ children, isShowLogo = true }: Props) {
         {isShowLogo && (
           <Link href="/" className="h-8">
             <img
-              src="/logo-default.svg"
+              src="/logo-default.webp"
               alt="Cannex Logo"
               width={160}
               height={32}

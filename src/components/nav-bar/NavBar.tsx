@@ -69,7 +69,7 @@ export default function NavBar() {
         <div className="mx-auto flex h-[84px] max-w-[1200px] items-center justify-center">
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="/logo-default.svg"
+              src="/logo-default.webp"
               alt="Cannex Logo"
               width={200}
               height={40}
