@@ -106,22 +106,22 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             desktop:border-0 relative group overflow-hidden cursor-pointer
           "
         >
-          <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1">
+          <div className="self-end flex justify-center items-center relative w-12 h-12 overflow-hidden group z-1">
             <RightUpIcon
               className={`
-                absolute inset-0 text-black w-full h-full
+                absolute inset-1/5 text-black w-8 h-8
                 transition-transform duration-500 ease-out
-                group-hover:-translate-y-6 group-hover:translate-x-6
-                ${hover ? "-translate-y-6 translate-x-6" : ""}
+                group-hover:-translate-y-7 group-hover:translate-x-7
+                ${hover ? "-translate-y-7 translate-x-7" : ""}
               `}
             />
             <RightUpIcon
               className={`
-                absolute inset-0 text-crystalGreen w-full h-full
+                absolute inset-1/5 text-crystalGreen w-8 h-8
                 ${
                   hover
                     ? "translate-y-0 translate-x-0"
-                    : "translate-y-6 -translate-x-6"
+                    : "translate-y-8 -translate-x-8"
                 }
                 transition-transform duration-500 ease-out
                 group-hover:translate-y-0 group-hover:translate-x-0
