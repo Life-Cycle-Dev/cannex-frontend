@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Event } from "@/types/event";
 import { formatDate } from "@/utils/format";
 import { useHelperContext } from "../providers/helper-provider";
+import { PaginationCard } from "@/app/events/Pagination";
 
 export const Card = ({
   datas,
@@ -84,7 +85,7 @@ export default function EventsAndUpdated() {
 
   return (
     <div className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px]  tablet:mx-0">
-      <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:justify-center gap-4 tablet:p-[67px_80px]">
+      <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:border-r-2 tablet:justify-center gap-4 tablet:p-[67px_80px]">
         <div>
           <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
             Newsroom
@@ -108,7 +109,7 @@ export default function EventsAndUpdated() {
         </div>
       </div>
       {datas.map((data, index) => (
-        <Card datas={datas} key={data.id} data={data} index={index} />
+        <PaginationCard datas={datas} key={data.id} data={data} index={index} />
       ))}
     </div>
   );

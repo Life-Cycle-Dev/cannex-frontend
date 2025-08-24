@@ -21,11 +21,13 @@ export const PaginationCard = ({
   data,
   index,
   isContentPage = false,
+  skipBorderBottom = false,
 }: {
   datas: NewsRooms[];
   data: NewsRooms;
   index: number;
   isContentPage?: boolean;
+  skipBorderBottom?: boolean;
 }) => {
   return (
     <Link
@@ -34,9 +36,10 @@ export const PaginationCard = ({
         ${
           index < 2 &&
           datas.length > 2 &&
+          !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
+        ${index < 3 && datas.length > 3 && !skipBorderBottom && "desktop:border-b-2"}
         ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
       `}
     >
