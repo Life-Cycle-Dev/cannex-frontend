@@ -30,7 +30,7 @@ export default function ContentView({
         title={data.title}
         url={`/${page}/${data.slugId}`}
         imageUrl={imageUrl ?? ""}
-        revealOffset={80}
+        revealOffset={50}
         targetRef={contentRef ?? null}
       />
 
