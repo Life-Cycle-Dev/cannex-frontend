@@ -20,21 +20,24 @@ export const PaginationCard = ({
   datas,
   data,
   index,
+  isContentPage = false,
 }: {
   datas: Event[];
   data: Event;
   index: number;
+  isContentPage?: boolean;
 }) => {
   return (
     <Link
       href={`/events/${data.slug}`}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
         ${
-          index < 4 &&
+          index < 2 &&
           datas.length > 2 &&
           "tablet:border-b-2 desktop:border-b-0"
         }
         ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
+        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
       `}
     >
       <div className="w-full aspect-square border-y-2 tablet:border-t-0">
@@ -82,11 +85,11 @@ export default function Pagination() {
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? ""
+    searchParams.get("search") ?? "",
   );
   const [datas, setDatas] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10)
+    parseInt(searchParams.get("page") ?? "1", 10),
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
@@ -121,7 +124,7 @@ export default function Pagination() {
         "pagination[page]": p,
       },
       filter.value,
-      q
+      q,
     );
 
     setLoading(false);
@@ -130,7 +133,7 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6)
+        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6),
       );
     setPageCount(pc);
   };
@@ -171,7 +174,7 @@ export default function Pagination() {
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        )
+        ),
       )}
     </div>
   );

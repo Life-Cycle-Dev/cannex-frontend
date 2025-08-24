@@ -112,7 +112,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         </div>
       </div>
 
-      <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_128px_0px] tablet:mx-auto tablet:max-w-[842px]">
+      <div className="w-full p-[48px_20px_137px_20px] tablet:p-[64px_0px_0px_0px] tablet:mb-[200px] tablet:mx-auto tablet:max-w-[842px]">
         <Markdown value={data.content} />
       </div>
 
@@ -127,6 +127,7 @@ export default async function Page({ params, searchParams }: PageProps) {
               key={data.id}
               data={data}
               index={index}
+              isContentPage
             />
           ))}
         </div>
