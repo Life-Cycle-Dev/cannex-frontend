@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function page() {
-  return (
-    <div>page</div>
-  )
+  return <h1 className="text-[72px] p-[20px] tablet:p-[80px_299px] font-bold">Terms of Use</h1>;
 }
