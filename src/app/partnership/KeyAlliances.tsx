@@ -76,7 +76,7 @@ export default function Home() {
               <img
                 src="/partnership/Image.png"
                 alt="Image | Cannex"
-                className="object-cover "
+                className="object-cover w-full h-full"
               />
             </div>
           </div>

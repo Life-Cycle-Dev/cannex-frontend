@@ -16,7 +16,7 @@ interface CompanyCertifications {
   certifications: CertificationCategory[];
 }
 
-/* ---------- Data (ของเดิม) ---------- */
+/* ---------- Data ---------- */
 const data: CompanyCertifications = {
   company: "Siam Agri-Bio Co., Ltd.",
   certifications: [
@@ -42,14 +42,14 @@ const data: CompanyCertifications = {
           authority: "IEAT (Industrial Estate Authority of Thailand)",
           description:
             "IEAT is an industrial estate managed by the Thai government, providing a safe, secure, and efficient operating environment where environmental standards and infrastructure are centrally managed by the state.",
-          image: { src: "/certs/mock-cert.png", alt: "Manufacturing License" },
+          image: { src: "/certs/manufacturing-license.png", alt: "Manufacturing License" },
         },
         {
           title: "Thai GMP",
           authority: "GMP for Herbal Products Containing Hemp — FDA (Thailand)",
           description:
             "Thai GMP is a manufacturing quality standard ensuring the safety and quality of pharmaceuticals, supplements, and herbal products by regulating facilities, processes, and hygiene management.",
-          image: { src: "/certs/mock-cert.png", alt: "Thai GMP" },
+          image: { src: "/certs/thai-gmp.png", alt: "Thai GMP" },
         },
       ],
     },
@@ -58,8 +58,8 @@ const data: CompanyCertifications = {
 
 export default function Certificates() {
   const cat = data.certifications[0];
-  const leftItems = cat.items.slice(0, 2); // Left column
-  const rightItems = cat.items.slice(2); // Right column
+  const leftItems = cat.items.slice(0, 2);
+  const rightItems = cat.items.slice(2);
 
   return (
     <section className="w-full bg-white text-[var(--foreground)]">
@@ -105,7 +105,7 @@ export default function Certificates() {
                 <div key={it.title} className="py-6">
                   <ItemRow item={it} />
                   {i !== rightItems.length - 1 && (
-                    <div className="mt-6 border-b-[2px] border-black  tablet:mx-[20px] desktop:mx-0" />
+                    <div className="mt-6  border-black  tablet:mx-[20px] desktop:mx-0" />
                   )}
                 </div>
               ))}
@@ -123,14 +123,14 @@ export default function Certificates() {
 /* ---------- Subcomponent: รายการรูป+ข้อความ (responsive) ---------- */
 function ItemRow({ item }: { item: Certification }) {
   return (
-    <div className="grid grid-cols-1 desktop:grid-cols-[180px,1fr] desktop:gap-8 desktop:items-start">
+    <div className="flex flex-col tablet:flex-row tablet:gap-8 tablet:items-start">
       {/* รูป */}
       {item.image?.src && (
-        <div className="border border-black/25 rounded-[6px] overflow-hidden bg-white shadow-sm">
+        <div className="overflow-hidden bg-white tablet:min-w-[188px]">
           <img
             src={item.image.src}
             alt={item.title}
-            className="block w-full h-auto"
+            className="block h-auto tablet:w-[188px] border-gray border-2"
             loading="lazy"
           />
         </div>
