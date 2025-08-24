@@ -84,11 +84,11 @@ export default function Page() {
               "opacity-100 translate-x-0",
             )}
           >
-            <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+            <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
               Products
-            </p>
+            </h1>
             <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
-              <div className="text-[40px] tablet:text-[52px] font-bold leading-[110%] text-black flex flex-col gap-2">
+              <h2 className="text-[40px] tablet:text-[52px] font-bold leading-[110%] text-black flex flex-col gap-2">
                 <p className="tablet:hidden bg-crystalGreen w-fit">
                   Pharmaceutical-
                 </p>
@@ -103,13 +103,13 @@ export default function Page() {
                 <p className="hidden tablet:block bg-white w-fit">
                   Designed for Global Markets.
                 </p>
-              </div>
-              <p className="font-medium leading-[125%] w-full tablet:w-[405px]">
+              </h2>
+              <h2 className="font-medium leading-[125%] w-full tablet:w-[405px]">
                 From full-spectrum flower to zero-THC CBD isolate, Cannex
                 delivers reliable, precisely formulated products developed for
                 pharmacies, healthcare providers, and wellness innovators across
                 Europe, Asia, and Oceania.
-              </p>
+              </h2>
             </div>
           </div>
         )}

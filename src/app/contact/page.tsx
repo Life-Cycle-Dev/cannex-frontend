@@ -40,15 +40,15 @@ export default function Page() {
           </div>
           <div className="relative bg-white border-b-[2px] tablet:border-b-0 mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
             <div className="p-6 tablet:p-[64px_64px_0px_64px] flex flex-col gap-2">
-              <p className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+              <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
                 Connect with Cannex
-              </p>
-              <p className="font-medium w-full">
+              </h1>
+              <h2 className="font-medium w-full">
                 Whether you&apos;re a licensed importer, healthcare
                 professional, research institution,
                 <br className="hidden tablet:block" /> or investor — we’re here
                 to build lasting value together.
-              </p>
+              </h2>
             </div>
             <div className="px-6 pt-4 pb-10 tablet:p-[32px_64px_32px_64px] flex flex-col tablet:flex-row tablet:items-end gap-8 tablet:gap-0">
               <div className="w-full gap-2">
