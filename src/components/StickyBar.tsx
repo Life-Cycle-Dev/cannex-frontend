@@ -1,43 +1,73 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ShareButton from "@/components/ShareButton";
 import { useHelperContext } from "./providers/helper-provider";
+
+type StickyBarProps = {
+  title: string;
+  url: string;
+  imageUrl: string;
+  targetRef?: React.RefObject<HTMLElement | null>;
+  revealOffset?: number;
+};
 
 export function StickyBar({
   title,
   url,
   imageUrl,
-}: {
-  title: string;
-  url: string;
-  imageUrl: string;
-}) {
+  targetRef,
+  revealOffset = 80,
+}: StickyBarProps) {
   const [progress, setProgress] = useState(0);
   const [show, setShow] = useState(false);
+  const rafId = useRef<number | null>(null);
   const { setIsNavbarSticky } = useHelperContext()();
+
+  const clamp = (n: number, min = 0, max = 100) =>
+    Math.max(min, Math.min(max, n));
 
   useEffect(() => {
     setIsNavbarSticky(false);
+
     const handleScroll = () => {
-      const totalHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-      const scrollTop = window.scrollY;
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+      rafId.current = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const vh = window.innerHeight;
 
-      setShow(scrollTop > 100);
+        const el = targetRef?.current ?? document.documentElement;
+        const rect = el.getBoundingClientRect();
 
-      const scrolled = (scrollTop / totalHeight) * 100;
-      setProgress(scrolled);
+        const elTop = y + rect.top;
+        const elHeight = el.scrollHeight || el.clientHeight;
+
+        const start = elTop - revealOffset;
+        const end = elTop + elHeight - vh;
+
+        setShow(y >= start);
+
+        const pct = ((y - start) / Math.max(1, end - start)) * 100;
+        setProgress(clamp(pct));
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const handleResize = () => handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, [targetRef, revealOffset]);
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full bg-white z-[999] transition-transform duration-300 ${
+      className={`fixed top-0 left-0 w-full bg-white z-30 transition-transform duration-300 ${
         show ? "translate-y-0" : "-translate-y-full"
       }`}
     >
