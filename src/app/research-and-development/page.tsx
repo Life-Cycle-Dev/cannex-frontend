@@ -19,35 +19,24 @@ export default function Page() {
 
   return (
     <main className="bg-white">
-      <ScrollReveal className="relative w-full h-[436px] tablet:h-[590px]" once>
-        {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              500,
-              "opacity-0 translate-x-20",
-              "opacity-100 translate-x-0",
-            )}
-          >
-            <img
-              src="/asset/research-development.webp"
-              alt="Image | Cannex"
-              className="w-full h-full object-cover"
-              sizes="100vw"
-            />
+      <div className="relative w-full h-[436px] tablet:h-[590px]">
+        <img
+          src="/asset/research-development.webp"
+          alt="Image | Cannex"
+          className="w-full h-full object-cover"
+          sizes="100vw"
+        />
 
-            <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
-              <div className="mx-auto w-full px-6 tablet:px-8 pt-16 tablet:pt-0">
-                <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight">
-                  Research
-                  <br />
-                  &amp; Development
-                </h1>
-              </div>
-            </div>
+        <div className="absolute bottom-0 left-0 w-full py-6 tablet:py-8">
+          <div className="mx-auto w-full px-6 tablet:px-8 pt-16 tablet:pt-0">
+            <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight">
+              Research
+              <br />
+              &amp; Development
+            </h1>
           </div>
-        )}
-      </ScrollReveal>
+        </div>
+      </div>
 
       {/* INTRO SECTION */}
       <ScrollReveal className="bg-white" once>
@@ -72,11 +61,11 @@ export default function Page() {
                 </h2>
 
                 <p className="mt-6 font-medium leading-[125%]">
-                  At Cannex, research is not a department — it&#39;s the foundation
-                  of everything we do. We believe that advancing the future of
-                  medical cannabis starts with asking the right questions,
-                  investing in the right partnerships, and upholding the same
-                  scientific rigor demanded of pharmaceutical products.
+                  At Cannex, research is not a department — it&#39;s the
+                  foundation of everything we do. We believe that advancing the
+                  future of medical cannabis starts with asking the right
+                  questions, investing in the right partnerships, and upholding
+                  the same scientific rigor demanded of pharmaceutical products.
                 </p>
 
                 <p className="mt-4 font-medium leading-[125%]">
