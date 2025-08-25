@@ -100,22 +100,29 @@ export default function About() {
       <div className="pb-[107px] relative">
         <ScrollReveal once>
           {(show) => (
-            <div
-              className={`mt-8 tablet:mt-7 ${getClassNameAnimation(
-                show,
-                1000,
-                "opacity-0 translate-y-20",
-                "opacity-100 translate-y-0"
-              )}`}
-            >
-              <div className="mt-7 hidden tablet:block w-full">
+            <div className={`mt-8 tablet:mt-7`}>
+              <div
+                className={`mt-7 hidden tablet:block w-full ${getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-20",
+                  "opacity-100 translate-x-0",
+                )}`}
+              >
                 <img
                   src="/asset/product-horizontal.webp"
                   alt="Image | Cannex"
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="tablet:hidden">
+              <div
+                className={`tablet:hidden ${getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-20",
+                  "opacity-100 translate-x-0",
+                )}`}
+              >
                 <img
                   src="/asset/product-vertical.webp"
                   alt="Image | Cannex"
@@ -123,7 +130,14 @@ export default function About() {
                 />
               </div>
 
-              <div className="absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20">
+              <div
+                className={`absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20 ${getClassNameAnimation(
+                  show,
+                  1000,
+                  "opacity-0 -translate-x-20",
+                  "opacity-100 translate-x-0",
+                )}`}
+              >
                 <div className="w-[247px] tablet:w-full flex flex-col gap-6 tablet:flex-row tablet:items-end tablet:justify-between">
                   <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
                     <div>

@@ -21,15 +21,20 @@ export const PaginationCard = ({
   data,
   index,
   isContentPage = false,
+  className = "",
+  style = {},
 }: {
   datas: Event[];
   data: Event;
   index: number;
   isContentPage?: boolean;
+  className?: string;
+  style?: object;
 }) => {
   return (
     <Link
       href={`/events/${data.slug}`}
+      style={style}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
         ${
           index < 2 &&
@@ -38,6 +43,7 @@ export const PaginationCard = ({
         }
         ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
         ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${className}
       `}
     >
       <div className="w-full aspect-square border-y-2 tablet:border-t-0">

@@ -8,6 +8,8 @@ import { Event } from "@/types/event";
 import { formatDate } from "@/utils/format";
 import { useHelperContext } from "../providers/helper-provider";
 import { PaginationCard } from "@/app/events/Pagination";
+import ScrollReveal from "../animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
 
 export const Card = ({
   datas,
@@ -84,33 +86,66 @@ export default function EventsAndUpdated() {
   };
 
   return (
-    <div className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px]  tablet:mx-0">
-      <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:border-r-2 tablet:justify-center gap-4 tablet:p-[67px_80px]">
-        <div>
-          <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
-            Newsroom
-          </div>
-          <h2 className="text-[52px] leading-[110%] font-bold">
-            Thought <br /> Leadership
-          </h2>
-        </div>
+    <ScrollReveal className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px]  tablet:mx-0">
+      {(show) => (
+        <>
+          <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:border-r-2 tablet:justify-center gap-4 tablet:p-[67px_80px]">
+            <div
+              className={`${getClassNameAnimation(
+                show,
+                1000,
+                "opacity-0 -translate-x-20",
+                "opacity-100 translate-x-0",
+              )}`}
+            >
+              <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
+                Events & Updated
+              </div>
+              <h2 className="text-[52px] leading-[110%] font-bold">
+                Happening
+              </h2>
+            </div>
 
-        <div className="flex justify-start tablet:items-end">
-          <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
-            <RightUpIcon />
+            <div
+              className={`flex justify-start tablet:items-end ${getClassNameAnimation(
+                show,
+                1000,
+                "opacity-0 -translate-y-20",
+                "opacity-100 translate-y-0",
+              )}`}
+            >
+              <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
+                <RightUpIcon />
+              </div>
+              <Button
+                href="/event"
+                text="Read all events & updated"
+                type="secondaryBlack"
+                className="w-full tablet:w-fit !hidden tablet:!flex"
+                suffixIcon={<RightUpIcon />}
+              />
+            </div>
           </div>
-          <Button
-            href="/event"
-            text="Read all events & updated"
-            type="secondaryBlack"
-            className="w-full tablet:w-fit !hidden tablet:!flex"
-            suffixIcon={<RightUpIcon />}
-          />
-        </div>
-      </div>
-      {datas.map((data, index) => (
-        <PaginationCard datas={datas} key={data.id} data={data} index={index} />
-      ))}
-    </div>
+          {datas.map((data, index) => (
+            <PaginationCard
+              datas={datas}
+              key={data.id}
+              data={data}
+              index={index}
+              style={{
+                transitionDelay: `${500 * index + 500}ms`,
+                animationDelay: `${500 * index + 500}ms`,
+              }}
+              className={`${getClassNameAnimation(
+                show,
+                1000,
+                "opacity-0 -translate-x-20",
+                "opacity-100 translate-x-0",
+              )}}`}
+            />
+          ))}
+        </>
+      )}
+    </ScrollReveal>
   );
 }

@@ -20,18 +20,23 @@ export const PaginationCard = ({
   datas,
   data,
   index,
+  className = "",
+  style = {},
   isContentPage = false,
   skipBorderBottom = false,
 }: {
   datas: NewsRooms[];
   data: NewsRooms;
   index: number;
+  className?: string;
+  style?: object;
   isContentPage?: boolean;
   skipBorderBottom?: boolean;
 }) => {
   return (
     <Link
       href={`/newsroom/${data.slug}`}
+      style={style}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
         ${
           index < 2 &&
@@ -39,8 +44,14 @@ export const PaginationCard = ({
           !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && !skipBorderBottom && "desktop:border-b-2"}
+        ${
+          index < 3 &&
+          datas.length > 3 &&
+          !skipBorderBottom &&
+          "desktop:border-b-2"
+        }
         ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${className}
       `}
     >
       <div className="w-full aspect-square border-y-2 tablet:border-t-0">
@@ -64,7 +75,7 @@ export const PaginationCard = ({
             {data.title}
           </div>
           <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
-            {formatDate(data.publishedAt ?? data.updatedAt  ?? null)}
+            {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
           </div>
           <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
