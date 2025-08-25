@@ -219,12 +219,12 @@ export default function Home() {
       <Newsroom />
       <EventsAndUpdated />
       <div className="mx-[20px]">
-        <div className="flex items-end justify-between py-[64px_32px] tablet:p-[64px_80px] border-y-2">
+        <div className="flex items-start justify-between py-[64px_32px] tablet:p-[64px_80px] border-y-2">
           <h2 className="text-[46px] tablet:text-[52px] font-bold">
             Alliances & Recognitions
           </h2>
           <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
-            <RightUpIcon />
+            <RightUpIcon className="w-[32px] h-[32px]" />
           </div>
           <Button
             href="/partnership"
