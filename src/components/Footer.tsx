@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
             <div className="w-[200px]">
-              <img src="/logo-default.svg" alt="Image | Cannex" />
+              <img src="/logo-default.webp" alt="Image | Cannex" />
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">

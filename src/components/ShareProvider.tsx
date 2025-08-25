@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import CloseIcon from "./icons/CloseIcon";
 import Button from "./Button";
 import LineIcon from "./icons/LineIcon";
 import CopyIcon from "./icons/CopyIcon";
 import FacebookIcon from "./icons/FacebookIcon";
-import AOS from "aos";
 
 interface ShareInfo {
   imageUrl: string;
@@ -46,14 +45,6 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
     )}&text=${encodeURIComponent(title)}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
   }, [url, title]);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center">

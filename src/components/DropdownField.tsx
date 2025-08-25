@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LeftUpIcon from "./icons/LeftUpIcon";
 import RightDownIcon from "./icons/RightDownIcon";
 import CloseIcon from "./icons/CloseIcon";
-import AOS from "aos";
 
 interface DropdownProps {
   options: string[];
@@ -28,14 +27,6 @@ export default function Dropdown({
     onChange(option);
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-      once: true,
-      easing: "ease-in-out",
-    });
-  }, []);
 
   return (
     <div className="relative w-full flex flex-col gap-1">
@@ -86,7 +77,6 @@ export default function Dropdown({
             onClick={() => setIsOpen(false)}
           ></div>
           <ul
-            data-aos="fade-up tablet:fade-down"
             className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto"
           >
             <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">

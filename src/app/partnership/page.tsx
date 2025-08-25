@@ -9,7 +9,7 @@ import Partners from "@/components/Partners";
 
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <div
         id="hero-start"
         className="tablet:h-[590px] flex flex-col tablet:flex-row tablet:border-b-2"
@@ -21,7 +21,7 @@ export default function Page() {
 
           <div className="h-[375px] tablet:h-[352px] border-y-2 tablet:border-y-0">
             <img
-              src="/partnership/hero-section.jpg"
+              src="/partnership/hero-section.webp"
               alt="Image | Cannex"
               className="w-full h-full object-cover"
             />

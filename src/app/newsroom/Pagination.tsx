@@ -20,21 +20,27 @@ export const PaginationCard = ({
   datas,
   data,
   index,
+  isContentPage = false,
+  skipBorderBottom = false,
 }: {
   datas: NewsRooms[];
   data: NewsRooms;
   index: number;
+  isContentPage?: boolean;
+  skipBorderBottom?: boolean;
 }) => {
   return (
     <Link
       href={`/newsroom/${data.slug}`}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
         ${
-          index < 4 &&
+          index < 2 &&
           datas.length > 2 &&
+          !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
+        ${index < 3 && datas.length > 3 && !skipBorderBottom && "desktop:border-b-2"}
+        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
       `}
     >
       <div className="w-full aspect-square border-y-2 tablet:border-t-0">
@@ -45,7 +51,7 @@ export const PaginationCard = ({
         />
       </div>
 
-      <div className="relative pb-6 tablet:pb-0 overflow-hidden">
+      <div className="relative pb-6 tablet:pb-0 h-full overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
         <div className="relative z-20 flex flex-col gap-4">
@@ -58,7 +64,7 @@ export const PaginationCard = ({
             {data.title}
           </div>
           <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
-            {formatDate(data.publishedAt)}
+            {formatDate(data.publishedAt ?? data.updatedAt  ?? null)}
           </div>
           <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
@@ -82,14 +88,25 @@ export default function Pagination() {
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? ""
+    searchParams.get("search") ?? "",
   );
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10)
+    parseInt(searchParams.get("page") ?? "1", 10),
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 820);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const PAGE_SIZE = isMobile ? 10 : 15;
 
   const filterItem = [
     { label: "Newest", value: "publishedAt:desc" },
@@ -107,7 +124,11 @@ export default function Pagination() {
 
   useEffect(() => {
     fetchData(page, searchText);
-  }, [page, searchText, filter]);
+  }, [page, searchText, filter, PAGE_SIZE]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   const fetchData = async (p: number, q: string) => {
     if (q === "") {
@@ -117,11 +138,11 @@ export default function Pagination() {
     const response = await backendClient.getNewsRoomsPagination(
       {
         "pagination[withCount]": "true",
-        "pagination[pageSize]": 6,
+        "pagination[pageSize]": PAGE_SIZE,
         "pagination[page]": p,
       },
       filter.value,
-      q
+      q,
     );
 
     setLoading(false);
@@ -130,7 +151,9 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / 6)
+        Math.ceil(
+          ((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE,
+        ),
       );
     setPageCount(pc);
   };
@@ -171,7 +194,7 @@ export default function Pagination() {
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        )
+        ),
       )}
     </div>
   );
@@ -212,8 +235,10 @@ export default function Pagination() {
           <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className={`p-3 ${
-              page === 1 ? "opacity-40 cursor-not-allowed" : ""
+            className={`p-3 transition-all duration-300 ${
+              page === 1
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:bg-gray-200 hover:scale-105"
             }`}
             aria-label="Previous page"
           >
@@ -223,8 +248,10 @@ export default function Pagination() {
           <button
             onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
             disabled={page === pageCount}
-            className={`p-3 ${
-              page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+            className={`p-3 transition-all duration-300 ${
+              page === pageCount
+                ? "opacity-40 cursor-not-allowed"
+                : "hover:bg-gray-200 hover:scale-105"
             }`}
             aria-label="Next page"
           >
@@ -239,8 +266,10 @@ export default function Pagination() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1}
-              className={`p-3 ${
-                page === 1 ? "opacity-40 cursor-not-allowed" : ""
+              className={`p-3 transition-all duration-300 ${
+                page === 1
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-black hover:text-crystalGreen"
               }`}
               aria-label="Previous page"
             >
@@ -249,8 +278,10 @@ export default function Pagination() {
             <button
               onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
               disabled={page === pageCount}
-              className={`p-3 ${
-                page === pageCount ? "opacity-40 cursor-not-allowed" : ""
+              className={`p-3 transition-all duration-300 ${
+                page === pageCount
+                  ? "opacity-40 cursor-not-allowed"
+                  : "hover:bg-black hover:text-crystalGreen"
               }`}
               aria-label="Next page"
             >

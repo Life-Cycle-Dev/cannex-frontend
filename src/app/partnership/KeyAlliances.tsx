@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
+
 type Alliance = { flag: string; title: string; bullets: string[] };
 
 const ALLIANCES: Alliance[] = [
   {
-    flag: "/partnership/icon/usa-flag.png",
+    flag: "/partnership/icon/usa-flag.webp",
     title: "Cannex Pharma (USA)",
     bullets: [
       "Founded by the team behind Cookies Maywood",
@@ -15,7 +18,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/jp-flag.png",
+    flag: "/partnership/icon/jp-flag.webp",
     title: "Japanese Pharmaceutical Partners",
     bullets: [
       "Advanced extraction, crystallization, and chromatography",
@@ -24,7 +27,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/th-flag.png",
+    flag: "/partnership/icon/th-flag.webp",
     title: "Siam Agri-Bio (Thailand)",
     bullets: [
       "PIC/S GMP-certified facility for extraction & production",
@@ -40,46 +43,105 @@ export default function Home() {
     <main className="bg-white text-[var(--foreground)]">
       <section
         aria-labelledby="alliances-title"
-        className="w-full border-t-2 border-b-2  border-black"
+        className="w-full border-t-2 desktop:border-b-2 border-black"
       >
-        <div className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]">
-          <h1
-            id="alliances-title"
-            className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
-          >
-            Our Key Strategic
-            <br />
-            Alliances
-          </h1>
-        </div>
-        <div className="mt-[20px] desktop:hidden border-t-[2px] border-black">
-          <div className="relative w-full aspect-[16/10]">
-            <img
-              src="/partnership/Image.png"
-              alt="Image | Cannex"
-              className="object-cover"
-            />
-          </div>
-        </div>
+        <ScrollReveal
+          className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]"
+          once
+        >
+          {(show) => (
+            <div
+              className={getClassNameAnimation(
+                show,
+                500,
+                "opacity-0 -translate-x-10",
+                "opacity-100 translate-x-0",
+              )}
+            >
+              <h1
+                id="alliances-title"
+                className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
+              >
+                Our Key Strategic
+                <br />
+                Alliances
+              </h1>
+            </div>
+          )}
+        </ScrollReveal>
+
+        <ScrollReveal
+          className="mt-[20px] desktop:hidden border-t-[2px] border-black"
+          once
+        >
+          {(show) => (
+            <div
+              className={getClassNameAnimation(
+                show,
+                1000,
+                "opacity-0 translate-x-20",
+                "opacity-100 translate-x-0",
+              )}
+            >
+              <div className="relative w-full h-full border-b-2 desktop:border-b-0">
+                <img
+                  src="/partnership/Image.webp"
+                  alt="Image | Cannex"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+          )}
+        </ScrollReveal>
+
         {/* Grid: ซ้าย/ขวา */}
         <div className="grid grid-cols-1 desktop:grid-cols-2">
           {/* LEFT: 3 บล็อก */}
           <div className="border-black">
-            {ALLIANCES.map((a) => (
-              <AllianceItem key={a.title} data={a} />
+            {ALLIANCES.map((a, idx) => (
+              <ScrollReveal key={a.title} once>
+                {(show) => (
+                  <div
+                    className={getClassNameAnimation(
+                      show,
+                      1500 + idx * 300,
+                      "opacity-0 translate-x-20",
+                      "opacity-100 translate-x-0",
+                    )}
+                  >
+                    <AllianceItem data={a} index={idx} />
+                  </div>
+                )}
+              </ScrollReveal>
             ))}
           </div>
 
           {/* RIGHT: รูปภาพ */}
-          <div className="hidden desktop:block desktop:row-span-3 border-l-2 border-black">
-            <div className="relative w-full h-full border-t-[2px]">
-              <img
-                src="/partnership/Image.png"
-                alt="Image | Cannex"
-                className="object-cover "
-              />
-            </div>
-          </div>
+          <ScrollReveal
+            className="hidden desktop:block desktop:row-span-3 border-l-2 border-black h-full"
+            once
+          >
+            {(show) => (
+              <div
+                className={
+                  getClassNameAnimation(
+                    show,
+                    2000,
+                    "opacity-0 translate-x-20",
+                    "opacity-100 translate-x-0",
+                  ) + "h-full"
+                }
+              >
+                <div className="relative w-full h-full border-t-[2px]">
+                  <img
+                    src="/partnership/Image.webp"
+                    alt="Image | Cannex"
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+              </div>
+            )}
+          </ScrollReveal>
         </div>
       </section>
     </main>
@@ -87,9 +149,13 @@ export default function Home() {
 }
 
 /* ---------- Subcomponent ---------- */
-function AllianceItem({ data }: { data: Alliance }) {
+function AllianceItem({ data, index }: { data: Alliance; index: number }) {
   return (
-    <div className="border-black border-t-2 border-b-0 mx-[20px] desktop:mx-0">
+    <div
+      className={`border-black ${
+        index !== 0 && "border-t-2"
+      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0`}
+    >
       <div
         className={`
           pb-[32px]
@@ -105,7 +171,7 @@ function AllianceItem({ data }: { data: Alliance }) {
           <span>{data.title}</span>
         </h3>
 
-        <ul className="mt-3 space-y-1 text-sm desktop:text-[15px] text-neutral-900">
+        <ul className="mt-3 space-x-1 text-sm desktop:text-[15px] text-neutral-900">
           {data.bullets.map((b, i) => (
             <li key={i} className="pl-4 relative leading-relaxed">
               <span className="absolute left-0 top-2 block w-1 h-1 rounded-full bg-black" />

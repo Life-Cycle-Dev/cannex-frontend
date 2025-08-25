@@ -1,5 +1,8 @@
 "use client";
 
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
+
 type Bullet = { strong?: string; text: string };
 
 const OFFER: Bullet[] = [
@@ -32,20 +35,46 @@ export default function OfferAndAudience() {
     <section className="w-full bg-white text-[var(--foreground)]   border-black">
       <div className="grid grid-cols-1 desktop:grid-cols-2">
         {/* LEFT */}
-        <Column
-          titleA="What We Offer"
-          titleB="Our Partners"
-          bullets={OFFER}
-          showLeftBorder={false}
-        />
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={getClassNameAnimation(
+                show,
+                500,
+                "opacity-0 -translate-x-20",
+                "opacity-100 translate-x-0",
+              )}
+            >
+              <Column
+                titleA="What We Offer"
+                titleB="Our Partners"
+                bullets={OFFER}
+                showLeftBorder={false}
+              />
+            </div>
+          )}
+        </ScrollReveal>
 
         {/* RIGHT */}
-        <Column
-          titleA="Who We"
-          titleB="Work With"
-          bullets={AUDIENCE}
-          showLeftBorder
-        />
+        <ScrollReveal once>
+          {(show) => (
+            <div
+              className={getClassNameAnimation(
+                show,
+                1000,
+                "opacity-0 translate-x-20",
+                "opacity-100 translate-x-0",
+              )}
+            >
+              <Column
+                titleA="Who We"
+                titleB="Work With"
+                bullets={AUDIENCE}
+                showLeftBorder
+              />
+            </div>
+          )}
+        </ScrollReveal>
       </div>
     </section>
   );

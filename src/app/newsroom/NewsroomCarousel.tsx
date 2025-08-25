@@ -48,7 +48,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
             {items.map((it) => (
               <img
                 key={it.id}
-                src={it?.image?.url || "/placeholder.png"}
+                src={it?.image?.url}
                 alt={it?.title || it?.title || "news image"}
                 className="
                   w-full h-full object-cover flex-shrink-0 cursor-pointer

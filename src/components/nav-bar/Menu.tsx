@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Link from "next/link";
 import { useHelperContext } from "../providers/helper-provider";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -38,7 +37,7 @@ export default function Menu({
   }, [pathname]);
 
   return (
-    <Link
+    <a
       href={href}
       onClick={onClick}
       className={`${
@@ -53,6 +52,6 @@ export default function Menu({
        }`}
     >
       {title}
-    </Link>
+    </a>
   );
 }

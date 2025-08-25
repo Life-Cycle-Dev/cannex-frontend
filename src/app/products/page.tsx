@@ -4,14 +4,13 @@
 import CannexSvg from "@/components/icons/CannexSvg";
 import SupportingInformation from "@/components/SupportingInformation";
 import WrapUp from "@/components/WrapUp";
-
-import { useEffect } from "react";
-import AOS from "aos";
+import ScrollReveal from "@/components/animation/ScrollReveal";
+import { getClassNameAnimation } from "@/utils/animation-helper";
 
 const products = [
   {
     title: "Premium\nCanabis Flower",
-    img: "/product/product-flower.png",
+    img: "/product/product-flower.webp",
     subTittle: "Cultivated by California experts. Certified for medical use.",
     description:
       "Our cannabis flowers are cultivated indoors at our Bangkok site by California growers from Cookies Maywood. Each batch is carefully grown, harvested, and cured to retain terpene richness and potency.",
@@ -26,7 +25,7 @@ const products = [
   },
   {
     title: "CBD Isolate [Crystal Powder]",
-    img: "/product/product-isolate.png",
+    img: "/product/product-isolate.webp",
     subTittle: "Ultra-pure. THC-Free. Ready for global formulation.",
     description:
       "Our pharmaceutical-grade CBD isolate is extracted using advanced Japanese technology and crystallized to ≥99% purity — with 0.0% THC content. Ideal for blending into wellness, nutraceutical, and therapeutic products where precision and compliance matter most.",
@@ -40,7 +39,7 @@ const products = [
   },
   {
     title: "Medical Cannabis Oil",
-    img: "/product/product-oil.png",
+    img: "/product/product-oil.webp",
     subTittle: "Standardized. THC-Free. Clinically oriented.",
     description:
       "Cannex oils are developed in our ISO Class 7 cleanroom facility under strict PIC/S GMP conditions. Each batch is standardized for consistent cannabinoid content and tailored for healthcare and medical applications.",
@@ -54,7 +53,7 @@ const products = [
   },
   {
     title: "Custom Formulation",
-    img: "/product/product-custom.png",
+    img: "/product/product-custom.webp",
     subTittle: "Your Formula. Our Precision.",
     description:
       "We partner with brands and medical license holders to co-develop proprietary cannabinoid products — from R&D to scaled manufacturing. Whether you seek a unique terpene profile or minor cannabinoid blend, our lab and QA/QC ecosystem ensures your vision becomes a viable, compliant product.",
@@ -70,109 +69,134 @@ const products = [
 ];
 
 export default function Page() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
   return (
     <div>
-      <div className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6">
-        <p
-          data-aos="fade-down"
-          className="text-[46px] tablet:text-7xl font-bold leading-[110%]"
-        >
-          Products
-        </p>
-        <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
-          <div className="text-[40px] tablet:text-[52px] font-bold leading-[110%] text-black flex flex-col gap-2">
-            <p className="tablet:hidden bg-crystalGreen w-fit">
-              Pharmaceutical-
-            </p>
-            <p className="tablet:hidden bg-crystalGreen w-fit">
-              Grade Products
-            </p>
-            <p className="hidden tablet:block bg-crystalGreen w-fit">
-              Pharmaceutical- Grade Products
-            </p>
-            <p className="tablet:hidden bg-white w-fit">Designed for</p>
-            <p className="tablet:hidden bg-white w-fit">Global Markets.</p>
-            <p className="hidden tablet:block bg-white w-fit">
-              Designed for Global Markets.
-            </p>
-          </div>
-          <p
-            data-aos="fade-right"
-            className="font-medium leading-[125%] w-full tablet:w-[405px]"
-          >
-            From full-spectrum flower to zero-THC CBD isolate, Cannex delivers
-            reliable, precisely formulated products developed for pharmacies,
-            healthcare providers, and wellness innovators across Europe, Asia,
-            and Oceania.
-          </p>
-        </div>
-      </div>
-      <div className="relative">
-        <div className="w-full h-[375px] tablet:h-[720px]">
-          <img
-            src="/product-banner.jpg"
-            alt="Image | Cannex"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <CannexSvg className="absolute bottom-0 w-full fill-black" />
-      </div>
-      <div>
-        {products.map((product, idx) => (
+      <ScrollReveal
+        className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6"
+        once
+      >
+        {(show) => (
           <div
-            key={idx}
-            className={`border-t-[2px] grid tablet:grid-cols-2 ${
-              idx % 2 === 1
-                ? "tablet:[&>*:first-child]:order-2 [&>*:last-child]:order-1"
-                : ""
-            }`}
+            className={getClassNameAnimation(
+              show,
+              500,
+              "opacity-0 -translate-x-10",
+              "opacity-100 translate-x-0",
+            )}
           >
-            <div
-              className={`w-full relative border-b-[2px] tablet:border-b-0 p-[42px] tablet:p-20 
-                  ${idx % 2 === 1 ? "" : "tablet:border-r-[2px]"}`}
-            >
+            <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+              Products
+            </h1>
+            <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
+              <h2 className="text-[40px] tablet:text-[52px] font-bold leading-[110%] text-black flex flex-col gap-2">
+                <p className="tablet:hidden bg-crystalGreen w-fit">
+                  Pharmaceutical-
+                </p>
+                <p className="tablet:hidden bg-crystalGreen w-fit">
+                  Grade Products
+                </p>
+                <p className="hidden tablet:block bg-crystalGreen w-fit">
+                  Pharmaceutical- Grade Products
+                </p>
+                <p className="tablet:hidden bg-white w-fit">Designed for</p>
+                <p className="tablet:hidden bg-white w-fit">Global Markets.</p>
+                <p className="hidden tablet:block bg-white w-fit">
+                  Designed for Global Markets.
+                </p>
+              </h2>
+              <h2 className="font-medium leading-[125%] w-full tablet:w-[405px]">
+                From full-spectrum flower to zero-THC CBD isolate, Cannex
+                delivers reliable, precisely formulated products developed for
+                pharmacies, healthcare providers, and wellness innovators across
+                Europe, Asia, and Oceania.
+              </h2>
+            </div>
+          </div>
+        )}
+      </ScrollReveal>
+
+      <ScrollReveal className="relative" once>
+        {(show) => (
+          <div
+            className={getClassNameAnimation(
+              show,
+              1000,
+              "opacity-0 translate-x-20",
+              "opacity-100 translate-x-0",
+            )}
+          >
+            <div className="w-full h-[375px] tablet:h-[720px]">
               <img
-                src={product.img}
-                alt={product.title}
-                className="w-full h-full object-contain"
+                src="/product-banner.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
               />
             </div>
-
-            <div
-              className={`p-[32px_20px_16px_20px] tablet:p-[96px_80px_92px_64px] w-full flex flex-col gap-8
-                ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
-            >
-              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] whitespace-pre-line">
-                {product.title}
-              </p>
-              <p className="font-bold text-2xl leading-[120%]">
-                {product.subTittle}
-              </p>
-              <p className="font-medium leading-[125%]">
-                {product.description}
-              </p>
-
-              <div className="font-medium leading-[125%] tablet:grid tablet:grid-cols-2 border-t-2 border-l-2 border-r-2">
-                {product.details.map((detail, index) => (
-                  <div
-                    key={index}
-                    className={`p-4 tablet:px-6 border-b-2
-                       ${index % 2 === 0 ? "tablet:border-r-2" : ""}`}
-                  >
-                    {detail}
-                  </div>
-                ))}
-              </div>
-
-              <p className="font-medium leading-[125%]">{product.disclaimer}</p>
-            </div>
+            <CannexSvg className="absolute bottom-0 w-full fill-black" />
           </div>
+        )}
+      </ScrollReveal>
+
+      <div>
+        {products.map((product, idx) => (
+          <ScrollReveal key={idx} once>
+            {(show) => (
+              <div
+                className={`border-t-[2px] grid tablet:grid-cols-2 ${getClassNameAnimation(
+                  show,
+                  1500 + idx * 300,
+                  "opacity-0 translate-x-30",
+                  "opacity-100 translate-x-0",
+                )} ${
+                  idx % 2 === 1
+                    ? "tablet:[&>*:first-child]:order-2 [&>*:last-child]:order-1"
+                    : ""
+                }`}
+              >
+                <div
+                  className={`w-full relative border-b-[2px] tablet:border-b-0 p-[42px] tablet:p-20 
+                      ${idx % 2 === 1 ? "" : "tablet:border-r-[2px]"}`}
+                >
+                  <img
+                    src={product.img}
+                    alt={product.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div
+                  className={`p-[32px_20px_16px_20px] tablet:p-[96px_80px_92px_64px] w-full flex flex-col gap-8
+                    ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
+                >
+                  <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] whitespace-pre-line">
+                    {product.title}
+                  </p>
+                  <p className="font-bold text-2xl leading-[120%]">
+                    {product.subTittle}
+                  </p>
+                  <p className="font-medium leading-[125%]">
+                    {product.description}
+                  </p>
+
+                  <div className="font-medium leading-[125%] tablet:grid tablet:grid-cols-2 border-t-2 border-l-2 border-r-2">
+                    {product.details.map((detail, index) => (
+                      <div
+                        key={index}
+                        className={`p-4 tablet:px-6 border-b-2
+                           ${index % 2 === 0 ? "tablet:border-r-2" : ""}`}
+                      >
+                        {detail}
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="font-medium leading-[125%]">
+                    {product.disclaimer}
+                  </p>
+                </div>
+              </div>
+            )}
+          </ScrollReveal>
         ))}
       </div>
 

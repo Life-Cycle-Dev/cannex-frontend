@@ -22,7 +22,7 @@ const jsonLdOrg = {
   "@type": "Organization",
   name: "cannex",
   url: process.env.NEXT_PUBLIC_FRONTEND_PATH,
-  logo: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/asset/iconic.png`,
+  logo: `${process.env.NEXT_PUBLIC_FRONTEND_PATH}/asset/iconic.webp`,
 };
 
 const jsonLdSite = {
@@ -46,7 +46,7 @@ export default async function RootLayout({
     <Suspense fallback={<div></div>}>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen overflow-x-hidden`}
         >
           <LoadingProvider>
             <HelperProvider>
