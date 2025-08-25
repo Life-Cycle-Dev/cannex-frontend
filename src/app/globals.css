@@ -1,6 +1,20 @@
 @import "tailwindcss";
 @import "ckeditor5/ckeditor5.css";
 
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll-left 20s linear infinite;
+}
+
 :root {
   --foreground: #171717;
   --black: #000000;
@@ -545,13 +559,27 @@ body {
 }
 
 @keyframes slideDown {
-  from { transform: scaleY(0); opacity: 0; }
-  to   { transform: scaleY(1); opacity: 1; }
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { transform: scaleY(1); opacity: 1; }
-  to   { transform: scaleY(0); opacity: 0; }
+  from {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  to {
+    transform: scaleY(0);
+    opacity: 0;
+  }
 }
 
 .animate-slideDown {

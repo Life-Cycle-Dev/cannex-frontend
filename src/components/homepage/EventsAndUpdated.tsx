@@ -115,7 +115,7 @@ export default function EventsAndUpdated() {
               )}`}
             >
               <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
-                <RightUpIcon />
+                <RightUpIcon className="w-[32px] h-[32px]" />
               </div>
               <Button
                 href="/event"

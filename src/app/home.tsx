@@ -48,7 +48,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
                         )
                       }
                     >
@@ -62,7 +62,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
                         )
                       }
                     >
@@ -76,7 +76,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
                         )
                       }
                     >
@@ -90,7 +90,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
@@ -104,7 +104,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
@@ -118,7 +118,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block",
                         )
                       }
                     >
@@ -132,7 +132,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
@@ -146,7 +146,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
@@ -164,7 +164,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
@@ -184,7 +184,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
@@ -218,6 +218,84 @@ export default function Home() {
       <RnD />
       <Newsroom />
       <EventsAndUpdated />
+      <div className="mx-[20px]">
+        <div className="flex items-end justify-between py-[64px_32px] tablet:p-[64px_80px] border-y-2">
+          <h2 className="text-[46px] tablet:text-[52px] font-bold">
+            Alliances & Recognitions
+          </h2>
+          <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
+            <RightUpIcon />
+          </div>
+          <Button
+            href="/partnership"
+            text="Partnership"
+            type="secondaryBlack"
+            className="w-full tablet:w-fit !hidden tablet:!flex"
+            suffixIcon={<RightUpIcon />}
+          />
+        </div>
+        <div className="overflow-hidden">
+          <div className="grid grid-cols-2 tablet:hidden">
+            <div className="border-r-2 border-b-2 p-[24px] aspect-square flex items-center">
+              <img
+                src="/asset/alliances-1.webp"
+                alt="Image | Cannex"
+                className="h-fit"
+              />
+            </div>
+            <div className="border-b-2 aspect-square flex items-center">
+              <img
+                src="/asset/alliances-2.webp"
+                alt="Image | Cannex"
+                className="h-fit"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] aspect-square">
+              <img
+                src="/asset/alliances-3.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="p-[24px] aspect-square">
+              <img
+                src="/asset/alliances-4.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Desktop: Horizontal scroll animation */}
+          <div className="hidden tablet:flex animate-scroll">
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-1.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-2.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-3.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-4.webp" alt="Image | Cannex" />
+            </div>
+            {/* Duplicate images for seamless loop */}
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-1.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-2.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-3.webp" alt="Image | Cannex" />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0">
+              <img src="/asset/alliances-4.webp" alt="Image | Cannex" />
+            </div>
+          </div>
+        </div>
+      </div>
       <Supplying />
       <Contact />
     </div>
