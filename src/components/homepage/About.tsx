@@ -19,7 +19,7 @@ export default function About() {
                   show,
                   500,
                   "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0"
+                  "opacity-100 translate-y-0",
                 )}`}
               />
             </div>
@@ -29,23 +29,37 @@ export default function About() {
         <div className="w-full max-w-[629px] flex flex-col gap-6">
           <ScrollReveal once>
             {(show) => (
-              <div
-                className={`flex flex-col gap-2 tablet:gap-6 ${getClassNameAnimation(
-                  show,
-                  500,
-                  "opacity-0 -translate-x-10",
-                  "opacity-100 translate-x-0"
-                )}`}
-              >
+              <div className={`flex flex-col gap-2 tablet:gap-6`}>
                 <div className="flex flex-col gap-4">
-                  <h2 className="py-0.5 px-2 bg-black text-white w-fit">
+                  <h2
+                    className={`py-0.5 px-2 bg-black text-white w-fit ${getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0 -translate-y-10",
+                      "opacity-100 translate-y-0",
+                    )}`}
+                  >
                     Brand Introduction
                   </h2>
-                  <p className="text-[32px] tablet:text-[52px] font-bold">
+                  <p
+                    className={`text-[32px] tablet:text-[52px] font-bold ${getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0 -translate-x-10",
+                      "opacity-100 translate-x-0",
+                    )}`}
+                  >
                     Where Expertise Meets Collaboration.
                   </p>
                 </div>
-                <p>
+                <p
+                  className={`${getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )}`}
+                >
                   <span className="font-medium">
                     Cannex was born from a global alliance between Cannex Pharma
                     and Siam Agri-Bio — combining world-class cultivation and
@@ -67,7 +81,7 @@ export default function About() {
                   show,
                   1000,
                   "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0"
+                  "opacity-100 translate-y-0",
                 )}
               >
                 <Button
@@ -91,7 +105,7 @@ export default function About() {
                 show,
                 1000,
                 "opacity-0 translate-y-20",
-                "opacity-100 translate-y-0"
+                "opacity-100 translate-y-0",
               )}`}
             >
               <div className="mt-7 hidden tablet:block w-full">

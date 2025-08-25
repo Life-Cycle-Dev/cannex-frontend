@@ -70,11 +70,15 @@ function ProductCard({
       tabIndex={0}
       role="button"
       aria-label={data.title.replace(/\n/g, " ")}
+      style={{
+        transitionDelay: `${500 + index * 200}ms`,
+        animationDelay: `${500 + index * 200}ms`,
+      }}
       className={`group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black border-r-[2px] ${getClassNameAnimation(
         show,
         500 + index * 200,
-        "opacity-0 translate-y-20",
-        "opacity-100 translate-y-0"
+        "opacity-0 -translate-x-20",
+        "opacity-100 translate-x-0",
       )}`}
     >
       <div className="w-full flex justify-end bg-white">
