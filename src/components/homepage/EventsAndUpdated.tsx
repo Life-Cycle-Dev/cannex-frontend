@@ -91,14 +91,14 @@ export default function EventsAndUpdated() {
         <>
           <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:border-r-2 tablet:justify-center gap-4 tablet:p-[67px_80px]">
             <div
-              className={`${getClassNameAnimation(
+              className={`mb-4 ${getClassNameAnimation(
                 show,
                 1000,
                 "opacity-0 -translate-x-20",
                 "opacity-100 translate-x-0",
               )}`}
             >
-              <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
+              <div className="tablet:mb-4 w-fit text-white bg-black p-[2px_8px] h-fit">
                 Events & Updated
               </div>
               <h2 className="text-[52px] leading-[110%] font-bold">
