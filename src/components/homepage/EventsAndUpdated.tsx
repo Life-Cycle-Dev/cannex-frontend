@@ -114,7 +114,12 @@ export default function EventsAndUpdated() {
                 "opacity-100 translate-y-0",
               )}`}
             >
-              <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
+              <div
+                onClick={() => {
+                  window.location.href = "/event";
+                }}
+                className="w-12 h-12 flex justify-center items-center tablet:hidden"
+              >
                 <RightUpIcon className="w-[32px] h-[32px]" />
               </div>
               <Button

@@ -58,7 +58,12 @@ export default function Newsroom() {
                 "opacity-100 translate-x-0",
               )}`}
             >
-              <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
+              <div
+                onClick={() => {
+                  window.location.href = "/newsroom";
+                }}
+                className="w-12 h-12 flex justify-center items-center tablet:hidden"
+              >
                 <RightUpIcon />
               </div>
               <Button

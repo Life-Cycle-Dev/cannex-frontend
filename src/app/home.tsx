@@ -223,7 +223,12 @@ export default function Home() {
           <h2 className="text-[46px] tablet:text-[52px] font-bold">
             Alliances & Recognitions
           </h2>
-          <div className="w-12 h-12 flex justify-center items-center tablet:hidden">
+          <div
+            onClick={() => {
+              window.location.href = "/partnership";
+            }}
+            className="w-12 h-12 flex justify-center items-center tablet:hidden"
+          >
             <RightUpIcon className="w-[32px] h-[32px]" />
           </div>
           <Button
