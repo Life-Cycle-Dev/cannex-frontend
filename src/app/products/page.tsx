@@ -72,7 +72,7 @@ export default function Page() {
   return (
     <div>
       <ScrollReveal
-        className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6"
+        className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6 overflow-x-hidden"
         once
       >
         {(show) => (

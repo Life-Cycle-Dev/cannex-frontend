@@ -48,6 +48,7 @@ export default function Footer() {
               <Button
                 text={contactInfo?.phone ?? ""}
                 type="secondaryBlack"
+                href={`tel:${contactInfo?.phone}`}
                 className="w-full tablet:w-fit"
                 prefixIcon={<PhoneIcon />}
               />
