@@ -70,9 +70,9 @@ const products = [
 
 export default function Page() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <ScrollReveal
-        className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6 overflow-x-hidden"
+        className="p-[32px_20px_16px_20px] tablet:p-[64px_80px_48px_80px] flex flex-col gap-6"
         once
       >
         {(show) => (

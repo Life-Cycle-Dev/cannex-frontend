@@ -18,7 +18,7 @@ export default function Page() {
   };
 
   return (
-    <main className="bg-white">
+    <main className="bg-white overflow-x-hidden">
       <div className="relative w-full h-[436px] tablet:h-[590px]">
         <img
           src="/asset/research-development.webp"
