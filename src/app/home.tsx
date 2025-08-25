@@ -218,7 +218,7 @@ export default function Home() {
       <RnD />
       <Newsroom />
       <EventsAndUpdated />
-      <div className="mx-[20px]">
+      <div className="mx-[20px] tablet:mx-0">
         <div className="flex items-start justify-between py-[64px_32px] tablet:p-[64px_80px] border-y-2">
           <h2 className="text-[46px] tablet:text-[52px] font-bold">
             Alliances & Recognitions
