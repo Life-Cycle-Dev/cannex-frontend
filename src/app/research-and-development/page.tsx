@@ -191,21 +191,22 @@ export default function Page() {
         )}
       </ScrollReveal>
 
-      <ScrollReveal className="relative w-full border border-neutral200" once>
+      <ScrollReveal className="relative w-full overflow-hidden" once>
         {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              1500,
-              "opacity-0 translate-x-20",
-              "opacity-100 translate-x-0",
-            )}
-          >
+          <div>
             <div className="relative w-full h-[750px] tablet:h-[720px] border-y-[2px]">
               <video
                 ref={videoRef}
                 src="/asset/rnd.mp4"
-                className="absolute inset-0 h-full w-full object-cover"
+                className={
+                  "absolute inset-0 h-full w-full object-cover zoom-origin-center" +
+                  getClassNameAnimation(
+                    show,
+                    1000,
+                    "zoom-from",
+                    "animate-zoom-to-fit",
+                  )
+                }
                 poster="/asset/research-development.webp" // fallback image before play
                 controls={playing} // show controls after starting
                 preload="metadata"
