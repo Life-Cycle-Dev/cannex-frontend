@@ -75,19 +75,20 @@ export default function Home() {
           once
         >
           {(show) => (
-            <div
-              className={getClassNameAnimation(
-                show,
-                1000,
-                "opacity-0 translate-x-20",
-                "opacity-100 translate-x-0",
-              )}
-            >
+            <div>
               <div className="relative w-full h-full border-b-2 desktop:border-b-0">
                 <img
                   src="/partnership/Image.webp"
                   alt="Image | Cannex"
-                  className="object-cover w-full h-full"
+                  className={
+                    "object-cover w-full h-full zoom-origin-center" +
+                    getClassNameAnimation(
+                      show,
+                      1000,
+                      "zoom-from",
+                      "animate-zoom-to-fit",
+                    )
+                  }
                 />
               </div>
             </div>
@@ -136,7 +137,15 @@ export default function Home() {
                   <img
                     src="/partnership/Image.webp"
                     alt="Image | Cannex"
-                    className="object-cover w-full h-full"
+                    className={
+                      "object-cover w-full h-full zoom-origin-center" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "zoom-from",
+                        "animate-zoom-to-fit",
+                      )
+                    }
                   />
                 </div>
               </div>
