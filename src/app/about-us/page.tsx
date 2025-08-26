@@ -12,7 +12,7 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 export default function Page() {
   return (
     <div>
-      <div className="w-full h-[961px]">
+      <div className="w-full h-[499px] tablet:h-[961px]">
         <div className="relative w-full h-full">
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0)_50%)]"></div>
           <div className="absolute top-0 left-0 z-1 w-full h-full bg-[linear-gradient(135deg,rgba(0,0,0,0)_50%,rgba(0,0,0,0.5)_100%)]"></div>
@@ -33,7 +33,7 @@ export default function Page() {
                 {(show) => (
                   <h1
                     className={`
-                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] 
+                      text-[46px] tablet:text-[72px] pt-[24px] tablet:pt-[32px] transition-all duration-[300ms] 
                       ${getClassNameAnimation(
                         show,
                         300,
@@ -54,7 +54,7 @@ export default function Page() {
                       <span
                         style={{ transitionDelay: `${i * 100}ms`, lineHeight: 0 }}
                         className={`
-                          inline-block !leading-0 mt-[46px] tablet:mt-[72px]
+                          inline-block !leading-0 mt-[10px] tablet:mt-[72px]
                           ${getClassNameAnimation(
                             show,
                             100,
@@ -72,7 +72,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="absolute z-4 left-[7vw] bottom-[-140px] tablet:bottom-[30px] flex-col justify-start items-start text-black">
+          <div className="absolute z-4 left-[7vw] bottom-[-255px] tablet:bottom-[30px] flex-col justify-start items-start text-black">
             <div className="flex flex-col">
               {[
                 {
