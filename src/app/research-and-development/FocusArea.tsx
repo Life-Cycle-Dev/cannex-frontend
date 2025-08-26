@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import { useHelperContext } from "@/components/providers/helper-provider";
 
 type ContentItem = {
   title?: string;
@@ -68,29 +70,65 @@ const items: {
 ];
 
 export default function FocusArea() {
-  return (
-    <div className="flex flex-col tablet:flex-row">
-      <ScrollReveal
-        className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px] tablet:border-r-[2px]"
-        once
-      >
-        {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              500,
-              "opacity-0 -translate-y-20",
-              "opacity-100 translate-y-0",
-            )}
-          >
-            <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
-              Our Core Focus Areas
-            </p>
-          </div>
-        )}
-      </ScrollReveal>
+  const { setIsNavbarSticky } = useHelperContext()();
+  const [isSticky, setIsSticky] = useState(false);
 
-      <div>
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const sectionTop =
+        document.getElementById("focus-area-section")?.offsetTop || 0;
+      const sectionHeight =
+        document.getElementById("focus-area-section")?.offsetHeight || 0;
+      const viewportHeight = window.innerHeight;
+
+      if (
+        scrollTop >= sectionTop &&
+        scrollTop < sectionTop + sectionHeight - viewportHeight
+      ) {
+        setIsSticky(true);
+        setIsNavbarSticky(false);
+      } else {
+        setIsSticky(false);
+        setIsNavbarSticky(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div id="focus-area-section" className="flex flex-col tablet:flex-row">
+      <div
+        className={`transition-all duration-300 ${
+          isSticky
+            ? "tablet:fixed tablet:top-0 tablet:left-0 tablet:z-10 w-[32.77vw]"
+            : "tablet:relative min-w-[32.77vw]"
+        }`}
+      >
+        <ScrollReveal
+          className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px] bg-white"
+          once
+        >
+          {(show) => (
+            <div
+              className={getClassNameAnimation(
+                show,
+                500,
+                "opacity-0 -translate-y-20",
+                "opacity-100 translate-y-0",
+              )}
+            >
+              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
+                Our Core Focus Areas
+              </p>
+            </div>
+          )}
+        </ScrollReveal>
+      </div>
+
+      <div className={isSticky ? "tablet:ml-[32.77vw] tablet:border-l-[2px]" : "tablet:border-l-[2px]"}>
         {items.map((item, idx) => (
           <ScrollReveal key={idx} once>
             {(show) => (
@@ -131,7 +169,11 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[55px] right-[17px] tablet:top-auto ${idx === 3 ? "tablet:bottom-[-20px]": "tablet:bottom-[-29px]"} leading-none text-[108px] tablet:text-[145px] font-bold
+                    className={`absolute top-[55px] right-[17px] tablet:top-auto ${
+                      idx === 3
+                        ? "tablet:bottom-[-20px]"
+                        : "tablet:bottom-[-29px]"
+                    } leading-none text-[108px] tablet:text-[145px] font-bold
                     ${
                       idx % 2 === 0
                         ? "tablet:right-[-3px]"
