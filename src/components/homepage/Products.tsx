@@ -43,7 +43,7 @@ const products: Card[] = [
 export default function Products() {
   return (
     <section className="w-full mt-16">
-      <ScrollReveal className="grid grid-cols-2 tablet:grid-cols-4 border-t-[2px]">
+      <ScrollReveal className="grid grid-cols-2 tablet:grid-cols-4 border-t-[2px] mx-5 tablet:mx-0">
         {(show) => (
           <>
             {products.map((product, idx) => (
@@ -74,12 +74,20 @@ function ProductCard({
         transitionDelay: `${500 + index * 200}ms`,
         animationDelay: `${500 + index * 200}ms`,
       }}
-      className={`group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black border-r-[2px] ${getClassNameAnimation(
-        show,
-        500 + index * 200,
-        "opacity-0 -translate-x-20",
-        "opacity-100 translate-x-0",
-      )}`}
+      className={`group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black  
+        ${
+          index % 2 === 1
+            ? index === products.length - 1
+              ? "tablet:border-r-0"
+              : "border-r-0 tablet:border-r-[2px]"
+            : "border-r-[2px]"
+        } 
+        ${getClassNameAnimation(
+          show,
+          500 + index * 200,
+          "opacity-0 -translate-x-20",
+          "opacity-100 translate-x-0"
+        )}`}
     >
       <div className="w-full flex justify-end bg-white">
         <div className="relative h-12 w-12 grid place-items-center group-hover:bg-black group-focus-visible:bg-black">
