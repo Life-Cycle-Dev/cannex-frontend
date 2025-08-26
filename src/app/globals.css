@@ -15,6 +15,11 @@
   animation: scroll-left 20s linear infinite;
 }
 
+* {
+  line-height: 110.00000000000001%;
+  letter-spacing: 0%;
+}
+
 :root {
   --foreground: #171717;
   --black: #000000;
