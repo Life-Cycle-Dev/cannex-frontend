@@ -51,7 +51,7 @@ const items: {
     ],
   },
   {
-    title: "Formulation Development",
+    title: "Delivery Systems & Packaging",
     imgSrc: "/asset/rnd-cell-3.webp",
     contents: [
       {
@@ -131,7 +131,7 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[23px] right-[17px] tablet:top-auto tablet:bottom-[-29px] leading-none text-[108px] tablet:text-[145px] font-bold
+                    className={`absolute top-[55px] right-[17px] tablet:top-auto ${idx === 3 ? "tablet:bottom-[-20px]": "tablet:bottom-[-29px]"} leading-none text-[108px] tablet:text-[145px] font-bold
                     ${
                       idx % 2 === 0
                         ? "tablet:right-[-3px]"

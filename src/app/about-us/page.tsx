@@ -817,7 +817,7 @@ export default function Page() {
                       </div>
                       <div
                         style={{ bottom: item.bottom, letterSpacing: 0 }}
-                        className={`absolute right-5 tablet:right-[1px] text-right mr-[-4px] text-[145px] font-bold pb-7`}
+                        className={`absolute right-5 tablet:right-[0px] text-right mr-[-6px] text-[145px] font-bold mb-[-3px]`}
                       >
                         {index + 1}
                       </div>
