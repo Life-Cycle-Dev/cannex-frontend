@@ -30,16 +30,21 @@ export default function Home() {
         {(show) => (
           <section>
             <div className="relative w-full min-h-[calc(100vh-64px)] text-white flex flex-col justify-between">
-              <div className="relative w-full h-[375px] tablet:min-h-[calc(100vh-133px)]">
+              <div className="relative w-full desktop:h-[calc(100vh-134px)] aspect-square desktop:aspect-auto">
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
                   src="/asset/hero-section-img.webp"
                   alt="Image | Cannex"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover object-center hidden desktop:block"
+                />
+                <img
+                  src="/asset/hero-section-img-mobile.webp"
+                  alt="Image | Cannex"
+                  className="h-full w-full object-cover object-center desktop:hidden"
                 />
               </div>
               <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
-                <div className="w-full flex flex-col gap-8 tablet:justify-center">
+                <div className="w-full flex flex-col gap-6 tablet:gap-8 tablet:justify-center">
                   <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
                     <p
                       className={
@@ -48,7 +53,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
                         )
                       }
                     >
@@ -62,7 +67,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
                         )
                       }
                     >
@@ -76,7 +81,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
                         )
                       }
                     >
@@ -90,7 +95,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
                         )
                       }
                     >
@@ -104,7 +109,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -118,7 +123,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block",
+                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block"
                         )
                       }
                     >
@@ -132,7 +137,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -146,7 +151,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
                         )
                       }
                     >
@@ -164,7 +169,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -184,7 +189,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >

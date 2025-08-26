@@ -79,7 +79,7 @@ export default function EventsAndUpdated() {
         "pagination[page]": 1,
         "pagination[withCount]": "true",
       },
-      "publishedAt:desc",
+      "publishedAt:desc"
     );
 
     setDatas(response.data);
@@ -89,13 +89,13 @@ export default function EventsAndUpdated() {
     <ScrollReveal className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px]  tablet:mx-0">
       {(show) => (
         <>
-          <div className="flex flex-row justify-between tablet:flex-col pt-[97px] pb-[32px] tablet:border-r-2 tablet:justify-center gap-4 tablet:p-[67px_80px]">
+          <div className="flex flex-row justify-between tablet:justify-stretch tablet:flex-col pt-[64px] pb-[32px] tablet:border-r-2 gap-4 tablet:p-[67px_80px]">
             <div
               className={`mb-4 ${getClassNameAnimation(
                 show,
                 1000,
                 "opacity-0 -translate-x-20",
-                "opacity-100 translate-x-0",
+                "opacity-100 translate-x-0"
               )}`}
             >
               <div className="tablet:mb-4 w-fit text-white bg-black p-[2px_8px] h-fit">
@@ -111,7 +111,7 @@ export default function EventsAndUpdated() {
                 show,
                 1000,
                 "opacity-0 -translate-y-20",
-                "opacity-100 translate-y-0",
+                "opacity-100 translate-y-0"
               )}`}
             >
               <div
@@ -145,8 +145,9 @@ export default function EventsAndUpdated() {
                 show,
                 1000,
                 "opacity-0 -translate-x-20",
-                "opacity-100 translate-x-0",
+                "opacity-100 translate-x-0"
               )}}`}
+              imgRadio="aspect-4/3"
             />
           ))}
         </>

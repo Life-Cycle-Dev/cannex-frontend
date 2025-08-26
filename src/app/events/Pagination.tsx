@@ -23,6 +23,7 @@ export const PaginationCard = ({
   isContentPage = false,
   className = "",
   style = {},
+  imgRadio = "aspect-square",
 }: {
   datas: Event[];
   data: Event;
@@ -30,6 +31,7 @@ export const PaginationCard = ({
   isContentPage?: boolean;
   className?: string;
   style?: object;
+  imgRadio?: string;
 }) => {
   return (
     <Link
@@ -46,7 +48,7 @@ export const PaginationCard = ({
         ${className}
       `}
     >
-      <div className="w-full aspect-square border-y-2 tablet:border-t-0">
+      <div className={`w-full ${imgRadio} border-y-2 tablet:border-t-0`}>
         <img
           src={data?.image?.url ?? ""}
           className="w-full h-full object-cover"
@@ -63,13 +65,13 @@ export const PaginationCard = ({
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <div className="text-[32px] mt-[-24px] tablet:px-[40px] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+          <h3 className="text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
             {data.title}
-          </div>
-          <div className=" text-gray-400 tablet:px-[40px] text-[16px]">
+          </h3>
+          <div className=" text-gray-400 tablet:px-6 text-[16px]">
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
           </div>
-          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-[40px] flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
+          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
             {data.description ?? ""}
           </div>
         </div>
@@ -97,11 +99,11 @@ export default function Pagination({
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? "",
+    searchParams.get("search") ?? ""
   );
   const [datas, setDatas] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10),
+    parseInt(searchParams.get("page") ?? "1", 10)
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
@@ -153,7 +155,7 @@ export default function Pagination({
         "pagination[page]": p,
       },
       filter.value,
-      q,
+      q
     );
 
     setLoading(false);
@@ -162,9 +164,7 @@ export default function Pagination({
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(
-          ((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE,
-        ),
+        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE)
       );
     setPageCount(pc);
   };
@@ -205,7 +205,7 @@ export default function Pagination({
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        ),
+        )
       )}
     </div>
   );
