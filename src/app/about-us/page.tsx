@@ -33,7 +33,7 @@ export default function Page() {
                 {(show) => (
                   <h1
                     className={`
-                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] du
+                      text-[46px] tablet:text-[72px] pt-[92px] tablet:pt-[32px] transition-all duration-[300ms] 
                       ${getClassNameAnimation(
                         show,
                         300,
@@ -47,14 +47,14 @@ export default function Page() {
                 )}
               </ScrollReveal>
 
-              <div className="flex justify-center text-[26vw] leading-[40%] font-bold">
+              <div className="flex justify-center text-[26vw] font-bold">
                 {"cannex".split("").map((char, i) => (
-                  <ScrollReveal key={i}>
+                  <ScrollReveal className="!leading-0" key={i}>
                     {(show) => (
                       <span
-                        style={{ transitionDelay: `${i * 100}ms` }}
+                        style={{ transitionDelay: `${i * 100}ms`, lineHeight: 0 }}
                         className={`
-                          inline-block 
+                          inline-block !leading-0 mt-[46px] tablet:mt-[72px]
                           ${getClassNameAnimation(
                             show,
                             100,
