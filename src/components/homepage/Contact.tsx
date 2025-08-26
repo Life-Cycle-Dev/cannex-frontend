@@ -37,7 +37,7 @@ function Policy() {
   );
 }
 
-export default function Contact() {
+export default function Contact({ className = "" }: { className?: string }) {
   const { backendClient, setLoading } = useHelperContext()();
   const [reasons, setReasons] = useState<string[]>([]);
   const [formData, setFormData] = useState<FormData>({
@@ -122,7 +122,10 @@ export default function Contact() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:border-t-[2px]"
+      className={
+        "px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:border-t-[2px] " +
+        className
+      }
     >
       <div className="flex flex-col gap-6">
         <p className="text-2xl tablet:text-[32px] font-medium">

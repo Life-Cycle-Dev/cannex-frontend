@@ -339,7 +339,7 @@ export default function Home() {
         </div>
       </div>
       <Supplying />
-      <Contact />
+      <Contact className="tablet:!border-t-0" />
     </div>
   );
 }

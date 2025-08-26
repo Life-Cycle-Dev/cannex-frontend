@@ -16,8 +16,8 @@ export default function Supplying() {
               className={getClassNameAnimation(
                 show,
                 500,
-                "opacity-0 translate-y-20",
-                "opacity-100 translate-y-0",
+                "opacity-0",
+                "opacity-100 animate-reveal-ltr",
               )}
             >
               <MapSvg className="w-full tablet:w-fit h-fit" />
@@ -39,7 +39,11 @@ export default function Supplying() {
               )}
             >
               <p className="text-[32px] tablet:text-[52px] font-bold leading-[120%] tablet:leading-[110%]">
-                Supplying Over 10 Countries Across 3 Continents{" "}
+                Supplying Over
+                <br />
+                10 Countries
+                <br />
+                Across 3 Continents{" "}
               </p>
               <p className="font-medium leading-[125%]">
                 Cannex holds medical cannabis distribution licenses in markets
