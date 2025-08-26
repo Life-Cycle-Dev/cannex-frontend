@@ -38,7 +38,7 @@ export default function Page() {
                         show,
                         300,
                         "opacity-0 -translate-x-10",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )}
                     `}
                   >
@@ -59,7 +59,7 @@ export default function Page() {
                             show,
                             100,
                             "opacity-0 translate-y-10",
-                            "opacity-100 translate-y-0",
+                            "opacity-100 translate-y-0"
                           )}
                         `}
                       >
@@ -123,7 +123,7 @@ export default function Page() {
                           show,
                           300,
                           "opacity-0",
-                          `opacity-100 animate-reveal-ltr ${item.animateClassName}`,
+                          `opacity-100 animate-reveal-ltr ${item.animateClassName}`
                         )}
                         `}
                       >
@@ -148,7 +148,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-y-10",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               `}
             >
@@ -164,7 +164,7 @@ export default function Page() {
                 show,
                 1000,
                 "opacity-0 -translate-x-10",
-                "opacity-100 translate-x-0",
+                "opacity-100 translate-x-0"
               )}`}
             >
               <div className="mt-[16px] tablet:mt-0">
@@ -190,18 +190,21 @@ export default function Page() {
 
       <div className="grid grid-cols-1 tablet:grid-cols-2 border-t-2">
         <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 overflow-y-hidden">
-          <ScrollReveal className="h-full" once>
+          <ScrollReveal
+            className="h-full w-full aspect-square tablet:aspect-auto"
+            once
+          >
             {(show) => (
               <img
                 src="/about-us/about-us-lab.webp"
                 alt="Image | Cannex"
                 className={
-                  "object-cover h-full w-full " +
+                  "object-cover h-full w-full scale-x-[-1]" +
                   getClassNameAnimation(
                     show,
                     1000,
                     "opacity-0 translate-y-30",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
                 height={576}
@@ -217,7 +220,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               />
             )}
@@ -225,20 +228,20 @@ export default function Page() {
 
           <ScrollReveal once>
             {(show) => (
-              <div
+              <h2
                 className={
-                  "text-[40px] font-bold" +
+                  "text-[40px] tablet:text-[52px] font-bold" +
                   getClassNameAnimation(
                     show,
                     1000,
                     "opacity-0 -translate-x-20",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
                 This is the standard that defines us, and the promise we deliver
                 in every drop.
-              </div>
+              </h2>
             )}
           </ScrollReveal>
 
@@ -249,7 +252,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 -translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )}
               />
             )}
@@ -268,7 +271,7 @@ export default function Page() {
                     show,
                     500,
                     "opacity-0 -translate-x-10",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -287,7 +290,7 @@ export default function Page() {
                     show,
                     500,
                     "opacity-0 -translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -308,7 +311,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -342,7 +345,7 @@ export default function Page() {
                   show,
                   500,
                   "opacity-0 translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )
               }
             >
@@ -366,7 +369,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -384,7 +387,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )}
               >
                 We don’t just grow cannabis — we{" "}
@@ -397,7 +400,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )}
               >
                 With clinical-grade facilities, stringent quality assurance, and
@@ -418,7 +421,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -442,7 +445,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -466,7 +469,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-2",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
             >
@@ -500,7 +503,7 @@ export default function Page() {
                       show,
                       1000,
                       "zoom-from",
-                      "animate-zoom-to-fit",
+                      "animate-zoom-to-fit"
                     )
                   }
                 />
@@ -514,7 +517,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -527,7 +530,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -545,7 +548,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -562,7 +565,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -585,7 +588,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -608,7 +611,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -631,7 +634,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-y-5",
-                        "opacity-100 translate-y-0",
+                        "opacity-100 translate-y-0"
                       )
                     }
                   >
@@ -648,7 +651,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-5",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                   >
@@ -675,7 +678,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -702,7 +705,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
               style={{
@@ -755,7 +758,7 @@ export default function Page() {
                   show,
                   1000,
                   "opacity-0 -translate-y-5",
-                  "opacity-100 translate-y-0",
+                  "opacity-100 translate-y-0"
                 )
               }
             >
@@ -788,7 +791,7 @@ export default function Page() {
                         show,
                         1000,
                         "opacity-0 -translate-x-20",
-                        "opacity-100 translate-x-0",
+                        "opacity-100 translate-x-0"
                       )
                     }
                     key={index}
@@ -840,7 +843,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 translate-y-20",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               />
@@ -853,7 +856,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-x-10",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -866,7 +869,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-y-10",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -881,7 +884,7 @@ export default function Page() {
                     show,
                     1000,
                     "opacity-0 -translate-y-10",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
