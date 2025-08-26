@@ -24,7 +24,7 @@ const products = [
       "For brands and medical programs seeking true genetic quality and consistency.",
   },
   {
-    title: "CBD Isolate [Crystal Powder]",
+    title: "CBD Isolate</br>[Crystal Powder]",
     img: "/product/product-isolate.webp",
     subTittle: "Ultra-pure. THC-Free. Ready for global formulation.",
     description:
@@ -38,7 +38,7 @@ const products = [
     disclaimer: "Precision in every gram. Confidence in every batch.",
   },
   {
-    title: "Medical Cannabis Oil",
+    title: "Medical</br>Cannabis Oil",
     img: "/product/product-oil.webp",
     subTittle: "Standardized. THC-Free. Clinically oriented.",
     description:
@@ -52,7 +52,7 @@ const products = [
     disclaimer: "For medical programs demanding consistency and compliance.",
   },
   {
-    title: "Custom Formulation",
+    title: "Custom</br>Formulation",
     img: "/product/product-custom.webp",
     subTittle: "Your Formula. Our Precision.",
     description:
@@ -215,12 +215,7 @@ export default function Page() {
           <ScrollReveal key={idx} once>
             {(show) => (
               <div
-                className={`border-t-[2px] grid tablet:grid-cols-2 ${getClassNameAnimation(
-                  show,
-                  1500 + idx * 300,
-                  "opacity-0 translate-x-30",
-                  "opacity-100 translate-x-0",
-                )} ${
+                className={`border-t-[2px] grid tablet:grid-cols-2 ${
                   idx % 2 === 1
                     ? "tablet:[&>*:first-child]:order-2 [&>*:last-child]:order-1"
                     : ""
@@ -233,7 +228,15 @@ export default function Page() {
                   <img
                     src={product.img}
                     alt={product.title}
-                    className="w-full h-full object-contain"
+                    className={
+                      "w-full h-full object-contain" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0 -translate-x-10",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
                   />
                 </div>
 
@@ -241,13 +244,42 @@ export default function Page() {
                   className={`p-[32px_20px_16px_20px] tablet:p-[96px_80px_92px_64px] w-full flex flex-col gap-8
                     ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
-                  <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] whitespace-pre-line">
-                    {product.title}
-                  </p>
-                  <p className="font-bold text-2xl leading-[120%]">
+                  <p
+                    className={
+                      "text-[40px] tablet:text-[52px] font-bold leading-[110%] whitespace-pre-line" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0 -translate-x-10",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
+                    dangerouslySetInnerHTML={{ __html: product.title }}
+                  />
+                  <p
+                    className={
+                      "font-bold text-2xl leading-[120%]" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0 -translate-y-10",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
                     {product.subTittle}
                   </p>
-                  <p className="font-medium leading-[125%]">
+                  <p
+                    className={
+                      "font-medium leading-[125%]" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0 translate-y-10",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
                     {product.description}
                   </p>
 
@@ -255,15 +287,36 @@ export default function Page() {
                     {product.details.map((detail, index) => (
                       <div
                         key={index}
+                        style={{
+                          animationDelay: `${200 * index + 200}px`,
+                          transitionDelay: `${200 * index + 200}px`,
+                        }}
                         className={`p-4 tablet:px-6 border-b-2
-                           ${index % 2 === 0 ? "tablet:border-r-2" : ""}`}
+                           ${
+                             index % 2 === 0 ? "tablet:border-r-2" : ""
+                           } ${getClassNameAnimation(
+                          show,
+                          500,
+                          "opacity-0 translate-x-10",
+                          "opacity-100 translate-x-0",
+                        )}`}
                       >
                         {detail}
                       </div>
                     ))}
                   </div>
 
-                  <p className="font-medium leading-[125%]">
+                  <p
+                    className={
+                      "font-medium leading-[125%] mb-[64px] tablet:mb-0" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0 translate-y-10",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
                     {product.disclaimer}
                   </p>
                 </div>
