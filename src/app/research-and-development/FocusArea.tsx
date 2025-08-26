@@ -131,7 +131,7 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[53px] right-[17px] tablet:top-auto tablet:bottom-[-29px] leading-none text-[108px] tablet:text-[145px] font-bold
+                    className={`absolute top-[23px] right-[17px] tablet:top-auto tablet:bottom-[-29px] leading-none text-[108px] tablet:text-[145px] font-bold
                     ${
                       idx % 2 === 0
                         ? "tablet:right-[-3px]"

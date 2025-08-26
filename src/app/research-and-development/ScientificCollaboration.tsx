@@ -36,18 +36,31 @@ export default function ScientificCollaboration() {
         once
       >
         {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              500,
-              "opacity-0 -translate-x-10",
-              "opacity-100 translate-x-0",
-            )}
-          >
-            <p className="text-[40px] tablet:text-[52px] font-bold leading-[]">
+          <div>
+            <p
+              className={
+                "text-[40px] tablet:text-[52px] font-bold" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 -translate-x-10",
+                  "opacity-100 translate-x-0",
+                )
+              }
+            >
               Scientific Collaboration
             </p>
-            <p className="tablet:text-xl font-medium leading-[125%]">
+            <p
+              className={
+                "tablet:text-xl font-medium leading-[125%]" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 -translate-y-10",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
               We partner with
             </p>
           </div>
@@ -60,35 +73,34 @@ export default function ScientificCollaboration() {
       >
         {(show) => (
           <>
-            {/* Title row */}
             {PARTNERS.map((p, i) => (
               <div
-                key={`title-${i}`}
-                role="cell"
-                className={`border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-4 tablet:px-20 text-[32px] font-bold leading-[120%] flex items-center ${getClassNameAnimation(
-                  show,
-                  1000 + i * 200,
-                  "opacity-0 translate-x-20",
-                  "opacity-100 translate-x-0",
-                )}`}
+                key={`partner-${i}`}
+                className="flex flex-col border-t-[2px] tablet:border-r-[2px]"
               >
-                {p.title}
-              </div>
-            ))}
+                {/* Title */}
+                <div
+                  className={`py-6 tablet:py-4 tablet:px-20 text-[32px] font-bold leading-[120%] flex items-center tablet:border-b-2 ${getClassNameAnimation(
+                    show,
+                    1000 + i * 200,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )}`}
+                >
+                  {p.title}
+                </div>
 
-            {/* Body row */}
-            {PARTNERS.map((p, i) => (
-              <div
-                key={`body-${i}`}
-                role="cell"
-                className={`border-t-[2px] tablet:border-r-[2px] py-6 tablet:py-8 tablet:px-20 text-xl font-medium leading-[125%] whitespace-pre-line ${getClassNameAnimation(
-                  show,
-                  1500 + i * 200,
-                  "opacity-0 translate-x-20",
-                  "opacity-100 translate-x-0",
-                )}`}
-              >
-                {p.body}
+                {/* Body */}
+                <div
+                  className={`border-t-[2px] tablet:border-0 py-6 tablet:py-8 tablet:px-20 text-xl font-medium leading-[125%] whitespace-pre-line ${getClassNameAnimation(
+                    show,
+                    1500 + i * 200,
+                    "opacity-0 translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )}`}
+                >
+                  {p.body}
+                </div>
               </div>
             ))}
           </>
