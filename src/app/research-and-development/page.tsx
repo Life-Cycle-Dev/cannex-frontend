@@ -19,23 +19,49 @@ export default function Page() {
 
   return (
     <main className="bg-white overflow-x-hidden">
-      <div className="relative w-full h-[436px] tablet:h-[590px]">
-        <img
-          src="/asset/research-development.webp"
-          alt="Image | Cannex"
-          className="w-full h-full object-cover"
-          sizes="100vw"
-        />
+      <div className="relative w-full h-[436px] tablet:h-[calc(100vh-64px)] desktop:h-[calc(100vh-134px)]">
+        <ScrollReveal>
+          {(show) => (
+            <img
+              src="/asset/research-development.webp"
+              alt="Image | Cannex"
+              className={
+                "h-[375px] w-full tablet:h-full object-cover zoom-origin-center" +
+                getClassNameAnimation(
+                  show,
+                  1000,
+                  "zoom-from",
+                  "animate-zoom-to-fit",
+                )
+              }
+            />
+          )}
+        </ScrollReveal>
 
-        <div className="absolute bottom-0 left-0 w-full pt-6 tablet:pt-8">
-          <div className="w-full tablet:px-8 pt-16 tablet:pt-0">
-            <h1 className="text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight mx-[20px] tablet:mx-0">
-              Research
-              <br />
-              &amp; Development
-            </h1>
-          </div>
-        </div>
+        <ScrollReveal
+          className="absolute bottom-0 left-0 w-full pt-6 tablet:pt-8"
+          once
+        >
+          {(show) => (
+            <div className="w-full tablet:px-20 pt-16 tablet:pt-0">
+              <h1
+                className={
+                  "text-5xl tablet:text-7xl font-bold text-black w-fit leading-tight mx-[20px] tablet:mx-0" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 translate-y-10",
+                    "opacity-100 translate-y-0",
+                  )
+                }
+              >
+                Research
+                <br />
+                &amp; Development
+              </h1>
+            </div>
+          )}
+        </ScrollReveal>
       </div>
 
       {/* INTRO SECTION */}
@@ -49,18 +75,76 @@ export default function Page() {
               "opacity-100 translate-x-0",
             )}
           >
-            <div className="mx-auto w-full tablet:px-8 py-10 tablet:pt-[64px] tablet:pb-14 flex flex-col tablet:flex-row gap-6 tablet:gap-8">
+            <div className="mx-auto w-full tablet:px-20 py-10 tablet:pt-[64px] tablet:pb-14 flex flex-col tablet:justify-between tablet:items-center tablet:flex-row tablet:gap-8">
               {/* Text */}
               <div className="tablet:col-span-7 w-full max-w-[733px]">
                 <h2 className="text-[40px] tablet:text-[52px] font-bold leading-tight text-black mx-[20px] tablet:mx-0">
-                  <span className="bg-crystalGreen px-1">
+                  <div
+                    className={
+                      "bg-crystalGreen px-1 w-fit hidden tablet:block" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0",
+                        "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                      )
+                    }
+                  >
                     Science-Driven Innovation
-                  </span>
-                  <br />
-                  <span>for Tomorrow&#39;s Therapeutics</span>
+                  </div>
+                  <div
+                    className={
+                      "bg-crystalGreen px-1 w-fit block tablet:hidden" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0",
+                        "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                      )
+                    }
+                  >
+                    Science-Driven
+                  </div>
+                  <div
+                    className={
+                      "bg-crystalGreen px-1 w-fit block tablet:hidden mt-1" +
+                      getClassNameAnimation(
+                        show,
+                        500,
+                        "opacity-0",
+                        "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                      )
+                    }
+                  >
+                    Innovation
+                  </div>
+                  <div
+                    style={{
+                      animationDelay: "500ms",
+                      transitionDelay: "500ms",
+                    }}
+                    className={`${getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )}`}
+                  >
+                    for Tomorrow&#39;s Therapeutics
+                  </div>
                 </h2>
 
-                <p className="mt-6 font-medium leading-[125%] mx-[20px] tablet:mx-0">
+                <p
+                  className={
+                    "mt-[24px] font-medium leading-[125%] mx-[20px] tablet:mx-0" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0 -translate-y-10",
+                      "opacity-100 translate-y-0",
+                    )
+                  }
+                >
                   At Cannex, research is not a department — it&#39;s the
                   foundation of everything we do. We believe that advancing the
                   future of medical cannabis starts with asking the right
@@ -68,7 +152,17 @@ export default function Page() {
                   the same scientific rigor demanded of pharmaceutical products.
                 </p>
 
-                <p className="mt-4 font-medium leading-[125%] mx-[20px] tablet:mx-0">
+                <p
+                  className={
+                    "mt-4 font-medium leading-[125%] mx-[20px] tablet:mx-0" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0 -translate-y-10",
+                      "opacity-100 translate-y-0",
+                    )
+                  }
+                >
                   Our R&amp;D ecosystem bridges cutting-edge science from Japan,
                   clinical collaboration in Thailand, and product innovation
                   that meets the regulatory standards of the world&#39;s most
@@ -77,11 +171,19 @@ export default function Page() {
               </div>
 
               {/* Image */}
-              <div className="w-full full">
+              <div className="w-full tablet:max-w-[597px] h-full">
                 <img
                   src="/asset/cannex-42.webp"
                   alt="Image | Cannex"
-                  className="w-full h-full object-contain "
+                  className={
+                    "w-full h-full object-cover" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0 translate-x-10",
+                      "opacity-100 translate-x-0",
+                    )
+                  }
                 />
               </div>
             </div>
@@ -99,7 +201,7 @@ export default function Page() {
               "opacity-100 translate-x-0",
             )}
           >
-            <div className="relative w-full h-[750px] tablet:h-[720px] border-x-[2px]">
+            <div className="relative w-full h-[750px] tablet:h-[720px] border-y-[2px]">
               <video
                 ref={videoRef}
                 src="/asset/rnd.mp4"
