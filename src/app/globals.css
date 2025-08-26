@@ -15,7 +15,7 @@
   animation: scroll-left 7s linear infinite;
 }
 
-* {
+h2 {
   line-height: 110.00000000000001%;
   letter-spacing: 0%;
 }
@@ -119,19 +119,81 @@
 
 @font-face {
   font-family: "THICCCBOI";
-  src: url("/fonts/THICCCBOI-Medium.woff2") format("woff2");
+  src: url("/fonts/THICCCBOI-Thin.woff2") format("woff2");
+  font-weight: 100;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "THICCCBOI";
+  src: url("/fonts/THICCCBOI-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background: var(--white);
   color: var(--foreground);
-  font-family: "THICCCBOI", sans-serif;
+  font-family: "THICCCBOI", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .ck.ck-editor__editable,
-.ck.ck-editor__main > .ck-editor__editable {
+.ck.ck-editor__main>.ck-editor__editable {
   border: 0 !important;
   box-shadow: none !important;
 }
@@ -257,7 +319,7 @@ body {
   display: block;
 }
 
-.ck-content figure > figcaption {
+.ck-content figure>figcaption {
   font-size: 0.75em;
   color: #555;
   text-align: center;
@@ -300,9 +362,9 @@ body {
   max-width: 50%;
 }
 
-.ck-content p + .image-style-align-left,
-.ck-content p + .image-style-align-right,
-.ck-content p + .image-style-side {
+.ck-content p+.image-style-align-left,
+.ck-content p+.image-style-align-right,
+.ck-content p+.image-style-side {
   margin-top: 0;
 }
 
@@ -331,7 +393,7 @@ body {
   margin-bottom: var(--ck-inline-image-style-spacing);
 }
 
-.ck-content .image > figcaption {
+.ck-content .image>figcaption {
   display: table-caption;
   caption-side: bottom;
   word-break: break-word;
