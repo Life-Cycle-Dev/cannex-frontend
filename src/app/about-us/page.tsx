@@ -137,7 +137,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div className="min-h-[200px] w-full tablet:hidden"></div>
+      <div className="min-h-[290px] w-full tablet:hidden"></div>
 
       <div className="mx-[20px] py-[64px] tablet:p-[80px] grid grid-cols-1 border-t-2 tablet:border-t-0 tablet:grid-cols-2">
         <ScrollReveal once>
