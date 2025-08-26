@@ -1,7 +1,13 @@
 import { getClassNameAnimation } from "@/utils/animation-helper";
 import React from "react";
 
-export default function Iconic({ show = false }: { show: boolean }) {
+export default function Iconic({
+  show = false,
+  className = "",
+}: {
+  show: boolean;
+  className?: string;
+}) {
   return (
     <svg
       width="303"
@@ -9,7 +15,7 @@ export default function Iconic({ show = false }: { show: boolean }) {
       viewBox="0 0 303 343"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="overflow-visible"
+      className={`overflow-visible ${className}`}
     >
       <path
         className={`${getClassNameAnimation(
