@@ -4,24 +4,18 @@ import Button from "@/components/Button";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import Iconic from "../icons/Iconic";
+import ProductIconic from "../ProductIconic";
+import ProductIconicMobile from "../ProductIconicMobile";
 
 export default function About() {
   return (
     <div className="w-full">
-      <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse">
+      <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse z-10">
         <ScrollReveal className="w-full flex justify-end tablet:-mt-8" once>
           {(show) => (
             <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
-              <img
-                src="/asset/iconic.webp"
-                alt="Image | Cannex"
-                className={`object-contain w-full h-full ${getClassNameAnimation(
-                  show,
-                  500,
-                  "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0"
-                )}`}
-              />
+              <Iconic show={show} />
             </div>
           )}
         </ScrollReveal>
@@ -36,7 +30,7 @@ export default function About() {
                       show,
                       500,
                       "opacity-0 -translate-y-10",
-                      "opacity-100 translate-y-0"
+                      "opacity-100 translate-y-0",
                     )}`}
                   >
                     Brand Introduction
@@ -46,7 +40,7 @@ export default function About() {
                       show,
                       500,
                       "opacity-0 -translate-x-10",
-                      "opacity-100 translate-x-0"
+                      "opacity-100 translate-x-0",
                     )}`}
                   >
                     Where Expertise Meets Collaboration.
@@ -57,7 +51,7 @@ export default function About() {
                     show,
                     500,
                     "opacity-0 translate-y-10",
-                    "opacity-100 translate-y-0"
+                    "opacity-100 translate-y-0",
                   )}`}
                 >
                   <span className="font-medium">
@@ -81,7 +75,7 @@ export default function About() {
                   show,
                   1000,
                   "opacity-0 translate-y-10",
-                  "opacity-100 translate-y-0"
+                  "opacity-100 translate-y-0",
                 )}
               >
                 <Button
@@ -98,38 +92,28 @@ export default function About() {
       </div>
 
       <div className="pb-[107px] relative">
-        <ScrollReveal once>
-          {(show) => (
-            <div className={`mt-8 tablet:mt-7`}>
-              <div
-                className={`mt-7 hidden tablet:block w-full ${getClassNameAnimation(
-                  show,
-                  1000,
-                  "opacity-0 -translate-x-20",
-                  "opacity-100 translate-x-0",
-                )}`}
-              >
-                <img
-                  src="/asset/product-horizontal.webp"
-                  alt="Image | Cannex"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div
-                className={`tablet:hidden ${getClassNameAnimation(
-                  show,
-                  1000,
-                  "opacity-0 -translate-x-20",
-                  "opacity-100 translate-x-0",
-                )}`}
-              >
-                <img
-                  src="/asset/product-vertical.webp"
-                  alt="Image | Cannex"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-
+        <div className={`mt-8 tablet:mt-7`}>
+          <ScrollReveal once>
+            {(show) => (
+              <>
+                <div className={`mt-7 h-[526px] hidden tablet:block w-full`}>
+                  <ProductIconic show={show} />
+                </div>
+                <div
+                  className={`tablet:hidden ${getClassNameAnimation(
+                    show,
+                    1000,
+                    "opacity-0 -translate-x-20",
+                    "opacity-100 translate-x-0",
+                  )}`}
+                >
+                  <ProductIconicMobile show={show} />
+                </div>
+              </>
+            )}
+          </ScrollReveal>
+          <ScrollReveal once>
+            {(show) => (
               <div
                 className={`absolute tablet:static z-10 bottom-15 left-5 tablet:mt-12 tablet:px-20 ${getClassNameAnimation(
                   show,
@@ -154,32 +138,87 @@ export default function About() {
                       <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
                         Global Markets.
                       </p>
+
                       {/* Tablet */}
-                      <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                      <p
+                        className={
+                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black reveal-ltr" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr reveal-crystalGreen",
+                          )
+                        }
+                      >
                         Pharmaceutical-Grade Products
                       </p>
-                      <p className="hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                      <p
+                        style={{
+                          animationDelay: "500ms",
+                          transitionDelay: "500ms",
+                        }}
+                        className={
+                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white reveal-ltr" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Designed for Global Markets.
                       </p>
                     </div>
-                    <p className="font-medium">
+                    <p
+                      style={{
+                        animationDelay: "1000ms",
+                        transitionDelay: "1000ms",
+                      }}
+                      className={
+                        "font-medium" +
+                        getClassNameAnimation(
+                          show,
+                          1000,
+                          "opacity-0 -translate-y-5",
+                          "opacity-100 translate-y-0",
+                        )
+                      }
+                    >
                       From full-spectrum flower to zero-THC CBD isolate, Cannex
                       delivers reliable formulations tailored for pharmacies,
                       healthcare providers, and wellness innovators.
                     </p>
                   </div>
-                  <Button
-                    href="/products"
-                    text="Explore our products"
-                    type="secondaryBlack"
-                    className="w-fit shrink-0"
-                    suffixIcon={<RightUpIcon />}
-                  />
+                  <div
+                    style={{
+                      animationDelay: "1000ms",
+                      transitionDelay: "1000ms",
+                    }}
+                    className={
+                      "font-medium" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-y-5",
+                        "opacity-100 translate-y-0",
+                      )
+                    }
+                  >
+                    <Button
+                      href="/products"
+                      text="Explore our products"
+                      type="secondaryBlack"
+                      className="w-fit shrink-0"
+                      suffixIcon={<RightUpIcon />}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </ScrollReveal>
+            )}
+          </ScrollReveal>
+        </div>
       </div>
     </div>
   );

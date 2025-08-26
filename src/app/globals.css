@@ -563,6 +563,16 @@ body {
   }
 }
 
+@keyframes zero-to-fit {
+  from {
+    transform: scale(0.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 @keyframes slideDown {
   from {
     transform: scaleY(0);
@@ -595,6 +605,16 @@ body {
   animation: slideUp 0.3s ease-in forwards;
 }
 
+@keyframes reveal-btt {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 @layer utilities {
   .reveal-ltr {
     position: relative;
@@ -607,6 +627,20 @@ body {
 
   .animate-reveal-ltr {
     animation: reveal-ltr 1s ease-out forwards;
+    opacity: 1;
+  }
+
+  .reveal-btt {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    will-change: clip-path, opacity;
+    background-color: transparent;
+  }
+
+  .animate-reveal-btt {
+    animation: reveal-btt 1s ease-out forwards;
     opacity: 1;
   }
 
@@ -669,6 +703,14 @@ body {
 
   .animate-zoom-to-fit {
     animation: zoom-to-fit 900ms cubic-bezier(0.16, 1, 0, 1) forwards;
+  }
+
+  .zero-form {
+    transform: scale(var(--zoom-start, 0));
+  }
+
+  .animate-zero-to-fit {
+    animation: zero-to-fit 100ms cubic-bezier(0.16, 1, 0, 1) forwards;
   }
 
   .zoom-origin-center {
