@@ -7,6 +7,7 @@ import Partners from "@/components/Partners";
 import FocusArea from "./FocusArea";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import WrapUp from "@/components/WrapUp";
 
 export default function Page() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -241,6 +242,7 @@ export default function Page() {
       <FocusArea />
       <ScientificCollaboration />
       <Partners />
+      <WrapUp />
     </main>
   );
 }
