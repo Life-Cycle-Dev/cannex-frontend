@@ -23,11 +23,12 @@ export default function NavBar() {
 
     const update = () => {
       const current = window.scrollY;
-      if (current < lastScrollY) {
-        setIsShow(true);
-      } else {
+      if (current > lastScrollY && current > 80) {
         setIsShow(false);
+      } else {
+        setIsShow(true);
       }
+
       lastScrollY = current;
     };
 
