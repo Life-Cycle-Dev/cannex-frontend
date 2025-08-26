@@ -76,35 +76,117 @@ export default function Page() {
         once
       >
         {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              500,
-              "opacity-0 -translate-x-10",
-              "opacity-100 translate-x-0",
-            )}
-          >
-            <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
+          <div>
+            <h1
+              className={
+                "text-[46px] tablet:text-7xl font-bold leading-[110%] mb-[24px]" +
+                getClassNameAnimation(
+                  show,
+                  500,
+                  "opacity-0 -translate-y-10",
+                  "opacity-100 translate-y-0",
+                )
+              }
+            >
               Products
             </h1>
-            <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between">
+            <div className="flex flex-col tablet:flex-row gap-4 tablet:justify-between tablet:items-end">
               <h2 className="text-[40px] tablet:text-[52px] font-bold leading-[110%] text-black flex flex-col gap-2">
-                <p className="tablet:hidden bg-crystalGreen w-fit">
+                <p
+                  className={
+                    "tablet:hidden bg-crystalGreen w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
                   Pharmaceutical-
                 </p>
-                <p className="tablet:hidden bg-crystalGreen w-fit">
+                <p
+                  className={
+                    "tablet:hidden bg-crystalGreen w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
                   Grade Products
                 </p>
-                <p className="hidden tablet:block bg-crystalGreen w-fit">
+
+                <p
+                  className={
+                    "hidden tablet:block bg-crystalGreen w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
                   Pharmaceutical- Grade Products
                 </p>
-                <p className="tablet:hidden bg-white w-fit">Designed for</p>
-                <p className="tablet:hidden bg-white w-fit">Global Markets.</p>
-                <p className="hidden tablet:block bg-white w-fit">
+                <p
+                  style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
+                  className={
+                    "tablet:hidden bg-white w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
+                  Designed for
+                </p>
+                <p
+                  style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
+                  className={
+                    "tablet:hidden bg-white w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
+                  Global Markets.
+                </p>
+                <p
+                  style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
+                  className={
+                    "hidden tablet:block bg-white w-fit" +
+                    getClassNameAnimation(
+                      show,
+                      500,
+                      "opacity-0",
+                      "opacity-100 animate-reveal-ltr",
+                    )
+                  }
+                >
                   Designed for Global Markets.
                 </p>
               </h2>
-              <h2 className="font-medium leading-[125%] w-full tablet:w-[405px]">
+              <h2
+                style={{ animationDelay: "700ms", transitionDelay: "700ms" }}
+                className={
+                  "font-medium leading-[125%] w-full tablet:w-[405px] items-end" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
                 From full-spectrum flower to zero-THC CBD isolate, Cannex
                 delivers reliable, precisely formulated products developed for
                 pharmacies, healthcare providers, and wellness innovators across
@@ -115,27 +197,18 @@ export default function Page() {
         )}
       </ScrollReveal>
 
-      <ScrollReveal className="relative" once>
-        {(show) => (
-          <div
-            className={getClassNameAnimation(
-              show,
-              1000,
-              "opacity-0 translate-x-20",
-              "opacity-100 translate-x-0",
-            )}
-          >
-            <div className="w-full h-[375px] tablet:h-[720px]">
-              <img
-                src="/product-banner.webp"
-                alt="Image | Cannex"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <CannexSvg className="absolute bottom-0 w-full fill-black" />
+      <div className="relative">
+        <div>
+          <div className="w-full h-[375px] tablet:h-[720px]">
+            <img
+              src="/product-banner.webp"
+              alt="Image | Cannex"
+              className="w-full h-full object-cover"
+            />
           </div>
-        )}
-      </ScrollReveal>
+          <CannexSvg className="absolute bottom-0 w-full fill-black" />
+        </div>
+      </div>
 
       <div>
         {products.map((product, idx) => (
