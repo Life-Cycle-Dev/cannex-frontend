@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
@@ -78,8 +79,8 @@ export default function FocusArea() {
             className={getClassNameAnimation(
               show,
               500,
-              "opacity-0 -translate-x-20",
-              "opacity-100 translate-x-0",
+              "opacity-0 -translate-y-20",
+              "opacity-100 translate-y-0",
             )}
           >
             <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
@@ -94,12 +95,7 @@ export default function FocusArea() {
           <ScrollReveal key={idx} once>
             {(show) => (
               <div
-                className={`border-t-[2px] tablet:border-t-0 grid tablet:grid-cols-2 ${getClassNameAnimation(
-                  show,
-                  1000 + idx * 300,
-                  "opacity-0 translate-x-30",
-                  "opacity-100 translate-x-0",
-                )}
+                className={`border-t-[2px] tablet:border-t-0 grid tablet:grid-cols-2
                     ${
                       idx < items.length - 1
                         ? "tablet:border-b-[2px]"
@@ -118,7 +114,15 @@ export default function FocusArea() {
                   <img
                     src={item.imgSrc}
                     alt={item.title}
-                    className="w-full h-full object-cover"
+                    className={
+                      "w-full h-full object-cover" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 translate-x-10",
+                        "opacity-100 translate-x-0",
+                      )
+                    }
                   />
                 </div>
 
@@ -127,17 +131,34 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[53px] right-[17px] tablet:top-auto tablet:bottom-[-22px] leading-none text-[108px] tablet:text-[145px] font-bold
+                    className={`absolute top-[53px] right-[17px] tablet:top-auto tablet:bottom-[-29px] leading-none text-[108px] tablet:text-[145px] font-bold
                     ${
                       idx % 2 === 0
                         ? "tablet:right-[-3px]"
                         : "tablet:left-[-3px]"
-                    }`}
+                    }
+                    ${getClassNameAnimation(
+                      show,
+                      1000,
+                      "opacity-0 translate-x-10",
+                      "opacity-100 translate-x-0",
+                    )}
+                    `}
                   >
                     {idx + 1}
                   </p>
 
-                  <p className="text-[32px] font-bold h-fit w-[324px]">
+                  <p
+                    className={
+                      "text-[32px] font-bold h-fit w-[324px]" +
+                      getClassNameAnimation(
+                        show,
+                        1000,
+                        "opacity-0 -translate-x-10 -translate-y-10",
+                        "opacity-100 translate-x-0 translate-y-0",
+                      )
+                    }
+                  >
                     {item.title}
                   </p>
 
@@ -149,7 +170,12 @@ export default function FocusArea() {
                           index < item.contents.length - 1
                             ? "border-b-[2px]"
                             : "border-b-0"
-                        }`}
+                        } ${getClassNameAnimation(
+                          show,
+                          1000,
+                          "opacity-0 translate-y-10",
+                          "opacity-100 translate-y-0",
+                        )}`}
                       >
                         <p>
                           {content.title && (
