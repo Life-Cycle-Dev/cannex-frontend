@@ -10,7 +10,7 @@ export default function MapWithCursor({
 }) {
   return (
     <svg
-      className={`w-[699px] h-[298px] ${className}`}
+      className={`w-full desktop:w-[600px] widescreen:w-[699px] h-[298px] ${className}`}
       viewBox="0 0 699 298"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -14,9 +14,9 @@ export default function ResolveMap() {
         <>
           {/* Desktop */}
 
-          <center className="relative w-full overflow-y-auto hidden tablet:block">
+          <center className="relative w-full hidden desktop:block">
             <div className="relative w-[1310px] h-[480px]">
-              <div className="absolute left-[254px] reveal-center">
+              <div className="absolute desktop:left-[228px] widescreen:left-[254px] reveal-center">
                 <MapWithCursor
                   style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
                   className={
@@ -30,12 +30,12 @@ export default function ResolveMap() {
               <div
                 style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
                 className={
-                  "absolute top-8 left-11" +
+                  "absolute top-8 desktop:left-0 widescreen:left-11" +
                   getClassNameAnimation(
                     show,
                     500,
                     "opacity-0 -translate-x-5",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -56,12 +56,12 @@ export default function ResolveMap() {
               <div
                 style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
                 className={
-                  "absolute bottom-13 left-[480px]" +
+                  "absolute desktop:bottom-20 widescreen:bottom-15 desktop:left-[436px] widescreen:left-[480px]" +
                   getClassNameAnimation(
                     show,
                     500,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -82,12 +82,12 @@ export default function ResolveMap() {
               <div
                 style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
                 className={
-                  "absolute top-6 right-0" +
+                  "absolute top-6 desktop:right-30 widescreen:right-0" +
                   getClassNameAnimation(
                     show,
                     500,
                     "opacity-0 translate-x-5",
-                    "opacity-100 translate-x-0",
+                    "opacity-100 translate-x-0"
                   )
                 }
               >
@@ -108,14 +108,14 @@ export default function ResolveMap() {
           </center>
 
           {/* Mobile */}
-          <div className="w-full block tablet:hidden">
+          <div className="w-full block desktop:hidden">
             {/* US */}
             <div
               className={getClassNameAnimation(
                 show,
                 500,
                 "opacity-0 -translate-x-5",
-                "opacity-100 translate-x-0",
+                "opacity-100 translate-x-0"
               )}
               style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
             >
@@ -149,7 +149,7 @@ export default function ResolveMap() {
                     show,
                     500,
                     "opacity-0 translate-y-5",
-                    "opacity-100 translate-y-0",
+                    "opacity-100 translate-y-0"
                   )
                 }
               >
@@ -172,7 +172,7 @@ export default function ResolveMap() {
                   show,
                   500,
                   "opacity-0 translate-x-5",
-                  "opacity-100 translate-x-0",
+                  "opacity-100 translate-x-0"
                 )
               }
               style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
