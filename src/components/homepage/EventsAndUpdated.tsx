@@ -148,7 +148,7 @@ export default function EventsAndUpdated() {
                 "opacity-0 -translate-x-20",
                 "opacity-100 translate-x-0"
               )}}`}
-              imgRadio="aspect-4/3"
+              imgRadio="aspect-square tablet:aspect-4/3"
             />
           ))}
         </>
