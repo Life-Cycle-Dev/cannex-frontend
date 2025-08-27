@@ -72,6 +72,7 @@ const items: {
 export default function FocusArea() {
   const { setIsNavbarSticky } = useHelperContext()();
   const [isSticky, setIsSticky] = useState(false);
+  const [shouldHideTitle, setShouldHideTitle] = useState(false);
 
   useEffect(() => {
     const evaluateSticky = () => {
@@ -87,17 +88,21 @@ export default function FocusArea() {
         document.getElementById("focus-area-section")?.offsetTop || 0;
       const sectionHeight =
         document.getElementById("focus-area-section")?.offsetHeight || 0;
-      const viewportHeight = window.innerHeight;
 
-      if (
-        scrollTop >= sectionTop &&
-        scrollTop < sectionTop + sectionHeight - viewportHeight
-      ) {
+      const isInSection =
+        scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight;
+
+      if (isInSection) {
         setIsSticky(true);
-        setIsNavbarSticky(false);
+        const sectionBottom = sectionTop + sectionHeight;
+        const stickyBlockHeight = 500;
+        const shouldHide = sectionBottom <= scrollTop + stickyBlockHeight;
+        setShouldHideTitle(shouldHide);
+        setIsNavbarSticky(shouldHide);
       } else {
         setIsSticky(false);
         setIsNavbarSticky(true);
+        setShouldHideTitle(false);
       }
     };
 
@@ -112,7 +117,10 @@ export default function FocusArea() {
   }, []);
 
   return (
-    <div id="focus-area-section" className="flex flex-col tablet:flex-row">
+    <div
+      id="focus-area-section"
+      className="flex flex-col tablet:flex-row overflow-hidden"
+    >
       <div
         className={`hidden tablet:block transition-all duration-300 ${
           isSticky
@@ -121,7 +129,7 @@ export default function FocusArea() {
         }`}
       >
         <ScrollReveal
-          className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px] bg-white"
+          className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px]"
           once
         >
           {(show) => (
@@ -129,9 +137,14 @@ export default function FocusArea() {
               className={getClassNameAnimation(
                 show,
                 500,
-                "opacity-0 -translate-y-20",
-                "opacity-100 translate-y-0",
+                "translate-y-20",
+                "translate-y-0",
               )}
+              style={{
+                transform: shouldHideTitle
+                  ? "translateY(-200px)"
+                  : "translateY(0px)",
+              }}
             >
               <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] break-words">
                 Our Core
@@ -143,7 +156,7 @@ export default function FocusArea() {
         </ScrollReveal>
       </div>
       <ScrollReveal
-        className="p-[40px_20px_40px_20px] tablet:hidden tablet:p-[96px_96px_0px_75px] bg-white"
+        className="p-[40px_20px_40px_20px] tablet:hidden tablet:p-[96px_96px_0px_75px]"
         once
       >
         {(show) => (
