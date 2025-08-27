@@ -33,7 +33,7 @@ export default function Newsroom() {
     <ScrollReveal className="border-y-2">
       {(show) => (
         <>
-          <div className="flex justify-between mx-[20px] px-[64x] py-[32px] tablet:mx-0 tablet:p-[80px_39px]">
+          <div className="flex justify-between mx-[20px] px-[64x] py-[64px_32px] tablet:mx-0 tablet:p-[80px_39px]">
             <div
               className={`flex flex-col gap-4 ${getClassNameAnimation(
                 show,
@@ -62,9 +62,9 @@ export default function Newsroom() {
                 onClick={() => {
                   window.location.href = "/newsroom";
                 }}
-                className="w-12 h-12 flex justify-center items-center tablet:hidden"
+                className="w-8 h-8 flex justify-center items-center tablet:hidden"
               >
-                <RightUpIcon />
+                <RightUpIcon className="w-full h-full" />
               </div>
               <Button
                 href="/newsroom"

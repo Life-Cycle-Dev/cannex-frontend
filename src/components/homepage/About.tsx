@@ -10,11 +10,11 @@ import ProductIconicMobile from "../ProductIconicMobile";
 export default function About() {
   return (
     <div className="w-full">
-      <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse z-10">
-        <ScrollReveal className="w-full flex justify-end tablet:-mt-8" once>
+      <div className="px-5 w-full flex flex-col z-10 tablet:pl-20 tablet:pt-[64px] tablet:flex-row-reverse">
+        <ScrollReveal className="w-full tablet:-mt-8 flex justify-end table:justify-center" once>
           {(show) => (
-            <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
-              <Iconic show={show} />
+            <div className="mt-[32px] w-[150px] h-[150px] flex justify-end table:justify-center tablet:w-full tablet:h-[343px] tablet:mt-0 tablet:aspect-square">
+              <Iconic show={show} className="w-full h-full " />
             </div>
           )}
         </ScrollReveal>

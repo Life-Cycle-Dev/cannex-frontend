@@ -42,7 +42,7 @@ const products: Card[] = [
 
 export default function Products() {
   return (
-    <section className="w-full mt-16">
+    <section className="w-full">
       <ScrollReveal className="grid grid-cols-2 tablet:grid-cols-4 border-t-[2px] mx-5 tablet:mx-0">
         {(show) => (
           <>

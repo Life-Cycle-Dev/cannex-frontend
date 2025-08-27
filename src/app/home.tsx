@@ -263,14 +263,14 @@ export default function Home() {
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
-                className="h-[50%]"
+                className="w-[100%]"
               />
             </div>
             <div className="border-b-2 aspect-square flex items-center">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
-                className="h-[50%]"
+                className="w-[100%]r"
               />
             </div>
             <div className="border-r-2 p-[24px] aspect-square flex items-center">
