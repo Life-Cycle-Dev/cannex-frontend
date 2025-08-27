@@ -98,7 +98,7 @@ function Column({
       {/* Padding: mobile 20/32, desktop 80/64 */}
       <div className="px-[20px] py-[32px] desktop:px-[80px] desktop:py-[64px]">
         {/* Heading */}
-        <h3 className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight">
+        <h3 className="text-[48px] tablet:text-[52px] desktop:text-5xl font-extrabold leading-tight">
           {titleA}
           <br />
           {titleB}
@@ -110,7 +110,7 @@ function Column({
         {/* Bullets */}
         <ul className="mt-2">
           {bullets.map((b, i) => (
-            <li key={i} className="py-4 text-sm desktop:text-base">
+            <li key={i} className="py-4 text-[16px] desktop:text-base">
               {b.strong ? (
                 <span className="font-semibold">{b.strong}</span>
               ) : null}
