@@ -43,12 +43,17 @@ export const PaginationCard = ({
       style={style}
       className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
         ${
-          index < 2 &&
+          index < datas.length - 1 &&
           datas.length > 2 &&
           !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && !skipBorderBottom && "desktop:border-b-2"}
+        ${
+          index < datas.length - 2 &&
+          datas.length > 3 &&
+          !skipBorderBottom &&
+          "desktop:border-b-2"
+        }
         ${isContentPage && index == 0 && "tablet:border-l-0"}
         ${className}
       `}
