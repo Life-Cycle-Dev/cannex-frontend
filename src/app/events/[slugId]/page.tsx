@@ -81,10 +81,11 @@ export default async function Page({ params, searchParams }: PageProps) {
         <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
           Our Events & Updated
         </div>
-        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3 tablet:border-t-2">
+        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
           {randomEvents.map((data, index) => (
             <PaginationCard
               datas={randomEvents}
+              className="tablet:border-t-2"
               key={data.id}
               data={data}
               index={index}
