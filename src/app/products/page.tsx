@@ -9,7 +9,7 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 
 const products = [
   {
-    title: "Premium\nCanabis Flower",
+    title: "Premium\nCannabis Flower",
     img: "/product/product-flower.webp",
     subTittle: "Cultivated by California experts. Certified for medical use.",
     description:

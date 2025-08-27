@@ -15,7 +15,7 @@ type Card = {
 
 const products: Card[] = [
   {
-    title: "Premium\nCanabis Flower",
+    title: "Premium\nCannabis Flower",
     desc: "Cultivated by California experts,\noptimized for terpene-rich,\npharmaceutical-grade quality.",
     img: "/product/product-flower.webp",
     imgAlt: "flower",
