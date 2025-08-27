@@ -130,7 +130,7 @@ export default function Page() {
                     )
                   }
                 >
-                  Pharmaceutical- Grade Products
+                  Pharmaceutical-Grade Products
                 </p>
                 <p
                   style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
