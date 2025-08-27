@@ -30,6 +30,8 @@ interface HelperContextType {
   setLoading: (value: boolean) => void;
   setIsNavbarSticky: (value: boolean) => void;
   isNavbarSticky: boolean;
+  setIsFooterBorder: (value: boolean) => void;
+  isFooterBorder: boolean;
 }
 
 const HelperContext = createContext<() => HelperContextType>(() => {
@@ -43,6 +45,8 @@ const HelperContext = createContext<() => HelperContextType>(() => {
     setLoading: () => {},
     setIsNavbarSticky: () => {},
     isNavbarSticky: true,
+    setIsFooterBorder: () => {},
+    isFooterBorder: true,
   };
 });
 
@@ -51,6 +55,7 @@ export function HelperProvider({ children }: { children: ReactNode }) {
   const [navigate, setNavigate] = useState<string>("");
   const [shareInfo, setShareInfo] = useState<ShareInfo | null>();
   const [isNavbarSticky, setIsNavbarSticky] = useState<boolean>(true);
+  const [isFooterBorder, setIsFooterBorder] = useState<boolean>(true);
   const setLoading = useLoadingContext();
 
   const useHelper = useCallback(
@@ -64,8 +69,10 @@ export function HelperProvider({ children }: { children: ReactNode }) {
       setLoading,
       isNavbarSticky,
       setIsNavbarSticky,
+      isFooterBorder,
+      setIsFooterBorder,
     }),
-    [navigate, isNavbarSticky],
+    [navigate, isNavbarSticky, isFooterBorder],
   );
 
   return (

@@ -1,13 +1,22 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "./Button";
 import RightUpIcon from "./icons/RightUpIcon";
 import Iconic from "./icons/Iconic";
 import ScrollReveal from "./animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import { useHelperContext } from "./providers/helper-provider";
 
 export default function WrapUp() {
+  const { setIsFooterBorder } = useHelperContext()();
+  useEffect(() => {
+    setIsFooterBorder(false);
+    return () => {
+      setIsFooterBorder(true);
+    };
+  }, [setIsFooterBorder]);
+
   return (
     <ScrollReveal className="relative bg-black text-white px-5 p-[64px_20px] tablet:p-[68px_80px]">
       {(show) => (
@@ -76,8 +85,8 @@ export default function WrapUp() {
             </div>
           </div>
 
-          <div className="absolute right-0 bottom-[176px] tablet:bottom-0 z-0">
-            <Iconic className="w-[175px] h-[175px] mr-[-20px]" show={show} />
+          <div className="absolute right-0 bottom-[230px] w-[123px] h-[140px] tablet:w-[175px] tablet:h-[175px] tablet:bottom-0 z-0">
+            <Iconic className="w-full h-full mr-[-20px]" show={show} />
           </div>
         </>
       )}

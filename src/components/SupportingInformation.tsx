@@ -41,7 +41,7 @@ export default function SupportingInformation() {
               </div>
               <div
                 className={
-                  "tablet:h-[108px] flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]" +
+                  "tablet:h-[108px] hidden tablet:block flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]" +
                   getClassNameAnimation(
                     show,
                     500,
@@ -51,6 +51,21 @@ export default function SupportingInformation() {
                 }
               >
                 CBD / THC / CBN / CBG / Terpenes / Mitragynine
+              </div>
+              <div
+                className={
+                  "tablet:h-[108px] tablet:hidden flex-1 text-[20px] font-medium leading-[125%] p-6 tablet:px-20 tablet:py-8 border-t-[2px] tablet:border-r-[2px]" +
+                  getClassNameAnimation(
+                    show,
+                    500,
+                    "opacity-0 -translate-x-10",
+                    "opacity-100 translate-x-0",
+                  )
+                }
+              >
+                Our cultivation, extraction, and packaging processes meet or
+                exceed pharmaceutical standards — including GACP, PIC/S GMP, and
+                EU-GMP guidelines (in progress).
               </div>
             </div>
 
