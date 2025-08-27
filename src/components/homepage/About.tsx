@@ -34,7 +34,7 @@ export default function About() {
                   >
                     Brand Introduction
                   </h2>
-                  <p
+                  <h2
                     className={`text-[32px] tablet:text-[52px] font-bold ${getClassNameAnimation(
                       show,
                       500,
@@ -43,7 +43,7 @@ export default function About() {
                     )}`}
                   >
                     Where Expertise Meets Collaboration.
-                  </p>
+                  </h2>
                 </div>
                 <p
                   className={`${getClassNameAnimation(
