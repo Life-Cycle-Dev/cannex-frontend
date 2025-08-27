@@ -242,7 +242,7 @@ export default function Pagination({
         </div>
       </div>
 
-      <div className="mx-5 tablet:mx-0 tablet:px-[80px]">
+      <div className="tablet:mx-0 tablet:px-[80px]">
         <div className="tablet:border-t-[2px] grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 tablet:border-l-[2px]">
           {datas.map((data, index) => (
             <PaginationCard
