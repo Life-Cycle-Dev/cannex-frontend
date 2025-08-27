@@ -101,10 +101,8 @@ export default function FocusArea() {
       }
     };
 
-    // Evaluate on scroll and resize to respect width threshold
     window.addEventListener("scroll", evaluateSticky);
     window.addEventListener("resize", evaluateSticky);
-    // Initial evaluation on mount
     evaluateSticky();
 
     return () => {
@@ -135,8 +133,10 @@ export default function FocusArea() {
                 "opacity-100 translate-y-0",
               )}
             >
-              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
-                Our Core Focus Areas
+              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] break-words">
+                Our Core
+                <br />
+                Focus Areas
               </p>
             </div>
           )}
@@ -155,8 +155,10 @@ export default function FocusArea() {
               "opacity-100 translate-y-0",
             )}
           >
-            <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
-              Our Core Focus Areas
+            <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] break-words">
+              Our Core
+              <br />
+              Focus Areas
             </p>
           </div>
         )}
@@ -232,7 +234,7 @@ export default function FocusArea() {
 
                   <p
                     className={
-                      "text-[32px] font-bold h-fit w-[324px]" +
+                      "text-[32px] font-bold h-fit w-[324px] break-words" +
                       getClassNameAnimation(
                         show,
                         1000,
@@ -259,7 +261,7 @@ export default function FocusArea() {
                           "opacity-100 translate-y-0",
                         )}`}
                       >
-                        <p>
+                        <p className="break-words">
                           {content.title && (
                             <span className="font-bold">
                               {content.title + " "}
