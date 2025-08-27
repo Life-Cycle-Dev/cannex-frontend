@@ -57,7 +57,7 @@ export default function About() {
                     Cannex was born from a global alliance between Cannex Pharma
                     and Siam Agri-Bio — combining world-class cultivation and
                     extraction expertise. From California-bred strains to
-                    Japan-compliant CBD refinement,
+                    Japan-compliant CBD refinement,<br/>
                   </span>
                   <span className="font-semibold">
                     we cover every step with clinical precision.
