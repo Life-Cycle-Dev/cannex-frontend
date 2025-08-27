@@ -72,7 +72,7 @@ export const PaginationCard = ({
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-9 -translate-x-9 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <h3 className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${!isDateAndDescriptionShow && "pr-[48px] tablet:pr-0"}`}>
+          <h3 className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${!isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"}`}>
             {data.title}
           </h3>
           <div

@@ -53,12 +53,12 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
                         )
                       }
                     >
                       Pharmaceutical-
-                    </p> 
+                    </p>
                     <p
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -66,7 +66,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
@@ -80,7 +80,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
                         )
                       }
                     >
@@ -94,7 +94,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
@@ -108,7 +108,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
@@ -122,7 +122,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white"
+                          "opacity-100 animate-reveal-ltr reveal-white",
                         )
                       }
                     >
@@ -136,7 +136,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block",
                         )
                       }
                     >
@@ -150,7 +150,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
@@ -164,7 +164,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
@@ -182,7 +182,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
@@ -202,7 +202,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
