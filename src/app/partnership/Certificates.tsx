@@ -124,7 +124,7 @@ export default function Certificates() {
 
                   {leftItems.map((it, i) => (
                     <div key={it.title} className="py-6">
-                      <ItemRow item={it} />
+                      <ItemRow isRight={false} item={it} />
                       {i === 1 && (
                         <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
@@ -153,8 +153,13 @@ export default function Certificates() {
                 >
                   <div className="tablet:mt-[40px]" />
                   {rightItems.map((it, i) => (
-                    <div key={it.title} className={`tablet:px-[84px] py-6 ${i === 0 && "tablet:border-b-2"}`}>
-                      <ItemRow item={it} />
+                    <div
+                      key={it.title}
+                      className={`tablet:px-[84px] py-6 ${
+                        i === 0 && "tablet:border-b-2"
+                      }`}
+                    >
+                      <ItemRow isRight={true} item={it} />
                       {i === 0 && (
                         <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
@@ -174,7 +179,7 @@ export default function Certificates() {
 }
 
 /* ---------- Subcomponent: รายการรูป+ข้อความ (responsive) ---------- */
-function ItemRow({ item }: { item: Certification }) {
+function ItemRow({ item, isRight }: { item: Certification; isRight: boolean }) {
   return (
     <div className="flex flex-col tablet:flex-row tablet:gap-8 tablet:items-start">
       {/* รูป */}
@@ -191,13 +196,47 @@ function ItemRow({ item }: { item: Certification }) {
 
       {/* ข้อความ */}
       <div className="mt-3 tablet:mt-0">
-        <h4 className="font-extrabold leading-snug text-lg tablet:text-xl">
-          {item.title}
-        </h4>
+        {isRight ? (
+          <h3 className="font-bold text-[32px] flex gap-2 items-center">
+            {item.title === "Thai GMP" && (
+              <svg
+                width={40}
+                height={40}
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <rect width={40} height={40} fill="url(#pattern0_2353_10362)" />
+                <defs>
+                  <pattern
+                    id="pattern0_2353_10362"
+                    patternContentUnits="objectBoundingBox"
+                    width={1}
+                    height={1}
+                  >
+                    <use
+                      xlinkHref="#image0_2353_10362"
+                      transform="translate(0 -0.000250125) scale(0.00050025)"
+                    />
+                  </pattern>
+                  <image
+                    id="image0_2353_10362"
+                    width={1999}
+                    height={2000}
+                    preserveAspectRatio="none"
+                    href="/asset/thai-gmp.webp"
+                  />
+                </defs>
+              </svg>
+            )}
+            {item.title}
+          </h3>
+        ) : (
+          <h4 className="font-bold text-[20px]">{item.title}</h4>
+        )}
         <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
-        <p className="mt-2 text-sm leading-relaxed text-neutral-900">
-          {item.description}
-        </p>
+        <p className="mt-2 text-[16px]">{item.description}</p>
       </div>
     </div>
   );
