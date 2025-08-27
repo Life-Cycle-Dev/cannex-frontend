@@ -125,23 +125,63 @@ export default function About() {
                   <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
                     <div>
                       {/* Modbile */}
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Pharmaceutical-
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Grade Products
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Designed for
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Global Markets.
                       </p>
 
                       {/* Tablet */}
                       <p
                         className={
-                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black reveal-ltr" +
+                          "!hidden tablet:!block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black reveal-ltr" +
                           getClassNameAnimation(
                             show,
                             500,
@@ -158,7 +198,7 @@ export default function About() {
                           transitionDelay: "500ms",
                         }}
                         className={
-                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white reveal-ltr" +
+                          "!hidden tablet:!block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white reveal-ltr" +
                           getClassNameAnimation(
                             show,
                             500,
