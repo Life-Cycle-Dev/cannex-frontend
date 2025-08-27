@@ -833,7 +833,7 @@ export default function Page() {
       <ScrollReveal once>
         {(show) => (
           <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
-            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden">
+            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden aspect-square">
               <img
                 src="/about-us/about-us-last-section.webp"
                 alt="Image | Cannex"
@@ -849,9 +849,9 @@ export default function Page() {
               />
             </div>
             <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">
-              <div
+              <h2
                 className={
-                  "text-[52px] font-bold" +
+                  "text-[40px] tablet:text-[52px] font-bold" +
                   getClassNameAnimation(
                     show,
                     1000,
@@ -861,7 +861,7 @@ export default function Page() {
                 }
               >
                 The Cannex Commitment
-              </div>
+              </h2>
               <div
                 className={
                   "text-[20px]" +
