@@ -52,7 +52,7 @@ export const PaginationCard = ({
           !skipBorderBottom &&
           "desktop:border-b-2"
         }
-        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${isContentPage && index == 0 && "tablet:border-l-0"}
         ${className}
       `}
     >

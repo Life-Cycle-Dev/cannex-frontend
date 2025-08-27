@@ -25,6 +25,7 @@ export const PaginationCard = ({
   style = {},
   imgRadio = "aspect-square",
   isDateAndDescriptionShow = true,
+  skipBorderBottom = false,
 }: {
   datas: Event[];
   data: Event;
@@ -34,6 +35,7 @@ export const PaginationCard = ({
   style?: object;
   imgRadio?: string;
   isDateAndDescriptionShow?: boolean;
+  skipBorderBottom?: boolean;
 }) => {
   return (
     <Link
@@ -43,10 +45,11 @@ export const PaginationCard = ({
         ${
           index < 2 &&
           datas.length > 2 &&
+          !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
-        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${index < 3 && datas.length > 3 && !skipBorderBottom && "desktop:border-b-2"}
+        ${isContentPage && index == 0 && "tablet:border-l-0"}
         ${className}
       `}
     >
@@ -72,7 +75,11 @@ export const PaginationCard = ({
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-9 -translate-x-9 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <h3 className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${!isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"}`}>
+          <h3
+            className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
+              !isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"
+            }`}
+          >
             {data.title}
           </h3>
           <div
