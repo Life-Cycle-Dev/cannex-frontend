@@ -868,7 +868,7 @@ export default function Page() {
               </h2>
               <div
                 className={
-                  "text-[20px]" +
+                  "text-[20px] font-medium leading-[125%]" +
                   getClassNameAnimation(
                     show,
                     1000,
@@ -883,7 +883,7 @@ export default function Page() {
               </div>
               <div
                 className={
-                  "text-[20px]" +
+                  "text-[20px] font-medium leading-[125%]" +
                   getClassNameAnimation(
                     show,
                     1000,
