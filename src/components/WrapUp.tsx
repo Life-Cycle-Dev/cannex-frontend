@@ -85,7 +85,7 @@ export default function WrapUp() {
             </div>
           </div>
 
-          <div className="absolute right-0 bottom-[230px] w-[123px] h-[140px] tablet:w-[175px] tablet:h-[175px] tablet:bottom-0 z-0">
+          <div className="absolute right-0 bottom-[230px] w-[140px] h-[140px] tablet:bottom-0 z-0">
             <Iconic className="w-full h-full mr-[-20px]" show={show} />
           </div>
         </>
