@@ -30,7 +30,7 @@ export default function Newsroom() {
   };
 
   return (
-    <ScrollReveal className="tablet:border-y-2">
+    <ScrollReveal className="tablet:border-y-2 border-t-2">
       {(show) => (
         <>
           <div className="flex justify-between mx-[20px] px-[64x] py-[64px_32px] tablet:mx-0 tablet:p-[80px_39px]">
