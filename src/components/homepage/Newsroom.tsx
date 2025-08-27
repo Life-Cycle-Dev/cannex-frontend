@@ -30,7 +30,7 @@ export default function Newsroom() {
   };
 
   return (
-    <ScrollReveal className="border-y-2">
+    <ScrollReveal className="tablet:border-y-2">
       {(show) => (
         <>
           <div className="flex justify-between mx-[20px] px-[64x] py-[64px_32px] tablet:mx-0 tablet:p-[80px_39px]">
@@ -76,7 +76,7 @@ export default function Newsroom() {
             </div>
           </div>
 
-          <div className="mx-[20px] tablet:mx-0 grid grid-cols-1 tablet:grid-cols-4 border-t-2">
+          <div className="mx-[20px] tablet:mx-0 grid grid-cols-1 tablet:grid-cols-4 tablet:border-t-2">
             {datas.map((data, index) => (
               <PaginationCard
                 index={index}

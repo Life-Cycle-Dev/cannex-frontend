@@ -89,7 +89,7 @@ export default function EventsAndUpdated() {
     <ScrollReveal className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px] tablet:mx-0">
       {(show) => (
         <>
-          <div className="flex flex-row justify-between tablet:justify-stretch tablet:flex-col pt-[96px] pb-[32px] tablet:border-r-2 gap-4 tablet:p-[67px_80px]">
+          <div className="flex flex-row justify-between tablet:justify-stretch border-t-2 tablet:border-t-0 tablet:flex-col pt-[96px] pb-[32px] tablet:border-r-2 gap-4 tablet:p-[67px_80px]">
             <div
               className={`mb-4 ${getClassNameAnimation(
                 show,
