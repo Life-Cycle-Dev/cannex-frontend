@@ -52,7 +52,10 @@ export default function Page() {
                   <ScrollReveal className="!leading-0" key={i}>
                     {(show) => (
                       <span
-                        style={{ transitionDelay: `${i * 100}ms`, lineHeight: 0 }}
+                        style={{
+                          transitionDelay: `${i * 100}ms`,
+                          lineHeight: 0,
+                        }}
                         className={`
                           inline-block !leading-0 mt-[10px] tablet:mt-[72px]
                           ${getClassNameAnimation(
@@ -359,12 +362,12 @@ export default function Page() {
         </ScrollReveal>
       </div>
 
-      <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
+      <div className="grid grid-cols-1 border-b-2 tablet:grid-cols-2 desktop:grid-cols-[733px_1fr] tablet:gap-8 mx-[20px] py-[48px] tablet:mx-0 tablet:p-[64px_80px]">
         <ScrollReveal once>
           {(show) => (
             <h2
               className={
-                "text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold" +
+                "w-full text-[40px] tablet:text-[52px] mb-[16px] tablet:mt-0 font-bold" +
                 getClassNameAnimation(
                   show,
                   1000,
@@ -373,15 +376,16 @@ export default function Page() {
                 )
               }
             >
-              <div>Our Mission: </div>
-              <div>Raising the Global Standard</div>
+              Our Mission: <br />
+              Raising the <br className="tablet:hidden" />
+              Global Standard
             </h2>
           )}
         </ScrollReveal>
 
         <ScrollReveal once>
           {(show) => (
-            <div className="text-[16px] flex flex-col gap-3">
+            <div className="w-full max-w-[515px] text-[16px] font-medium flex flex-col gap-3">
               <div
                 className={getClassNameAnimation(
                   show,
@@ -391,9 +395,11 @@ export default function Page() {
                 )}
               >
                 We don’t just grow cannabis — we{" "}
-                <b>engineer medical-grade wellness solutions.</b> Cannex exists
-                to bridge the gap between traditional cultivation and modern
-                pharmaceutical expectations.
+                <span className="font-bold">
+                  engineer medical-grade wellness solutions.
+                </span>{" "}
+                Cannex exists to bridge the gap between traditional cultivation
+                and modern pharmaceutical expectations.
               </div>
               <div
                 className={getClassNameAnimation(
@@ -510,9 +516,9 @@ export default function Page() {
               </div>
               <div className="absolute z-2 top-0 right-0 w-full h-full p-[20px] tablet:p-[64px_80px] flex flex-col tablet:flex-row gap-13">
                 <div className="flex flex-col gap-3">
-                  <div
+                  <h2
                     className={
-                      "text-white text-5xl font-bold leading-[57.20px]" +
+                      "text-white text-[40px] tablet:text-5xl font-bold leading-[57.20px]" +
                       getClassNameAnimation(
                         show,
                         1000,
@@ -522,7 +528,7 @@ export default function Page() {
                     }
                   >
                     What We Believe
-                  </div>
+                  </h2>
                   <div
                     className={
                       "text-white text-base font-medium leading-tight" +
