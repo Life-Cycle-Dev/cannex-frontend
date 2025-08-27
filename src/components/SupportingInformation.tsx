@@ -81,7 +81,7 @@ export default function SupportingInformation() {
                   )
                 }
               >
-                Product Formats
+                Product<br/>Formats
               </div>
               <div
                 className={

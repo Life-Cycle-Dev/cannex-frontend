@@ -61,7 +61,7 @@ export default function ScientificCollaboration() {
                 )
               }
             >
-              We partner with
+              We partner with:
             </p>
           </div>
         )}
