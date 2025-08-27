@@ -6,9 +6,9 @@ import OfferAndAudience from "@/app/partnership/OfferAndAudience";
 import Certificates from "@/app/partnership/Certificates";
 import Supplying from "@/components/homepage/Supplying";
 import Partners from "@/components/Partners";
-import WrapUp from "@/components/WrapUp";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import WrapUp2 from "@/components/WrapUp2";
 
 export default function Page() {
   return (
@@ -143,7 +143,7 @@ export default function Page() {
       <Certificates />
       <Supplying />
       <OfferAndAudience />
-      <WrapUp />
+      <WrapUp2 />
     </div>
   );
 }
