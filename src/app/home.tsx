@@ -58,7 +58,7 @@ export default function Home() {
                       }
                     >
                       Pharmaceutical-
-                    </p>
+                    </p> 
                     <p
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
