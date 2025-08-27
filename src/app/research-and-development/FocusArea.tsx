@@ -74,7 +74,14 @@ export default function FocusArea() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const evaluateSticky = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth < 1200) {
+        setIsSticky(false);
+        setIsNavbarSticky(true);
+        return;
+      }
+
       const scrollTop = window.scrollY;
       const sectionTop =
         document.getElementById("focus-area-section")?.offsetTop || 0;
@@ -94,14 +101,22 @@ export default function FocusArea() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Evaluate on scroll and resize to respect width threshold
+    window.addEventListener("scroll", evaluateSticky);
+    window.addEventListener("resize", evaluateSticky);
+    // Initial evaluation on mount
+    evaluateSticky();
+
+    return () => {
+      window.removeEventListener("scroll", evaluateSticky);
+      window.removeEventListener("resize", evaluateSticky);
+    };
   }, []);
 
   return (
     <div id="focus-area-section" className="flex flex-col tablet:flex-row">
       <div
-        className={`transition-all duration-300 ${
+        className={`hidden tablet:block transition-all duration-300 ${
           isSticky
             ? "tablet:fixed tablet:top-0 tablet:left-0 tablet:z-10 w-[32.77vw]"
             : "tablet:relative min-w-[32.77vw]"
@@ -127,8 +142,33 @@ export default function FocusArea() {
           )}
         </ScrollReveal>
       </div>
+      <ScrollReveal
+        className="p-[40px_20px_40px_20px] tablet:hidden tablet:p-[96px_96px_0px_75px] bg-white"
+        once
+      >
+        {(show) => (
+          <div
+            className={getClassNameAnimation(
+              show,
+              500,
+              "opacity-0 -translate-y-20",
+              "opacity-100 translate-y-0",
+            )}
+          >
+            <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
+              Our Core Focus Areas
+            </p>
+          </div>
+        )}
+      </ScrollReveal>
 
-      <div className={isSticky ? "tablet:ml-[32.77vw] tablet:border-l-[2px]" : "tablet:border-l-[2px]"}>
+      <div
+        className={
+          isSticky
+            ? "tablet:ml-[32.77vw] tablet:border-l-[2px]"
+            : "tablet:border-l-[2px]"
+        }
+      >
         {items.map((item, idx) => (
           <ScrollReveal key={idx} once>
             {(show) => (
