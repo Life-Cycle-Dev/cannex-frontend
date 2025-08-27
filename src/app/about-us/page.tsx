@@ -753,7 +753,7 @@ export default function Page() {
           <>
             <h2
               className={
-                "tablet:px-20 text-[30px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2" +
+                "tablet:px-20 text-[40px] py-10 tablet:py-16 tablet:text-[52px] mx-[20px] tablet:mx-0 font-bold border-b-2" +
                 getClassNameAnimation(
                   show,
                   1000,
@@ -810,7 +810,7 @@ export default function Page() {
                     <div
                       className={`${
                         index != 2 && "tablet:border-r-2"
-                      } py-8 h-[335px] tablet:h-[230px]`}
+                      } py-8 h-[210px] tablet:h-[230px]`}
                     >
                       <div className="px-[20px] tablet:px-10 line-clamp-5">
                         {item.desc}
