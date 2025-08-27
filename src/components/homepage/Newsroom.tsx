@@ -83,6 +83,7 @@ export default function Newsroom() {
                 key={data.id}
                 data={data}
                 datas={datas}
+                isDateAndDescriptionShow={false}
                 style={{
                   transitionDelay: `${300 * index + 300}ms`,
                   animationDelay: `${300 * index + 300}ms`,

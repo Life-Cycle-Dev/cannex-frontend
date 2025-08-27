@@ -98,7 +98,7 @@ export default function ResolveMap() {
                 <div className="w-[350px] text-[14px] text-left">
                   Japan contributes its{" "}
                   <b>scientific discipline, pharmaceutical innovation,</b> and
-                  regulatory precision — enabling advanced
+                  regulatory precision — enabling advanced{" "}
                   <b>THC-removal technology,</b> lab-grade cleanliness, and
                   world-class product safety that strengthens our extraction
                   processes.
@@ -184,7 +184,7 @@ export default function ResolveMap() {
               <div className="text-[14px] text-left">
                 Japan contributes its{" "}
                 <b>scientific discipline, pharmaceutical innovation,</b> and
-                regulatory precision — enabling advanced
+                regulatory precision — enabling advanced{" "}
                 <b>THC-removal technology,</b> lab-grade cleanliness, and
                 world-class product safety that strengthens our extraction
                 processes.

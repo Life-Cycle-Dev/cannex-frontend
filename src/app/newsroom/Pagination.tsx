@@ -23,6 +23,7 @@ export const PaginationCard = ({
   className = "",
   style = {},
   isContentPage = false,
+  isDateAndDescriptionShow = true,
   skipBorderBottom = false,
 }: {
   datas: NewsRooms[];
@@ -32,6 +33,7 @@ export const PaginationCard = ({
   style?: object;
   isContentPage?: boolean;
   skipBorderBottom?: boolean;
+  isDateAndDescriptionShow?: boolean;
 }) => {
   return (
     <Link
@@ -65,19 +67,28 @@ export const PaginationCard = ({
       <div className="relative pb-6 tablet:pb-0 h-full overflow-hidden">
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
-        <div className="relative z-20 flex flex-col gap-4">
-          <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
-            <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
-            <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
+        <div className={`relative z-20 flex flex-col gap-4`}>
+          <div className={`ml-auto w-7 h-7 overflow-hidden mb-2 relative ${!isDateAndDescriptionShow && "translate-y-1/2 mb-[-4px] mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"}`}>
+            <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-9 group-hover:translate-x-9" />
+            <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-9 -translate-x-9 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
           <h3 className="text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
             {data.title}
           </h3>
-          <div className=" text-gray-400 tablet:px-6 text-[16px]">
+
+          <div
+            className={`text-gray-400 tablet:px-6 text-[16px] ${
+              !isDateAndDescriptionShow && "hidden tablet:block"
+            }`}
+          >
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
           </div>
-          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
+          <div
+            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 ${
+              !isDateAndDescriptionShow && "hidden tablet:block"
+            }`}
+          >
             {data.description ?? ""}
           </div>
         </div>
@@ -99,11 +110,11 @@ export default function Pagination() {
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? ""
+    searchParams.get("search") ?? "",
   );
   const [datas, setDatas] = useState<NewsRooms[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10)
+    parseInt(searchParams.get("page") ?? "1", 10),
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
@@ -153,7 +164,7 @@ export default function Pagination() {
         "pagination[page]": p,
       },
       filter.value,
-      q
+      q,
     );
 
     setLoading(false);
@@ -162,7 +173,9 @@ export default function Pagination() {
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE)
+        Math.ceil(
+          ((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE,
+        ),
       );
     setPageCount(pc);
   };
@@ -203,7 +216,7 @@ export default function Pagination() {
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        )
+        ),
       )}
     </div>
   );
