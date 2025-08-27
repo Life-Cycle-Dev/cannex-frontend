@@ -770,7 +770,7 @@ export default function Page() {
               <div>What Defines Us:</div>
               <div>The Cannex Pillars</div>
             </h2>
-            <div className="grid grid-cols-1 tablet:grid-cols-3">
+            <div className="grid grid-cols-1 tablet:grid-cols-3 font-medium">
               {[
                 {
                   title: "Pharmaceutical-Grade</br>Formulation",
@@ -801,12 +801,12 @@ export default function Page() {
                     }
                     key={index}
                   >
-                    <div
+                    <h4
                       style={{
                         transitionDelay: `${index * 200 + 200}ms`,
                         animationDelay: `${index * 200 + 200}ms`,
                       }}
-                      className={`font-bold line-clamp-2 flex items-center text-2xl h-[100px] mx-[20px] tablet:mx-0 border-b-2 tablet:px-10 ${
+                      className={`font-bold line-clamp-2 flex items-center leading-[120%] text-2xl h-[100px] mx-[20px] tablet:mx-0 border-b-2 tablet:px-10 ${
                         index != 0 && "border-t-2 tablet:border-t-0"
                       } ${index != 2 && "tablet:border-r-2"}`}
                       dangerouslySetInnerHTML={{ __html: item.title }}
