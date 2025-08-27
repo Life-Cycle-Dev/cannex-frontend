@@ -235,7 +235,24 @@ function ItemRow({ item, isRight }: { item: Certification; isRight: boolean }) {
         ) : (
           <h4 className="font-bold text-[20px]">{item.title}</h4>
         )}
-        <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
+        {isRight ? (
+          <>
+            {item.title === "Thai GMP" ? (
+              <>
+                <h4 className="font-bold text-[20px]">
+                  GMP for Herbal Products Containing Hemp
+                </h4>
+                <p className="font-bold text-[16px]">FDA (Thailand)</p>
+              </>
+            ) : (
+              <>
+                <h4 className="font-bold text-[20px]">{item.authority}</h4>
+              </>
+            )}
+          </>
+        ) : (
+          <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
+        )}
         <p className="mt-2 text-[16px]">{item.description}</p>
       </div>
     </div>
