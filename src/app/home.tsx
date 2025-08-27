@@ -53,11 +53,24 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
                         )
                       }
                     >
                       Pharmaceutical-
+                    </p>
+                    <p
+                      className={
+                        "bg-crystalGreen w-fit reveal-ltr" +
+                        getClassNameAnimation(
+                          show,
+                          500,
+                          "opacity-0",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                        )
+                      }
+                    >
+                      Pharmaceutical
                     </p>
                     <p
                       style={{ animationDelay: `500ms` }}
@@ -81,7 +94,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
                         )
                       }
                     >
@@ -109,7 +122,7 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white"
                         )
                       }
                     >
