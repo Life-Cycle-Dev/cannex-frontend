@@ -57,7 +57,7 @@ export default function Button({
         ${resolveButtonClass()} ${className}`}
     >
       {type !== "pagination" && type !== "paginationFocus" && (
-        <div className="w-6 shrink-0">
+        <div className={`w-6 ${!prefixIcon && "tablet:w-0"} shrink-0`}>
           {prefixIcon && (
             <span className="flex items-center">{prefixIcon}</span>
           )}
