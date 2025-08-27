@@ -13,7 +13,7 @@ import { ContactConfig } from "@/types/web-config";
 import React, { useEffect, useState } from "react";
 
 export default function Page() {
-  const { backendClient } = useHelperContext()();
+  const { backendClient, setIsFooterBorder } = useHelperContext()();
   const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
   const fetchData = async () => {
@@ -22,6 +22,13 @@ export default function Page() {
       setContactInfo(response);
     }
   };
+
+  useEffect(() => {
+    setIsFooterBorder(false);
+    return () => {
+      setIsFooterBorder(true);
+    };
+  }, [setIsFooterBorder]);
 
   useEffect(() => {
     fetchData();
