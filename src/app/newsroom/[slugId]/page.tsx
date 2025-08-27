@@ -81,7 +81,7 @@ export default async function Page({ params, searchParams }: PageProps) {
         <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
           Our Newsroom
         </div>
-        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
+        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3 tablet:border-t-2">
           {randomNewsroom.map((data, index) => (
             <PaginationCard
               datas={randomNewsroom}
