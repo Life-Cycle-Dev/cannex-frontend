@@ -98,7 +98,13 @@ function Column({
       {/* Padding: mobile 20/32, desktop 80/64 */}
       <div className="px-[20px] py-[32px] desktop:px-[80px] desktop:py-[64px]">
         {/* Heading */}
-        <h3 className="text-[48px] tablet:text-[52px] desktop:text-5xl font-extrabold leading-tight">
+        <h2 className="text-[32px] tablet:text-[52px] font-bold hidden tablet:block">
+          {titleA}
+          <br />
+          {titleB}
+        </h2>
+
+        <h3 className="text-[32px] font-bold tablet:hidden">
           {titleA}
           <br />
           {titleB}
