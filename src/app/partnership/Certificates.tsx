@@ -77,7 +77,7 @@ export default function Certificates() {
     <section className="w-full bg-white text-[var(--foreground)]">
       {/* Heading */}
       <ScrollReveal
-        className="mx-[20px] border-t-2 desktop:border-t-0 desktop:mx-0 desktop:px-[80px] py-[40px] desktop:py-[48px]"
+        className="mx-[20px] border-t-2 tablet:border-t-0 tablet:mx-0 tablet:px-[80px] py-[40px] tablet:py-[48px]"
         once
       >
         {(show) => (
@@ -89,7 +89,7 @@ export default function Certificates() {
               "opacity-100 translate-y-0",
             )}
           >
-            <h2 className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight desktop:pb-[0px]">
+            <h2 className="text-[40px] tablet:text-[52px] tablet:text-5xl font-bold tablet:pb-[0px]">
               License and Certification
             </h2>
           </div>
@@ -97,16 +97,16 @@ export default function Certificates() {
       </ScrollReveal>
 
       {/* Full-width divider */}
-      <div className="border-b-2 border-black mx-[20px] desktop:mx-0 desktop:w-full" />
+      <div className="border-b-2 border-black mx-[20px] tablet:mx-0 tablet:w-full" />
 
       {/* Content */}
       <div>
         <div className="w-full">
-          {/* Desktop: 2 columns (right side has the vertical border only) */}
-          <div className="desktop:grid desktop:grid-cols-2">
+          {/* tablet: 2 columns (right side has the vertical border only) */}
+          <div className="tablet:grid tablet:grid-cols-2">
             {/* LEFT COLUMN */}
             <ScrollReveal
-              className="mx-[20px] desktop:px-[80px] desktop:mx-0"
+              className="mx-[20px] tablet:px-[80px] tablet:mx-0"
               once
             >
               {(show) => (
@@ -118,15 +118,15 @@ export default function Certificates() {
                     "opacity-100 translate-x-0",
                   )}
                 >
-                  <h3 className="mt-[40px] text-2xl tablet:text-3xl font-extrabold leading-snug mb-6">
+                  <h3 className="mt-[40px] text-[32px] font-extrabold leading-snug mb-6">
                     {cat.category}
                   </h3>
 
                   {leftItems.map((it, i) => (
                     <div key={it.title} className="py-6">
                       <ItemRow item={it} />
-                      {i !== leftItems.length - 1 && (
-                        <div className="mt-6  mx-[16px] tablet:mx-[20px] desktop:mx-0" />
+                      {i === 1 && (
+                        <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
                     </div>
                   ))}
@@ -137,9 +137,8 @@ export default function Certificates() {
             {/* RIGHT COLUMN (desktop-only left border) */}
             <ScrollReveal
               className="
-                mx-[20px] desktop:mx-0
-                desktop:border-l-2 desktop:border-black
-                desktop:pl-[40px]
+                mx-[20px] tablet:mx-0
+                tablet:border-l-2 tablet:border-black
               "
               once
             >
@@ -152,12 +151,12 @@ export default function Certificates() {
                     "opacity-100 translate-x-0",
                   )}
                 >
-                  <div className="mt-[40px]" />
+                  <div className="tablet:mt-[40px]" />
                   {rightItems.map((it, i) => (
-                    <div key={it.title} className="py-6">
+                    <div key={it.title} className={`tablet:px-[84px] py-6 ${i === 0 && "tablet:border-b-2"}`}>
                       <ItemRow item={it} />
-                      {i !== rightItems.length - 1 && (
-                        <div className="mt-6  border-black  tablet:mx-[20px] desktop:mx-0" />
+                      {i === 0 && (
+                        <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
                     </div>
                   ))}
@@ -168,7 +167,7 @@ export default function Certificates() {
         </div>
 
         {/* Bottom divider */}
-        <div className="border-b-2 border-black mx-[20px] desktop:mx-0 desktop:w-full" />
+        <div className="border-b-2 border-black mx-[20px] hidden tablet:block tablet:mx-0 tablet:w-full" />
       </div>
     </section>
   );
@@ -191,11 +190,11 @@ function ItemRow({ item }: { item: Certification }) {
       )}
 
       {/* ข้อความ */}
-      <div className="mt-3 desktop:mt-0">
+      <div className="mt-3 tablet:mt-0">
         <h4 className="font-extrabold leading-snug text-lg tablet:text-xl">
           {item.title}
         </h4>
-        <div className="mt-1 font-semibold text-sm">{item.authority}</div>
+        <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
         <p className="mt-2 text-sm leading-relaxed text-neutral-900">
           {item.description}
         </p>

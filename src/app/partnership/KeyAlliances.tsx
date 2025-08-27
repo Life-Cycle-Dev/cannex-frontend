@@ -58,14 +58,14 @@ export default function Home() {
                 "opacity-100 translate-x-0",
               )}
             >
-              <h1
+              <h2
                 id="alliances-title"
-                className="text-3xl tablet:text-4xl desktop:text-5xl font-extrabold leading-tight mx-[20px]"
+                className="text-[40px] tablet:text-[52px] font-bold mx-[20px]"
               >
                 Our Key Strategic
                 <br />
                 Alliances
-              </h1>
+              </h2>
             </div>
           )}
         </ScrollReveal>
@@ -173,8 +173,8 @@ function AllianceItem({ data, index }: { data: Alliance; index: number }) {
           desktop:px-[80px]
         `}
       >
-        <h3 className="mt-0 desktop:mt-[32px] text-xl desktop:text-2xl font-extrabold leading-snug flex items-start gap-3">
-          <span aria-hidden className="relative w-6 h-6 flex-shrink-0">
+        <h3 className="mt-0 tablet:mt-[32px] text-xl tablet:text-2xl font-bold flex flex-col items-start tablet:flex-row tablet:items-center gap-3">
+          <span aria-hidden className="relative w-[44px] tablet:w-[33px] flex-shrink-0">
             <img src={data.flag} alt={data.title} className="object-contain" />
           </span>
           <span>{data.title}</span>
