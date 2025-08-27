@@ -101,7 +101,7 @@ export default function EventsAndUpdated() {
               <div className="tablet:mb-4 w-fit text-white bg-black p-[2px_8px] h-fit">
                 Events & Updated
               </div>
-              <h2 className="text-[52px] leading-[110%] font-bold">
+              <h2 className="mt-[16px] tablet:mt-0 text-[52px] leading-[110%] font-bold">
                 Happening
               </h2>
             </div>
@@ -116,7 +116,7 @@ export default function EventsAndUpdated() {
             >
               <div
                 onClick={() => {
-                  window.location.href = "/event";
+                  window.location.href = "/events";
                 }}
                 className="w-12 h-12 flex justify-center items-center tablet:hidden"
               >
@@ -137,6 +137,7 @@ export default function EventsAndUpdated() {
               key={data.id}
               data={data}
               index={index}
+              isDateAndDescriptionShow={false}
               style={{
                 transitionDelay: `${500 * index + 500}ms`,
                 animationDelay: `${500 * index + 500}ms`,

@@ -45,7 +45,7 @@ export default function Newsroom() {
               <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
                 Newsroom
               </div>
-              <h2 className="text-[52px] leading-[110%] font-bold">
+              <h2 className="mt-[16px] tablet:mt-0 text-[52px] leading-[110%] font-bold">
                 Thought <br /> Leadership
               </h2>
             </div>
