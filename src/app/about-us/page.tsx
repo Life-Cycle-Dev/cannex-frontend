@@ -146,7 +146,7 @@ export default function Page() {
         <ScrollReveal once>
           {(show) => (
             <div
-              className={`text-[40px] tablet:text-[52px] font-bold transition-all duration-[500ms]
+              className={`text-[40px] tablet:text-[52px] font-bold transition-all duration-[500ms] leading-[110%]
                 ${getClassNameAnimation(
                   show,
                   1000,
@@ -160,7 +160,7 @@ export default function Page() {
           )}
         </ScrollReveal>
 
-        <ScrollReveal once>
+        <ScrollReveal className="font-medium" once>
           {(show) => (
             <div
               className={`tablet:p-[15px_20px] ${getClassNameAnimation(
