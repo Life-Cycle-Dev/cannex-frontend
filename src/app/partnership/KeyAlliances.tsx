@@ -81,7 +81,7 @@ export default function Home() {
         >
           {(show) => (
             <div>
-              <div className="relative w-full h-full border-b-2 desktop:border-b-0">
+              <div className="relative w-full h-full border-b-2 desktop:border-b-0 overflow-hidden">
                 <img
                   src="/partnership/Image.webp"
                   alt="Image | Cannex"
@@ -138,7 +138,7 @@ export default function Home() {
                   ) + "h-full"
                 }
               >
-                <div className="relative w-full h-full border-t-[2px]">
+                <div className="relative w-full h-full border-t-[2px] overflow-hidden">
                   <img
                     src="/partnership/Image.webp"
                     alt="Image | Cannex"
