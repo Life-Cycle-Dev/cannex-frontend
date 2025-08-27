@@ -56,9 +56,14 @@ export default function Button({
       className={`group h-12 inline-flex items-center justify-between gap-2 px-4 font-medium cursor-pointer
         ${resolveButtonClass()} ${className}`}
     >
-      <div className="w-6 shrink-0">
-        {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
-      </div>
+      {type !== "pagination" && type !== "paginationFocus" && (
+        <div className="w-6 shrink-0">
+          {prefixIcon && (
+            <span className="flex items-center">{prefixIcon}</span>
+          )}
+        </div>
+      )}
+
       {text}
       {prefixIcon && <div className="w-6 shrink-0" />}
       {suffixIcon && (disabled || !isAnimate) && (

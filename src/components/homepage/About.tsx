@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Button from "@/components/Button";
 import RightUpIcon from "@/components/icons/RightUpIcon";
