@@ -58,7 +58,7 @@ export default function Page() {
             <>
               <div
                 className={
-                  "text-[52px] font-bold line-clamp-1 w-fit h-fit leading-[110%]" +
+                  "text-[40px] tablet:text-[52px] font-bold line-clamp-1 w-fit h-fit leading-[110%]" +
                   getClassNameAnimation(
                     show,
                     500,
@@ -72,7 +72,7 @@ export default function Page() {
               <div
                 style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
                 className={
-                  "text-[52px] font-bold line-clamp-1 w-fit leading-[110%]" +
+                  "text-[40px] tablet:text-[52px] font-bold line-clamp-1 w-fit leading-[110%]" +
                   getClassNameAnimation(
                     show,
                     500,
@@ -86,7 +86,7 @@ export default function Page() {
               <div
                 style={{ animationDelay: "1000ms", transitionDelay: "1000ms" }}
                 className={
-                  "text-[52px] font-bold line-clamp-1" +
+                  "text-[40px] tablet:text-[52px] font-bold" +
                   getClassNameAnimation(
                     show,
                     500,
