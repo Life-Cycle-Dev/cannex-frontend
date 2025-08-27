@@ -47,15 +47,25 @@ export default function ContentView({
               >
                 {page === "events" ? "Events & Updated" : "Newsroom"}
               </Link>
-              <h1 className="text-[46px] font-bold break-words leading-[110%] line-clamp-2">
+              <h1 className="text-[46px] font-bold break-words leading-[110%]">
                 {data.title}
               </h1>
-              <div className="text-gray-400">
+              <div className="text-gray-400 hidden tablet:block">
                 {formatDate(data.publishedAt)}
+              </div>
+              <div className="flex justify-between items-center tablet:hidden">
+                <div className="text-gray-400">
+                  {formatDate(data.publishedAt)}
+                </div>
+                <ShareButton
+                  imageUrl={data?.image?.url ?? ""}
+                  title={data.title}
+                  url={`/${page}/${data.slugId}`}
+                />
               </div>
             </div>
 
-            <div className="w-full flex tablet:flex-col items-center tablet:items-start justify-between">
+            <div className="w-full tablet:flex-col items-center tablet:items-start justify-between hidden tablet:flex">
               <ShareButton
                 imageUrl={data?.image?.url ?? ""}
                 title={data.title}

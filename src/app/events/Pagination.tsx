@@ -41,7 +41,7 @@ export const PaginationCard = ({
     <Link
       href={`/events/${data.slug}`}
       style={style}
-      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 font-medium
         ${
           index < datas.length - 1 &&
           datas.length > 2 &&

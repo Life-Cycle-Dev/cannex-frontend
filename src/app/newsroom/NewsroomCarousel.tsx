@@ -41,7 +41,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
         >
           <div
             className="
-              flex h-full transition-transform duration-500 ease-out
+              flex h-full w-full transition-transform duration-500 ease-out aspect-3/2
             "
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
@@ -66,12 +66,12 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           <Link
             href={`/newsroom/${current.slug}`}
             className="
-              w-full flex flex-col pb-20 
-              tablet:border-0 h-full tablet:pb-0 
+              w-full h-full flex flex-col pb-20 
+              tablet:border-0 tablet:pb-0 
               relative group overflow-hidden cursor-pointer
             "
           >
-            <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1">
+            <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1 hidden tablet:block">
               <RightUpIcon
                 className={`
                   absolute inset-0 text-black w-full h-full
@@ -94,6 +94,14 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               />
             </div>
 
+            <div className="self-end mb-4 w-8 h-8 overflow-hidden group z-1 tablet:hidden">
+              <RightUpIcon
+                className={`
+                  absolute text-black w-8 h-8 right-0 group-hover:text-crystalGreen
+                `}
+              />
+            </div>
+
             <div
               className={`absolute z-0 inset-0 bg-black transition-transform duration-500 ease-out group-hover:translate-y-0 
                 ${hover ? "translate-y-0" : "translate-y-full"}`}
@@ -111,7 +119,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
               </div>
               <p
-                className={`relative z-10 ${
+                className={`relative z-10 line-clamp-2 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >

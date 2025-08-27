@@ -224,7 +224,7 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[55px] right-[17px] tablet:top-auto ${
+                    className={`absolute top-[37px] right-[17px] tablet:top-auto ${
                       idx === 3
                         ? "tablet:bottom-[-20px]"
                         : "tablet:bottom-[-29px]"
@@ -245,9 +245,9 @@ export default function FocusArea() {
                     {idx + 1}
                   </p>
 
-                  <p
+                  <h3
                     className={
-                      "text-[32px] font-bold h-fit w-[324px] break-words" +
+                      "text-[32px] leading-[120%] font-bold h-fit w-[324px] break-words" +
                       getClassNameAnimation(
                         show,
                         1000,
@@ -257,7 +257,7 @@ export default function FocusArea() {
                     }
                   >
                     {item.title}
-                  </p>
+                  </h3>
 
                   <div className="leading-[125%] border-t-2">
                     {item.contents.map((content, index) => (

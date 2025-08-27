@@ -81,7 +81,7 @@ export default function SupportingInformation() {
                   )
                 }
               >
-                Product<br/>Formats
+                Product<br className="hidden tablet:block" /> Formats
               </div>
               <div
                 className={
