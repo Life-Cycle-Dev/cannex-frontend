@@ -74,7 +74,7 @@ function ProductCard({
         transitionDelay: `${500 + index * 200}ms`,
         animationDelay: `${500 + index * 200}ms`,
       }}
-      className={`group relative isolate cursor-pointer overflow-hidden border-b-[2px] border-black  
+      className={`group relative isolate cursor-pointer overflow-hidden tablet:border-b-[2px] border-black  
         ${
           index % 2 === 1
             ? index === products.length - 1
@@ -82,6 +82,9 @@ function ProductCard({
               : "border-r-0 tablet:border-r-[2px]"
             : "border-r-[2px]"
         } 
+        ${
+          index > 1 ? "border-b-0" : "border-b-2"
+        }
         ${getClassNameAnimation(
           show,
           500 + index * 200,
