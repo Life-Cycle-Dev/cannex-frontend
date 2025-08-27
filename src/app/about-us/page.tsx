@@ -266,7 +266,7 @@ export default function Page() {
             {(show) => (
               <h2
                 className={
-                  "text-[24px] tablet:text-[52px] font-bold" +
+                  "text-[40px] tablet:text-[52px] font-bold" +
                   getClassNameAnimation(
                     show,
                     500,
