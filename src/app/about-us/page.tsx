@@ -773,17 +773,17 @@ export default function Page() {
             <div className="grid grid-cols-1 tablet:grid-cols-3">
               {[
                 {
-                  title: "Pharmaceutical-Grade Formulation",
+                  title: "Pharmaceutical-Grade</br>Formulation",
                   desc: "Our cultivation, extraction, and packaging processes meet or exceed pharmaceutical standards — including GACP, PIC/S GMP, and EU-GMP guidelines (in progress).",
                   bottom: -59,
                 },
                 {
-                  title: "Science-Led Integrity",
+                  title: "Science-Led</br>Integrity",
                   desc: "We prioritize transparency, traceability, and scientific validation — so every product is verifiable, reproducible, and built on data, not trends.",
                   bottom: -59,
                 },
                 {
-                  title: "Human-Centered Wellness Innovation",
+                  title: "Human-Centered</br>Wellness Innovation",
                   desc: "We design every formulation around real needs — chronic pain, inflammation, anxiety, and beyond — putting patients and healthcare providers at the heart of our innovation.",
                   bottom: -57,
                 },
@@ -809,9 +809,8 @@ export default function Page() {
                       className={`font-bold line-clamp-2 flex items-center text-2xl h-[100px] mx-[20px] tablet:mx-0 border-b-2 tablet:px-10 ${
                         index != 0 && "border-t-2 tablet:border-t-0"
                       } ${index != 2 && "tablet:border-r-2"}`}
-                    >
-                      {item.title}
-                    </div>
+                      dangerouslySetInnerHTML={{ __html: item.title }}
+                    />
                     <div
                       className={`${
                         index != 2 && "tablet:border-r-2"

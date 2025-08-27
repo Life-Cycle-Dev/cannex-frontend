@@ -128,10 +128,10 @@ export default function Contact({ className = "" }: { className?: string }) {
       }
     >
       <div className="flex flex-col gap-6">
-        <p className="text-2xl tablet:text-[32px] font-medium">
+        <p className="text-2xl tablet:text-[32px] font-medium leading-[110%]">
           Let’s Collaborate for <br /> a Healthier Future.
         </p>
-        <p className="text-[32px] tablet:text-[52px] font-bold">
+        <p className="text-[32px] tablet:text-[52px] font-bold leading-[110%]">
           <span>
             Whether you&apos;re a pharmaceutical company, wellness brand, or
             distributor,
