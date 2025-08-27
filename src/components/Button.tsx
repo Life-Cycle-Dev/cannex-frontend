@@ -53,12 +53,14 @@ export default function Button({
     <button
       disabled={disabled}
       onClick={href ? () => (window.location.href = href) : onClick}
-      className={`group h-12 inline-flex items-center justify-center gap-2 px-4 font-medium cursor-pointer
+      className={`group h-12 inline-flex items-center justify-between gap-2 px-4 font-medium cursor-pointer
         ${resolveButtonClass()} ${className}`}
     >
-      {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
+      <div className="w-6 shrink-0">
+        {prefixIcon && <span className="flex items-center">{prefixIcon}</span>}
+      </div>
       {text}
-
+      {prefixIcon && <div className="w-6 shrink-0" />}
       {suffixIcon && (disabled || !isAnimate) && (
         <span className="flex items-center">{suffixIcon}</span>
       )}
