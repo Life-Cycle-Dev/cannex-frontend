@@ -837,7 +837,7 @@ export default function Page() {
       <ScrollReveal once>
         {(show) => (
           <div className="tablet:h-[620px] grid grid-cols-1 tablet:grid-cols-2 tablet:border-t-2">
-            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden aspect-square">
+            <div className="border-b-2 tablet:border-b-0 tablet:border-r-2 h-full w-full overflow-hidden aspect-square tablet:aspect-4/3">
               <img
                 src="/about-us/about-us-last-section.webp"
                 alt="Image | Cannex"
@@ -852,7 +852,7 @@ export default function Page() {
                 }
               />
             </div>
-            <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 justify-center tablet:px-[64px]">
+            <div className="mx-[20px] mt-[40px] mb-[80px] tablet:m-0 flex flex-col gap-6 tablet:pt-[96px] tablet:px-[64px]">
               <h2
                 className={
                   "text-[40px] tablet:text-[52px] font-bold" +
