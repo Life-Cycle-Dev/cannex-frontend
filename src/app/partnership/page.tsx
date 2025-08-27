@@ -56,7 +56,7 @@ export default function Page() {
         <ScrollReveal className="flex flex-col gap-2 justify-center mx-[20px] pb-[64px] pt-[32px] border-b-2 tablet:w-[45%] tablet:border-b-0 tablet:mx-0 tablet:py-0 tablet:px-[80px]">
           {(show) => (
             <>
-              <div
+              <h2
                 className={
                   "text-[40px] tablet:text-[52px] font-bold line-clamp-1 w-fit h-fit leading-[110%]" +
                   getClassNameAnimation(
@@ -68,8 +68,8 @@ export default function Page() {
                 }
               >
                 Global
-              </div>
-              <div
+              </h2>
+              <h2
                 style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
                 className={
                   "text-[40px] tablet:text-[52px] font-bold line-clamp-1 w-fit leading-[110%]" +
@@ -82,11 +82,11 @@ export default function Page() {
                 }
               >
                 Collaboration
-              </div>
-              <div
+              </h2>
+              <h2
                 style={{ animationDelay: "1000ms", transitionDelay: "1000ms" }}
                 className={
-                  "text-[40px] tablet:text-[52px] font-bold" +
+                  "text-[40px] tablet:text-[52px] font-bold leading-[110%]" +
                   getClassNameAnimation(
                     show,
                     500,
@@ -96,7 +96,7 @@ export default function Page() {
                 }
               >
                 for Local Impact
-              </div>
+              </h2>
               <div
                 style={{ animationDelay: "1500ms", transitionDelay: "1500ms" }}
                 className={`
@@ -131,7 +131,7 @@ export default function Page() {
     )}
   `}
               >
-                We don’t just supply products — we build ecosystems for
+                We don’t just supply products — we <b>build ecosystems</b> for
                 sustainable and scalable medical cannabis growth.
               </div>
             </>

@@ -40,7 +40,7 @@ const data: CompanyCertifications = {
           title: "Manufacturing of Herbal Products Using Herbal Ingredients",
           authority: "FDA (Thailand)",
           description:
-            "Herbal Extracts / Liquids / Alcohol Extracts / CBD Oil / Spray-Dried Products / Freeze-Dried Products / Other Ingredients.",
+            "Herbal Extracts / Liquids / Alcohol Extracts / CBD Oil / Spray-Dried Products / Freeze-Dried Products / Other Ingredients",
           image: {
             src: "/certs/manufacturing-of-herbal-products-using-herbal-ingredients.webp",
             alt: "Manufacturing of Herbal Products Using Herbal Ingredients",
@@ -60,7 +60,7 @@ const data: CompanyCertifications = {
           title: "Thai GMP",
           authority: "GMP for Herbal Products Containing Hemp — FDA (Thailand)",
           description:
-            "Thai GMP is a manufacturing quality standard ensuring the safety and quality of pharmaceuticals, supplements, and herbal products by regulating facilities, processes, and hygiene management.",
+            "Thai GMP is a manufacturing quality standard established by the Thai Ministry of Public Health. It sets requirements for facilities, manufacturing processes, and hygiene management to ensure the safety and quality of pharmaceuticals, supplements, and medical herbal products.",
           image: { src: "/certs/thai-gmp.webp", alt: "Thai GMP" },
         },
       ],
@@ -89,8 +89,10 @@ export default function Certificates() {
               "opacity-100 translate-y-0",
             )}
           >
-            <h2 className="text-[40px] tablet:text-[52px] tablet:text-5xl font-bold tablet:pb-[0px]">
-              License and Certification
+            <h2 className="text-[40px] tablet:text-[52px] font-bold tablet:pb-[0px] leading-[110%]">
+              License
+              <br />
+              and Certification
             </h2>
           </div>
         )}
@@ -253,7 +255,7 @@ function ItemRow({ item, isRight }: { item: Certification; isRight: boolean }) {
         ) : (
           <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
         )}
-        <p className="mt-2 text-[16px]">{item.description}</p>
+        <p className="mt-2 text-[16px] font-medium leading-[125%]">{item.description}</p>
       </div>
     </div>
   );

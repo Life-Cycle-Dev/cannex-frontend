@@ -137,7 +137,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
           <div className="pb-5 desktop:px-[64px] tablet:px-[64px] flex flex-col gap-3 flex-1">
             <h2
-              className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-2 ${
+              className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-3 leading-[110%] ${
                 hover ? "text-crystalGreen" : ""
               }`}
             >
@@ -147,7 +147,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               {current?.publishedAt ? formatDate(current.publishedAt) : ""}
             </div>
             <div
-              className={`relative z-10 text-md line-clamp-4 group-hover:text-white ${
+              className={`relative z-10 text-md group-hover:text-white line-clamp-3 leading-[110%] ${
                 hover && "text-white"
               }`}
             >

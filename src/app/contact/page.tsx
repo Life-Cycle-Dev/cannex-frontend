@@ -82,7 +82,7 @@ export default function Page() {
                 />
               </div>
             </div>
-            <div className="mt-8 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
+            <div className="mt-8 tablet:mt-0 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
               <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
                 <div className="relative w-full aspect-2/1">
                   <img

@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 import { cache } from "react";
 import Markdown from "@/components/Markdown";
-import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
-import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PaginationCard } from "../Pagination";
 
 interface PageProps {

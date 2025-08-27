@@ -24,7 +24,7 @@ export default function Map() {
   }, []);
 
   return (
-    <div className="w-full h-[480px] relative">
+    <div className="w-full h-[480px] relative border-t-2">
       <iframe
         width="600"
         height="450"

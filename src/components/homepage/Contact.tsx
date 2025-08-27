@@ -123,7 +123,7 @@ export default function Contact({ className = "" }: { className?: string }) {
     <form
       onSubmit={handleSubmit}
       className={
-        "px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:border-t-[2px] " +
+        "px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:py-[96px_128px] tablet:border-t-[2px] " +
         className
       }
     >
