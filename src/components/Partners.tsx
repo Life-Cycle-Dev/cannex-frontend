@@ -374,7 +374,7 @@ export default function Partners() {
                 )
               }
             >
-              Market Analysis and Planning
+              Market Analysis <br/> and Planning
             </div>
           )}
         </ScrollReveal>
@@ -461,7 +461,7 @@ export default function Partners() {
                 )
               }
             >
-              Variety Improvement and Cultivation
+              Variety Improvement <br/> and Cultivation
             </div>
           )}
         </ScrollReveal>
@@ -519,7 +519,7 @@ export default function Partners() {
                 )
               }
             >
-              Technology and Engineering
+              Technology <br/>and Engineering
             </div>
           )}
         </ScrollReveal>
@@ -628,7 +628,7 @@ export default function Partners() {
                 )
               }
             >
-              Analysis, Testing and Clinical Trials
+              Analysis, Testing <br/>and Clinical Trials
             </div>
           )}
         </ScrollReveal>

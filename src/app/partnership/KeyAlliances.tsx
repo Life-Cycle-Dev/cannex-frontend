@@ -46,7 +46,7 @@ export default function Home() {
         className="w-full border-t-2 desktop:border-b-2 border-black"
       >
         <ScrollReveal
-          className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]"
+          className="border-black  py-[40px] desktop:px-[80px] desktop:py-[64px]"
           once
         >
           {(show) => (
@@ -71,7 +71,7 @@ export default function Home() {
         </ScrollReveal>
 
         <ScrollReveal
-          className="mt-[20px] desktop:hidden border-t-[2px] border-black"
+          className="desktop:hidden border-t-[2px] border-black"
           once
         >
           {(show) => (
