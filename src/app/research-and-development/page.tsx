@@ -221,17 +221,18 @@ export default function Page() {
                   aria-label="Play video"
                   className="absolute inset-0 grid place-items-center"
                 >
-                  <span className="h-16 w-16 rounded-full bg-white/90 shadow ring-1 ring-black/10 grid place-items-center">
-                    {/* simple play triangle */}
-                    <svg
-                      width="26"
-                      height="26"
-                      viewBox="0 0 24 24"
-                      className="text-black"
-                    >
-                      <path d="M8 5v14l11-7-11-7z" fill="currentColor" />
-                    </svg>
-                  </span>
+                  <svg
+                    width="85"
+                    height="85"
+                    viewBox="0 0 85 85"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M42.5 0C19.0279 0 0 19.0279 0 42.5C0 65.9721 19.0279 85 42.5 85C65.9721 85 85 65.9721 85 42.5C85 19.0279 65.9721 0 42.5 0ZM31.0226 60.0745V24.9256L61.45 42.5L31.0226 60.0745Z"
+                      fill="white"
+                    />
+                  </svg>
                 </button>
               )}
             </div>
