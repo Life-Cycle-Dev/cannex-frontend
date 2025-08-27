@@ -32,7 +32,7 @@ const AUDIENCE: Bullet[] = [
 
 export default function OfferAndAudience() {
   return (
-    <section className="w-full bg-white text-[var(--foreground)]   border-black">
+    <section className="w-full bg-white text-[var(--foreground)] border-black">
       <div className="grid grid-cols-1 desktop:grid-cols-2">
         {/* LEFT */}
         <ScrollReveal once>
@@ -94,7 +94,7 @@ function Column({
   showLeftBorder?: boolean;
 }) {
   return (
-    <div className={showLeftBorder ? "desktop:border-l-2 border-black" : ""}>
+    <div className={showLeftBorder ? "desktop:border-l-2" : ""}>
       {/* Padding: mobile 20/32, desktop 80/64 */}
       <div className="px-[20px] py-[32px] desktop:px-[80px] desktop:py-[64px]">
         {/* Heading */}
@@ -105,17 +105,17 @@ function Column({
         </h3>
 
         {/* Divider under heading */}
-        <div className="mt-6 h-px w-full bg-neutral200" />
+        <div className="mt-6 h-[1px] w-full bg-black" />
 
         {/* Bullets */}
         <ul className="mt-2">
           {bullets.map((b, i) => (
-            <li key={i} className="py-4 text-[16px] desktop:text-base">
+            <li key={i} className="py-4 text-[16px]">
               {b.strong ? (
-                <span className="font-semibold">{b.strong}</span>
+                <span className="font-bold">{b.strong}</span>
               ) : null}
               {b.text}
-              <div className="mt-4 h-px w-full bg-neutral200" />
+              <div className="mt-4 h-[1px] w-full bg-black" />
             </li>
           ))}
         </ul>
