@@ -9,7 +9,7 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 export default function Supplying() {
   return (
     <div className="bg-black text-white h-fit">
-      <div className="w-full p-[48px_20px_80px_20px] tablet:p-[80px_80px_103px_80px] flex flex-col gap-6 tablet:gap-0">
+      <div className="w-full p-[48px_20px_24px_20px] tablet:p-[80px_80px_103px_80px] flex flex-col gap-6 tablet:gap-0">
         <ScrollReveal className="w-full flex justify-end" once>
           {(show) => (
             <div
