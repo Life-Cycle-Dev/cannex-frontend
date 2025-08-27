@@ -64,7 +64,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               onTouchStart={() => setHover(true)}
               onTouchEnd={() => setHover(false)}
               className={`
-                absolute inset-0 w-full h-full object-cover border-x-2
+                absolute inset-0 w-full h-full object-cover border-y-2 tablet:border-y-0 tablet:border-x-2
                 transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
                 ${animating ? exitEnd : "translate-x-0"}
                 cursor-pointer
@@ -83,7 +83,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             onTouchStart={() => setHover(true)}
             onTouchEnd={() => setHover(false)}
             className={`
-              absolute inset-0 w-full h-full object-cover border-x-2
+              absolute inset-0 w-full h-full object-cover border-y-2 tablet:border-y-0 tablet:border-x-2
               transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
               ${
                 prev !== null
@@ -131,7 +131,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
           <div
             className={`absolute z-0 inset-0 bg-black transition-transform duration-500 ease-out group-hover:translate-y-0 ${
-              hover ? "translate-y-0" : "translate-y-full"
+              hover ? "translate-y-0" : "translate-y-[110%]"
             }`}
           />
 
@@ -143,11 +143,11 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             >
               {current?.title ?? "-"}
             </h2>
-            <div className="relative z-10 text-gray-400 text-md">
+            <div className="relative z-10 text-gray-400 text-md leading-[125%] font-medium">
               {current?.publishedAt ? formatDate(current.publishedAt) : ""}
             </div>
             <div
-              className={`relative z-10 text-md group-hover:text-white line-clamp-3 leading-[110%] ${
+              className={`relative z-10 text-md group-hover:text-white line-clamp-3 leading-[125%] font-medium ${
                 hover && "text-white"
               }`}
             >

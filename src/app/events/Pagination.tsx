@@ -71,9 +71,9 @@ export const PaginationCard = ({
 
         <div className="relative z-20 flex flex-col gap-4">
           <div
-            className={`ml-auto w-7 h-7 overflow-hidden mb-2 relative ${
+            className={`ml-auto w-7 h-7 top-[28px] tablet:top-auto overflow-hidden mb-2 relative ${
               !isDateAndDescriptionShow &&
-              "translate-y-1/2 mb-[-4px] mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"
+              "translate-y-1/2 mb-[-4px] top-auto mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"
             }`}
           >
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-9 group-hover:translate-x-9" />
@@ -81,7 +81,7 @@ export const PaginationCard = ({
           </div>
 
           <h3
-            className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
+            className={`text-2xl tablet:text-[32px] mt-[-24px] pr-[28px] tablet:pr-0 tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
               !isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"
             }`}
           >
@@ -95,7 +95,7 @@ export const PaginationCard = ({
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
           </div>
           <div
-            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 ${
+            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 font-medium leading-[125%] ${
               !isDateAndDescriptionShow && "hidden tablet:block"
             }`}
           >

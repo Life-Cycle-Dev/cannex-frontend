@@ -34,7 +34,7 @@ export default function Page() {
                 Partnership
               </div>
 
-              <div className="h-[375px] tablet:h-[352px] border-y-2 tablet:border-t-2 tablet:border-y-0 overflow-hidden">
+              <div className=" aspect-square tablet:aspect-2/1 border-y-2 tablet:border-t-2 tablet:border-y-0 overflow-hidden">
                 <img
                   src="/partnership/hero-section.webp"
                   alt="Image | Cannex"
@@ -102,7 +102,7 @@ export default function Page() {
                 className={`
     text-[16px] my-[16px] line-clamp-5
     transition-all duration-700 ease-out
-    motion-reduce:transition-none motion-reduce:transform-none
+    motion-reduce:transition-none motion-reduce:transform-none font-medium
     ${getClassNameAnimation(
       show,
       500,
@@ -122,7 +122,7 @@ export default function Page() {
                 className={`
     text-[16px] line-clamp-2
     transition-all duration-700 ease-out
-    motion-reduce:transition-none motion-reduce:transform-none
+    motion-reduce:transition-none motion-reduce:transform-none  font-medium
     ${getClassNameAnimation(
       show,
       500,

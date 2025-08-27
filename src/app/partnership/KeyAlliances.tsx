@@ -81,7 +81,7 @@ export default function Home() {
         >
           {(show) => (
             <div>
-              <div className="relative w-full h-full border-b-2 desktop:border-b-0 overflow-hidden">
+              <div className="relative w-full h-full border-b-2 desktop:border-b-0 overflow-hidde aspect-square tablet:aspect-4/3">
                 <img
                   src="/partnership/Image.webp"
                   alt="Image | Cannex"
@@ -168,7 +168,7 @@ function AllianceItem({ data, index }: { data: Alliance; index: number }) {
     <div
       className={`border-black ${
         index !== 0 && "border-t-2"
-      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0`}
+      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0 font-medium`}
     >
       <div
         className={`

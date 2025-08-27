@@ -100,13 +100,13 @@ function Column({
       {/* Padding: mobile 20/32, desktop 80/64 */}
       <div className="px-[20px] pt-[80px] desktop:px-[80px] desktop:py-[64px]">
         {/* Heading */}
-        <h2 className="text-[32px] tablet:text-[52px] font-bold hidden tablet:block">
+        <h3 className="text-[32px] tablet:text-[52px] font-bold hidden tablet:block leading-[120%]">
           {titleA}
           <br />
           {titleB}
-        </h2>
+        </h3>
 
-        <h3 className="text-[32px] font-bold tablet:hidden">
+        <h3 className="text-[32px] font-bold tablet:hidden leading-[120%]">
           {titleA}
           <br />
           {titleB}
@@ -118,7 +118,7 @@ function Column({
         {/* Bullets */}
         <ul>
           {bullets.map((b, i) => (
-            <li key={i} className="text-[16px] py-[24px] border-b">
+            <li key={i} className="text-[16px] py-[24px] border-b font-medium">
               {b.strong ? (
                 <span className="font-bold">{b.strong}</span>
               ) : null}

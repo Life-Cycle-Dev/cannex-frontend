@@ -87,6 +87,14 @@ export default function Footer() {
                 {menu.title}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="relative group overflow-hidden my-[14px] px-1 text-black hover:text-crystalGreen font-medium w-fit"
+              rel="noopener noreferrer"
+            >
+              <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
+              Contact Us & Inquiry
+            </Link>
           </div>
           <div className="hidden tablet:flex w-full gap-8">
             <div className="flex flex-col">

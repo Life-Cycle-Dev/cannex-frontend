@@ -45,7 +45,7 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="relative bg-white border-b-[2px] tablet:border-b-0 mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
+          <div className="relative bg-white tablet:border-b-0 mx-5 -mt-[153px] tablet:-mt-[234px] tablet:mx-20">
             <div className="p-6 tablet:p-[64px_64px_0px_64px] flex flex-col gap-2">
               <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%]">
                 Connect with Cannex
@@ -89,7 +89,7 @@ export default function Page() {
                 />
               </div>
             </div>
-            <div className="mt-8 tablet:mt-0 flex flex-col tablet:flex-row px-6 tablet:px-16 w-full ">
+            <div className="mt-8 tablet:mt-0 flex flex-col tablet:flex-row tablet:px-16 w-full ">
               <div className="w-full border-[2px_0px_2px_0px] tablet:border-[2px_2px_0px_2px]">
                 <div className="relative w-full aspect-2/1">
                   <img
@@ -123,6 +123,7 @@ export default function Page() {
             </div>
           </div>
         </div>
+        <div className="h-[2px] bg-black w-full tablet:hidden"></div>
 
         <Contact />
         <Map />
