@@ -12,7 +12,7 @@
 }
 
 .animate-scroll {
-  animation: scroll-left 5s linear infinite;
+  animation: scroll-left 20s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }

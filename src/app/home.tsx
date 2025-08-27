@@ -290,29 +290,29 @@ export default function Home() {
           </div>
 
           {/* Desktop: Horizontal scroll animation */}
-          <div className="hidden tablet:flex animate-scroll">
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+          <div className="hidden tablet:flex animate-scroll w-max">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-3.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-4.webp"
                 alt="Image | Cannex"
@@ -320,28 +320,86 @@ export default function Home() {
               />
             </div>
             {/* Duplicate images for seamless loop */}
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-3.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-4.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Duplicate images for seamless loop */}
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-1.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-2.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-3.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-4.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Duplicate images for seamless loop */}
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-1.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-2.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-3.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-4.webp"
                 alt="Image | Cannex"
