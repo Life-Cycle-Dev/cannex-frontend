@@ -288,7 +288,7 @@ export default function Page() {
             {(show) => (
               <div
                 className={
-                  "text-[16px] py-[24px]" +
+                  "text-[16px] py-[24px] font-medium" +
                   getClassNameAnimation(
                     show,
                     500,
@@ -309,7 +309,7 @@ export default function Page() {
             {(show) => (
               <div
                 className={
-                  "text-[20px]" +
+                  "text-[20px] font-medium" +
                   getClassNameAnimation(
                     show,
                     1000,
@@ -343,7 +343,7 @@ export default function Page() {
             <div
               style={{ transitionDelay: "500ms", animationDelay: "500ms" }}
               className={
-                "flex justify-center" +
+                "flex justify-center font-medium" +
                 getClassNameAnimation(
                   show,
                   500,
