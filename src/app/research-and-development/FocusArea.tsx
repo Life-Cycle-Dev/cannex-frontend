@@ -72,43 +72,64 @@ const items: {
 export default function FocusArea() {
   const { setIsNavbarSticky } = useHelperContext()();
   const [isSticky, setIsSticky] = useState(false);
+  const [shouldHideTitle, setShouldHideTitle] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const evaluateSticky = () => {
+      const viewportWidth = window.innerWidth;
+      if (viewportWidth < 1200) {
+        setIsSticky(false);
+        setIsNavbarSticky(true);
+        return;
+      }
+
       const scrollTop = window.scrollY;
       const sectionTop =
         document.getElementById("focus-area-section")?.offsetTop || 0;
       const sectionHeight =
         document.getElementById("focus-area-section")?.offsetHeight || 0;
-      const viewportHeight = window.innerHeight;
 
-      if (
-        scrollTop >= sectionTop &&
-        scrollTop < sectionTop + sectionHeight - viewportHeight
-      ) {
+      const isInSection =
+        scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight;
+
+      if (isInSection) {
         setIsSticky(true);
-        setIsNavbarSticky(false);
+        const sectionBottom = sectionTop + sectionHeight;
+        const stickyBlockHeight = 500;
+        const shouldHide = sectionBottom <= scrollTop + stickyBlockHeight;
+        setShouldHideTitle(shouldHide);
+        setIsNavbarSticky(shouldHide);
       } else {
         setIsSticky(false);
         setIsNavbarSticky(true);
+        setShouldHideTitle(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", evaluateSticky);
+    window.addEventListener("resize", evaluateSticky);
+    evaluateSticky();
+
+    return () => {
+      window.removeEventListener("scroll", evaluateSticky);
+      window.removeEventListener("resize", evaluateSticky);
+    };
   }, []);
 
   return (
-    <div id="focus-area-section" className="flex flex-col tablet:flex-row">
+    <div
+      id="focus-area-section"
+      className="flex flex-col tablet:flex-row overflow-hidden"
+    >
       <div
-        className={`transition-all duration-300 ${
+        className={`hidden tablet:block transition-all duration-300 ${
           isSticky
             ? "tablet:fixed tablet:top-0 tablet:left-0 tablet:z-10 w-[32.77vw]"
             : "tablet:relative min-w-[32.77vw]"
         }`}
       >
         <ScrollReveal
-          className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px] bg-white"
+          className="p-[40px_20px_40px_20px] tablet:p-[96px_96px_0px_75px]"
           once
         >
           {(show) => (
@@ -116,19 +137,53 @@ export default function FocusArea() {
               className={getClassNameAnimation(
                 show,
                 500,
-                "opacity-0 -translate-y-20",
-                "opacity-100 translate-y-0",
+                "translate-y-20",
+                "translate-y-0",
               )}
+              style={{
+                transform: shouldHideTitle
+                  ? "translateY(-200px)"
+                  : "translateY(0px)",
+              }}
             >
-              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%]">
-                Our Core Focus Areas
+              <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] break-words">
+                Our Core
+                <br />
+                Focus Areas
               </p>
             </div>
           )}
         </ScrollReveal>
       </div>
+      <ScrollReveal
+        className="p-[40px_20px_40px_20px] tablet:hidden tablet:p-[96px_96px_0px_75px]"
+        once
+      >
+        {(show) => (
+          <div
+            className={getClassNameAnimation(
+              show,
+              500,
+              "opacity-0 -translate-y-20",
+              "opacity-100 translate-y-0",
+            )}
+          >
+            <p className="text-[40px] tablet:text-[52px] font-bold leading-[110%] break-words">
+              Our Core
+              <br />
+              Focus Areas
+            </p>
+          </div>
+        )}
+      </ScrollReveal>
 
-      <div className={isSticky ? "tablet:ml-[32.77vw] tablet:border-l-[2px]" : "tablet:border-l-[2px]"}>
+      <div
+        className={
+          isSticky
+            ? "tablet:ml-[32.77vw] tablet:border-l-[2px]"
+            : "tablet:border-l-[2px]"
+        }
+      >
         {items.map((item, idx) => (
           <ScrollReveal key={idx} once>
             {(show) => (
@@ -169,7 +224,7 @@ export default function FocusArea() {
                           ${idx % 2 === 0 ? "" : "tablet:border-r-[2px]"}`}
                 >
                   <p
-                    className={`absolute top-[55px] right-[17px] tablet:top-auto ${
+                    className={`absolute top-[37px] right-[17px] tablet:top-auto ${
                       idx === 3
                         ? "tablet:bottom-[-20px]"
                         : "tablet:bottom-[-29px]"
@@ -190,9 +245,9 @@ export default function FocusArea() {
                     {idx + 1}
                   </p>
 
-                  <p
+                  <h3
                     className={
-                      "text-[32px] font-bold h-fit w-[324px]" +
+                      "text-[32px] leading-[120%] font-bold h-fit w-[324px] break-words" +
                       getClassNameAnimation(
                         show,
                         1000,
@@ -202,7 +257,7 @@ export default function FocusArea() {
                     }
                   >
                     {item.title}
-                  </p>
+                  </h3>
 
                   <div className="leading-[125%] border-t-2">
                     {item.contents.map((content, index) => (
@@ -219,7 +274,7 @@ export default function FocusArea() {
                           "opacity-100 translate-y-0",
                         )}`}
                       >
-                        <p>
+                        <p className="break-words">
                           {content.title && (
                             <span className="font-bold">
                               {content.title + " "}

@@ -11,7 +11,7 @@ export default function RnD() {
       {(show) => (
         <>
           <div
-            className={`w-full max-w-3xl border-b-[2px] tablet:border-b-0 tablet:border-r-[2px] ${getClassNameAnimation(
+            className={`w-full max-w-3xl border-b-[2px] border-t-2 tablet:border-t-0 tablet:border-b-0 tablet:border-r-[2px] aspect-square tablet:aspect-auto ${getClassNameAnimation(
               show,
               1000,
               "opacity-0 -translate-x-10",

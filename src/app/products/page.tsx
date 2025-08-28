@@ -9,7 +9,7 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 
 const products = [
   {
-    title: "Premium\nCanabis Flower",
+    title: "Premium\nCannabis Flower",
     img: "/product/product-flower.webp",
     subTittle: "Cultivated by California experts. Certified for medical use.",
     description:
@@ -130,7 +130,7 @@ export default function Page() {
                     )
                   }
                 >
-                  Pharmaceutical- Grade Products
+                  Pharmaceutical-Grade Products
                 </p>
                 <p
                   style={{ animationDelay: "500ms", transitionDelay: "500ms" }}
@@ -175,7 +175,7 @@ export default function Page() {
                   Designed for Global Markets.
                 </p>
               </h2>
-              <h2
+              <p
                 style={{ animationDelay: "700ms", transitionDelay: "700ms" }}
                 className={
                   "font-medium leading-[125%] w-full tablet:w-[405px] items-end" +
@@ -191,7 +191,7 @@ export default function Page() {
                 delivers reliable, precisely formulated products developed for
                 pharmacies, healthcare providers, and wellness innovators across
                 Europe, Asia, and Oceania.
-              </h2>
+              </p>
             </div>
           </div>
         )}
@@ -285,7 +285,7 @@ export default function Page() {
 
                   <div className="font-medium leading-[125%] tablet:grid tablet:grid-cols-2 border-t-2 border-l-2 border-r-2">
                     {product.details.map((detail, index) => (
-                      <div
+                      <p
                         key={index}
                         style={{
                           animationDelay: `${200 * index + 200}px`,
@@ -302,7 +302,7 @@ export default function Page() {
                         )}`}
                       >
                         {detail}
-                      </div>
+                      </p>
                     ))}
                   </div>
 

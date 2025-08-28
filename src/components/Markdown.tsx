@@ -37,8 +37,8 @@ export default function ContentView({
       <div ref={contentRef}>
         <div className="flex flex-col tablet:flex-row tablet:items-stretch tablet:border-b-[2px]">
           <div
-            className="w-full tablet:w-1/2 flex flex-col justify-center gap-6 tablet:gap-8
-                  p-[32px_20px_40px_20px] tablet:p-[0px_64px_0px_80px]"
+            className="w-full tablet:w-1/2 flex flex-col justify-center tablet:justify-between gap-6 tablet:gap-8
+                  p-[32px_20px_40px_20px] tablet:p-[96px_64px_40px_80px]"
           >
             <div className="flex flex-col gap-4">
               <Link
@@ -47,15 +47,25 @@ export default function ContentView({
               >
                 {page === "events" ? "Events & Updated" : "Newsroom"}
               </Link>
-              <h1 className="text-[46px] font-bold break-words leading-[110%] line-clamp-2">
+              <h2 className="text-[46px] tablet:text-[52px] font-bold break-words leading-[110%]">
                 {data.title}
-              </h1>
-              <div className="text-gray-400">
+              </h2>
+              <p className="text-gray-400 hidden tablet:block">
                 {formatDate(data.publishedAt)}
+              </p>
+              <div className="flex justify-between items-center tablet:hidden">
+                <p className="text-gray-400">
+                  {formatDate(data.publishedAt)}
+                </p>
+                <ShareButton
+                  imageUrl={data?.image?.url ?? ""}
+                  title={data.title}
+                  url={`/${page}/${data.slugId}`}
+                />
               </div>
             </div>
 
-            <div className="w-full flex tablet:flex-col items-center tablet:items-start justify-between">
+            <div className="w-full tablet:flex-col items-center tablet:items-start justify-between hidden tablet:flex">
               <ShareButton
                 imageUrl={data?.image?.url ?? ""}
                 title={data.title}

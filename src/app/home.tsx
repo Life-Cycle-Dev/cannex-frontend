@@ -30,7 +30,7 @@ export default function Home() {
         {(show) => (
           <section>
             <div className="relative w-full min-h-[calc(100vh-64px)] text-white flex flex-col justify-between">
-              <div className="relative w-full desktop:h-[calc(100vh-134px)] aspect-square desktop:aspect-auto">
+              <div className="relative w-full desktop:h-[calc(100vh-134px)] desktop:min-h-[700px] aspect-square desktop:aspect-auto">
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
                   src="/asset/hero-section-img.webp"
@@ -46,20 +46,33 @@ export default function Home() {
               <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
                 <div className="w-full flex flex-col gap-6 tablet:gap-8 tablet:justify-center">
                   <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
-                    <p
+                    <span
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
                         getClassNameAnimation(
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
                         )
                       }
                     >
                       Pharmaceutical-
-                    </p>
-                    <p
+                    </span>
+                    <span
+                      className={
+                        "bg-crystalGreen w-fit reveal-ltr" +
+                        getClassNameAnimation(
+                          show,
+                          500,
+                          "opacity-0",
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
+                        )
+                      }
+                    >
+                      Pharmaceutical
+                    </span>
+                    <span
                       style={{ animationDelay: `500ms` }}
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -67,13 +80,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen !hidden tablet:!block",
                         )
                       }
                     >
                       Grade Formulation,
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "tablet:hidden bg-crystalGreen w-fit reveal-ltr" +
@@ -81,13 +94,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
                       -Grade
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -95,13 +108,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-crystalGreen tablet:!hidden",
                         )
                       }
                     >
                       Formulation,
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -109,13 +122,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white",
                         )
                       }
                     >
                       Crafted with
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1500ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -123,13 +136,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block"
+                          "opacity-100 animate-reveal-ltr reveal-white !hidden tablet:!block",
                         )
                       }
                     >
                       Clinical Precision.
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1500ms` }}
                       className={
                         "tablet:hidden bg-white w-fit reveal-ltr" +
@@ -137,13 +150,13 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
                       Clinical
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `2000ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -151,12 +164,12 @@ export default function Home() {
                           show,
                           500,
                           "opacity-0",
-                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden"
+                          "opacity-100 animate-reveal-ltr reveal-white tablet:!hidden",
                         )
                       }
                     >
                       Precision.
-                    </p>
+                    </span>
                   </h1>
                   <p
                     style={{
@@ -169,7 +182,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
@@ -189,7 +202,7 @@ export default function Home() {
                         show,
                         1000,
                         "opacity-0 -translate-y-10",
-                        "opacity-100 translate-y-0"
+                        "opacity-100 translate-y-0",
                       )
                     }
                   >
@@ -250,14 +263,14 @@ export default function Home() {
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
-                className="h-[50%]"
+                className="w-[100%]"
               />
             </div>
             <div className="border-b-2 aspect-square flex items-center">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
-                className="h-[50%]"
+                className="w-[100%]r"
               />
             </div>
             <div className="border-r-2 p-[24px] aspect-square flex items-center">
@@ -277,29 +290,29 @@ export default function Home() {
           </div>
 
           {/* Desktop: Horizontal scroll animation */}
-          <div className="hidden tablet:flex animate-scroll">
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+          <div className="hidden tablet:flex animate-scroll w-max">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-3.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-4.webp"
                 alt="Image | Cannex"
@@ -307,28 +320,86 @@ export default function Home() {
               />
             </div>
             {/* Duplicate images for seamless loop */}
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-1.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-2.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-3.webp"
                 alt="Image | Cannex"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="border-r-2 p-[24px] flex-shrink-0 w-1/4">
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-4.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Duplicate images for seamless loop */}
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-1.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-2.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-3.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-4.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Duplicate images for seamless loop */}
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-1.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-2.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
+              <img
+                src="/asset/alliances-3.webp"
+                alt="Image | Cannex"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="border-r-2 p-[24px] flex-shrink-0 w-[25vw]">
               <img
                 src="/asset/alliances-4.webp"
                 alt="Image | Cannex"

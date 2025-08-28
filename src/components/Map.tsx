@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
@@ -24,7 +23,7 @@ export default function Map() {
   }, []);
 
   return (
-    <div className="w-full h-[480px] relative">
+    <div className="w-full h-[480px] relative border-y-2">
       <iframe
         width="600"
         height="450"

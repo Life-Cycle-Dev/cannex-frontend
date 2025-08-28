@@ -1,14 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @next/next/no-img-element */
 import { cache } from "react";
 import Markdown from "@/components/Markdown";
-import ShareButton from "@/components/ShareButton";
 import { BackendClient } from "@/lib/backend-client";
-import { formatDate } from "@/utils/format";
 import { notFound } from "next/navigation";
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PaginationCard } from "../Pagination";
 
 interface PageProps {
@@ -20,7 +16,7 @@ const getNewsRoom = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
   const response = await client.getNewsRoomsBySlugId(
     slugId,
-    preview ? "draft" : "published"
+    preview ? "draft" : "published",
   );
   return response.data[0] ?? null;
 });
@@ -78,19 +74,23 @@ export default async function Page({ params, searchParams }: PageProps) {
       />
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">
-        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
+        <p className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
           Our Newsroom
-        </div>
-        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
-          {randomNewsroom.map((data, index) => (
-            <PaginationCard
-              datas={randomNewsroom}
-              key={data.id}
-              data={data}
-              index={index}
-              isContentPage
-            />
-          ))}
+        </p>
+        <div className="tablet:px-[80px]">
+          <div className="grid grid-cols-1 tablet:grid-cols-3 tablet:border-l-2">
+            {randomNewsroom.map((data, index) => (
+              <PaginationCard
+                datas={randomNewsroom}
+                className="tablet:border-t-2"
+                key={data.id}
+                data={data}
+                index={index}
+                isContentPage
+                skipBorderBottom
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

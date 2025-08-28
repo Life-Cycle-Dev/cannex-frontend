@@ -24,6 +24,8 @@ export const PaginationCard = ({
   className = "",
   style = {},
   imgRadio = "aspect-square",
+  isDateAndDescriptionShow = true,
+  skipBorderBottom = false,
 }: {
   datas: Event[];
   data: Event;
@@ -32,19 +34,27 @@ export const PaginationCard = ({
   className?: string;
   style?: object;
   imgRadio?: string;
+  isDateAndDescriptionShow?: boolean;
+  skipBorderBottom?: boolean;
 }) => {
   return (
     <Link
       href={`/events/${data.slug}`}
       style={style}
-      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 font-medium
         ${
-          index < 2 &&
+          index < datas.length - 1 &&
           datas.length > 2 &&
+          !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
-        ${index < 3 && datas.length > 3 && "desktop:border-b-2"}
-        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${
+          index < datas.length - 2 &&
+          datas.length > 3 &&
+          !skipBorderBottom &&
+          "desktop:border-b-2"
+        }
+        ${isContentPage && index == 0 && "tablet:border-l-0"}
         ${className}
       `}
     >
@@ -60,33 +70,44 @@ export const PaginationCard = ({
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
         <div className="relative z-20 flex flex-col gap-4">
-          <div className="ml-auto w-7 h-7 overflow-hidden mb-2 relative">
-            <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-5 group-hover:translate-x-5" />
-            <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-5 -translate-x-5 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
+          <div
+            className={`ml-auto w-7 h-7 top-[28px] tablet:top-auto overflow-hidden mb-2 relative ${
+              !isDateAndDescriptionShow &&
+              "translate-y-1/2 mb-[-4px] top-auto mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"
+            }`}
+          >
+            <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-9 group-hover:translate-x-9" />
+            <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-9 -translate-x-9 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <h3 className="text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+          <h3
+            className={`text-2xl tablet:text-[32px] mt-[-24px] pr-[28px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
+              !isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"
+            }`}
+          >
             {data.title}
           </h3>
-          <div className=" text-gray-400 tablet:px-6 text-[16px]">
+          <p
+            className={` text-gray-400 tablet:px-6 text-[16px] ${
+              !isDateAndDescriptionShow && "hidden tablet:block"
+            }`}
+          >
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
-          </div>
-          <div className="text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500">
+          </p>
+          <p
+            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 font-medium leading-[125%] ${
+              !isDateAndDescriptionShow && "hidden tablet:block"
+            }`}
+          >
             {data.description ?? ""}
-          </div>
+          </p>
         </div>
       </div>
     </Link>
   );
 };
 
-export default function Pagination({
-  imageRadio,
-  isSkipBorderLogic,
-}: {
-  imageRadio?: number;
-  isSkipBorderLogic?: boolean;
-}) {
+export default function Pagination() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -99,11 +120,11 @@ export default function Pagination({
   };
 
   const [searchText, setSearchText] = useState(
-    searchParams.get("search") ?? ""
+    searchParams.get("search") ?? "",
   );
   const [datas, setDatas] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(
-    parseInt(searchParams.get("page") ?? "1", 10)
+    parseInt(searchParams.get("page") ?? "1", 10),
   );
   const [pageCount, setPageCount] = useState<number>(1);
   const [filter, setFilter] = useState(getSortFromQuery());
@@ -155,7 +176,7 @@ export default function Pagination({
         "pagination[page]": p,
       },
       filter.value,
-      q
+      q,
     );
 
     setLoading(false);
@@ -164,7 +185,9 @@ export default function Pagination({
       (response as any)?.meta?.pagination?.pageCount ??
       Math.max(
         1,
-        Math.ceil(((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE)
+        Math.ceil(
+          ((response as any)?.meta?.pagination?.total ?? 0) / PAGE_SIZE,
+        ),
       );
     setPageCount(pc);
   };
@@ -205,7 +228,7 @@ export default function Pagination({
             onClick={() => setPage(Number(p))}
             className="h-10 max-w-10 cursor-pointer"
           />
-        )
+        ),
       )}
     </div>
   );
@@ -225,7 +248,7 @@ export default function Pagination({
         </div>
       </div>
 
-      <div className="mx-5 tablet:mx-0 tablet:px-[80px]">
+      <div className="tablet:mx-0 tablet:px-[80px]">
         <div className="tablet:border-t-[2px] grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3 tablet:border-l-[2px]">
           {datas.map((data, index) => (
             <PaginationCard

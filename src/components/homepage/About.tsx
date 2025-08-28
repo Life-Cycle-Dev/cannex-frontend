@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Button from "@/components/Button";
 import RightUpIcon from "@/components/icons/RightUpIcon";
@@ -11,11 +10,11 @@ import ProductIconicMobile from "../ProductIconicMobile";
 export default function About() {
   return (
     <div className="w-full">
-      <div className="pt-8 px-5 tablet:pl-20 tablet:pt-[96px] w-full flex flex-col tablet:flex-row-reverse z-10">
-        <ScrollReveal className="w-full flex justify-end tablet:-mt-8" once>
+      <div className="px-5 w-full flex flex-col z-10 tablet:pl-20 tablet:pt-[64px] tablet:flex-row-reverse">
+        <ScrollReveal className="w-full tablet:-mt-8 flex justify-end table:justify-center" once>
           {(show) => (
-            <div className="aspect-square w-[150px] tablet:w-[343px] shrink-0 relative">
-              <Iconic show={show} />
+            <div className="mt-[32px] w-[150px] h-[150px] flex justify-end table:justify-center tablet:w-full tablet:h-[343px] tablet:mt-0 tablet:aspect-square">
+              <Iconic show={show} className="w-full h-full " />
             </div>
           )}
         </ScrollReveal>
@@ -35,7 +34,7 @@ export default function About() {
                   >
                     Brand Introduction
                   </h2>
-                  <p
+                  <h2
                     className={`text-[32px] tablet:text-[52px] font-bold ${getClassNameAnimation(
                       show,
                       500,
@@ -44,9 +43,9 @@ export default function About() {
                     )}`}
                   >
                     Where Expertise Meets Collaboration.
-                  </p>
+                  </h2>
                 </div>
-                <p
+                <div
                   className={`${getClassNameAnimation(
                     show,
                     500,
@@ -54,16 +53,16 @@ export default function About() {
                     "opacity-100 translate-y-0",
                   )}`}
                 >
-                  <span className="font-medium">
+                  <p className="font-medium">
                     Cannex was born from a global alliance between Cannex Pharma
                     and Siam Agri-Bio — combining world-class cultivation and
                     extraction expertise. From California-bred strains to
-                    Japan-compliant CBD refinement,
-                  </span>
-                  <span className="font-semibold">
+                    Japan-compliant CBD refinement,<br/>
+                  </p>
+                  <p className="font-semibold">
                     we cover every step with clinical precision.
-                  </span>
-                </p>
+                  </p>
+                </div>
               </div>
             )}
           </ScrollReveal>
@@ -126,23 +125,63 @@ export default function About() {
                   <div className="w-[247px] tablet:w-[830px] flex flex-col gap-2 tablet:gap-6">
                     <div>
                       {/* Modbile */}
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Pharmaceutical-
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-crystalGreen" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Grade Products
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Designed for
                       </p>
-                      <p className="my-1 w-fit tablet:hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white">
+                      <p
+                        className={
+                          "my-1 w-fit tablet:!hidden text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white" +
+                          getClassNameAnimation(
+                            show,
+                            500,
+                            "opacity-0",
+                            "opacity-100 animate-reveal-ltr",
+                          )
+                        }
+                      >
                         Global Markets.
                       </p>
 
                       {/* Tablet */}
                       <p
                         className={
-                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black reveal-ltr" +
+                          "!hidden tablet:!block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black reveal-ltr" +
                           getClassNameAnimation(
                             show,
                             500,
@@ -159,7 +198,7 @@ export default function About() {
                           transitionDelay: "500ms",
                         }}
                         className={
-                          "hidden tablet:block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white reveal-ltr" +
+                          "!hidden tablet:!block w-fit text-[32px] leading-[120%] tablet:text-[52px] font-bold text-black bg-white reveal-ltr" +
                           getClassNameAnimation(
                             show,
                             500,

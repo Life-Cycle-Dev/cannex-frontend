@@ -10,12 +10,10 @@ export default function Iconic({
 }) {
   return (
     <svg
-      width="303"
-      height="343"
       viewBox="0 0 303 343"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`overflow-visible ${className}`}
+      className={`overflow-visible w-[303px] h-[343px] ${className}`}
     >
       <path
         className={`${getClassNameAnimation(

@@ -11,7 +11,7 @@ import { useHelperContext } from "./providers/helper-provider";
 import { ContactConfig } from "@/types/web-config";
 
 export default function Footer() {
-  const { backendClient } = useHelperContext()();
+  const { backendClient, isFooterBorder } = useHelperContext()();
   const [contactInfo, setContactInfo] = useState<ContactConfig>();
 
   const fetchData = async () => {
@@ -25,11 +25,15 @@ export default function Footer() {
     fetchData();
   }, []);
 
+  useEffect(() => {}, [isFooterBorder]);
+
   return (
     <>
-      <div className="flex justify-center">
-        <div className="h-[2px] w-[calc(100vw-40px)] tablet:w-full bg-black"></div>
-      </div>
+      {isFooterBorder && (
+        <div className="flex justify-center">
+          <div className="h-[2px] w-[calc(100vw-40px)] tablet:w-full bg-black"></div>
+        </div>
+      )}
       <div className="w-full pt-12 py-4 px-5 tablet:pb-0 tablet:px-20 flex flex-col tablet:flex-row gap-12">
         <div className="flex flex-col gap-10 max-w-[406px]">
           <div className="flex flex-col gap-10">
@@ -83,6 +87,14 @@ export default function Footer() {
                 {menu.title}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              className="relative group overflow-hidden my-[14px] px-1 text-black hover:text-crystalGreen font-medium w-fit"
+              rel="noopener noreferrer"
+            >
+              <div className="absolute inset-0 bg-black -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500 ease-out z-[-10]" />
+              Contact Us & Inquiry
+            </Link>
           </div>
           <div className="hidden tablet:flex w-full gap-8">
             <div className="flex flex-col">

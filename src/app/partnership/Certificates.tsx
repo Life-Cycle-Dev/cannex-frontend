@@ -40,7 +40,7 @@ const data: CompanyCertifications = {
           title: "Manufacturing of Herbal Products Using Herbal Ingredients",
           authority: "FDA (Thailand)",
           description:
-            "Herbal Extracts / Liquids / Alcohol Extracts / CBD Oil / Spray-Dried Products / Freeze-Dried Products / Other Ingredients.",
+            "Herbal Extracts / Liquids / Alcohol Extracts / CBD Oil / Spray-Dried Products / Freeze-Dried Products / Other Ingredients",
           image: {
             src: "/certs/manufacturing-of-herbal-products-using-herbal-ingredients.webp",
             alt: "Manufacturing of Herbal Products Using Herbal Ingredients",
@@ -60,7 +60,7 @@ const data: CompanyCertifications = {
           title: "Thai GMP",
           authority: "GMP for Herbal Products Containing Hemp — FDA (Thailand)",
           description:
-            "Thai GMP is a manufacturing quality standard ensuring the safety and quality of pharmaceuticals, supplements, and herbal products by regulating facilities, processes, and hygiene management.",
+            "Thai GMP is a manufacturing quality standard established by the Thai Ministry of Public Health. It sets requirements for facilities, manufacturing processes, and hygiene management to ensure the safety and quality of pharmaceuticals, supplements, and medical herbal products.",
           image: { src: "/certs/thai-gmp.webp", alt: "Thai GMP" },
         },
       ],
@@ -89,8 +89,10 @@ export default function Certificates() {
               "opacity-100 translate-y-0",
             )}
           >
-            <h2 className="text-[40px] tablet:text-[52px] tablet:text-5xl font-bold tablet:pb-[0px]">
-              License and Certification
+            <h2 className="text-[40px] tablet:text-[52px] font-bold tablet:pb-[0px] leading-[110%]">
+              License
+              <br />
+              and Certification
             </h2>
           </div>
         )}
@@ -124,7 +126,7 @@ export default function Certificates() {
 
                   {leftItems.map((it, i) => (
                     <div key={it.title} className="py-6">
-                      <ItemRow item={it} />
+                      <ItemRow isRight={false} item={it} />
                       {i === 1 && (
                         <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
@@ -153,8 +155,13 @@ export default function Certificates() {
                 >
                   <div className="tablet:mt-[40px]" />
                   {rightItems.map((it, i) => (
-                    <div key={it.title} className={`tablet:px-[84px] py-6 ${i === 0 && "tablet:border-b-2"}`}>
-                      <ItemRow item={it} />
+                    <div
+                      key={it.title}
+                      className={`tablet:px-[84px] py-6 ${
+                        i === 0 && "tablet:border-b-2"
+                      }`}
+                    >
+                      <ItemRow isRight={true} item={it} />
                       {i === 0 && (
                         <div className="mt-6 border-b-2 tablet:border-b-0" />
                       )}
@@ -174,7 +181,7 @@ export default function Certificates() {
 }
 
 /* ---------- Subcomponent: รายการรูป+ข้อความ (responsive) ---------- */
-function ItemRow({ item }: { item: Certification }) {
+function ItemRow({ item, isRight }: { item: Certification; isRight: boolean }) {
   return (
     <div className="flex flex-col tablet:flex-row tablet:gap-8 tablet:items-start">
       {/* รูป */}
@@ -191,13 +198,64 @@ function ItemRow({ item }: { item: Certification }) {
 
       {/* ข้อความ */}
       <div className="mt-3 tablet:mt-0">
-        <h4 className="font-extrabold leading-snug text-lg tablet:text-xl">
-          {item.title}
-        </h4>
-        <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
-        <p className="mt-2 text-sm leading-relaxed text-neutral-900">
-          {item.description}
-        </p>
+        {isRight ? (
+          <h3 className="font-bold text-[32px] flex gap-2 items-center">
+            {item.title === "Thai GMP" && (
+              <svg
+                width={40}
+                height={40}
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <rect width={40} height={40} fill="url(#pattern0_2353_10362)" />
+                <defs>
+                  <pattern
+                    id="pattern0_2353_10362"
+                    patternContentUnits="objectBoundingBox"
+                    width={1}
+                    height={1}
+                  >
+                    <use
+                      xlinkHref="#image0_2353_10362"
+                      transform="translate(0 -0.000250125) scale(0.00050025)"
+                    />
+                  </pattern>
+                  <image
+                    id="image0_2353_10362"
+                    width={1999}
+                    height={2000}
+                    preserveAspectRatio="none"
+                    href="/asset/thai-gmp.webp"
+                  />
+                </defs>
+              </svg>
+            )}
+            {item.title}
+          </h3>
+        ) : (
+          <h4 className="font-bold text-[20px]">{item.title}</h4>
+        )}
+        {isRight ? (
+          <>
+            {item.title === "Thai GMP" ? (
+              <>
+                <h4 className="font-bold text-[20px]">
+                  GMP for Herbal Products Containing Hemp
+                </h4>
+                <p className="font-bold text-[16px]">FDA (Thailand)</p>
+              </>
+            ) : (
+              <>
+                <h4 className="font-bold text-[20px]">{item.authority}</h4>
+              </>
+            )}
+          </>
+        ) : (
+          <p className="mt-1 font-bold text-[16px]">{item.authority}</p>
+        )}
+        <p className="mt-2 text-[16px] font-medium leading-[125%]">{item.description}</p>
       </div>
     </div>
   );

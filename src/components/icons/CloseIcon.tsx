@@ -9,16 +9,32 @@ export default function CloseIcon({
 }) {
   return (
     <svg
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      width="18"
+      height="19"
+      viewBox="0 0 18 19"
       className={`${className} stroke-current`}
       onClick={onClick}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M22 2L2 22" strokeWidth="2" />
-      <path d="M2 2L22 22" strokeWidth="2" />
+      <line
+        x1="3.06066"
+        y1="3.5"
+        x2="14.7279"
+        y2="15.1673"
+        stroke="black"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <line
+        x1="3"
+        y1="15.1672"
+        x2="14.6673"
+        y2="3.49998"
+        stroke="black"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
     </svg>
   );
 }

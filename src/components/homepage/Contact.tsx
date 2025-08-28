@@ -123,15 +123,15 @@ export default function Contact({ className = "" }: { className?: string }) {
     <form
       onSubmit={handleSubmit}
       className={
-        "px-5 tablet:pl-20 tablet:pr-[189px] py-[50px] tablet:border-t-[2px] " +
+        "px-5 tablet:pl-20 tablet:pr-[189px] py-[50px_128px] tablet:py-[96px_128px] tablet:border-t-[2px] " +
         className
       }
     >
       <div className="flex flex-col gap-6">
-        <p className="text-2xl tablet:text-[32px] font-medium">
+        <p className="text-2xl tablet:text-[32px] font-medium leading-[110%]">
           Let’s Collaborate for <br /> a Healthier Future.
         </p>
-        <p className="text-[32px] tablet:text-[52px] font-bold">
+        <h3 className="text-[32px] tablet:text-[52px] font-bold leading-[110%]">
           <span>
             Whether you&apos;re a pharmaceutical company, wellness brand, or
             distributor,
@@ -139,7 +139,7 @@ export default function Contact({ className = "" }: { className?: string }) {
           <br />
           <span className="bg-crystalGreen">Cannex is ready</span>{" "}
           <span>to power your product pipeline.</span>
-        </p>
+        </h3>
       </div>
 
       <div className="mt-10 tablet:mt-12 flex flex-col gap-8 tablet:grid tablet:grid-cols-2 tablet:gap-x-16 tablet:gap-y-8">

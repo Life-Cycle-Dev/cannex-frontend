@@ -75,6 +75,8 @@ export default function OfferAndAudience() {
             </div>
           )}
         </ScrollReveal>
+      <div className="h-[80px] tablet:hidden"></div>
+
       </div>
     </section>
   );
@@ -96,15 +98,15 @@ function Column({
   return (
     <div className={showLeftBorder ? "desktop:border-l-2" : ""}>
       {/* Padding: mobile 20/32, desktop 80/64 */}
-      <div className="px-[20px] py-[32px] desktop:px-[80px] desktop:py-[64px]">
+      <div className="px-[20px] pt-[80px] desktop:px-[80px] desktop:py-[64px]">
         {/* Heading */}
-        <h2 className="text-[32px] tablet:text-[52px] font-bold hidden tablet:block">
+        <h3 className="text-[32px] tablet:text-[52px] font-bold hidden tablet:block leading-[120%]">
           {titleA}
           <br />
           {titleB}
-        </h2>
+        </h3>
 
-        <h3 className="text-[32px] font-bold tablet:hidden">
+        <h3 className="text-[32px] font-bold tablet:hidden leading-[120%]">
           {titleA}
           <br />
           {titleB}
@@ -114,14 +116,13 @@ function Column({
         <div className="mt-6 h-[1px] w-full bg-black" />
 
         {/* Bullets */}
-        <ul className="mt-2">
+        <ul>
           {bullets.map((b, i) => (
-            <li key={i} className="py-4 text-[16px]">
+            <li key={i} className="text-[16px] py-[24px] border-b font-medium">
               {b.strong ? (
-                <span className="font-bold">{b.strong}</span>
+                <p className="font-bold">{b.strong}</p>
               ) : null}
               {b.text}
-              <div className="mt-4 h-[1px] w-full bg-black" />
             </li>
           ))}
         </ul>

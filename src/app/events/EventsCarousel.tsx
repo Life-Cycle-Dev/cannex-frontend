@@ -64,7 +64,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               onTouchStart={() => setHover(true)}
               onTouchEnd={() => setHover(false)}
               className={`
-                absolute inset-0 w-full h-full object-cover border-x-2
+                absolute inset-0 w-full h-full object-cover border-y-2 tablet:border-y-0 tablet:border-x-2
                 transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
                 ${animating ? exitEnd : "translate-x-0"}
                 cursor-pointer
@@ -83,7 +83,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             onTouchStart={() => setHover(true)}
             onTouchEnd={() => setHover(false)}
             className={`
-              absolute inset-0 w-full h-full object-cover border-x-2
+              absolute inset-0 w-full h-full object-cover border-y-2 tablet:border-y-0 tablet:border-x-2
               transition-transform duration-[${DURATION}ms] ease-out tablet:border-b-2 desktop:border-b-0
               ${
                 prev !== null
@@ -131,28 +131,28 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
           <div
             className={`absolute z-0 inset-0 bg-black transition-transform duration-500 ease-out group-hover:translate-y-0 ${
-              hover ? "translate-y-0" : "translate-y-full"
+              hover ? "translate-y-0" : "translate-y-[110%]"
             }`}
           />
 
           <div className="pb-5 desktop:px-[64px] tablet:px-[64px] flex flex-col gap-3 flex-1">
             <h2
-              className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-2 ${
+              className={`relative z-10 font-bold text-[40px] tablet:text-[52px] group-hover:text-crystalGreen tablet:line-clamp-3 leading-[110%] ${
                 hover ? "text-crystalGreen" : ""
               }`}
             >
               {current?.title ?? "-"}
             </h2>
-            <div className="relative z-10 text-gray-400 text-md">
+            <p className="relative z-10 text-gray-400 text-md leading-[125%] font-medium">
               {current?.publishedAt ? formatDate(current.publishedAt) : ""}
-            </div>
-            <div
-              className={`relative z-10 text-md line-clamp-4 group-hover:text-white ${
+            </p>
+            <p
+              className={`relative z-10 text-md group-hover:text-white line-clamp-3 leading-[125%] font-medium ${
                 hover && "text-white"
               }`}
             >
               {current?.description ?? ""}
-            </div>
+            </p>
           </div>
         </Link>
 
@@ -226,7 +226,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               >
                 <RightUpIcon className="-rotate-135 w-8 h-8" />
               </button>
-              <div className="pl-8 desktop:pl-16 flex gap-2 justify-start">
+              <div className="desktop:pl-16 flex gap-2 justify-center">
                 {items.map((_, i) => (
                   <button
                     key={i}

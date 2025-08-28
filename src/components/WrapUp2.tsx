@@ -8,7 +8,7 @@ import ScrollReveal from "./animation/ScrollReveal";
 import { getClassNameAnimation } from "@/utils/animation-helper";
 import { useHelperContext } from "./providers/helper-provider";
 
-export default function WrapUp() {
+export default function WrapUp2() {
   const { setIsFooterBorder } = useHelperContext()();
   useEffect(() => {
     setIsFooterBorder(false);
@@ -34,8 +34,8 @@ export default function WrapUp() {
                   )
                 }
               >
-                From lab bench to pharmacy shelf, Cannex is building cannabis
-                products that are safe, predictable, and backed by science.
+                We’re here to empower the next wave of cannabinoid breakthroughs
+                — not alone, but with you.
               </p>
               <p
                 className={
@@ -48,8 +48,7 @@ export default function WrapUp() {
                   )
                 }
               >
-                We welcome collaborations with researchers, hospitals, and
-                wellness innovators around the world.
+                Let’s raise the global standard, together.
               </p>
             </div>
             <div className="flex flex-col gap-4">
@@ -64,8 +63,7 @@ export default function WrapUp() {
                   )
                 }
               >
-                Interested in co-developing <br /> your next cannabinoid
-                solution?
+                Start the conversation with our team
               </p>
               <Button
                 type="secondaryWhite"
@@ -85,7 +83,7 @@ export default function WrapUp() {
             </div>
           </div>
 
-          <div className="absolute right-0 bottom-[230px] w-[140px] h-[140px] tablet:bottom-0 z-0">
+          <div className="absolute right-0 bottom-[200px] w-[140px] h-[140px] tablet:bottom-0 z-0">
             <Iconic className="w-full h-full mr-[-20px]" show={show} />
           </div>
         </>

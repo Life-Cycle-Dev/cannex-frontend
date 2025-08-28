@@ -122,7 +122,7 @@ export default function NavBar() {
 
       {isOpen && (
         <nav
-          className="flex flex-col gap-0 p-4 min-h-[100dvh] 
+          className="flex flex-col gap-0 p-4 min-h-[100vh] 
                origin-top animate-slideDown desktop:hidden"
         >
           {MENUS.map((m) => (

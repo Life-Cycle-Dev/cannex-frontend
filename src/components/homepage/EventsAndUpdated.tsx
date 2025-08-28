@@ -86,10 +86,10 @@ export default function EventsAndUpdated() {
   };
 
   return (
-    <ScrollReveal className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px]  tablet:mx-0">
+    <ScrollReveal className="grid grid-cols-1 tablet:grid-cols-3 mx-[20px] tablet:mx-0">
       {(show) => (
         <>
-          <div className="flex flex-row justify-between tablet:justify-stretch tablet:flex-col pt-[64px] pb-[32px] tablet:border-r-2 gap-4 tablet:p-[67px_80px]">
+          <div className="flex flex-row justify-between tablet:justify-stretch border-t-2 tablet:border-t-0 tablet:flex-col pt-[96px] pb-[32px] tablet:border-r-2 gap-4 tablet:p-[67px_80px]">
             <div
               className={`mb-4 ${getClassNameAnimation(
                 show,
@@ -101,7 +101,7 @@ export default function EventsAndUpdated() {
               <div className="tablet:mb-4 w-fit text-white bg-black p-[2px_8px] h-fit">
                 Events & Updated
               </div>
-              <h2 className="text-[52px] leading-[110%] font-bold">
+              <h2 className="mt-[16px] tablet:mt-0 text-[52px] leading-[110%] font-bold">
                 Happening
               </h2>
             </div>
@@ -116,7 +116,7 @@ export default function EventsAndUpdated() {
             >
               <div
                 onClick={() => {
-                  window.location.href = "/event";
+                  window.location.href = "/events";
                 }}
                 className="w-12 h-12 flex justify-center items-center tablet:hidden"
               >
@@ -137,6 +137,7 @@ export default function EventsAndUpdated() {
               key={data.id}
               data={data}
               index={index}
+              isDateAndDescriptionShow={false}
               style={{
                 transitionDelay: `${500 * index + 500}ms`,
                 animationDelay: `${500 * index + 500}ms`,
@@ -147,7 +148,7 @@ export default function EventsAndUpdated() {
                 "opacity-0 -translate-x-20",
                 "opacity-100 translate-x-0"
               )}}`}
-              imgRadio="aspect-4/3"
+              imgRadio="aspect-square tablet:aspect-4/3"
             />
           ))}
         </>

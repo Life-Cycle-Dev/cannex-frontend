@@ -14,7 +14,7 @@ const getEvent = cache(async (slugId: string, preview: boolean) => {
   const client = new BackendClient();
   const response = await client.getEventBySlugId(
     slugId,
-    preview ? "draft" : "published"
+    preview ? "draft" : "published",
   );
 
   return response.data[0] ?? null;
@@ -78,19 +78,23 @@ export default async function Page({ params, searchParams }: PageProps) {
       />
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">
-        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
+        <p className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
           Our Events & Updated
-        </div>
-        <div className="grid grid-cols-1 tablet:px-[80px] tablet:grid-cols-3">
-          {randomEvents.map((data, index) => (
-            <PaginationCard
-              datas={randomEvents}
-              key={data.id}
-              data={data}
-              index={index}
-              isContentPage
-            />
-          ))}
+        </p>
+        <div className="tablet:px-[80px]">
+          <div className="grid grid-cols-1 tablet:grid-cols-3 tablet:border-l-2">
+            {randomEvents.map((data, index) => (
+              <PaginationCard
+                datas={randomEvents}
+                className="tablet:border-t-2"
+                key={data.id}
+                data={data}
+                index={index}
+                isContentPage
+                skipBorderBottom
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

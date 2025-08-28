@@ -39,20 +39,20 @@ export const PaginationCard = ({
     <Link
       href={`/newsroom/${data.slug}`}
       style={style}
-      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 
+      className={`group overflow-hidden w-full cursor-pointer border-0 tablet:border-r-2 font-medium
         ${
-          index < 2 &&
+          index < datas.length - 1 &&
           datas.length > 2 &&
           !skipBorderBottom &&
           "tablet:border-b-2 desktop:border-b-0"
         }
         ${
-          index < 3 &&
+          index < datas.length - 2 &&
           datas.length > 3 &&
           !skipBorderBottom &&
           "desktop:border-b-2"
         }
-        ${isContentPage && index == 0 && "tablet:border-l-2 tablet:border-t-2"}
+        ${isContentPage && index == 0 && "tablet:border-l-0"}
         ${className}
       `}
     >
@@ -68,29 +68,38 @@ export const PaginationCard = ({
         <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-10" />
 
         <div className={`relative z-20 flex flex-col gap-4`}>
-          <div className={`ml-auto w-7 h-7 overflow-hidden mb-2 relative ${!isDateAndDescriptionShow && "translate-y-1/2 mb-[-4px] mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"}`}>
+          <div
+            className={`ml-auto w-7 h-7 top-[28px] tablet:top-auto overflow-hidden mb-2 relative ${
+              !isDateAndDescriptionShow &&
+              "translate-y-1/2 mb-[-4px] top-auto mt-2 w-8 h-8 tablet:mb-2 tablet:mt-0 tablet:translate-y-0"
+            }`}
+          >
             <RightUpIcon className="absolute text-black w-full h-full transition-transform duration-500 ease-out group-hover:-translate-y-9 group-hover:translate-x-9" />
             <RightUpIcon className="absolute text-crystalGreen w-full h-full translate-y-9 -translate-x-9 transition-transform duration-500 ease-out group-hover:translate-y-0 group-hover:translate-x-0" />
           </div>
 
-          <h3 className="text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500">
+          <h3
+            className={`text-2xl tablet:text-[32px] mt-[-24px] pr-[28px] tablet:px-6 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
+              !isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"
+            }`}
+          >
             {data.title}
           </h3>
 
-          <div
+          <p
             className={`text-gray-400 tablet:px-6 text-[16px] ${
               !isDateAndDescriptionShow && "hidden tablet:block"
             }`}
           >
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
-          </div>
-          <div
-            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 ${
+          </p>
+          <p
+            className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 font-medium leading-[125%] ${
               !isDateAndDescriptionShow && "hidden tablet:block"
             }`}
           >
             {data.description ?? ""}
-          </div>
+          </p>
         </div>
       </div>
     </Link>

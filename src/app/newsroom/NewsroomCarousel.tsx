@@ -30,48 +30,51 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
     <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
       <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
 
-      <div className="w-full flex tablet:flex-row flex-col">
+      <div className="flex tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] tablet:h-auto tablet:flex-row flex-col">
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
-            min-w-full tablet:min-w-[45%] max-h-[50%] min-h-[50%] tablet:max-h-full tablet:min-h-full
-            relative overflow-hidden
+            min-w-full h-fit tablet:min-w-[45%] tablet:h-full
+            relative tablet:overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
         >
-          <div
-            className="
-              flex h-full transition-transform duration-500 ease-out
+          <div className="h-full w-full overflow-hidden">
+            <div
+              className="
+              flex w-full h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-auto tablet:h-full
             "
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            {items.map((it) => (
-              <img
-                key={it.id}
-                src={it?.image?.url}
-                alt={it?.title || it?.title || "news image"}
-                className="
-                  w-full h-full object-cover flex-shrink-0 cursor-pointer
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {items.map((it) => (
+                <img
+                  key={it.id}
+                  src={it?.image?.url}
+                  alt={it?.title || it?.title || "news image"}
+                  className="
+                  w-full object-cover flex-shrink-0 cursor-pointer
                 "
-                onMouseEnter={() => setHover(true)}
-                onTouchStart={() => setHover(true)}
-                onTouchEnd={() => setHover(false)}
-                onClick={() => (window.location.href = `/newsroom/${it.slug}`)}
-              />
-            ))}
+                  onMouseEnter={() => setHover(true)}
+                  onTouchStart={() => setHover(true)}
+                  onTouchEnd={() => setHover(false)}
+                  onClick={() =>
+                    (window.location.href = `/newsroom/${it.slug}`)
+                  }
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="w-full h-[calc(50%-66px)] tablet:h-full relative">
+        <div className="w-full h-full tablet:h-full relative">
           <Link
             href={`/newsroom/${current.slug}`}
             className="
-              w-full flex flex-col pb-20 
-              tablet:border-0 h-full tablet:pb-0 
-              relative group overflow-hidden cursor-pointer
+              w-full h-full flex flex-col
+              tablet:border-0 relative group overflow-hidden cursor-pointer
             "
           >
-            <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1">
+            <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1 hidden tablet:block">
               <RightUpIcon
                 className={`
                   absolute inset-0 text-black w-full h-full
@@ -94,24 +97,32 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               />
             </div>
 
+            <div className="self-end tablet:mb-4 w-8 h-8 overflow-hidden group z-1 tablet:hidden">
+              <RightUpIcon
+                className={`
+                  absolute text-black w-8 h-8 right-0 group-hover:text-crystalGreen
+                `}
+              />
+            </div>
+
             <div
               className={`absolute z-0 inset-0 bg-black transition-transform duration-500 ease-out group-hover:translate-y-0 
                 ${hover ? "translate-y-0" : "translate-y-full"}`}
             />
 
-            <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
+            <div className="mb-[32px] tablet:mb-0 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-3 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
                 {current?.title ?? "-"}
               </h2>
-              <div className="relative z-10 text-gray-400 text-[16px]">
+              <p className="relative z-10 text-gray-400 text-[16px]">
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
-              </div>
+              </p>
               <p
-                className={`relative z-10 ${
+                className={`relative z-10 mb-12 tablet:mb-0 line-clamp-2 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >
@@ -122,7 +133,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
           {items.length > 1 && (
             <>
-              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
+              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-20">
                 <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
                   {items.map((_, i) => (
                     <button
@@ -176,7 +187,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                   </button>
                 </div>
               </div>
-              <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+              <div className="mt-auto items-center w-full absolute bottom-0 justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
                 <button
                   onClick={goPrev}
                   className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
@@ -189,7 +200,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 >
                   <RightUpIcon className="-rotate-135 w-8 h-8" />
                 </button>
-                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                <div className="tablet:pl-16 flex gap-2 justify-center items-center">
                   {items.map((_, i) => (
                     <button
                       key={i}

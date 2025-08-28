@@ -8,9 +8,9 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 
 export default function Supplying() {
   return (
-    <div className="bg-black text-white h-fit">
-      <div className="w-full p-[48px_20px_80px_20px] tablet:p-[80px_80px_103px_80px] flex flex-col gap-6 tablet:gap-0">
-        <ScrollReveal className="w-full flex justify-end" once>
+    <div className="bg-black text-white">
+      <div className="w-full h-fit p-[48px_20px_80px_20px] tablet:p-[80px_80px_103px_80px] flex flex-col gap-6 tablet:gap-0">
+        <ScrollReveal className="w-full h-[180px] tablet:h-auto flex justify-center tablet:justify-end" once>
           {(show) => (
             <div
               className={getClassNameAnimation(
@@ -20,7 +20,7 @@ export default function Supplying() {
                 "opacity-100 animate-reveal-ltr",
               )}
             >
-              <MapSvg className="w-full tablet:w-fit h-fit" />
+              <MapSvg className="w-full h-full" />
             </div>
           )}
         </ScrollReveal>

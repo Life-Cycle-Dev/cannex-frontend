@@ -3,16 +3,18 @@
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 .animate-scroll {
-  animation: scroll-left 7s linear infinite;
+  animation: scroll-left 20s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 h2 {
@@ -184,6 +186,7 @@ h2 {
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {

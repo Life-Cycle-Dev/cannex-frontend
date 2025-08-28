@@ -9,7 +9,7 @@ import { getClassNameAnimation } from "@/utils/animation-helper";
 
 export default function ResolveMap() {
   return (
-    <ScrollReveal once>
+    <ScrollReveal className="font-medium" once>
       {(show) => (
         <>
           {/* Desktop */}

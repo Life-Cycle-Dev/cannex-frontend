@@ -30,10 +30,10 @@ export default function Newsroom() {
   };
 
   return (
-    <ScrollReveal className="border-y-2">
+    <ScrollReveal className="tablet:border-y-2 border-t-2">
       {(show) => (
         <>
-          <div className="flex justify-between mx-[20px] px-[64x] py-[32px] tablet:mx-0 tablet:p-[80px_39px]">
+          <div className="flex justify-between mx-[20px] px-[64x] py-[64px_32px] tablet:mx-0 tablet:p-[80px_39px]">
             <div
               className={`flex flex-col gap-4 ${getClassNameAnimation(
                 show,
@@ -45,7 +45,7 @@ export default function Newsroom() {
               <div className="w-fit text-white bg-black p-[2px_8px] h-fit">
                 Newsroom
               </div>
-              <h2 className="text-[52px] leading-[110%] font-bold">
+              <h2 className="mt-[16px] tablet:mt-0 text-[52px] leading-[110%] font-bold">
                 Thought <br /> Leadership
               </h2>
             </div>
@@ -62,9 +62,9 @@ export default function Newsroom() {
                 onClick={() => {
                   window.location.href = "/newsroom";
                 }}
-                className="w-12 h-12 flex justify-center items-center tablet:hidden"
+                className="w-8 h-8 flex justify-center items-center tablet:hidden"
               >
-                <RightUpIcon />
+                <RightUpIcon className="w-full h-full" />
               </div>
               <Button
                 href="/newsroom"
@@ -76,7 +76,7 @@ export default function Newsroom() {
             </div>
           </div>
 
-          <div className="mx-[20px] tablet:mx-0 grid grid-cols-1 tablet:grid-cols-4 border-t-2">
+          <div className="mx-[20px] tablet:mx-0 grid grid-cols-1 tablet:grid-cols-4 tablet:border-t-2">
             {datas.map((data, index) => (
               <PaginationCard
                 index={index}

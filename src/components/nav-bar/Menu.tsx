@@ -44,7 +44,7 @@ export default function Menu({
       onClick={onClick}
       className={`${
         variant === "desktop"
-          ? `${width} h-12 text-sm px-8 justify-center`
+          ? `${width} h-12 text-[16px] px-8 justify-center`
           : "w-full text-4xl py-3 border-b-2"
       }  flex transition-transform duration-500 ease-in items-center text-black font-semibold tablet:whitespace-nowrap
        ${

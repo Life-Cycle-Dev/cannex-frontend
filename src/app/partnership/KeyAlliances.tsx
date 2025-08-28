@@ -1,14 +1,19 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
 import ScrollReveal from "@/components/animation/ScrollReveal";
+import Japan from "@/components/flags/Japan";
+import Thailand from "@/components/flags/Thailand";
+import UnitedState from "@/components/flags/UnitedState";
 import { getClassNameAnimation } from "@/utils/animation-helper";
+import React from "react";
 
-type Alliance = { flag: string; title: string; bullets: string[] };
+type Alliance = { flag: any; title: string; bullets: string[] };
 
 const ALLIANCES: Alliance[] = [
   {
-    flag: "/partnership/icon/usa-flag.webp",
+    flag: <UnitedState />,
     title: "Cannex Pharma (USA)",
     bullets: [
       "Founded by the team behind Cookies Maywood",
@@ -18,7 +23,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/jp-flag.webp",
+    flag: <Japan />,
     title: "Japanese Pharmaceutical Partners",
     bullets: [
       "Advanced extraction, crystallization, and chromatography",
@@ -27,7 +32,7 @@ const ALLIANCES: Alliance[] = [
     ],
   },
   {
-    flag: "/partnership/icon/th-flag.webp",
+    flag: <Thailand />,
     title: "Siam Agri-Bio (Thailand)",
     bullets: [
       "PIC/S GMP-certified facility for extraction & production",
@@ -46,7 +51,7 @@ export default function Home() {
         className="w-full border-t-2 desktop:border-b-2 border-black"
       >
         <ScrollReveal
-          className="border-black  py-[20px] desktop:px-[80px] desktop:py-[64px]"
+          className="border-black  py-[40px] desktop:px-[80px] desktop:py-[64px]"
           once
         >
           {(show) => (
@@ -71,12 +76,12 @@ export default function Home() {
         </ScrollReveal>
 
         <ScrollReveal
-          className="mt-[20px] desktop:hidden border-t-[2px] border-black"
+          className="desktop:hidden border-t-[2px] border-black"
           once
         >
           {(show) => (
             <div>
-              <div className="relative w-full h-full border-b-2 desktop:border-b-0">
+              <div className="relative w-full h-full border-b-2 desktop:border-b-0 overflow-hidde aspect-square tablet:aspect-4/3">
                 <img
                   src="/partnership/Image.webp"
                   alt="Image | Cannex"
@@ -133,7 +138,7 @@ export default function Home() {
                   ) + "h-full"
                 }
               >
-                <div className="relative w-full h-full border-t-[2px]">
+                <div className="relative w-full h-full border-t-[2px] overflow-hidden">
                   <img
                     src="/partnership/Image.webp"
                     alt="Image | Cannex"
@@ -163,7 +168,7 @@ function AllianceItem({ data, index }: { data: Alliance; index: number }) {
     <div
       className={`border-black ${
         index !== 0 && "border-t-2"
-      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0`}
+      } border-b-0 desktop:border-t-2 mx-[20px] desktop:mx-0 font-medium`}
     >
       <div
         className={`
@@ -173,11 +178,14 @@ function AllianceItem({ data, index }: { data: Alliance; index: number }) {
           desktop:px-[80px]
         `}
       >
-        <h3 className="mt-0 tablet:mt-[32px] text-xl tablet:text-2xl font-bold flex flex-col items-start tablet:flex-row tablet:items-center gap-3">
-          <span aria-hidden className="relative w-[44px] tablet:w-[33px] flex-shrink-0">
-            <img src={data.flag} alt={data.title} className="object-contain" />
+        <h3 className="mt-0 tablet:mt-[32px] text-[32px] font-bold flex flex-col items-start tablet:flex-row leading-[110%] gap-3">
+          <span
+            aria-hidden
+            className="relative w-[44px] tablet:w-[33px] flex-shrink-0"
+          >
+            {data.flag}
           </span>
-          <span>{data.title}</span>
+          <p>{data.title}</p>
         </h3>
 
         <ul className="mt-3 space-x-1 text-sm desktop:text-[15px] text-neutral-900">

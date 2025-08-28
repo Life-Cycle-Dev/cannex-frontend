@@ -52,8 +52,8 @@ export default async function RootLayout({
             <HelperProvider>
               <NavBar />
               {children}
+              <Footer />
             </HelperProvider>
-            <Footer />
           </LoadingProvider>
           <script
             type="application/ld+json"
