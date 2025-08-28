@@ -112,7 +112,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
             <div className="mb-[32px] tablet:mb-0 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-3 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
@@ -122,7 +122,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
               </div>
               <p
-                className={`relative z-10 line-clamp-3 ${
+                className={`relative z-10 line-clamp-2 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >
