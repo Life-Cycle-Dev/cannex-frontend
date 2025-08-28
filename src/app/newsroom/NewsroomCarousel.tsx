@@ -52,7 +52,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                   src={it?.image?.url}
                   alt={it?.title || it?.title || "news image"}
                   className="
-                  w-full h-full object-cover flex-shrink-0 cursor-pointer object-center
+                  w-full h-full object-cover flex-shrink-0 aspect-3/2 cursor-pointer object-center
                 "
                   onMouseEnter={() => setHover(true)}
                   onTouchStart={() => setHover(true)}
