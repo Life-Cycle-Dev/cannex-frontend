@@ -35,30 +35,34 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
             min-w-full tablet:min-w-[45%] min-h-fit tablet:min-h-[50%] tablet:max-h-full
-            relative overflow-hidden
+            relative tablet:overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
         >
-          <div
-            className="
-              flex w-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-auto tablet:h-full
+          <div className="h-full w-full overflow-hidden">
+            <div
+              className="
+              flex w-[102%] h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-auto tablet:h-full
             "
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            {items.map((it) => (
-              <img
-                key={it.id}
-                src={it?.image?.url}
-                alt={it?.title || it?.title || "news image"}
-                className="
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {items.map((it) => (
+                <img
+                  key={it.id}
+                  src={it?.image?.url}
+                  alt={it?.title || it?.title || "news image"}
+                  className="
                   w-full h-full object-cover flex-shrink-0 cursor-pointer object-center
                 "
-                onMouseEnter={() => setHover(true)}
-                onTouchStart={() => setHover(true)}
-                onTouchEnd={() => setHover(false)}
-                onClick={() => (window.location.href = `/newsroom/${it.slug}`)}
-              />
-            ))}
+                  onMouseEnter={() => setHover(true)}
+                  onTouchStart={() => setHover(true)}
+                  onTouchEnd={() => setHover(false)}
+                  onClick={() =>
+                    (window.location.href = `/newsroom/${it.slug}`)
+                  }
+                />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -108,7 +112,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
             <div className="mb-[32px] tablet:mb-0 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] line-clamp-3 tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
