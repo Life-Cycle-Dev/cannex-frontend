@@ -34,7 +34,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
-            min-w-full tablet:min-w-[45%] min-h-fit tablet:min-h-[50%] tablet:max-h-full
+            min-w-full h-fit tablet:min-w-[45%] tablet:h-full
             relative tablet:overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
@@ -42,7 +42,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           <div className="h-full w-full overflow-hidden">
             <div
               className="
-              flex w-full h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-6/4 tablet:h-full
+              flex w-full h-full transition-transform duration-500 ease-out aspect-3/2 tablet:h-full
             "
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
