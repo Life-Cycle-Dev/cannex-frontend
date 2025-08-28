@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import CloseIcon from "./icons/CloseIcon";
 import Button from "./Button";
 import LineIcon from "./icons/LineIcon";
@@ -14,51 +14,79 @@ interface ShareInfo {
 }
 
 const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
-  url = window.location.protocol + "//" + window.location.host + url;
+  const absoluteUrl = useMemo(() => {
+    if (typeof window === "undefined") return url;
+    return `${window.location.protocol}//${window.location.host}${url}`;
+  }, [url]);
 
   const [copied, setCopied] = useState(false);
 
+  const [isEntering, setIsEntering] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setIsEntering(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => onClose(), 300);
+  }, [onClose]);
+
   const copyLink = useCallback(() => {
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(absoluteUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     });
-  }, [url]);
+  }, [absoluteUrl]);
 
   const shareToLine = useCallback(() => {
     const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(
-      url
+      absoluteUrl
     )}`;
     window.open(lineUrl, "_blank", "noopener,noreferrer");
-  }, [url]);
+  }, [absoluteUrl]);
 
   const shareToFacebook = useCallback(() => {
     const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      url
+      absoluteUrl
     )}`;
     window.open(fbUrl, "_blank", "noopener,noreferrer");
-  }, [url]);
+  }, [absoluteUrl]);
 
   const shareToX = useCallback(() => {
     const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      url
+      absoluteUrl
     )}&text=${encodeURIComponent(title)}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
-  }, [url, title]);
+  }, [absoluteUrl, title]);
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen z-50 flex justify-center items-center">
+    <div className="fixed inset-0 z-50 flex justify-center items-center">
       <div
-        className="absolute inset-0 bg-black opacity-25"
-        onClick={onClose}
-      ></div>
+        className={`absolute inset-0 bg-black transition-opacity duration-300
+          ${isEntering && !isClosing ? "opacity-25" : "opacity-0"}
+          tablet:opacity-25`}
+        onClick={handleClose}
+      />
 
-      <div className="absolute bottom-0 tablet:relative p-0 tablet:p-6 bg-white z-10 w-full tablet:w-[592px]">
+      <div
+        className={`
+          absolute bottom-0 w-full bg-white z-10
+          tablet:relative tablet:w-[592px] tablet:p-6
+
+          /* Mobile slide-up animation */
+          transform transition-transform duration-300 ease-out
+          ${isEntering && !isClosing ? "translate-y-0" : "translate-y-full"}
+          tablet:translate-y-0
+        `}
+      >
         <div className="flex justify-between items-center border-b-2 tablet:border-b-0 p-[24px] tablet:p-0">
           <div className="text-xl tablet:text-2xl leading-[125%] tablet:leading-[120%] font-bold">
             Share
           </div>
-          <CloseIcon className="w-4 h-4 cursor-pointer" onClick={onClose} />
+          <CloseIcon className="w-4 h-4 cursor-pointer" onClick={handleClose} />
         </div>
 
         <div className="flex flex-col tablet:flex-row tablet:items-center gap-4 py-6 px-6 tablet:p-0 tablet:mt-4">
@@ -104,13 +132,9 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
 
           <div
             className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
-            bg-black text-white text-sm px-3 py-1 rounded-lg shadow-lg 
-            transition-all duration-300 ease-out
-            ${
-              copied
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-2 pointer-events-none"
-            }`}
+              bg-black text-white text-sm px-3 py-1 rounded-lg
+              transition-all duration-300 ease-out
+              ${copied ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
           >
             Copied!
           </div>

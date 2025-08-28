@@ -56,7 +56,7 @@ export default function Button({
       className={`group h-12 inline-flex items-center justify-between gap-2 px-4 font-medium cursor-pointer
         ${resolveButtonClass()} ${className}`}
     >
-      {type !== "pagination" && type !== "paginationFocus" && (
+      {type !== "pagination" && type !== "paginationFocus" && text !== "Share" && (
         <div
           className={`${prefixIcon && "w-6"} ${
             !prefixIcon && "tablet:w-0"
@@ -68,7 +68,7 @@ export default function Button({
         </div>
       )}
 
-      {text}
+      <span>{text}</span>
       {prefixIcon && <div className="w-6 shrink-0" />}
       {suffixIcon && (disabled || !isAnimate) && (
         <span className="flex items-center">{suffixIcon}</span>
