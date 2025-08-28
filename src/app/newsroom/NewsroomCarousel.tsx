@@ -42,7 +42,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           <div className="h-full w-full overflow-hidden">
             <div
               className="
-              flex w-[102%] h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-auto tablet:h-full
+              flex w-[102%] h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-6/4 tablet:h-full
             "
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
@@ -122,7 +122,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
               </div>
               <p
-                className={`relative z-10 line-clamp-2 ${
+                className={`relative z-10 mb-12 tablet:mb-0 line-clamp-2 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >
@@ -133,7 +133,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
 
           {items.length > 1 && (
             <>
-              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-2">
+              <div className="absolute bg-white bottom-0 left-0 w-full mt-auto items-center justify-between border-b-2 tablet:border-b-0 hidden tablet:flex z-20">
                 <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
                   {items.map((_, i) => (
                     <button
