@@ -143,16 +143,16 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
             >
               {current?.title ?? "-"}
             </h2>
-            <div className="relative z-10 text-gray-400 text-md leading-[125%] font-medium">
+            <p className="relative z-10 text-gray-400 text-md leading-[125%] font-medium">
               {current?.publishedAt ? formatDate(current.publishedAt) : ""}
-            </div>
-            <div
+            </p>
+            <p
               className={`relative z-10 text-md group-hover:text-white line-clamp-3 leading-[125%] font-medium ${
                 hover && "text-white"
               }`}
             >
               {current?.description ?? ""}
-            </div>
+            </p>
           </div>
         </Link>
 

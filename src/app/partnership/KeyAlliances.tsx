@@ -185,7 +185,7 @@ function AllianceItem({ data, index }: { data: Alliance; index: number }) {
           >
             {data.flag}
           </span>
-          <span>{data.title}</span>
+          <p>{data.title}</p>
         </h3>
 
         <ul className="mt-3 space-x-1 text-sm desktop:text-[15px] text-neutral-900">

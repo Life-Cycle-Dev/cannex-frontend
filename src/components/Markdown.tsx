@@ -50,13 +50,13 @@ export default function ContentView({
               <h2 className="text-[46px] tablet:text-[52px] font-bold break-words leading-[110%]">
                 {data.title}
               </h2>
-              <div className="text-gray-400 hidden tablet:block">
+              <p className="text-gray-400 hidden tablet:block">
                 {formatDate(data.publishedAt)}
-              </div>
+              </p>
               <div className="flex justify-between items-center tablet:hidden">
-                <div className="text-gray-400">
+                <p className="text-gray-400">
                   {formatDate(data.publishedAt)}
-                </div>
+                </p>
                 <ShareButton
                   imageUrl={data?.image?.url ?? ""}
                   title={data.title}

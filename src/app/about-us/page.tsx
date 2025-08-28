@@ -119,7 +119,7 @@ export default function Page() {
                     <div
                       className={`text-[46px] tablet:text-[56px] w-fit font-bold leading-[110%] ${item.className}`}
                     >
-                      <span
+                      <p
                         style={{ animationDelay: `${i * 100}ms` }}
                         className={`reveal-ltr 
                         ${getClassNameAnimation(
@@ -131,7 +131,7 @@ export default function Page() {
                         `}
                       >
                         {item.text}
-                      </span>
+                      </p>
                     </div>
                   )}
                 </ScrollReveal>
@@ -145,7 +145,7 @@ export default function Page() {
       <div className="mx-[20px] py-[64px] tablet:p-[80px] grid grid-cols-1 border-t-2 tablet:border-t-0 tablet:grid-cols-2">
         <ScrollReveal once>
           {(show) => (
-            <div
+            <p
               className={`text-[40px] tablet:text-[52px] font-bold transition-all duration-[500ms] leading-[110%]
                 ${getClassNameAnimation(
                   show,
@@ -156,7 +156,7 @@ export default function Page() {
               `}
             >
               Reimagining Medical Cannabis with Science and Purpose
-            </div>
+            </p>
           )}
         </ScrollReveal>
 
@@ -170,14 +170,14 @@ export default function Page() {
                 "opacity-100 translate-x-0",
               )}`}
             >
-              <div className="mt-[16px] tablet:mt-0">
+              <p className="mt-[16px] tablet:mt-0">
                 Medical cannabis is undergoing a global transformation — from an
                 alternative remedy to a credible therapeutic solution. With
                 growing acceptance among physicians, patients, and regulators,
                 the demand for cannabis products that meet{" "}
                 <b>pharmaceutical-grade standards</b> has never been higher
-              </div>
-              <div className="mt-[20px]">
+              </p>
+              <p className="mt-[20px]">
                 At Cannex, we believe that{" "}
                 <b>
                   medical cannabis formulations deserve the same level of
@@ -185,7 +185,7 @@ export default function Page() {
                 </b>
                 as any pharmaceutical product. It&apos;s not just about being
                 natural — it&apos;s about being <b>scientifically precise.</b>
-              </div>
+              </p>
             </div>
           )}
         </ScrollReveal>
@@ -286,7 +286,7 @@ export default function Page() {
 
           <ScrollReveal>
             {(show) => (
-              <div
+              <p
                 className={
                   "text-[16px] py-[24px] font-medium" +
                   getClassNameAnimation(
@@ -302,12 +302,12 @@ export default function Page() {
                 knew that achieving this required more than cultivation alone.
                 It required science, compliance, and collaboration across
                 continents.
-              </div>
+              </p>
             )}
           </ScrollReveal>
           <ScrollReveal>
             {(show) => (
-              <div
+              <p
                 className={
                   "text-[20px] font-medium" +
                   getClassNameAnimation(
@@ -331,7 +331,7 @@ export default function Page() {
                 >
                   three nations:
                 </b>
-              </div>
+              </p>
             )}
           </ScrollReveal>
         </div>
@@ -352,11 +352,11 @@ export default function Page() {
                 )
               }
             >
-              <div className="text-[14px] text-left tablet:text-center">
+              <p className="text-[14px] text-left tablet:text-center">
                 Together, we create a vertically integrated system —
                 <b>from seed to shelf,</b> built to meet the most rigorous
                 international standards.
-              </div>
+              </p>
             </div>
           )}
         </ScrollReveal>
@@ -386,7 +386,7 @@ export default function Page() {
         <ScrollReveal once>
           {(show) => (
             <div className="w-full max-w-[515px] text-[16px] font-medium flex flex-col gap-3">
-              <div
+              <p
                 className={getClassNameAnimation(
                   show,
                   1000,
@@ -400,8 +400,8 @@ export default function Page() {
                 </span>{" "}
                 Cannex exists to bridge the gap between traditional cultivation
                 and modern pharmaceutical expectations.
-              </div>
-              <div
+              </p>
+              <p
                 className={getClassNameAnimation(
                   show,
                   1000,
@@ -411,7 +411,7 @@ export default function Page() {
               >
                 With clinical-grade facilities, stringent quality assurance, and
                 transparent global compliance, we ensure:
-              </div>
+              </p>
             </div>
           )}
         </ScrollReveal>
@@ -431,16 +431,16 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col  items-start gap-4">
+              <p className="flex flex-col  items-start gap-4">
                 <SafetyIcon />
-                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                <span className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Safety
-                </div>
-                <div className="self-stretch font-medium leading-[125%]">
+                </span>
+                <span className="self-stretch font-medium leading-[125%]">
                   Every batch is tested for cannabinoids and contaminants using
                   HPLC and LC-MS/MS
-                </div>
-              </div>
+                </span>
+              </p>
             </div>
 
             <div
@@ -455,16 +455,16 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col items-start gap-4">
+              <p className="flex flex-col items-start gap-4">
                 <ConsistencyIcon />
-                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                <span className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Consistency
-                </div>
-                <div className="self-stretch font-medium leading-[125%]">
+                </span>
+                <span className="self-stretch font-medium leading-[125%]">
                   Genetics, terpene profiles, and potency are maintained
                   lot-to-lot
-                </div>
-              </div>
+                </span>
+              </p>
             </div>
 
             <div
@@ -479,15 +479,15 @@ export default function Page() {
                 )
               }
             >
-              <div className="flex flex-col items-start gap-4">
+              <p className="flex flex-col items-start gap-4">
                 <EfficacyIcon />
-                <div className="self-stretch text-[2rem] font-bold leading-[120%]">
+                <span className="self-stretch text-[2rem] font-bold leading-[120%]">
                   Efficacy
-                </div>
-                <div className="self-stretch font-medium leading-[125%]">
+                </span>
+                <span className="self-stretch font-medium leading-[125%]">
                   Backed by real science, formulated for real patients
-                </div>
-              </div>
+                </span>
+              </p>
             </div>
           </div>
         )}
@@ -528,7 +528,7 @@ export default function Page() {
                   >
                     What We Believe
                   </h2>
-                  <div
+                  <p
                     className={
                       "text-white text-base font-medium leading-tight" +
                       getClassNameAnimation(
@@ -541,12 +541,12 @@ export default function Page() {
                   >
                     Medical cannabis should be held to the same standards as any
                     pharmaceutical product.
-                  </div>
+                  </p>
                 </div>
 
                 {/* Desktop */}
-                <div className="flex-col z-2 tablet:gap-2 hidden tablet:flex">
-                  <div
+                <span className="flex-col z-2 tablet:gap-2 hidden tablet:flex">
+                  <p
                     className={
                       "text-white text-3xl font-bold leading-10" +
                       getClassNameAnimation(
@@ -558,8 +558,8 @@ export default function Page() {
                     }
                   >
                     It should be
-                  </div>
-                  <div
+                  </p>
+                  <span
                     style={{
                       transitionDelay: "500ms",
                       animationDelay: "500ms",
@@ -581,8 +581,8 @@ export default function Page() {
                       {" "}
                       not guesswork.
                     </span>
-                  </div>
-                  <div
+                  </span>
+                  <p
                     style={{
                       transitionDelay: "500ms",
                       animationDelay: "500ms",
@@ -604,8 +604,8 @@ export default function Page() {
                       {" "}
                       not assumptions.
                     </span>
-                  </div>
-                  <div
+                  </p>
+                  <p
                     style={{
                       transitionDelay: "500ms",
                       animationDelay: "500ms",
@@ -627,12 +627,12 @@ export default function Page() {
                       {" "}
                       not inconsistency.
                     </span>
-                  </div>
-                </div>
+                  </p>
+                </span>
 
                 {/* Mobile */}
-                <div className="absolute z-2 bottom-2 block tablet:hidden">
-                  <div
+                <p className="absolute z-2 bottom-2 block tablet:hidden">
+                  <span
                     className={
                       "text-white text-3xl font-bold leading-10" +
                       getClassNameAnimation(
@@ -644,8 +644,8 @@ export default function Page() {
                     }
                   >
                     It should be
-                  </div>
-                  <div
+                  </span>
+                  <span
                     style={{
                       transitionDelay: "500ms",
                       animationDelay: "500ms",
@@ -667,8 +667,8 @@ export default function Page() {
                       {" "}
                       not guesswork.
                     </span>
-                  </div>
-                </div>
+                  </span>
+                </p>
               </div>
 
               {/* Desktop */}
@@ -687,7 +687,7 @@ export default function Page() {
                   )
                 }
               >
-                <div className="w-full text-center justify-start">
+                <p className="w-full text-center justify-start">
                   <span className="text-white text-base font-medium leading-tight">
                     We believe in{" "}
                   </span>
@@ -698,7 +698,7 @@ export default function Page() {
                     , and delivering products that truly improve lives — with
                     clarity, transparency, and compassion.
                   </span>
-                </div>
+                </p>
               </div>
             </div>
 
@@ -718,7 +718,7 @@ export default function Page() {
                 animationDelay: "500ms",
               }}
             >
-              <div>
+              <p>
                 <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
                   developed with scientific evidence,
                 </span>
@@ -726,8 +726,8 @@ export default function Page() {
                   {" "}
                   not assumptions.
                 </span>
-              </div>
-              <div>
+              </p>
+              <p>
                 <span className="text-black bg-crystalGreen text-2xl font-bold leading-7">
                   delivered with integrity,
                 </span>
@@ -735,8 +735,8 @@ export default function Page() {
                   {" "}
                   not inconsistency.
                 </span>
-              </div>
-              <div className="w-full text-left mt-4 justify-start">
+              </p>
+              <p className="w-full text-left mt-4 justify-start">
                 <span className="text-black text-base font-medium leading-tight">
                   We believe in{" "}
                 </span>
@@ -747,7 +747,7 @@ export default function Page() {
                   , and delivering products that truly improve lives — with
                   clarity, transparency, and compassion.
                 </span>
-              </div>
+              </p>
             </div>
           </>
         )}
@@ -816,9 +816,9 @@ export default function Page() {
                         index != 2 && "tablet:border-r-2"
                       } py-8 h-[250px] tablet:h-[230px]`}
                     >
-                      <div className="px-[20px] tablet:px-10 line-clamp-5">
+                      <p className="px-[20px] tablet:px-10 line-clamp-5">
                         {item.desc}
-                      </div>
+                      </p>
                       <div
                         style={{ bottom: item.bottom, letterSpacing: 0 }}
                         className={`absolute right-5 tablet:right-[0px] text-right mr-[-6px] text-[145px] font-bold mb-[-3px]`}
@@ -866,7 +866,7 @@ export default function Page() {
               >
                 The Cannex Commitment
               </h2>
-              <div
+              <p
                 className={
                   "text-[20px] font-medium leading-[125%]" +
                   getClassNameAnimation(
@@ -880,8 +880,8 @@ export default function Page() {
                 From California genetics to Japanese engineering and Thai
                 execution, Cannex is more than a brand — it is a{" "}
                 <b>new benchmark</b> for medical cannabis worldwide.
-              </div>
-              <div
+              </p>
+              <p
                 className={
                   "text-[20px] font-medium leading-[125%]" +
                   getClassNameAnimation(
@@ -893,7 +893,7 @@ export default function Page() {
                 }
               >
                 Rooted in science. Driven by collaboration. Committed to care.
-              </div>
+              </p>
             </div>
           </div>
         )}

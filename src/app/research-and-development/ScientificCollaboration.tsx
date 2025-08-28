@@ -79,7 +79,7 @@ export default function ScientificCollaboration() {
                 className="flex flex-col border-t-[2px] tablet:border-r-[2px]"
               >
                 {/* Title */}
-                <div
+                <p
                   className={`py-6 tablet:py-4 tablet:px-20 text-[32px] font-bold leading-[120%] flex items-center tablet:border-b-2 ${getClassNameAnimation(
                     show,
                     1000 + i * 200,
@@ -88,10 +88,10 @@ export default function ScientificCollaboration() {
                   )}`}
                 >
                   {p.title}
-                </div>
+                </p>
 
                 {/* Body */}
-                <div
+                <p
                   className={`border-t-[2px] tablet:border-0 py-6 tablet:py-8 tablet:px-20 text-xl font-medium leading-[125%] whitespace-pre-line ${getClassNameAnimation(
                     show,
                     1500 + i * 200,
@@ -100,7 +100,7 @@ export default function ScientificCollaboration() {
                   )}`}
                 >
                   {p.body}
-                </div>
+                </p>
               </div>
             ))}
           </>

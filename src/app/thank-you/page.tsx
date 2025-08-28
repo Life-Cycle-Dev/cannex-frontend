@@ -9,13 +9,13 @@ export default function Page() {
     <div className="w-fill h-[586px] flex flex-col justify-center items-center">
       <DocumentIcon />
       <div className="flex justify-center items-center flex-col mt-[64px] tablet:mt-[40px]">
-        <div className="text-[40px] tablet:text-[52px] font-bold">Thank you</div>
-        <div className="text-[24px] tablet:text-[24px] font-bold">
+        <h1 className="text-[40px] tablet:text-[52px] font-bold">Thank you</h1>
+        <p className="text-[24px] tablet:text-[24px] font-bold">
           Your vision, our precision. Let’s talk.
-        </div>
-        <div className="text-[16px] mt-[16px]">
+        </p>
+        <p className="text-[16px] mt-[16px]">
           We’ll get back to you within 2 business days.
-        </div>
+        </p>
 
         <Button
           href="/"

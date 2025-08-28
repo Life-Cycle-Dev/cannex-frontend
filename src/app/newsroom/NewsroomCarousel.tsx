@@ -118,9 +118,9 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               >
                 {current?.title ?? "-"}
               </h2>
-              <div className="relative z-10 text-gray-400 text-[16px]">
+              <p className="relative z-10 text-gray-400 text-[16px]">
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
-              </div>
+              </p>
               <p
                 className={`relative z-10 mb-12 tablet:mb-0 line-clamp-2 ${
                   hover ? "text-white" : ""

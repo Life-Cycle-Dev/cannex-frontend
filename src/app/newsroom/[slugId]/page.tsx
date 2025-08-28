@@ -74,9 +74,9 @@ export default async function Page({ params, searchParams }: PageProps) {
       />
 
       <div className="border-t-2 mx-[20px] tablet:mx-0">
-        <div className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
+        <p className="text-[52px] py-[64px] tablet:p-[64px_80px] font-bold">
           Our Newsroom
-        </div>
+        </p>
         <div className="tablet:px-[80px]">
           <div className="grid grid-cols-1 tablet:grid-cols-3 tablet:border-l-2">
             {randomNewsroom.map((data, index) => (

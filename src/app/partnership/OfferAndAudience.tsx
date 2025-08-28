@@ -120,7 +120,7 @@ function Column({
           {bullets.map((b, i) => (
             <li key={i} className="text-[16px] py-[24px] border-b font-medium">
               {b.strong ? (
-                <span className="font-bold">{b.strong}</span>
+                <p className="font-bold">{b.strong}</p>
               ) : null}
               {b.text}
             </li>

@@ -20,7 +20,7 @@ export default function Page() {
         <ScrollReveal className="w-full tablet:w-[55%] justify-between h-full tablet:border-r-2 flex flex-col">
           {(show) => (
             <>
-              <div
+              <p
                 className={
                   "w-full h-fit text-[46px] tablet:text-[72px] font-bold p-[32px_20px] tablet:p-[64px_8%]" +
                   getClassNameAnimation(
@@ -32,7 +32,7 @@ export default function Page() {
                 }
               >
                 Partnership
-              </div>
+              </p>
 
               <div className=" aspect-square tablet:aspect-2/1 border-y-2 tablet:border-t-2 tablet:border-y-0 overflow-hidden">
                 <img
@@ -97,7 +97,7 @@ export default function Page() {
               >
                 for Local Impact
               </h2>
-              <div
+              <p
                 style={{ animationDelay: "1500ms", transitionDelay: "1500ms" }}
                 className={`
     text-[16px] my-[16px] line-clamp-5
@@ -116,8 +116,8 @@ export default function Page() {
                 and chemists to regulators and healthcare providers, our
                 partnerships are the reason we can deliver pharmaceutical-grade
                 cannabis at a global scale.
-              </div>
-              <div
+              </p>
+              <p
                 style={{ animationDelay: "1500ms", transitionDelay: "1500ms" }}
                 className={`
     text-[16px] line-clamp-2
@@ -133,7 +133,7 @@ export default function Page() {
               >
                 We don’t just supply products — we <b>build ecosystems</b> for
                 sustainable and scalable medical cannabis growth.
-              </div>
+              </p>
             </>
           )}
         </ScrollReveal>

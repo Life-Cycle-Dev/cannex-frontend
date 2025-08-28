@@ -87,20 +87,20 @@ export const PaginationCard = ({
           >
             {data.title}
           </h3>
-          <div
+          <p
             className={` text-gray-400 tablet:px-6 text-[16px] ${
               !isDateAndDescriptionShow && "hidden tablet:block"
             }`}
           >
             {formatDate(data.publishedAt ?? data.updatedAt ?? null)}
-          </div>
-          <div
+          </p>
+          <p
             className={`text-[16px] mb-10 tablet:mb-6 tablet:px-6 flex-1 line-clamp-4 group-hover:text-white transition-colors duration-500 font-medium leading-[125%] ${
               !isDateAndDescriptionShow && "hidden tablet:block"
             }`}
           >
             {data.description ?? ""}
-          </div>
+          </p>
         </div>
       </div>
     </Link>

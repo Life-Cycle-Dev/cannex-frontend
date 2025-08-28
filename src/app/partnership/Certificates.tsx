@@ -253,7 +253,7 @@ function ItemRow({ item, isRight }: { item: Certification; isRight: boolean }) {
             )}
           </>
         ) : (
-          <div className="mt-1 font-bold text-[16px]">{item.authority}</div>
+          <p className="mt-1 font-bold text-[16px]">{item.authority}</p>
         )}
         <p className="mt-2 text-[16px] font-medium leading-[125%]">{item.description}</p>
       </div>

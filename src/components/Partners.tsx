@@ -12,7 +12,7 @@ export default function Partners() {
         <ScrollReveal className="grid grid-cols-[3fr_2fr] border-b-2">
           {(show) => (
             <>
-              <div
+              <p
                 className={
                   "text-[24px] p-[40px_80px] font-bold border-r-2" +
                   getClassNameAnimation(
@@ -25,8 +25,8 @@ export default function Partners() {
               >
                 Market Analysis <br />
                 and Planning
-              </div>
-              <div
+              </p>
+              <p
                 className={
                   "text-[24px] p-[40px_80px] font-bold" +
                   getClassNameAnimation(
@@ -39,7 +39,7 @@ export default function Partners() {
               >
                 Variety Improvement <br />
                 and Cultivation
-              </div>
+              </p>
             </>
           )}
         </ScrollReveal>
@@ -138,7 +138,7 @@ export default function Partners() {
 
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] p-[40px_80px] font-bold border-y-2" +
                 getClassNameAnimation(
@@ -151,7 +151,7 @@ export default function Partners() {
             >
               Technology and <br />
               Engineering
-            </div>
+            </p>
           )}
         </ScrollReveal>
 
@@ -249,7 +249,7 @@ export default function Partners() {
 
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] p-[40px_80px] font-bold border-y-2" +
                 getClassNameAnimation(
@@ -262,7 +262,7 @@ export default function Partners() {
             >
               Analysis, Testing <br />
               and Clinical Trials
-            </div>
+            </p>
           )}
         </ScrollReveal>
 
@@ -363,7 +363,7 @@ export default function Partners() {
       <div className="mx-[20px] w-[calc(100vw-40px)] block tablet:hidden">
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] py-[32px] font-bold border-b-2" +
                 getClassNameAnimation(
@@ -375,7 +375,7 @@ export default function Partners() {
               }
             >
               Market Analysis <br/> and Planning
-            </div>
+            </p>
           )}
         </ScrollReveal>
 
@@ -450,7 +450,7 @@ export default function Partners() {
 
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] py-[32px] font-bold border-y-2" +
                 getClassNameAnimation(
@@ -462,7 +462,7 @@ export default function Partners() {
               }
             >
               Variety Improvement <br/> and Cultivation
-            </div>
+            </p>
           )}
         </ScrollReveal>
         <ScrollReveal className="grid grid-cols-2">
@@ -508,7 +508,7 @@ export default function Partners() {
 
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] py-[32px] font-bold border-y-2" +
                 getClassNameAnimation(
@@ -520,7 +520,7 @@ export default function Partners() {
               }
             >
               Technology <br/>and Engineering
-            </div>
+            </p>
           )}
         </ScrollReveal>
         <ScrollReveal className="grid grid-cols-2">
@@ -617,7 +617,7 @@ export default function Partners() {
 
         <ScrollReveal>
           {(show) => (
-            <div
+            <p
               className={
                 "text-[24px] py-[32px] font-bold border-y-2" +
                 getClassNameAnimation(
@@ -629,7 +629,7 @@ export default function Partners() {
               }
             >
               Analysis, Testing <br/>and Clinical Trials
-            </div>
+            </p>
           )}
         </ScrollReveal>
         <ScrollReveal className="grid grid-cols-2">
