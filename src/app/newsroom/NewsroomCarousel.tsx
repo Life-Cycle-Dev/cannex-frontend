@@ -30,18 +30,18 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
     <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
       <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
 
-      <div className="w-full flex tablet:flex-row flex-col">
+      <div className="flex tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] tablet:h-auto tablet:flex-row flex-col">
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
-            min-w-full tablet:min-w-[45%] max-h-[50%] min-h-[50%] tablet:max-h-full tablet:min-h-full
+            min-w-full tablet:min-w-[45%] min-h-fit tablet:min-h-[50%] tablet:max-h-full
             relative overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
         >
           <div
             className="
-              flex h-full w-full transition-transform duration-500 ease-out aspect-3/2
+              flex w-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-auto tablet:h-full
             "
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
@@ -51,7 +51,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 src={it?.image?.url}
                 alt={it?.title || it?.title || "news image"}
                 className="
-                  w-full h-full object-cover flex-shrink-0 cursor-pointer
+                  w-full h-full object-cover flex-shrink-0 cursor-pointer object-center
                 "
                 onMouseEnter={() => setHover(true)}
                 onTouchStart={() => setHover(true)}
@@ -62,13 +62,12 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           </div>
         </div>
 
-        <div className="w-full h-[calc(50%-66px)] tablet:h-full relative">
+        <div className="w-full h-full tablet:h-full relative">
           <Link
             href={`/newsroom/${current.slug}`}
             className="
-              w-full h-full flex flex-col pb-20 
-              tablet:border-0 tablet:pb-0 
-              relative group overflow-hidden cursor-pointer
+              w-full h-full flex flex-col
+              tablet:border-0 relative group overflow-hidden cursor-pointer
             "
           >
             <div className="self-end mb-4 relative w-8 h-8 overflow-hidden group z-1 hidden tablet:block">
@@ -94,7 +93,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
               />
             </div>
 
-            <div className="self-end mb-4 w-8 h-8 overflow-hidden group z-1 tablet:hidden">
+            <div className="self-end tablet:mb-4 w-8 h-8 overflow-hidden group z-1 tablet:hidden">
               <RightUpIcon
                 className={`
                   absolute text-black w-8 h-8 right-0 group-hover:text-crystalGreen
@@ -107,9 +106,9 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 ${hover ? "translate-y-0" : "translate-y-full"}`}
             />
 
-            <div className="pt-5 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
+            <div className="mb-[32px] tablet:mb-0 tablet:pt-2 tablet:px-16 flex flex-col gap-3">
               <h2
-                className={`relative z-10 font-bold text-[40px] line-clamp-2 tablet:text-[52px] ${
+                className={`relative z-10 font-bold text-[40px] line-clamp-3 tablet:text-[52px] ${
                   hover ? "text-crystalGreen" : "text-black"
                 } group-hover:text-crystalGreen`}
               >
@@ -119,7 +118,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 {current?.publishedAt ? formatDate(current.publishedAt) : ""}
               </div>
               <p
-                className={`relative z-10 line-clamp-2 ${
+                className={`relative z-10 line-clamp-3 ${
                   hover ? "text-white" : ""
                 } group-hover:text-white`}
               >
@@ -184,7 +183,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                   </button>
                 </div>
               </div>
-              <div className="mt-auto items-center justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
+              <div className="mt-auto items-center w-full absolute bottom-0 justify-between border-b-2 tablet:border-b-0 flex tablet:hidden">
                 <button
                   onClick={goPrev}
                   className={`w-16 h-16 border-t-2 border-l-2 border-r-2 flex justify-center items-center 
