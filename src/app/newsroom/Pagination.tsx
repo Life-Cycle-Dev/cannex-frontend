@@ -232,7 +232,7 @@ export default function Pagination() {
 
   return (
     <div>
-      <div className="mx-5 mt-[114px] tablet:mx-0 flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:pt-[80px] tablet:pb-[40px] flex justify-between">
+      <div className="mx-5 pt-[114px] tablet:mx-0 flex-col gap-[48px] tablet:flex-row tablet:px-[80px] tablet:pt-[80px] tablet:pb-[40px] flex justify-between">
         <div className="">
           <SearchBox
             placeholder="Search Newsroom"
