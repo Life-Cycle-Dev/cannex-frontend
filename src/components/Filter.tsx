@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import RightUpIcon from "@/components/icons/RightUpIcon";
 import CloseIcon from "./icons/CloseIcon";
 
@@ -19,9 +19,39 @@ export default function Filter({ items, value, onChange }: FilterProp) {
   const [isOpen, setIsOpen] = useState(false);
   const [active, setActive] = useState<FilterValue>(value);
 
+  const [isMounted, setIsMounted] = useState(false);
+  const [entered, setEntered] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const listRef = useRef<HTMLUListElement | null>(null);
+
   useEffect(() => {
     setActive(value);
   }, [value]);
+
+  useLayoutEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        void listRef.current?.getBoundingClientRect();
+        setEntered(true);
+      });
+    } else if (isMounted) {
+      setEntered(false);
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+      closeTimer.current = setTimeout(() => setIsMounted(false), 300);
+    }
+    return () => {
+      if (closeTimer.current) {
+        clearTimeout(closeTimer.current);
+        closeTimer.current = null;
+      }
+    };
+  }, [isOpen, isMounted]);
 
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
@@ -38,44 +68,42 @@ export default function Filter({ items, value, onChange }: FilterProp) {
           isOpen && "border-crystalGreen text-crystalGreen"
         }`}
       >
-        <div
-          className="w-full border-transparent cursor-pointer"
-          onClick={toggleOpen}
-        >
+        <div className="w-full border-transparent cursor-pointer" onClick={toggleOpen}>
           <div className="flex gap-2 justify-between items-center w-full">
-            <span className="text-black font-medium text-xl">
-              {active?.label}
-            </span>
+            <span className="text-black font-medium text-xl">{active?.label}</span>
             {isOpen ? <RightUpIcon /> : <RightUpIcon className="rotate-90" />}
           </div>
         </div>
       </div>
 
-      {isOpen && (
+      {isMounted && (
         <>
           <div
             className="fixed w-full h-full top-0 left-0 z-9 bg-[#80808080] tablet:bg-transparent"
             onClick={() => setIsOpen(false)}
           ></div>
-          <ul className="fixed tablet:mt-2 tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-30 inset-x-0 tablet:max-h-[215px] overflow-auto">
+
+          <ul
+            ref={listRef}
+            className={`
+              fixed tablet:mt-2 tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11
+              bg-white tablet:border tablet:shadow-lg z-30 inset-x-0 tablet:max-h-[215px] overflow-auto
+              will-change-transform transform transition-transform duration-300 ease-out
+              ${entered ? "translate-y-0" : "translate-y-full"}
+              tablet:translate-y-0
+            `}
+          >
             <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
               Sort
-              <CloseIcon
-                className="w-[18px] h-[18px]"
-                onClick={() => setIsOpen(false)}
-              />
+              <CloseIcon className="w-[18px] h-[18px]" onClick={() => setIsOpen(false)} />
             </div>
             {items.map((item, index) => (
               <li
                 key={item.value}
                 onClick={() => handleSelect(item)}
-                className={`py-[14px] px-5 tablet:px-4 tablet:py-2.5 hover:bg-black hover:text-crystalGreen focus:bg-black focus:text-crystalGreen cursor-pointer font-medium leading-[125%] 
+                className={`py-[14px] px-5 tablet:px-4 tablet:py-2.5 hover:bg-black hover:text-crystalGreen focus:bg-black focus:text-crystalGreen cursor-pointer font-medium leading-[125%]
                   ${index < items.length - 1 ? "border-b" : ""}
-                  ${
-                    active?.value === item.value
-                      ? "tablet:bg-black tablet:text-crystalGreen"
-                      : "text-black"
-                  }`}
+                  ${active?.value === item.value ? "tablet:bg-black tablet:text-crystalGreen" : "text-black"}`}
               >
                 {item.label}
               </li>
