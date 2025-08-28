@@ -137,7 +137,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
 
           <div className="pb-5 desktop:px-[64px] tablet:px-[64px] flex flex-col gap-3 flex-1">
             <h2
-              className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen line-clamp-3 leading-[110%] ${
+              className={`relative z-10 font-bold text-[52px] group-hover:text-crystalGreen tablet:line-clamp-3 leading-[110%] ${
                 hover ? "text-crystalGreen" : ""
               }`}
             >

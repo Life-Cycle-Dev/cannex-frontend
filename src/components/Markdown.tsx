@@ -47,9 +47,9 @@ export default function ContentView({
               >
                 {page === "events" ? "Events & Updated" : "Newsroom"}
               </Link>
-              <h1 className="text-[46px] font-bold break-words leading-[110%]">
+              <h2 className="text-[46px] tablet:text-[52px] font-bold break-words leading-[110%]">
                 {data.title}
-              </h1>
+              </h2>
               <div className="text-gray-400 hidden tablet:block">
                 {formatDate(data.publishedAt)}
               </div>
