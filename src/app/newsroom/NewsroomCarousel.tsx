@@ -35,7 +35,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
             min-w-full tablet:min-w-[45%] min-h-fit tablet:min-h-[50%] tablet:max-h-full
-            relative tablet:overflow-hidden
+            relative overflow-hidden
           "
           onMouseLeave={() => setHover(false)}
         >
