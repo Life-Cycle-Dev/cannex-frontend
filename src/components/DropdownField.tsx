@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect, useRef } from "react";
 import LeftUpIcon from "./icons/LeftUpIcon";
 import RightDownIcon from "./icons/RightDownIcon";
 import CloseIcon from "./icons/CloseIcon";
@@ -23,10 +23,38 @@ export default function Dropdown({
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
+  const [isMounted, setIsMounted] = useState(false);
+  const [entered, setEntered] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const listRef = useRef<HTMLUListElement | null>(null);
+
   const handleSelect = (option: string) => {
     onChange(option);
     setIsOpen(false);
   };
+
+  useLayoutEffect(() => {
+    if (isOpen) setIsMounted(true);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      requestAnimationFrame(() => {
+        void listRef.current?.getBoundingClientRect();
+        setEntered(true);
+      });
+    } else if (isMounted) {
+      setEntered(false);
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+      closeTimer.current = setTimeout(() => setIsMounted(false), 300);
+    }
+    return () => {
+      if (closeTimer.current) {
+        clearTimeout(closeTimer.current);
+        closeTimer.current = null;
+      }
+    };
+  }, [isOpen, isMounted]);
 
   return (
     <div className="relative w-full flex flex-col gap-1">
@@ -70,14 +98,21 @@ export default function Dropdown({
         {errorMessage}
       </p>
 
-      {isOpen && (
+      {isMounted && (
         <>
           <div
             className="fixed w-full h-full top-0 left-0 z-9 bg-[#80808080] tablet:bg-transparent"
             onClick={() => setIsOpen(false)}
           ></div>
+
           <ul
-            className="fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto"
+            ref={listRef}
+            className={`
+              fixed tablet:absolute w-full bottom-0 tablet:bottom-auto tablet:top-11 bg-white tablet:border tablet:shadow-lg z-10 inset-x-0 tablet:max-h-[215px] overflow-auto
+              will-change-transform transform transition-transform duration-300 ease-out
+              ${entered ? "translate-y-0" : "translate-y-full"}
+              tablet:translate-y-0
+            `}
           >
             <div className="tablet:hidden py-6 px-5 text-[20px] font-bold leading-[125%] flex w-full items-center justify-between border-b">
               Reason for Contact
