@@ -200,7 +200,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
                 >
                   <RightUpIcon className="-rotate-135 w-8 h-8" />
                 </button>
-                <div className="pl-8 tablet:pl-16 flex gap-2 justify-start">
+                <div className="tablet:pl-16 flex gap-2 justify-center items-center">
                   {items.map((_, i) => (
                     <button
                       key={i}

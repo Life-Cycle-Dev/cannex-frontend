@@ -226,7 +226,7 @@ export default function EventsCarousel({ items }: { items: Event[] }) {
               >
                 <RightUpIcon className="-rotate-135 w-8 h-8" />
               </button>
-              <div className="pl-8 desktop:pl-16 flex gap-2 justify-start">
+              <div className="desktop:pl-16 flex gap-2 justify-center">
                 {items.map((_, i) => (
                   <button
                     key={i}
