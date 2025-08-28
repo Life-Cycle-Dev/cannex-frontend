@@ -42,7 +42,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
           <div className="h-full w-full overflow-hidden">
             <div
               className="
-              flex w-[102%] h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-6/4 tablet:h-full
+              flex w-full h-full transition-transform duration-500 ease-out aspect-3/2 tablet:aspect-6/4 tablet:h-full
             "
               style={{ transform: `translateX(-${index * 100}%)` }}
             >
