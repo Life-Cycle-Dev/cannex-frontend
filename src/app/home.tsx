@@ -46,7 +46,7 @@ export default function Home() {
               <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
                 <div className="w-full flex flex-col gap-6 tablet:gap-8 tablet:justify-center">
                   <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
-                    <p
+                    <span
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
                         getClassNameAnimation(
@@ -58,8 +58,8 @@ export default function Home() {
                       }
                     >
                       Pharmaceutical-
-                    </p>
-                    <p
+                    </span>
+                    <span
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
                         getClassNameAnimation(
@@ -71,8 +71,8 @@ export default function Home() {
                       }
                     >
                       Pharmaceutical
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `500ms` }}
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -85,8 +85,8 @@ export default function Home() {
                       }
                     >
                       Grade Formulation,
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "tablet:hidden bg-crystalGreen w-fit reveal-ltr" +
@@ -99,8 +99,8 @@ export default function Home() {
                       }
                     >
                       -Grade
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "bg-crystalGreen w-fit reveal-ltr" +
@@ -113,8 +113,8 @@ export default function Home() {
                       }
                     >
                       Formulation,
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1000ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -127,8 +127,8 @@ export default function Home() {
                       }
                     >
                       Crafted with
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1500ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -141,8 +141,8 @@ export default function Home() {
                       }
                     >
                       Clinical Precision.
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `1500ms` }}
                       className={
                         "tablet:hidden bg-white w-fit reveal-ltr" +
@@ -155,8 +155,8 @@ export default function Home() {
                       }
                     >
                       Clinical
-                    </p>
-                    <p
+                    </span>
+                    <span
                       style={{ animationDelay: `2000ms` }}
                       className={
                         "bg-white w-fit reveal-ltr" +
@@ -169,7 +169,7 @@ export default function Home() {
                       }
                     >
                       Precision.
-                    </p>
+                    </span>
                   </h1>
                   <p
                     style={{

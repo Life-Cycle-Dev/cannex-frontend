@@ -45,7 +45,7 @@ export default function About() {
                     Where Expertise Meets Collaboration.
                   </h2>
                 </div>
-                <p
+                <div
                   className={`${getClassNameAnimation(
                     show,
                     500,
@@ -53,16 +53,16 @@ export default function About() {
                     "opacity-100 translate-y-0",
                   )}`}
                 >
-                  <span className="font-medium">
+                  <p className="font-medium">
                     Cannex was born from a global alliance between Cannex Pharma
                     and Siam Agri-Bio — combining world-class cultivation and
                     extraction expertise. From California-bred strains to
                     Japan-compliant CBD refinement,<br/>
-                  </span>
-                  <span className="font-semibold">
+                  </p>
+                  <p className="font-semibold">
                     we cover every step with clinical precision.
-                  </span>
-                </p>
+                  </p>
+                </div>
               </div>
             )}
           </ScrollReveal>

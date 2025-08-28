@@ -68,7 +68,7 @@ export default function Button({
         </div>
       )}
 
-      <span>{text}</span>
+      <p>{text}</p>
       {prefixIcon && <div className="w-6 shrink-0" />}
       {suffixIcon && (disabled || !isAnimate) && (
         <span className="flex items-center">{suffixIcon}</span>
