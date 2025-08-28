@@ -80,7 +80,7 @@ export default function NavBar() {
         <div className="h-[2px] w-full bg-black" />
         <div className="flex justify-end items-stretch scroll-auto">
           <nav className="w-full flex items-center justify-end">
-            <div className="w-full flex items-center justify-end">
+            <div className="w-full flex items-center justify-end widescreen:justify-center">
               {MENUS.map((m) => (
                 <Menu
                   key={m.path}
@@ -91,7 +91,7 @@ export default function NavBar() {
                 />
               ))}
             </div>
-            <div className="w-[296px] shrink-0 text-end">
+            <div className="w-[296px] shrink-0 text-end widescreen:absolute">
               <Button
                 href="/contact"
                 className="h-12 w-fit px-0 cursor-pointer"
