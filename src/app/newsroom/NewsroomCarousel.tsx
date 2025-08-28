@@ -27,10 +27,10 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
   const current = items[index];
 
   return (
-    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)]">
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-r-2 hidden tablet:block" />
+    <div className="flex justify-between tablet:border-b-2 min-h-[calc(100dvh-200px)] max-h-[calc(100dvh-200px)] tablet:min-h-[calc(100dvh-250px)] tablet:max-h-[calc(100dvh-250px)] desktop:min-h-[calc(100dvh-311px)] desktop:max-h-[calc(100dvh-311px)]">
+      <div className="min-w-[79px] tablet:min-h-[calc(100dvh-250px)] tablet:max-h-[calc(100dvh-250px)] desktop:min-h-[calc(100dvh-311px)] desktop:max-h-[calc(100dvh-311px)] border-r-2 hidden tablet:block" />
 
-      <div className="flex tablet:border-b-2 min-h-[calc(100vh-200px)] max-h-[calc(100vh-200px)] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] tablet:h-auto tablet:flex-row flex-col">
+      <div className="flex tablet:border-b-2 min-h-[calc(100dvh-200px)] max-h-[calc(100dvh-200px)] tablet:min-h-[calc(100dvh-250px)] tablet:max-h-[calc(100dvh-250px)] desktop:min-h-[calc(100dvh-311px)] desktop:max-h-[calc(100dvh-311px)] tablet:h-auto tablet:flex-row flex-col">
         <div
           className="
             border-r-2 border-l-2 border-b-2 tablet:border-l-0 tablet:border-b-0
@@ -229,7 +229,7 @@ export default function NewsroomCarousel({ items }: { items: NewsRooms[] }) {
         </div>
       </div>
 
-      <div className="min-w-[79px] tablet:min-h-[calc(100vh-250px)] tablet:max-h-[calc(100vh-250px)] desktop:min-h-[calc(100vh-311px)] desktop:max-h-[calc(100vh-311px)] border-l-2 hidden tablet:block" />
+      <div className="min-w-[79px] tablet:min-h-[calc(100dvh-250px)] tablet:max-h-[calc(100dvh-250px)] desktop:min-h-[calc(100dvh-311px)] desktop:max-h-[calc(100dvh-311px)] border-l-2 hidden tablet:block" />
     </div>
   );
 }

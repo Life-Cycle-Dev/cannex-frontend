@@ -29,8 +29,8 @@ export default function Home() {
       <ScrollReveal>
         {(show) => (
           <section>
-            <div className="relative w-full min-h-[calc(100vh-64px)] text-white flex flex-col justify-between">
-              <div className="relative w-full desktop:h-[calc(100vh-134px)] desktop:min-h-[700px] aspect-square desktop:aspect-auto">
+            <div className="relative w-full min-h-[calc(100dvh-64px)] text-white flex flex-col justify-between">
+              <div className="relative w-full desktop:h-[calc(100dvh-134px)] desktop:min-h-[700px] aspect-square desktop:aspect-auto">
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
                   src="/asset/hero-section-img.webp"
@@ -43,7 +43,7 @@ export default function Home() {
                   className="h-full w-full object-cover object-center desktop:hidden"
                 />
               </div>
-              <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100vh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
+              <div className="absolute h-fit z-10 top-[clamp(1rem,268px,calc(100dvh-584px))] tablet:top-[10vh] left-5 tablet:left-20 bottom-0">
                 <div className="w-full flex flex-col gap-6 tablet:gap-8 tablet:justify-center">
                   <h1 className="text-[46px] tablet:text-7xl font-bold leading-[110%] text-black flex flex-col gap-2">
                     <p

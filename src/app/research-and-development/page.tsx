@@ -20,7 +20,7 @@ export default function Page() {
 
   return (
     <main className="bg-white overflow-x-hidden">
-      <div className="relative w-full h-[436px] tablet:h-[calc(100vh-64px)] desktop:h-[calc(100vh-134px)]">
+      <div className="relative w-full h-[436px] tablet:h-[calc(100dvh-64px)] desktop:h-[calc(100dvh-134px)]">
         <ScrollReveal>
           {(show) => (
             <img
