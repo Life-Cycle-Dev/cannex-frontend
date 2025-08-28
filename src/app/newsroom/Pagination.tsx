@@ -79,7 +79,7 @@ export const PaginationCard = ({
           </div>
 
           <h3
-            className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 pr-[28px] tablet:pr-0 !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
+            className={`text-2xl tablet:text-[32px] mt-[-24px] tablet:px-6 pr-[28px] !leading-[120%] font-bold line-clamp-2 break-words group-hover:text-crystalGreen transition-colors duration-500 ${
               !isDateAndDescriptionShow && "pr-[48px] tablet:pr-[24px]"
             }`}
           >
