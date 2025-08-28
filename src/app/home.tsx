@@ -30,7 +30,7 @@ export default function Home() {
         {(show) => (
           <section>
             <div className="relative w-full min-h-[calc(100vh-64px)] text-white flex flex-col justify-between">
-              <div className="relative w-full desktop:h-[calc(100vh-134px)] aspect-square desktop:aspect-auto">
+              <div className="relative w-full desktop:h-[calc(100vh-134px)] desktop:min-h-[700px] aspect-square desktop:aspect-auto">
                 <div className="absolute top-0 left-0 z-5 w-full h-full bg-[linear-gradient(45deg,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_50%)]"></div>
                 <img
                   src="/asset/hero-section-img.webp"
