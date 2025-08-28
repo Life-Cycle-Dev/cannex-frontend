@@ -43,21 +43,21 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
 
   const shareToLine = useCallback(() => {
     const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(
-      absoluteUrl
+      absoluteUrl,
     )}`;
     window.open(lineUrl, "_blank", "noopener,noreferrer");
   }, [absoluteUrl]);
 
   const shareToFacebook = useCallback(() => {
     const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      absoluteUrl
+      absoluteUrl,
     )}`;
     window.open(fbUrl, "_blank", "noopener,noreferrer");
   }, [absoluteUrl]);
 
   const shareToX = useCallback(() => {
     const twitterUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      absoluteUrl
+      absoluteUrl,
     )}&text=${encodeURIComponent(title)}`;
     window.open(twitterUrl, "_blank", "noopener,noreferrer");
   }, [absoluteUrl, title]);
@@ -125,7 +125,20 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
           <Button
             text="X"
             type="share"
-            prefixIcon={<CopyIcon />}
+            prefixIcon={
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.52217 6.77491L15.4785 0H14.0671L8.89516 5.88256L4.76437 0H0L6.24656 8.89547L0 16H1.41155L6.87321 9.78782L11.2356 16H16L9.52217 6.77491ZM7.58887 8.97384L6.95596 8.08805L1.92015 1.03974H4.0882L8.15216 6.72795L8.78507 7.61374L14.0677 15.0075H11.8997L7.58887 8.97384Z"
+                  fill="#333333"
+                />
+              </svg>
+            }
             onClick={shareToX}
             className="min-h-[48px] border-b-2 tablet:border-b-0"
           />
@@ -134,7 +147,11 @@ const ShareProvider = ({ imageUrl, title, url, onClose }: ShareInfo) => {
             className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
               bg-black text-white text-sm px-3 py-1 rounded-lg
               transition-all duration-300 ease-out
-              ${copied ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"}`}
+              ${
+                copied
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-2 pointer-events-none"
+              }`}
           >
             Copied!
           </div>
